@@ -1,230 +1,1241 @@
-8<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>AWF Real Estate | Property & Investment</title>
-  <meta name="description" content="AWF Real Estate — trusted real estate services in Nigeria. Property sales, rentals, land and investment opportunities.">
+
+  <meta name="description"
+    content="AWF Real Estate — professional real estate services in Nigeria and selected international markets. Property sales, rentals, land and investment opportunities.">
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================
+       AWF GLOBAL COLOURS
+    ========================== */
+
+    :root {
+      --black: #080808;
+      --black2: #111111;
+      --gold: #D4AF37;
+      --light: #f5f0e1;
+      --border: rgba(212, 175, 55, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black) !important;
+      color: var(--light) !important;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header.nav {
+      background: var(--black) !important;
+      color: var(--gold) !important;
+      border-bottom: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 15px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand img {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--light) !important;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--gold) !important;
+    }
+
+    .nav-btn {
+      text-decoration: none;
+      color: var(--black) !important;
+      background: var(--gold);
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       GENERAL
+    ========================== */
+
+    section,
+    .section {
+      background: var(--black) !important;
+      color: var(--light) !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--gold) !important;
+    }
+
+    p {
+      color: var(--light) !important;
+      line-height: 1.7;
+    }
+
+    .eyebrow {
+      color: var(--gold) !important;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .badge {
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 85vh;
+      padding: 70px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.05;
+      margin: 15px 0;
+    }
+
+    .hero h1 span {
+      color: var(--light);
+    }
+
+    .lead {
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 13px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      color: var(--black) !important;
+    }
+
+    .btn.secondary {
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+    }
+
+    .hero-card {
+      text-align: center;
+      background: var(--black2);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 420px;
+    }
+
+    .hero-card .logo-mark {
+      width: 350px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .hero-card p {
+      color: var(--gold) !important;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================== */
+
+    .section {
+      padding: 75px 6%;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .dark {
+      background: #050505 !important;
+    }
+
+    /* =========================
+       SERVICE CARDS
+    ========================== */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    article,
+    .card {
+      background: var(--black2) !important;
+      color: var(--light) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    article b {
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    /* =========================
+       PROPERTY CATALOGUE
+    ========================== */
+
+    .property-intro {
+      max-width: 800px;
+      margin-bottom: 35px;
+    }
+
+    .property-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .property-card {
+      background: var(--black2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .property-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #1a1a1a;
+    }
+
+    .property-content {
+      padding: 22px;
+    }
+
+    .property-status {
+      display: inline-block;
+      color: var(--black);
+      background: var(--gold);
+      padding: 5px 9px;
+      border-radius: 15px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .property-price {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--gold);
+      margin: 10px 0;
+    }
+
+    .property-location {
+      font-weight: bold;
+    }
+
+    .property-details {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      margin: 15px 0;
+    }
+
+    .property-details span {
+      color: var(--light);
+    }
+
+    .property-card .btn {
+      margin-top: 10px;
+    }
+
+    /* =========================
+       INTERNATIONAL SECTION
+    ========================== */
+
+    .international-box {
+      background: var(--black2);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 45px;
+      text-align: center;
+    }
+
+    .building {
+      width: 90px;
+      height: 90px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    /* =========================
+       TRUST
+    ========================== */
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .trust-grid > div {
+      background: var(--black2);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .contact-box > div {
+      background: var(--black2);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .contact-box strong {
+      display: block;
+      color: var(--gold) !important;
+      margin-bottom: 8px;
+    }
+
+    .contact-box span {
+      color: var(--light);
+    }
+
+    .note {
+      opacity: 0.7;
+      font-size: 13px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #050505 !important;
+      color: var(--light) !important;
+      border-top: 1px solid var(--gold);
+      padding: 30px 6%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer strong {
+      color: var(--gold) !important;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      header.nav {
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .property-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .trust-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .section {
+        padding: 55px 5%;
+      }
+
+      .cards,
+      .property-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding: 50px 5%;
+      }
+
+      .hero-card .logo-mark {
+        width: 280px;
+      }
+
+      .international-box {
+        padding: 30px 20px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
   <header class="nav">
+
     <a class="brand" href="#home">
-    <img src="awf-logo2.png" alt="AWF Real Estate">
-</a>
+      <img src="awf-logo2.png" alt="AWF Real Estate">
+    </a>
+
     <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#properties">Properties</a>
-    <a href="#international">International</a>
-    <a href="#contact">Contact</a>
-</nav>
-    
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#properties">Properties</a>
+      <a href="#international">International</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <a class="nav-btn" href="#contact">Contact Us</a>
+
   </header>
 
+
   <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section id="home" class="hero">
+
       <div class="hero-content">
+
         <p class="eyebrow">WELCOME TO AWF REAL ESTATE</p>
-        <h1>Find the right place to <span>build your future.</span></h1>
+
+        <h1>
+          Find the right place to
+          <span>build your future.</span>
+        </h1>
+
         <p class="lead">
-Professional real estate services helping clients discover, secure and invest in property across Nigeria and selected international markets.
-</p>
+          Professional real estate services helping clients discover,
+          secure and invest in property across Nigeria and selected
+          international markets.
+        </p>
+
         <div class="actions">
-          <a class="btn primary" href="#services">Explore Our Services</a>
-          <a class="btn secondary" href="#contact">Speak With Us</a>
+          <a class="btn primary" href="#properties">
+            View Available Properties
+          </a>
+
+          <a class="btn secondary" href="#contact">
+            Speak With Us
+          </a>
         </div>
+
       </div>
-      <div class="hero-card" style="position: relative; left: 50%; transform: translateX(-50%);">
-        <img src="awflogo-mark.png" alt="AWF Real Estate Logo" class="logo-mark" style="width: 350px; height: auto;">
+
+
+      <div class="hero-card">
+
+        <img
+          src="awflogo-mark.png"
+          alt="AWF Real Estate Logo"
+          class="logo-mark"
+        >
+
         <p>REAL ESTATE</p>
-        <small>Property • Land • Investment</small>
+
+        <small>
+          Property • Land • Investment
+        </small>
+
       </div>
+
     </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
     <section id="about" class="section split">
+
       <div>
+
         <p class="eyebrow">ABOUT AWF</p>
-        <h2>Building trust. Connecting opportunities.</h2>
+
+        <h2>
+          Building trust. Connecting opportunities.
+        </h2>
+
       </div>
+
+
       <div>
+
         <p>
-AWF Real Estate is a modern Nigerian property brand connecting clients
-with quality real estate opportunities in Nigeria and selected international
-markets.
-</p>
+          AWF Real Estate is a modern Nigerian property brand connecting
+          clients with quality real estate opportunities in Nigeria and
+          selected international markets.
+        </p>
+
         <p>
-Our website is launching before the property catalogue is published,
-allowing clients, investors and property partners to learn about AWF
-and connect with our team while verified listings are being prepared.
-</p>
+          We help clients discover property opportunities for residential,
+          commercial, rental and investment purposes while building trusted
+          relationships with property owners, developers and international
+          partners.
+        </p>
+
       </div>
+
     </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
 
     <section id="services" class="section dark">
-      <p class="eyebrow">WHAT WE DO</p>
-      <h2>Real estate services</h2>
-      <div class="cards">
-        <article><b>01</b><h3>Property Sales</h3><p>Support for clients looking to buy residential and commercial property.</p></article>
-        <article><b>02</b><h3>Land & Plots</h3><p>Helping clients identify suitable land opportunities and navigate the process.</p></article>
-        <article><b>03</b><h3>Property Rentals</h3><p>Connecting clients with suitable homes, offices and other rental opportunities.</p></article>
-        <article><b>04</b><h3>Investment</h3><p>Real estate opportunities designed around long-term value and informed decisions.</p></article>
 
-<article>
-    <b>05</b>
-    <h3>International Property</h3>
-    <p>
-        Connecting clients with selected international property opportunities
-        through trusted partner networks and verified contacts.
-    </p>
-</article>
+      <p class="eyebrow">WHAT WE DO</p>
+
+      <h2>Real Estate Services</h2>
+
+      <div class="cards">
+
+        <article>
+          <b>01</b>
+          <h3>Property Sales</h3>
+          <p>
+            Support for clients looking to buy residential and
+            commercial property.
+          </p>
+        </article>
+
+
+        <article>
+          <b>02</b>
+          <h3>Land & Plots</h3>
+          <p>
+            Helping clients identify suitable land opportunities
+            and navigate the process.
+          </p>
+        </article>
+
+
+        <article>
+          <b>03</b>
+          <h3>Property Rentals</h3>
+          <p>
+            Connecting clients with suitable homes, offices
+            and other rental opportunities.
+          </p>
+        </article>
+
+
+        <article>
+          <b>04</b>
+          <h3>Investment</h3>
+          <p>
+            Real estate opportunities designed around long-term
+            value and informed decisions.
+          </p>
+        </article>
+
+
+        <article>
+          <b>05</b>
+          <h3>International Property</h3>
+          <p>
+            Connecting clients with selected international property
+            opportunities through trusted partner networks and
+            verified contacts.
+          </p>
+        </article>
+
       </div>
+
     </section>
+
+
+    <!-- =========================
+         AVAILABLE PROPERTIES
+    ========================== -->
 
     <section id="properties" class="section">
+
       <div class="section-head">
-        <div><p class="eyebrow">PROPERTY COLLECTION</p><h2>Nigeria & International Listings Coming Soon</h2></div>
-        <span class="badge">VERIFIED LISTINGS ONLY</span>
-      </div>
-      <div class="coming">
-        <div class="building">AWF</div>
-        <h3>Our property catalogue is being prepared.</h3>
-        <p>
-We will publish verified property opportunities here as their documents
-and listing details are ready, including selected properties from Nigeria
-and international markets.
-</p>
-        <a class="btn primary" href="#contact">Request a Property</a>
-      </div>
-    </section>
 
-    
-
-<!-- INTERNATIONAL PROPERTY SECTION GOES HERE -->
-
-<section id="international" class="section dark">
-    ...
-</section>
-
-<section class="section trust">
-      <div><p class="eyebrow">WHY AWF</p><h2>A simple, professional property experience.</h2></div>
-      <div class="trust-grid">
-        <div><h3>Transparency</h3><p>Clear information and straightforward communication.</p></div>
-        <div><h3>Professionalism</h3><p>A modern service designed around our clients.</p></div>
         <div>
-    <h3>Local & Global</h3>
-    <p>
-        Nigerian expertise with a growing international property network.
-    </p>
-</div>
+
+          <p class="eyebrow">AWF PROPERTY COLLECTION</p>
+
+          <h2>
+            Available Properties
+          </h2>
+
+        </div>
+
+        <span class="badge">
+          VERIFIED LISTINGS ONLY
+        </span>
+
       </div>
+
+
+      <div class="property-intro">
+
+        <p>
+          Explore selected property opportunities presented by AWF Real Estate.
+          Property information is subject to availability and verification.
+          Contact AWF before making any payment or commitment.
+        </p>
+
+      </div>
+
+
+      <!-- PROPERTY FILTERS -->
+
+      <div class="property-filters">
+
+        <button
+          class="filter-btn active"
+          onclick="filterProperties('all', this)">
+          All
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProperties('sale', this)">
+          For Sale
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProperties('rent', this)">
+          For Rent
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProperties('investment', this)">
+          Investment
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProperties('international', this)">
+          International
+        </button>
+
+      </div>
+
+
+      <!-- PROPERTY GRID -->
+
+      <div class="property-grid">
+
+
+        <!-- =====================================
+             PROPERTY 001
+             COPY THIS CARD WHEN ADDING A PROPERTY
+        ====================================== -->
+
+        <article
+          class="property-card"
+          data-category="sale"
+        >
+
+          <!-- Replace property-image-1.jpg with your real photo -->
+
+          <img
+            src="property-image-1.jpg"
+            alt="AWF property"
+            class="property-image"
+          >
+
+          <div class="property-content">
+
+            <span class="property-status">
+              AVAILABLE
+            </span>
+
+            <h3>
+              Property Listing Coming Soon
+            </h3>
+
+            <p class="property-location">
+              📍 Abuja, Nigeria
+            </p>
+
+            <div class="property-price">
+              Price on Request
+            </div>
+
+            <div class="property-details">
+
+              <span>🏠 Residential</span>
+
+              <span>📐 Contact AWF</span>
+
+            </div>
+
+            <p>
+              Verified property opportunities will be published here
+              as listings become available.
+            </p>
+
+            <a
+              class="btn primary"
+              href="#contact">
+              Request Property
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- =====================================
+             PROPERTY 002
+        ====================================== -->
+
+        <article
+          class="property-card"
+          data-category="rent"
+        >
+
+          <img
+            src="property-image-2.jpg"
+            alt="AWF rental property"
+            class="property-image"
+          >
+
+          <div class="property-content">
+
+            <span class="property-status">
+              AVAILABLE
+            </span>
+
+            <h3>
+              Rental Property Coming Soon
+            </h3>
+
+            <p class="property-location">
+              📍 Abuja, Nigeria
+            </p>
+
+            <div class="property-price">
+              Price on Request
+            </div>
+
+            <div class="property-details">
+
+              <span>🏠 Rental</span>
+
+              <span>📐 Contact AWF</span>
+
+            </div>
+
+            <p>
+              Contact AWF Real Estate for current rental opportunities.
+            </p>
+
+            <a
+              class="btn primary"
+              href="#contact">
+              Request Property
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- =====================================
+             PROPERTY 003
+        ====================================== -->
+
+        <article
+          class="property-card"
+          data-category="international"
+        >
+
+          <img
+            src="property-image-3.jpg"
+            alt="AWF international property"
+            class="property-image"
+          >
+
+          <div class="property-content">
+
+            <span class="property-status">
+              INTERNATIONAL
+            </span>
+
+            <h3>
+              International Property Opportunities
+            </h3>
+
+            <p class="property-location">
+              🌍 Selected International Markets
+            </p>
+
+            <div class="property-price">
+              Price on Request
+            </div>
+
+            <div class="property-details">
+
+              <span>🌍 International</span>
+
+              <span>🤝 Partner Network</span>
+
+            </div>
+
+            <p>
+              AWF connects clients with selected international
+              property opportunities through trusted partners.
+            </p>
+
+            <a
+              class="btn primary"
+              href="#international">
+              Explore International
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
     </section>
+
+
+    <!-- =========================
+         INTERNATIONAL PROPERTY
+    ========================== -->
+
+    <section id="international" class="section dark">
+
+      <div class="section-head">
+
+        <div>
+
+          <p class="eyebrow">
+            INTERNATIONAL PROPERTY
+          </p>
+
+          <h2>
+            Nigeria & International Property Opportunities
+          </h2>
+
+        </div>
+
+        <span class="badge">
+          GLOBAL VISION
+        </span>
+
+      </div>
+
+
+      <div class="international-box">
+
+        <div class="building">
+          AWF
+        </div>
+
+        <h3>
+          Your property search can go beyond Nigeria.
+        </h3>
+
+        <p>
+          AWF Real Estate is building a trusted network of property
+          partners across selected international markets to help our
+          clients discover suitable property opportunities outside Nigeria.
+        </p>
+
+        <p>
+          Whether you are looking to buy, rent, invest or explore property
+          opportunities abroad, tell us what you are looking for and our
+          team can help connect you with the appropriate market and partner.
+        </p>
+
+        <a
+          class="btn primary"
+          href="#contact">
+          Request an International Property
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHY AWF
+    ========================== -->
+
+    <section class="section trust">
+
+      <div>
+
+        <p class="eyebrow">
+          WHY AWF
+        </p>
+
+        <h2>
+          A simple, professional property experience.
+        </h2>
+
+      </div>
+
+
+      <div class="trust-grid">
+
+        <div>
+
+          <h3>
+            Transparency
+          </h3>
+
+          <p>
+            Clear information and straightforward communication.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Professionalism
+          </h3>
+
+          <p>
+            A modern service designed around our clients.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Local & Global
+          </h3>
+
+          <p>
+            Nigerian expertise with a growing international
+            property network.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
     <section id="contact" class="section contact">
-      <p class="eyebrow">GET IN TOUCH</p>
-      <h2>Let's find your next opportunity.</h2>
-      <p>Tell us what you are looking for and the AWF team can follow up with you.</p>
+
+      <p class="eyebrow">
+        GET IN TOUCH
+      </p>
+
+      <h2>
+        Let's find your next opportunity.
+      </h2>
+
+      <p>
+        Tell us what you are looking for and the AWF team
+        can follow up with you.
+      </p>
+
+
       <div class="contact-box">
-        <div><strong>WhatsApp</strong><span>+234 XXX XXX XXXX</span></div>
-        <div><strong>Email</strong><span>info@awfrealestate.com</span></div>
-        <div><strong>Location</strong><span>Abuja, Nigeria</span></div>
+
+        <div>
+
+          <strong>
+            WhatsApp
+          </strong>
+
+          <span>
+            +234 XXX XXX XXXX
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Email
+          </strong>
+
+          <span>
+            info@awfrealestate.com
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Location
+          </strong>
+
+          <span>
+            Abuja, Nigeria
+          </span>
+
+        </div>
+
       </div>
-      <p class="note">Replace the placeholder contact details before publishing.</p>
+
+
+      <p class="note">
+        Replace the placeholder contact details before publishing.
+      </p>
+
     </section>
+
   </main>
 
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
-    <strong>AWF REAL ESTATE</strong>
-    <span>© 2026 AWF Real Estate. Nigeria & International Property. All rights reserved..</span>
+
+    <strong>
+      AWF REAL ESTATE
+    </strong>
+
+    <span>
+      © 2026 AWF Real Estate. Nigeria & International Property.
+      All rights reserved.
+    </span>
+
   </footer>
 
-<style>
 
-body {
-    margin: 0;
-    background: #080808 !important;
-    color: #f5f0e1 !important;
-}
+  <!-- =========================
+       PROPERTY FILTER SYSTEM
+  ========================== -->
 
-/* Header */
-header {
-    background: #080808 !important;
-    color: #D4AF37 !important;
-    border-bottom: 1px solid #D4AF37;
-}
+  <script>
 
-/* Navigation */
-nav a {
-    color: #f5f0e1 !important;
-}
+    function filterProperties(category, button) {
 
-nav a:hover {
-    color: #D4AF37 !important;
-}
+      const properties =
+        document.querySelectorAll(".property-card");
 
-/* All sections */
-section,
-.section {
-    background: #080808 !important;
-    color: #f5f0e1 !important;
-}
+      const buttons =
+        document.querySelectorAll(".filter-btn");
 
-/* Main headings */
-h1,
-h2,
-h3,
-h4 {
-    color: #D4AF37 !important;
-}
 
-/* Normal text */
-p {
-    color: #f5f0e1 !important;
-}
+      /* Remove active state from all buttons */
 
-/* Gold small headings */
-.eyebrow {
-    color: #D4AF37 !important;
-}
+      buttons.forEach(function(btn) {
 
-/* Cards */
-article,
-.card {
-    background: #111111 !important;
-    color: #f5f0e1 !important;
-    border: 1px solid rgba(212, 175, 55, 0.35) !important;
-}
+        btn.classList.remove("active");
 
-/* Important text */
-strong {
-    color: #D4AF37 !important;
-}
+      });
 
-/* Footer */
-footer {
-    background: #050505 !important;
-    color: #f5f0e1 !important;
-    border-top: 1px solid #D4AF37;
-}
 
-footer strong {
-    color: #D4AF37 !important;
-}
+      /* Add active state to clicked button */
 
-/* AWF Logo */
-.brand img {
-    width: 150px;
-    height: auto;
-    display: block;
-}
+      button.classList.add("active");
 
-</style>
 
-</style>
+      /* Show / hide properties */
+
+      properties.forEach(function(property) {
+
+        const propertyCategory =
+          property.getAttribute("data-category");
+
+
+        if (
+          category === "all" ||
+          propertyCategory === category
+        ) {
+
+          property.style.display = "block";
+
+        } else {
+
+          property.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+  </script>
 
 </body>
 </html>
-
-
