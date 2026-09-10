@@ -1868,4 +1868,3525 @@ footer{
 
     display:flex;
 
-    justify-content:space 
+    justify-content:space-between;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.manager-search{
+    flex:1;
+    min-width:220px;
+
+    padding:13px;
+
+    border-radius:13px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#101010;
+
+    color:white;
+
+    outline:none;
+}
+
+.manager-list{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:20px;
+}
+
+.manager-property{
+    padding:20px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    background:#0e0e0e;
+}
+
+.manager-property-head{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.manager-property h3{
+    font-family:Georgia,serif;
+}
+
+.manager-property-meta{
+    color:#777;
+
+    font-size:.68rem;
+
+    margin-top:5px;
+}
+
+.manager-property-actions{
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    margin-top:16px;
+}
+
+.manager-property-actions button{
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#151515;
+
+    color:#aaa;
+
+    padding:8px 11px;
+
+    border-radius:9px;
+
+    font-size:.62rem;
+
+    cursor:pointer;
+}
+
+.manager-property-actions button:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+/* MANAGER FORM */
+
+.manager-form{
+    display:none;
+
+    margin-top:25px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:#101010;
+
+    border:1px solid rgba(212,175,55,.14);
+}
+
+.manager-form.open{
+    display:block;
+}
+
+.manager-form h2{
+    font-family:Georgia,serif;
+}
+
+.manager-form-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.manager-field.full{
+    grid-column:1/-1;
+}
+
+.manager-field label{
+    display:block;
+
+    color:#777;
+
+    font-size:.62rem;
+
+    margin-bottom:5px;
+}
+
+.manager-field input,
+.manager-field textarea,
+.manager-field select{
+    width:100%;
+
+    padding:12px;
+
+    border-radius:11px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#070707;
+
+    color:white;
+
+    outline:none;
+}
+
+.manager-field textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.manager-form-actions{
+    display:flex;
+
+    gap:9px;
+
+    margin-top:17px;
+}
+
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
+
+.whatsapp-float{
+    position:fixed;
+
+    z-index:200;
+
+    right:18px;
+    bottom:18px;
+
+    width:54px;
+    height:54px;
+
+    border-radius:50%;
+
+    background:#19c878;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.45);
+
+    font-size:1.35rem;
+
+    transition:.3s ease;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.08);
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:950px){
+
+    .hero-grid,
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:100px;
+    }
+
+    .hero-logo{
+        order:-1;
+        min-height:390px;
+    }
+
+    .hero-logo img{
+        width:min(470px,90%);
+    }
+
+    .about-visual{
+        min-height:400px;
+    }
+
+    .services-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .property-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .why-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    header{
+        height:78px;
+    }
+
+    .navbar{
+        width:92%;
+    }
+
+    .logo-wrap{
+        height:65px;
+    }
+
+    .logo-wrap img{
+        width:108px;
+    }
+
+    .menu-button{
+        width:49px;
+        height:49px;
+        border-radius:16px;
+    }
+
+    .hero{
+        padding-top:78px;
+        min-height:auto;
+    }
+
+    .hero-grid{
+        gap:15px;
+    }
+
+    .hero-logo{
+        min-height:360px;
+    }
+
+    .hero-logo img{
+        width:95%;
+    }
+
+    .hero-title{
+        font-size:3.45rem;
+        letter-spacing:-2.5px;
+    }
+
+    .hero-description{
+        font-size:.9rem;
+    }
+
+    .hero-mini{
+        gap:18px;
+    }
+
+    .mini-stat strong{
+        font-size:1.25rem;
+    }
+
+    .section{
+        padding:80px 0;
+    }
+
+    .section-title{
+        font-size:2.8rem;
+    }
+
+    .services-grid,
+    .property-grid,
+    .partners-grid,
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        min-height:240px;
+    }
+
+    .property-image{
+        height:250px;
+    }
+
+    .properties-head{
+        display:block;
+    }
+
+    .international-box{
+        padding:35px 24px;
+    }
+
+    .international-box h2{
+        font-size:2.8rem;
+    }
+
+    .contact-form{
+        padding:22px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+
+    .manager-overlay{
+        padding:8px;
+    }
+
+    .manager-app{
+        border-radius:20px;
+    }
+
+    .manager-body{
+        padding:15px;
+    }
+
+    .manager-stats{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .manager-list{
+        grid-template-columns:1fr;
+    }
+
+    .manager-form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .manager-field.full{
+        grid-column:auto;
+    }
+
+    .manager-top{
+        padding:12px 15px;
+    }
+
+    .manager-brand img{
+        width:72px;
+    }
+
+    .manager-brand span{
+        display:none;
+    }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media(max-width:390px){
+
+    .hero-title{
+        font-size:3rem;
+    }
+
+    .hero-logo{
+        min-height:310px;
+    }
+
+    .hero-mini{
+        gap:12px;
+    }
+
+    .mini-stat strong{
+        font-size:1.1rem;
+    }
+
+    .mini-stat span{
+        font-size:.58rem;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-actions{
+        display:grid;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <!-- EMPTY LEFT COLUMN KEEPS LOGO PERFECTLY CENTERED -->
+
+        <a href="#home"
+           class="logo-wrap"
+           aria-label="AWF Real Estate Home">
+
+            <img src="awf-logo2.png"
+                 alt="AWF Real Estate">
+        </a>
+
+        <button class="menu-button"
+                id="menuButton"
+                aria-label="Open menu">
+
+            <span class="menu-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =======================================================
+     SIDE MENU
+======================================================= -->
+
+<div class="side-menu" id="sideMenu">
+
+    <div class="menu-content">
+
+        <div class="menu-brand">
+
+            <img src="awf-logo2.png"
+                 alt="AWF Real Estate">
+
+        </div>
+
+        <div class="menu-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About AWF</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#properties">Properties</a>
+
+            <a href="#international">International</a>
+
+            <a href="#partners">Partners</a>
+
+            <a href="#why">Why AWF</a>
+
+            <a href="#contact">Contact</a>
+
+        </div>
+
+        <div class="menu-contact">
+
+            <a class="btn btn-gold"
+               href="tel:+2348102837598">
+                Call AWF
+            </a>
+
+            <a class="btn btn-outline"
+               href="https://wa.me/2348102837598"
+               target="_blank">
+                WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-grid">
+
+            <div class="hero-logo reveal">
+
+                <img src="awflogo-mark.png"
+                     alt="AWF Real Estate">
+
+            </div>
+
+
+            <div class="hero-content reveal">
+
+                <div class="eyebrow">
+                    Nigeria • International
+                </div>
+
+                <h1 class="hero-title">
+
+                    Building
+                    <span>dreams.</span>
+
+                    Creating
+                    <span>value.</span>
+
+                </h1>
+
+                <p class="hero-description">
+
+                    AWF Real Estate connects people with
+                    carefully selected property opportunities,
+                    real estate services and future-focused
+                    investment possibilities in Nigeria and
+                    selected international markets.
+
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#properties"
+                       class="btn btn-gold">
+                        Explore Properties →
+                    </a>
+
+                    <a href="https://wa.me/2348102837598"
+                       target="_blank"
+                       class="btn btn-outline">
+                        WhatsApp AWF
+                    </a>
+
+                </div>
+
+                <div class="hero-mini">
+
+                    <div class="mini-stat">
+
+                        <strong>01</strong>
+
+                        <span>
+                            Global Vision
+                        </span>
+
+                    </div>
+
+                    <div class="mini-stat">
+
+                        <strong>∞</strong>
+
+                        <span>
+                            Opportunities
+                        </span>
+
+                    </div>
+
+                    <div class="mini-stat">
+
+                        <strong>AWF</strong>
+
+                        <span>
+                            Real Estate
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     MARQUEE
+======================================================= -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Property
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Investment
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Development
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Partnerships
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Nigeria
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            International
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Property
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Investment
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Development
+        </div>
+
+        <div class="marquee-item">
+            <b>◆</b>
+            Partnerships
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-visual reveal">
+
+                <img src="awflogo-mark.png"
+                     alt="AWF Real Estate">
+
+            </div>
+
+
+            <div class="reveal">
+
+                <div class="section-label">
+                    About AWF
+                </div>
+
+                <h2 class="section-title">
+
+                    Building more than
+                    <span>properties.</span>
+
+                </h2>
+
+                <p class="section-text">
+
+                    AWF Real Estate is being built with a
+                    larger vision — connecting people,
+                    property, businesses and opportunities.
+
+                    Starting in Nigeria, AWF is designed to
+                    develop into a trusted real estate network
+                    with relationships extending beyond borders.
+
+                </p>
+
+                <div class="about-points">
+
+                    <div class="about-point">
+
+                        <div class="point-icon">
+                            ◆
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Client Focused
+                            </h4>
+
+                            <p>
+                                Clear communication and
+                                professional service.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-point">
+
+                        <div class="point-icon">
+                            ◇
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Global Vision
+                            </h4>
+
+                            <p>
+                                Connecting Nigerian clients
+                                with selected opportunities
+                                beyond Nigeria.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-point">
+
+                        <div class="point-icon">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Long-Term Thinking
+                            </h4>
+
+                            <p>
+                                Building relationships,
+                                systems and reputation for
+                                the future.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SERVICES
+======================================================= -->
+
+<section class="section" id="services">
+
+    <div class="container">
+
+        <div class="section-label">
+            What We Do
+        </div>
+
+        <h2 class="section-title">
+            Real estate with a
+            <span>bigger vision.</span>
+        </h2>
+
+        <p class="section-text">
+
+            Professional services designed around
+            property, people and opportunity.
+
+        </p>
+
+
+        <div class="services-grid">
+
+            <div class="service-card reveal">
+
+                <span class="service-number">
+                    01 / PROPERTY
+                </span>
+
+                <div class="service-icon">
+                    ⌂
+                </div>
+
+                <h3>
+                    Property Sales
+                </h3>
+
+                <p>
+                    Property opportunities for clients
+                    looking to buy in selected markets.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <span class="service-number">
+                    02 / RENTAL
+                </span>
+
+                <div class="service-icon">
+                    ▱
+                </div>
+
+                <h3>
+                    Rentals
+                </h3>
+
+                <p>
+                    Helping clients identify suitable
+                    rental opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <span class="service-number">
+                    03 / INVEST
+                </span>
+
+                <div class="service-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Investment
+                </h3>
+
+                <p>
+                    Connecting clients with selected
+                    real estate opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <span class="service-number">
+                    04 / GLOBAL
+                </span>
+
+                <div class="service-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    International
+                </h3>
+
+                <p>
+                    Building relationships with property
+                    partners beyond Nigeria.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROPERTIES
+======================================================= -->
+
+<section class="section" id="properties">
+
+    <div class="container">
+
+        <div class="properties-head">
+
+            <div>
+
+                <div class="section-label">
+                    Property Portfolio
+                </div>
+
+                <h2 class="section-title">
+                    Find your next
+                    <span>opportunity.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="property-controls">
+
+            <button class="filter-btn active"
+                    data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="sale">
+                For Sale
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="rent">
+                For Rent
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="investment">
+                Investment
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="international">
+                International
+            </button>
+
+        </div>
+
+
+        <div class="property-grid"
+             id="publicPropertyGrid">
+
+            <!--
+                PROPERTY MANAGER DATA WILL APPEAR HERE.
+
+                Until you add real properties,
+                AWF does NOT invent property details.
+            -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     INTERNATIONAL
+======================================================= -->
+
+<section class="section international"
+         id="international">
+
+    <div class="container">
+
+        <div class="international-box reveal">
+
+            <span class="global-badge">
+                GLOBAL VISION
+            </span>
+
+            <h2>
+
+                Nigeria today.
+                <span>
+                    The world tomorrow.
+                </span>
+
+            </h2>
+
+            <p>
+
+                AWF Real Estate is building a network of
+                trusted relationships across selected
+                international markets.
+
+                Our long-term vision is to help clients
+                explore property opportunities beyond
+                Nigeria through properly authorized
+                local partners.
+
+            </p>
+
+
+            <div class="country-list">
+
+                <span class="country">
+                    🇳🇬 Nigeria
+                </span>
+
+                <span class="country">
+                    🇦🇪 UAE
+                </span>
+
+                <span class="country">
+                    🇺🇸 USA
+                </span>
+
+                <span class="country">
+                    🇬🇧 UK
+                </span>
+
+                <span class="country">
+                    🇬🇭 Ghana
+                </span>
+
+                <span class="country">
+                    🇰🇪 Kenya
+                </span>
+
+                <span class="country">
+                    🇿🇦 South Africa
+                </span>
+
+                <span class="country">
+                    🇪🇬 Egypt
+                </span>
+
+                <span class="country">
+                    🇲🇦 Morocco
+                </span>
+
+            </div>
+
+
+            <div style="margin-top:30px;position:relative;z-index:3;">
+
+                <a href="https://wa.me/2348102837598?text=Hello%20AWF%20Real%20Estate%2C%20I%20would%20like%20to%20request%20an%20international%20property%20opportunity."
+                   target="_blank"
+                   class="btn btn-gold">
+
+                    Request an International Property →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PARTNERS
+======================================================= -->
+
+<section class="section" id="partners">
+
+    <div class="container">
+
+        <div class="section-label">
+            AWF Network
+        </div>
+
+        <h2 class="section-title">
+
+            Stronger
+            <span>together.</span>
+
+        </h2>
+
+        <p class="section-text">
+
+            AWF is developing a professional network of
+            property owners, developers, agents, investors,
+            legal professionals and international partners.
+
+        </p>
+
+
+        <div class="partners-grid">
+
+            <div class="partner-card reveal">
+
+                <div class="partner-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Property Owners
+                </h3>
+
+                <p>
+                    Connecting property owners with
+                    serious clients and opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="partner-card reveal">
+
+                <div class="partner-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    Developers
+                </h3>
+
+                <p>
+                    Building relationships around
+                    selected development opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="partner-card reveal">
+
+                <div class="partner-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Investors
+                </h3>
+
+                <p>
+                    Creating a platform for relationships,
+                    ideas and long-term opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     WHY AWF
+======================================================= -->
+
+<section class="section" id="why">
+
+    <div class="container">
+
+        <div class="section-label">
+            Why AWF
+        </div>
+
+        <h2 class="section-title">
+            Built for the
+            <span>long term.</span>
+        </h2>
+
+
+        <div class="why-grid">
+
+            <div class="why-card reveal">
+
+                <strong>01</strong>
+
+                <h3>
+                    Professional
+                </h3>
+
+                <p>
+                    A premium approach to client
+                    relationships and property service.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <strong>02</strong>
+
+                <h3>
+                    Connected
+                </h3>
+
+                <p>
+                    Building relationships across
+                    Nigeria and international markets.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <strong>03</strong>
+
+                <h3>
+                    Purpose Driven
+                </h3>
+
+                <p>
+                    Building assets, people, systems
+                    and reputation.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <strong>04</strong>
+
+                <h3>
+                    Future Focused
+                </h3>
+
+                <p>
+                    Starting with real estate and
+                    growing toward a larger AWF vision.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+            <div class="reveal">
+
+                <div class="section-label">
+                    Contact AWF
+                </div>
+
+                <h2 class="section-title">
+
+                    Let's build
+                    <span>something.</span>
+
+                </h2>
+
+                <p class="section-text">
+
+                    Looking for property, interested in
+                    partnership, or exploring an
+                    international opportunity?
+
+                    Contact AWF Real Estate.
+
+                </p>
+
+
+                <div class="contact-cards">
+
+                    <a href="tel:+2348102837598"
+                       class="contact-card">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Phone
+                            </small>
+
+                            <strong>
+                                +234 810 283 7598
+                            </strong>
+
+                        </div>
+
+                    </a>
+
+
+                    <a href="https://wa.me/2348102837598"
+                       target="_blank"
+                       class="contact-card">
+
+                        <div class="contact-icon">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <small>
+                                WhatsApp
+                            </small>
+
+                            <strong>
+                                Chat with AWF
+                            </strong>
+
+                        </div>
+
+                    </a>
+
+
+                    <a href="mailto:awfrealestatelimited@gmail.com"
+                       class="contact-card">
+
+                        <div class="contact-icon">
+                            @
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Email
+                            </small>
+
+                            <strong>
+                                awfrealestatelimited@gmail.com
+                            </strong>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-form reveal">
+
+                <div class="form-title">
+                    Send an enquiry
+                </div>
+
+                <form id="contactForm">
+
+                    <div class="form-group">
+
+                        <label>
+                            YOUR NAME
+                        </label>
+
+                        <input type="text"
+                               id="contactName"
+                               required
+                               placeholder="Your full name">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            PHONE
+                        </label>
+
+                        <input type="tel"
+                               id="contactPhone"
+                               required
+                               placeholder="Your phone number">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            INTEREST
+                        </label>
+
+                        <select id="contactInterest">
+
+                            <option>
+                                Property purchase
+                            </option>
+
+                            <option>
+                                Rental
+                            </option>
+
+                            <option>
+                                Investment
+                            </option>
+
+                            <option>
+                                International property
+                            </option>
+
+                            <option>
+                                Partnership
+                            </option>
+
+                            <option>
+                                General enquiry
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            MESSAGE
+                        </label>
+
+                        <textarea id="contactMessage"
+                                  placeholder="Tell AWF what you are looking for..."></textarea>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="btn btn-gold form-submit">
+
+                        Send via WhatsApp →
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-logo">
+
+                    <img src="awf-logo2.png"
+                         alt="AWF Real Estate">
+
+                </div>
+
+                <p class="footer-brand-text">
+
+                    AWF Real Estate —
+                    Building dreams. Creating value.
+
+                    Starting in Nigeria with a vision
+                    that reaches beyond borders.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Explore
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#about">
+                        About AWF
+                    </a>
+
+                    <a href="#services">
+                        Services
+                    </a>
+
+                    <a href="#properties">
+                        Properties
+                    </a>
+
+                    <a href="#international">
+                        International
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Contact
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="tel:+2348102837598">
+                        +234 810 283 7598
+                    </a>
+
+                    <a href="mailto:awfrealestatelimited@gmail.com">
+                        awfrealestatelimited@gmail.com
+                    </a>
+
+                    <a href="https://wa.me/2348102837598"
+                       target="_blank">
+                        WhatsApp AWF
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year"></span>
+                AWF Real Estate. All rights reserved.
+            </span>
+
+            <span>
+                Building assets • Building people •
+                Building connections • Building legacy
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =======================================================
+     FLOATING WHATSAPP
+======================================================= -->
+
+<a class="whatsapp-float"
+   href="https://wa.me/2348102837598"
+   target="_blank"
+   aria-label="WhatsApp AWF">
+
+    ◉
+
+</a>
+
+
+<!-- =======================================================
+     PROPERTY MANAGER
+======================================================= -->
+
+<div class="manager-overlay"
+     id="managerOverlay">
+
+
+    <!-- LOGIN -->
+
+    <div class="manager-login"
+         id="managerLogin">
+
+        <div class="manager-login-logo">
+
+            <img src="awf-logo2.png"
+                 alt="AWF">
+
+        </div>
+
+        <h2>
+            AWF Property Manager
+        </h2>
+
+        <p>
+            Private property management dashboard
+        </p>
+
+
+        <input type="password"
+               id="managerPassword"
+               placeholder="Enter manager password">
+
+
+        <button class="btn btn-gold"
+                style="width:100%;margin-top:12px;"
+                onclick="managerLogin()">
+
+            Enter Manager
+
+        </button>
+
+
+        <div class="manager-error"
+             id="managerError">
+        </div>
+
+    </div>
+
+
+    <!-- MANAGER APP -->
+
+    <div class="manager-app"
+         id="managerApp">
+
+
+        <div class="manager-top">
+
+            <div class="manager-brand">
+
+                <img src="awf-logo2.png"
+                     alt="AWF">
+
+                <span>
+                    PROPERTY MANAGER
+                </span>
+
+            </div>
+
+
+            <div style="display:flex;gap:7px;">
+
+                <button class="btn btn-gold"
+                        onclick="openPropertyForm()"
+                        style="min-height:40px;padding:0 14px;">
+
+                    + Add Property
+
+                </button>
+
+                <button class="manager-close"
+                        onclick="closeManager()">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="manager-body">
+
+
+            <div class="manager-stats">
+
+                <div class="manager-stat">
+
+                    <small>
+                        Total
+                    </small>
+
+                    <strong id="statTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="manager-stat">
+
+                    <small>
+                        Available
+                    </small>
+
+                    <strong id="statAvailable">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="manager-stat">
+
+                    <small>
+                        Reserved
+                    </small>
+
+                    <strong id="statReserved">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="manager-stat">
+
+                    <small>
+                        Sold
+                    </small>
+
+                    <strong id="statSold">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="manager-form"
+                 id="managerForm">
+
+                <h2 id="formHeading">
+                    Add Property
+                </h2>
+
+
+                <div class="manager-form-grid">
+
+                    <div class="manager-field">
+
+                        <label>
+                            PROPERTY NAME
+                        </label>
+
+                        <input id="propertyName"
+                               placeholder="e.g. Luxury 4 Bedroom Residence">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            COUNTRY
+                        </label>
+
+                        <input id="propertyCountry"
+                               placeholder="Nigeria">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            CITY
+                        </label>
+
+                        <input id="propertyCity"
+                               placeholder="Abuja">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            LOCATION
+                        </label>
+
+                        <input id="propertyLocation"
+                               placeholder="Maitama, Abuja">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            TYPE
+                        </label>
+
+                        <select id="propertyType">
+
+                            <option value="sale">
+                                For Sale
+                            </option>
+
+                            <option value="rent">
+                                For Rent
+                            </option>
+
+                            <option value="investment">
+                                Investment
+                            </option>
+
+                            <option value="international">
+                                International
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            STATUS
+                        </label>
+
+                        <select id="propertyStatus">
+
+                            <option value="available">
+                                Available
+                            </option>
+
+                            <option value="reserved">
+                                Reserved
+                            </option>
+
+                            <option value="sold">
+                                Sold
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            PRICE
+                        </label>
+
+                        <input id="propertyPrice"
+                               placeholder="Contact for price">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            CURRENCY
+                        </label>
+
+                        <select id="propertyCurrency">
+
+                            <option>
+                                ₦
+                            </option>
+
+                            <option>
+                                $
+                            </option>
+
+                            <option>
+                                £
+                            </option>
+
+                            <option>
+                                AED
+                            </option>
+
+                            <option>
+                                €
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            BEDROOMS
+                        </label>
+
+                        <input id="propertyBedrooms"
+                               type="number"
+                               min="0"
+                               placeholder="0">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            BATHROOMS
+                        </label>
+
+                        <input id="propertyBathrooms"
+                               type="number"
+                               min="0"
+                               placeholder="0">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            SIZE
+                        </label>
+
+                        <input id="propertySize"
+                               placeholder="e.g. 650 sqm">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            FEATURED
+                        </label>
+
+                        <select id="propertyFeatured">
+
+                            <option value="false">
+                                No
+                            </option>
+
+                            <option value="true">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="manager-field full">
+
+                        <label>
+                            DESCRIPTION
+                        </label>
+
+                        <textarea id="propertyDescription"
+                                  placeholder="Describe the property..."></textarea>
+
+                    </div>
+
+
+                    <div class="manager-field full">
+
+                        <label>
+                            IMAGE URL 1
+                        </label>
+
+                        <input id="propertyImage1"
+                               placeholder="https://...">
+
+                    </div>
+
+
+                    <div class="manager-field full">
+
+                        <label>
+                            IMAGE URL 2
+                        </label>
+
+                        <input id="propertyImage2"
+                               placeholder="https://...">
+
+                    </div>
+
+
+                    <div class="manager-field full">
+
+                        <label>
+                            IMAGE URL 3
+                        </label>
+
+                        <input id="propertyImage3"
+                               placeholder="https://...">
+
+                    </div>
+
+                </div>
+
+
+                <div class="manager-form-actions">
+
+                    <button class="btn btn-gold"
+                            onclick="saveProperty()">
+
+                        Save Property
+
+                    </button>
+
+                    <button class="btn btn-outline"
+                            onclick="closePropertyForm()">
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+
+            <div class="manager-toolbar">
+
+                <input class="manager-search"
+                       id="managerSearch"
+                       oninput="renderManagerProperties()"
+                       placeholder="Search your properties...">
+
+                <button class="btn btn-outline"
+                        onclick="clearAllProperties()">
+
+                    Clear All
+
+                </button>
+
+            </div>
+
+
+            <div class="manager-list"
+                 id="managerPropertyList">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+const menuButton =
+document.getElementById("menuButton");
+
+const sideMenu =
+document.getElementById("sideMenu");
+
+menuButton.addEventListener("click",()=>{
+
+    menuButton.classList.toggle("active");
+
+    sideMenu.classList.toggle("open");
+
+    document.body.classList.toggle(
+        "menu-open"
+    );
+
+});
+
+
+document.querySelectorAll(".menu-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        menuButton.classList.remove("active");
+
+        sideMenu.classList.remove("open");
+
+        document.body.classList.remove(
+            "menu-open"
+        );
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add(
+                "visible"
+            );
+
+        }
+
+    });
+
+},
+{
+    threshold:.08
+});
+
+
+document.querySelectorAll(".reveal")
+.forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* =========================================================
+   CONTACT FORM → WHATSAPP
+========================================================= */
+
+document.getElementById("contactForm")
+.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById(
+        "contactName"
+    ).value.trim();
+
+    const phone =
+    document.getElementById(
+        "contactPhone"
+    ).value.trim();
+
+    const interest =
+    document.getElementById(
+        "contactInterest"
+    ).value;
+
+    const message =
+    document.getElementById(
+        "contactMessage"
+    ).value.trim();
+
+
+    const text =
+    `Hello AWF Real Estate.%0A%0A` +
+    `Name: ${encodeURIComponent(name)}%0A` +
+    `Phone: ${encodeURIComponent(phone)}%0A` +
+    `Interest: ${encodeURIComponent(interest)}%0A` +
+    `Message: ${encodeURIComponent(message)}`;
+
+
+    window.open(
+        `https://wa.me/2348102837598?text=${text}`,
+        "_blank"
+    );
+
+});
+
+
+/* =========================================================
+   PROPERTY DATABASE
+========================================================= */
+
+const PROPERTY_KEY =
+"AWF_REAL_ESTATE_PROPERTIES_V3";
+
+
+let properties =
+JSON.parse(
+    localStorage.getItem(
+        PROPERTY_KEY
+    ) || "[]"
+);
+
+
+/* =========================================================
+   SAVE DATABASE
+========================================================= */
+
+function saveDatabase(){
+
+    localStorage.setItem(
+        PROPERTY_KEY,
+        JSON.stringify(properties)
+    );
+
+}
+
+
+/* =========================================================
+   PUBLIC PROPERTY DISPLAY
+========================================================= */
+
+let currentFilter = "all";
+
+
+document.querySelectorAll(".filter-btn")
+.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        document.querySelectorAll(
+            ".filter-btn"
+        ).forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        currentFilter =
+        button.dataset.filter;
+
+        renderPublicProperties();
+
+    });
+
+});
+
+
+function renderPublicProperties(){
+
+    const grid =
+    document.getElementById(
+        "publicPropertyGrid"
+    );
+
+    let visible =
+    properties.filter(property=>
+        property.visible !== false
+    );
+
+
+    if(currentFilter !== "all"){
+
+        visible =
+        visible.filter(property=>
+            property.type === currentFilter
+        );
+
+    }
+
+
+    if(!visible.length){
+
+        grid.innerHTML = `
+
+            <div style="
+                grid-column:1/-1;
+                min-height:300px;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                text-align:center;
+                border:1px dashed rgba(212,175,55,.18);
+                border-radius:28px;
+                background:#0b0b0b;
+                padding:40px;
+            ">
+
+                <div style="
+                    color:#d4af37;
+                    font-size:2rem;
+                    margin-bottom:15px;
+                ">
+                    ◇
+                </div>
+
+                <h3 style="
+                    font-family:Georgia,serif;
+                    font-size:1.5rem;
+                ">
+                    Property listings coming soon
+                </h3>
+
+                <p style="
+                    color:#666;
+                    max-width:430px;
+                    margin-top:8px;
+                    font-size:.78rem;
+                ">
+                    AWF Real Estate is preparing
+                    selected property opportunities.
+                    Contact us directly for current
+                    availability.
+                </p>
+
+                <a
+                    href="https://wa.me/2348102837598"
+                    target="_blank"
+                    class="btn btn-gold"
+                    style="margin-top:20px;"
+                >
+                    Contact AWF →
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    grid.innerHTML =
+    visible.map(property=>
+        propertyCardHTML(property)
+    ).join("");
+
+}
+
+
+function propertyCardHTML(property){
+
+    const images =
+    [
+        property.image1,
+        property.image2,
+        property.image3
+    ].filter(Boolean);
+
+
+    const imageHTML =
+    images.length
+    ?
+    `<img src="${escapeHTML(images[0])}"
+          alt="${escapeHTML(property.name)}"
+          onerror="this.style.display='none';">`
+    :
+    `
+        <div class="property-placeholder">
+
+            <strong>
+                ${escapeHTML(property.name)}
+            </strong>
+
+            <span>
+                Property image coming soon
+            </span>
+
+        </div>
+    `;
+
+
+    const details = [];
+
+    if(property.bedrooms)
+        details.push(
+            `🛏 ${property.bedrooms} Beds`
+        );
+
+    if(property.bathrooms)
+        details.push(
+            `◆ ${property.bathrooms} Baths`
+        );
+
+    if(property.size)
+        details.push(
+            `▱ ${escapeHTML(property.size)}`
+        );
+
+
+    const price =
+    property.price
+    ?
+    `${escapeHTML(property.currency || "₦")}${escapeHTML(property.price)}`
+    :
+    "Contact for price";
+
+
+    return `
+
+        <article class="property-card reveal">
+
+            <div class="property-image">
+
+                ${imageHTML}
+
+                <span class="
+                    property-status
+                    status-${property.status}
+                ">
+                    ${property.status}
+                </span>
+
+                <span class="property-type">
+                    ${typeLabel(property.type)}
+                </span>
+
+            </div>
+
+
+            <div class="property-body">
+
+                <div class="property-location">
+
+                    ${escapeHTML(
+                        property.city || ""
+                    )}
+
+                    ${property.city && property.country ? " • " : ""}
+
+                    ${escapeHTML(
+                        property.country || ""
+                    )}
+
+                </div>
+
+
+                <h3 class="property-name">
+
+                    ${escapeHTML(
+                        property.name
+                    )}
+
+                </h3>
+
+
+                <p class="property-description">
+
+                    ${escapeHTML(
+                        property.description ||
+                        "Selected property opportunity available through AWF Real Estate."
+                    )}
+
+                </p>
+
+
+                ${
+                    details.length
+                    ?
+                    `
+                    <div class="property-details">
+
+                        ${details.map(
+                            d=>`<span>${d}</span>`
+                        ).join("")}
+
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+                <div class="property-price">
+
+                    <span class="price">
+
+                        ${price}
+
+                    </span>
+
+
+                    <a
+                        class="property-btn"
+                        href="https://wa.me/2348102837598?text=${encodeURIComponent(
+                            "Hello AWF Real Estate, I am interested in the property: " +
+                            property.name
+                        )}"
+                        target="_blank"
+                        aria-label="Enquire about property"
+                    >
+                        →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   TYPE LABEL
+========================================================= */
+
+function typeLabel(type){
+
+    const labels = {
+
+        sale:"For Sale",
+
+        rent:"For Rent",
+
+        investment:"Investment",
+
+        international:"International"
+
+    };
+
+    return labels[type] || type;
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   PROPERTY MANAGER PASSWORD
+========================================================= */
+
+const MANAGER_PASSWORD =
+"AWF2026";
+
+
+/* =========================================================
+   OPEN MANAGER
+========================================================= */
+
+function openManager(){
+
+    document.getElementById(
+        "managerOverlay"
+    ).classList.add("open");
+
+}
+
+
+/* =========================================================
+   MANAGER LOGIN
+========================================================= */
+
+function managerLogin(){
+
+    const password =
+    document.getElementById(
+        "managerPassword"
+    ).value;
+
+    const error =
+    document.getElementById(
+        "managerError"
+    );
+
+
+    if(password === MANAGER_PASSWORD){
+
+        error.textContent = "";
+
+        document.getElementById(
+            "managerLogin"
+        ).style.display = "none";
+
+        document.getElementById(
+            "managerApp"
+        ).classList.add("active");
+
+        renderManagerProperties();
+
+        updateStats();
+
+    }
+    else{
+
+        error.textContent =
+        "Incorrect manager password.";
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE MANAGER
+========================================================= */
+
+function closeManager(){
+
+    document.getElementById(
+        "managerOverlay"
+    ).classList.remove("open");
+
+    document.getElementById(
+        "managerLogin"
+    ).style.display = "block";
+
+    document.getElementById(
+        "managerApp"
+    ).classList.remove("active");
+
+    document.getElementById(
+        "managerPassword"
+    ).value = "";
+
+}
+
+
+/* =========================================================
+   PROPERTY FORM
+========================================================= */
+
+let editingPropertyId = null;
+
+
+function openPropertyForm(property=null){
+
+    document.getElementById(
+        "managerForm"
+    ).classList.add("open");
+
+
+    if(property){
+
+        editingPropertyId =
+        property.id;
+
+        document.getElementById(
+            "formHeading"
+        ).textContent =
+        "Edit Property";
+
+
+        fillPropertyForm(property);
+
+    }
+    else{
+
+        editingPropertyId = null;
+
+        document.getElementById(
+            "formHeading"
+        ).textContent =
+        "Add Property";
+
+
+        clearPropertyForm();
+
+    }
+
+
+    document.getElementById(
+        "managerForm"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+function closePropertyForm(){
+
+    editingPropertyId = null;
+
+    document.getElementById(
+        "managerForm"
+    ).classList.remove("open");
+
+    clearPropertyForm();
+
+}
+
+
+/* =========================================================
+   CLEAR FORM
+========================================================= */
+
+function clearPropertyForm(){
+
+    const fields = [
+
+        "propertyName",
+        "propertyCountry",
+        "propertyCity",
+        "propertyLocation",
+        "propertyPrice",
+        "propertyBedrooms",
+        "propertyBathrooms",
+        "propertySize",
+        "propertyDescription",
+        "propertyImage1",
+        "propertyImage2",
+        "propertyImage3"
+
+    ];
+
+
+    fields.forEach(id=>{
+
+        document.getElementById(id).value="";
+
+    });
+
+
+    document.getElementById(
+        "propertyType"
+    ).value="sale";
+
+    document.getElementById(
+        "propertyStatus"
+    ).value="available";
+
+    document.getElementById(
+        "propertyCurrency"
+    ).value="₦";
+
+    document.getElementById(
+        "propertyFeatured"
+    ).value="false";
+
+}
+
+
+/* =========================================================
+   FILL FORM
+========================================================= */
+
+function fillPropertyForm(property){
+
+    document.getElementById(
+        "propertyName"
+    ).value =
+    property.name || "";
+
+    document.getElementById(
+        "propertyCountry"
+    ).value =
+    property.country || "";
+
+    document.getElementById(
+        "propertyCity"
+    ).value =
+    property.city || "";
+
+    document.getElementById(
+        "propertyLocation"
+    ).value =
+    property.location || "";
+
+    document.getElementById(
+        "propertyType"
+    ).value =
+    property.type || "sale";
+
+    document.getElementById(
+        "propertyStatus"
+    ).value =
+    property.status || "available";
+
+    document.getElementById(
+        "propertyPrice"
+    ).value =
+    property.price || "";
+
+    document.getElementById(
+        "propertyCurrency"
+    ).value =
+    property.currency || "₦";
+
+    document.getElementById(
+        "propertyBedrooms"
+    ).value =
+    property.bedrooms || "";
+
+    document.getElementById(
+        "propertyBathrooms"
+    ).value =
+    property.bathrooms || "";
+
+    document.getElementById(
+        "propertySize"
+    ).value =
+    property.size || "";
+
+    document.getElementById(
+        "propertyFeatured"
+    ).value =
+    String(property.featured || false);
+
+    document.getElementById(
+        "propertyDescription"
+    ).value =
+    property.description || "";
+
+    document.getElementById(
+        "propertyImage1"
+    ).value =
+    property.image1 || "";
+
+    document.getElementById(
+        "propertyImage2"
+    ).value =
+    property.image2 || "";
+
+    document.getElementById(
+        "propertyImage3"
+    ).value =
+    property.image3 || "";
+
+}
+
+
+/* =========================================================
+   SAVE PROPERTY
+========================================================= */
+
+function saveProperty(){
+
+    const name =
+    document.getElementById(
+        "propertyName"
+    ).value.trim();
+
+
+    if(!name){
+
+        alert(
+            "Please enter a property name."
+        );
+
+        return;
+
+    }
+
+
+    const property = {
+
+        id:
+        editingPropertyId ||
+        Date.now().toString(),
+
+        name,
+
+        country:
+        document.getElementById(
+            "propertyCountry"
+        ).value.trim(),
+
+        city:
+        document.getElementById(
+            "propertyCity"
+        ).value.trim(),
+
+        location:
+        document.getElementById(
+            "propertyLocation"
+        ).value.trim(),
+
+        type:
+        document.getElementById(
+            "propertyType"
+        ).value,
+
+        status:
+        document.getElementById(
+            "propertyStatus"
+        ).value,
+
+        price:
+        document.getElementById(
+            "propertyPrice"
+        ).value.trim(),
+
+        currency:
+        document.getElementById(
+            "propertyCurrency"
+        ).value,
+
+        bedrooms:
+        document.getElementById(
+            "propertyBedrooms"
+        ).value,
+
+        bathrooms:
+        document.getElementById(
+            "propertyBathrooms"
+        ).value,
+
+        size:
+        document.getElementById(
+            "propertySize"
+        ).value.trim(),
+
+        featured:
+        document.getElementById(
+            "propertyFeatured"
+        ).value === "true",
+
+        description:
+        document.getElementById(
+            "propertyDescription"
+        ).value.trim(),
+
+        image1:
+        document.getElementById(
+            "propertyImage1"
+        ).value.trim(),
+
+        image2:
+        document.getElementById(
+            "propertyImage2"
+        ).value.trim(),
+
+        image3:
+        document.getElementById(
+            "propertyImage3"
+        ).value.trim(),
+
+        visible:true
+
+    };
+
+
+    if(editingPropertyId){
+
+        properties =
+        properties.map(item=>
+            item.id === editingPropertyId
+            ? property
+            : item
+        );
+
+    }
+    else{
+
+        properties.unshift(
+            property
+        );
+
+    }
+
+
+    saveDatabase();
+
+    closePropertyForm();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   MANAGER PROPERTY LIST
+========================================================= */
+
+function renderManagerProperties(){
+
+    const list =
+    document.getElementById(
+        "managerPropertyList"
+    );
+
+
+    const search =
+    document.getElementById(
+        "managerSearch"
+    ).value
+    .toLowerCase()
+    .trim();
+
+
+    let filtered =
+    properties.filter(property=>{
+
+        const text =
+        [
+            property.name,
+            property.city,
+            property.country,
+            property.location,
+            property.type,
+            property.status
+        ]
+        .join(" ")
+        .toLowerCase();
+
+
+        return text.includes(search);
+
+    });
+
+
+    if(!filtered.length){
+
+        list.innerHTML = `
+
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:50px;
+                color:#666;
+            ">
+
+                No properties found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+    filtered.map(property=>`
+
+        <div class="manager-property">
+
+            <div class="manager-property-head">
+
+                <div>
+
+                    <h3>
+                        ${escapeHTML(
+                            property.name
+                        )}
+                    </h3>
+
+                    <div class="manager-property-meta">
+
+                        ${escapeHTML(
+                            property.city || ""
+                        )}
+
+                        ${property.city && property.country ? " • " : ""}
+
+                        ${escapeHTML(
+                            property.country || ""
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <span class="
+                    property-status
+                    status-${property.status}
+                " style="
+                    position:static;
+                    display:inline-block;
+                    height:max-content;
+                ">
+
+                    ${property.status}
+
+                </span>
+
+            </div>
+
+
+            <div class="manager-property-meta"
+                 style="margin-top:13px;">
+
+                ${typeLabel(property.type)}
+
+                ${property.price
+                    ? " • " +
+                    escapeHTML(
+                        property.currency || ""
+                    ) +
+                    escapeHTML(
+                        property.price
+                    )
+                    : ""
+                }
+
+            </div>
+
+
+            <div class="manager-property-actions">
+
+                <button
+                    onclick="editProperty('${property.id}')">
+                    Edit
+                </button>
+
+                <button
+                    onclick="togglePropertyVisibility('${property.id}')">
+
+                    ${
+                        property.visible === false
+                        ? "Publish"
+                        : "Hide"
+                    }
+
+                </button>
+
+                <button
+                    onclick="changePropertyStatus('${property.id}')">
+
+                    Change Status
+
+                </button>
+
+                <button
+                    onclick="deleteProperty('${property.id}')">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =========================================================
+   EDIT PROPERTY
+========================================================= */
+
+function editProperty(id){
+
+    const property =
+    properties.find(
+        item=>item.id===id
+    );
+
+
+    if(property){
+
+        openPropertyForm(
+            property
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   HIDE / PUBLISH
+========================================================= */
+
+function togglePropertyVisibility(id){
+
+    properties =
+    properties.map(property=>{
+
+        if(property.id===id){
+
+            return {
+                ...property,
+                visible:
+                property.visible === false
+                ? true
+                : false
+            };
+
+        }
+
+        return property;
+
+    });
+
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+}
+
+
+/* =========================================================
+   CHANGE STATUS
+========================================================= */
+
+function changePropertyStatus(id){
+
+    const property =
+    properties.find(
+        item=>item.id===id
+    );
+
+
+    if(!property) return;
+
+
+    const options =
+    [
+        "available",
+        "reserved",
+        "sold"
+    ];
+
+
+    const current =
+    options.indexOf(
+        property.status
+    );
+
+
+    property.status =
+    options[
+        (current + 1) %
+        options.length
+    ];
+
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+function deleteProperty(id){
+
+    const property =
+    properties.find(
+        item=>item.id===id
+    );
+
+
+    if(!property) return;
+
+
+    const confirmed =
+    confirm(
+        `Delete "${property.name}"?`
+    );
+
+
+    if(!confirmed) return;
+
+
+    properties =
+    properties.filter(
+        item=>item.id!==id
+    );
+
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   CLEAR ALL
+========================================================= */
+
+function clearAllProperties(){
+
+    if(!properties.length){
+
+        alert(
+            "There are no properties to clear."
+        );
+
+        return;
+
+    }
+
+
+    const confirmed =
+    confirm(
+        "Delete ALL AWF property listings?"
+    );
+
+
+    if(!confirmed) return;
+
+
+    properties=[];
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+function updateStats(){
+
+    document.getElementById(
+        "statTotal"
+    ).textContent =
+    properties.length;
+
+
+    document.getElementById(
+        "statAvailable"
+    ).textContent =
+    properties.filter(
+        p=>p.status==="available"
+    ).length;
+
+
+    document.getElementById(
+        "statReserved"
+    ).textContent =
+    properties.filter(
+        p=>p.status==="reserved"
+    ).length;
+
+
+    document.getElementById(
+        "statSold"
+    ).textContent =
+    properties.filter(
+        p=>p.status==="sold"
+    ).length;
+
+}
+
+
+/* =========================================================
+   HIDDEN MANAGER ACCESS
+========================================================= */
+
+/*
+    To open the private manager:
+
+    Add #awf-manager to the end of the website URL.
+
+    Example:
+    yourwebsite.com/#awf-manager
+
+*/
+
+function checkManagerAccess(){
+
+    if(
+        window.location.hash ===
+        "#awf-manager"
+    ){
+
+        openManager();
+
+    }
+
+}
+
+
+window.addEventListener(
+    "hashchange",
+    checkManagerAccess
+);
+
+checkManagerAccess();
+
+
+/* =========================================================
+   INITIAL PROPERTY RENDER
+========================================================= */
+
+renderPublicProperties();
+
+
+/* =========================================================
+   KEYBOARD ESCAPE
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    e=>{
+
+        if(e.key==="Escape"){
+
+            sideMenu.classList.remove(
+                "open"
+            );
+
+            menuButton.classList.remove(
+                "active"
+            );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
