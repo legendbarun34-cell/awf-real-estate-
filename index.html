@@ -3564,9 +3564,17 @@ const supabaseClient = window.supabase.createClient(
         </p>
 
 
-        <input type="password"
-               id="managerPassword"
-               placeholder="Enter manager password">
+        <input
+    type="email"
+    id="managerEmail"
+    placeholder="Manager email"
+    autocomplete="username"
+    required
+>
+
+<input type="password"
+       id="managerPassword"
+       placeholder="Enter manager password"
 
 
         <button class="btn btn-gold"
