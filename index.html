@@ -4020,7 +4020,21 @@ const supabaseClient = window.supabase.createClient(
 ======================================================= -->
 
 <script>
+/* ================================
+   SUPABASE CONNECTION
+================================ */
 
+const SUPABASE_URL =
+"https://avlpogxqcbfmeoiwzbiq.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_7n3lka5x4Ls4EWgFbf2DoQ_Mnpdk08e";
+
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
 /* =========================================================
    BASIC
 ========================================================= */
