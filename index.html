@@ -4530,20 +4530,53 @@ function openManager(){
    MANAGER LOGIN
 ========================================================= */
 
-function managerLogin(){
+async function managerLogin(){
+
+    const email =
+        document.getElementById(
+            "managerEmail"
+        ).value.trim();
 
     const password =
-    document.getElementById(
-        "managerPassword"
-    ).value;
+        document.getElementById(
+            "managerPassword"
+        ).value;
 
     const error =
-    document.getElementById(
-        "managerError"
-    );
+        document.getElementById(
+            "managerError"
+        );
 
+    if(!email || !password){
 
-    if(password === MANAGER_PASSWORD){
+        error.textContent =
+            "Please enter your email and password.";
+
+        return;
+    }
+
+    error.textContent = "Signing in...";
+
+    const {
+        data,
+        error: loginError
+    } =
+        await supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
+        });
+
+    if(loginError){
+
+        console.error(loginError);
+
+        error.textContent =
+            "Login failed. Please check your email and password.";
+
+        return;
+    }
+
+    if(data && data.user){
 
         error.textContent = "";
 
@@ -4558,12 +4591,6 @@ function managerLogin(){
         renderManagerProperties();
 
         updateStats();
-
-    }
-    else{
-
-        error.textContent =
-        "Incorrect manager password.";
 
     }
 
