@@ -2347,6 +2347,7 @@ footer{
     }
 }
 
+
 /* =========================================================
    PROPERTY MEDIA UPGRADE
 ========================================================= */
@@ -2354,39 +2355,10 @@ footer{
 .property-media-tools label{display:block;color:#d4af37;font-size:.68rem;font-weight:800;letter-spacing:1.5px;margin-bottom:8px}
 .property-media-tools input[type=file]{width:100%;padding:12px;border:1px dashed rgba(212,175,55,.28);border-radius:12px;background:#0b0b0b;color:#aaa}
 .media-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-top:10px}
-.media-preview img,.media-preview video{width:100%;height:80px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
-
-input[type="file"]{width:100%;padding:16px;border:1.5px dashed rgba(212,175,55,.35);border-radius:16px;background:rgba(212,175,55,.04);color:var(--muted);cursor:pointer;transition:.3s ease}
-input[type="file"]:hover{border-color:var(--gold);background:rgba(212,175,55,.08)}
-input[type="file"]::file-selector-button{margin-right:14px;padding:9px 16px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#090909;font-weight:800;cursor:pointer;transition:.3s ease}
-input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 .media-preview-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#080808;border:1px solid rgba(255,255,255,.08)}
 .media-preview-item img,.media-preview-item video{width:100%;height:100%;object-fit:cover}
 .media-preview-item span{position:absolute;left:5px;bottom:5px;background:rgba(0,0,0,.75);padding:3px 6px;border-radius:7px;font-size:.58rem;color:#fff}
 .property-media-badge{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.78);border:1px solid rgba(212,175,55,.3);color:#fff;padding:6px 9px;border-radius:999px;font-size:.65rem;backdrop-filter:blur(8px)}
-
-/* =========================================================
-   SOFT-LUXURY / INSTAGRAM-STYLE POLISH
-   (save/like button, pill buttons, softer shadows & motion)
-========================================================= */
-
-.like-btn{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:rgba(5,5,5,.55);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s ease,background .25s ease,border-color .25s ease;z-index:2}
-.like-btn svg{width:18px;height:18px;fill:none;stroke:#f2ede1;stroke-width:1.8;transition:fill .25s ease,stroke .25s ease}
-.like-btn:hover{border-color:var(--gold);background:rgba(5,5,5,.75)}
-.like-btn:hover svg{stroke:var(--gold)}
-.like-btn.liked svg{fill:#ff5c7a;stroke:#ff5c7a}
-.like-btn.pop{animation:likePop .45s ease}
-@keyframes likePop{0%{transform:scale(1)}35%{transform:scale(1.35)}60%{transform:scale(.9)}100%{transform:scale(1)}}
-
-/* softer, rounder, more Instagram-like touch throughout */
-.btn{border-radius:999px;letter-spacing:.3px}
-.property-card{border-radius:28px;box-shadow:0 18px 45px rgba(0,0,0,.28)}
-.property-card:hover{box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(212,175,55,.12)}
-.property-image{border-radius:28px 28px 0 0}
-::-webkit-scrollbar{width:9px;height:9px}
-::-webkit-scrollbar-track{background:#0a0a0a}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold-dark),var(--gold));border-radius:99px}
-* {scrollbar-color:var(--gold) #0a0a0a;scrollbar-width:thin}
 .property-image{cursor:pointer}
 .gallery-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:20px}
 .gallery-modal.open{display:flex}
@@ -2408,6 +2380,8 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 
 </head>
 <body>
@@ -2445,6 +2419,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
     </nav>
 
 </header>
+
 
 <!-- =======================================================
      SIDE MENU
@@ -2504,6 +2479,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </div>
 
+
 <!-- =======================================================
      HERO
 ======================================================= -->
@@ -2522,6 +2498,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                      alt="AWF Real Estate">
 
             </div>
+
 
             <div class="hero-content reveal">
 
@@ -2606,6 +2583,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </section>
 
+
 <!-- =======================================================
      MARQUEE
 ======================================================= -->
@@ -2668,6 +2646,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </div>
 
+
 <!-- =======================================================
      ABOUT
 ======================================================= -->
@@ -2684,6 +2663,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                      alt="AWF Real Estate">
 
             </div>
+
 
             <div class="reveal">
 
@@ -2733,6 +2713,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="about-point">
 
                         <div class="point-icon">
@@ -2754,6 +2735,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                         </div>
 
                     </div>
+
 
                     <div class="about-point">
 
@@ -2787,6 +2769,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </section>
 
+
 <!-- =======================================================
      SERVICES
 ======================================================= -->
@@ -2811,6 +2794,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
         </p>
 
+
         <div class="services-grid">
 
             <div class="service-card reveal">
@@ -2834,6 +2818,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div class="service-card reveal">
 
                 <span class="service-number">
@@ -2855,6 +2840,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div class="service-card reveal">
 
                 <span class="service-number">
@@ -2875,6 +2861,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                 </p>
 
             </div>
+
 
             <div class="service-card reveal">
 
@@ -2902,6 +2889,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
     </div>
 
 </section>
+
 
 <!-- =======================================================
      PROPERTIES
@@ -2938,6 +2926,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
         </div>
 
+
         <div class="property-controls">
 
             <button class="filter-btn active"
@@ -2967,6 +2956,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
         </div>
 
+
         <div class="property-grid"
              id="publicPropertyGrid">
 
@@ -2982,6 +2972,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
     </div>
 
 </section>
+
 
 <!-- =======================================================
      INTERNATIONAL
@@ -3019,6 +3010,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                 local partners.
 
             </p>
+
 
             <div class="country-list">
 
@@ -3060,6 +3052,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div style="margin-top:30px;position:relative;z-index:3;">
 
                 <a href="https://wa.me/2348102837598?text=Hello%20AWF%20Real%20Estate%2C%20I%20would%20like%20to%20request%20an%20international%20property%20opportunity."
@@ -3077,6 +3070,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
     </div>
 
 </section>
+
 
 <!-- =======================================================
      PARTNERS
@@ -3105,6 +3099,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
         </p>
 
+
         <div class="partners-grid">
 
             <div class="partner-card reveal">
@@ -3124,6 +3119,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div class="partner-card reveal">
 
                 <div class="partner-icon">
@@ -3140,6 +3136,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                 </p>
 
             </div>
+
 
             <div class="partner-card reveal">
 
@@ -3164,6 +3161,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </section>
 
+
 <!-- =======================================================
      WHY AWF
 ======================================================= -->
@@ -3180,6 +3178,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
             Built for the
             <span>long term.</span>
         </h2>
+
 
         <div class="why-grid">
 
@@ -3198,6 +3197,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div class="why-card reveal">
 
                 <strong>02</strong>
@@ -3213,6 +3213,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div class="why-card reveal">
 
                 <strong>03</strong>
@@ -3227,6 +3228,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                 </p>
 
             </div>
+
 
             <div class="why-card reveal">
 
@@ -3248,6 +3250,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
     </div>
 
 </section>
+
 
 <!-- =======================================================
      CONTACT
@@ -3282,6 +3285,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                 </p>
 
+
                 <div class="contact-cards">
 
                     <a href="tel:+2348102837598"
@@ -3305,6 +3309,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </a>
 
+
                     <a href="https://wa.me/2348102837598"
                        target="_blank"
                        class="contact-card">
@@ -3326,6 +3331,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                         </div>
 
                     </a>
+
 
                     <a href="mailto:awfrealestatelimited@gmail.com"
                        class="contact-card">
@@ -3352,6 +3358,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div class="contact-form reveal">
 
                 <div class="form-title">
@@ -3373,6 +3380,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="form-group">
 
                         <label>
@@ -3385,6 +3393,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                placeholder="Your phone number">
 
                     </div>
+
 
                     <div class="form-group">
 
@@ -3422,6 +3431,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="form-group">
 
                         <label>
@@ -3432,6 +3442,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                   placeholder="Tell AWF what you are looking for..."></textarea>
 
                     </div>
+
 
                     <button type="submit"
                             class="btn btn-gold form-submit">
@@ -3451,6 +3462,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 </section>
 
 </main>
+
 
 <!-- =======================================================
      FOOTER
@@ -3483,6 +3495,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div>
 
                 <div class="footer-title">
@@ -3511,6 +3524,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div>
 
                 <div class="footer-title">
@@ -3538,6 +3552,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
         </div>
 
+
         <div class="footer-bottom">
 
             <span>
@@ -3556,6 +3571,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </footer>
 
+
 <!-- =======================================================
      FLOATING WHATSAPP
 ======================================================= -->
@@ -3569,12 +3585,14 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </a>
 
+
 <!-- =======================================================
      PROPERTY MANAGER
 ======================================================= -->
 
 <div class="manager-overlay"
      id="managerOverlay">
+
 
     <!-- LOGIN -->
 
@@ -3595,6 +3613,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
         <p>
             Private property management dashboard
         </p>
+
 
         <input
     type="email"
@@ -3619,16 +3638,19 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
         </button>
 
+
         <div class="manager-error"
              id="managerError">
         </div>
 
     </div>
 
+
     <!-- MANAGER APP -->
 
     <div class="manager-app"
          id="managerApp">
+
 
         <div class="manager-top">
 
@@ -3642,6 +3664,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                 </span>
 
             </div>
+
 
             <div style="display:flex;gap:7px;">
 
@@ -3664,7 +3687,9 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
         </div>
 
+
         <div class="manager-body">
+
 
             <div class="manager-stats">
 
@@ -3680,6 +3705,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                 </div>
 
+
                 <div class="manager-stat">
 
                     <small>
@@ -3692,6 +3718,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                 </div>
 
+
                 <div class="manager-stat">
 
                     <small>
@@ -3703,6 +3730,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                     </strong>
 
                 </div>
+
 
                 <div class="manager-stat">
 
@@ -3718,6 +3746,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <!-- FORM -->
 
             <div class="manager-form"
@@ -3726,6 +3755,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                 <h2 id="formHeading">
                     Add Property
                 </h2>
+
 
                 <div class="manager-form-grid">
 
@@ -3740,6 +3770,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field">
 
                         <label>
@@ -3750,6 +3781,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                placeholder="Nigeria">
 
                     </div>
+
 
                     <div class="manager-field">
 
@@ -3762,6 +3794,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field">
 
                         <label>
@@ -3772,6 +3805,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                placeholder="Maitama, Abuja">
 
                     </div>
+
 
                     <div class="manager-field">
 
@@ -3801,6 +3835,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field">
 
                         <label>
@@ -3825,6 +3860,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field">
 
                         <label>
@@ -3835,6 +3871,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                placeholder="Contact for price">
 
                     </div>
+
 
                     <div class="manager-field">
 
@@ -3868,6 +3905,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field">
 
                         <label>
@@ -3880,6 +3918,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                placeholder="0">
 
                     </div>
+
 
                     <div class="manager-field">
 
@@ -3894,6 +3933,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field">
 
                         <label>
@@ -3904,6 +3944,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                placeholder="e.g. 650 sqm">
 
                     </div>
+
 
                     <div class="manager-field">
 
@@ -3925,6 +3966,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field full">
 
                         <label>
@@ -3935,6 +3977,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                   placeholder="Describe the property..."></textarea>
 
                     </div>
+
 
                     <div class="manager-field full">
 
@@ -3947,6 +3990,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                     </div>
 
+
                     <div class="manager-field full">
 
                         <label>
@@ -3957,6 +4001,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
                                placeholder="https://...">
 
                     </div>
+
 
                     <div class="manager-field full">
 
@@ -3985,6 +4030,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
                 </div>
 
+
                 <div class="manager-form-actions">
 
                     <button class="btn btn-gold"
@@ -4005,6 +4051,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <!-- TOOLBAR -->
 
             <div class="manager-toolbar">
@@ -4023,6 +4070,7 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
             </div>
 
+
             <div class="manager-list"
                  id="managerPropertyList">
             </div>
@@ -4033,44 +4081,12 @@ input[type="file"]::file-selector-button:hover{transform:translateY(-1px)}
 
 </div>
 
+
 <!-- =======================================================
      JAVASCRIPT
 ======================================================= -->
 
 <script>
-/* ================================
-   SAVED / LIKED PROPERTIES (LOCAL)
-================================ */
-const LIKES_KEY = "awf_liked_properties";
-
-function getLikedIds(){
-    try{
-        return JSON.parse(localStorage.getItem(LIKES_KEY) || "[]");
-    }catch(e){
-        return [];
-    }
-}
-
-function isLiked(id){
-    return getLikedIds().includes(id);
-}
-
-function toggleLike(e, id){
-    e.stopPropagation();
-    e.preventDefault();
-    const btn = e.currentTarget;
-    let liked = getLikedIds();
-    if(liked.includes(id)){
-        liked = liked.filter(x => x !== id);
-        btn.classList.remove("liked");
-    }else{
-        liked.push(id);
-        btn.classList.add("liked", "pop");
-        setTimeout(() => btn.classList.remove("pop"), 450);
-    }
-    localStorage.setItem(LIKES_KEY, JSON.stringify(liked));
-}
-
 /* ================================
    SUPABASE CONNECTION
 ================================ */
@@ -4097,6 +4113,7 @@ const SUPABASE_MEDIA_BUCKET = "awf-property-media";
 document.getElementById("year").textContent =
 new Date().getFullYear();
 
+
 /* =========================================================
    MENU
 ========================================================= */
@@ -4119,6 +4136,7 @@ menuButton.addEventListener("click",()=>{
 
 });
 
+
 document.querySelectorAll(".menu-links a")
 .forEach(link=>{
 
@@ -4135,6 +4153,7 @@ document.querySelectorAll(".menu-links a")
     });
 
 });
+
 
 /* =========================================================
    SCROLL REVEAL
@@ -4161,10 +4180,12 @@ new IntersectionObserver(
     threshold:.08
 });
 
+
 document.querySelectorAll(".reveal")
 .forEach(el=>{
     observer.observe(el);
 });
+
 
 /* =========================================================
    CONTACT FORM → WHATSAPP
@@ -4195,12 +4216,14 @@ document.getElementById("contactForm")
         "contactMessage"
     ).value.trim();
 
+
     const text =
     `Hello AWF Real Estate.%0A%0A` +
     `Name: ${encodeURIComponent(name)}%0A` +
     `Phone: ${encodeURIComponent(phone)}%0A` +
     `Interest: ${encodeURIComponent(interest)}%0A` +
     `Message: ${encodeURIComponent(message)}`;
+
 
     window.open(
         `https://wa.me/2348102837598?text=${text}`,
@@ -4209,12 +4232,14 @@ document.getElementById("contactForm")
 
 });
 
+
 /* =========================================================
    PROPERTY DATABASE
 ========================================================= */
 
 const PROPERTY_KEY =
 "AWF_REAL_ESTATE_PROPERTIES_V3";
+
 
 let properties =
 JSON.parse(
@@ -4250,6 +4275,7 @@ let galleryIndex = 0;
     }
 }());
 
+
 /* =========================================================
    SAVE DATABASE
 ========================================================= */
@@ -4263,11 +4289,13 @@ function saveDatabase(){
 
 }
 
+
 /* =========================================================
    PUBLIC PROPERTY DISPLAY
 ========================================================= */
 
 let currentFilter = "all";
+
 
 document.querySelectorAll(".filter-btn")
 .forEach(button=>{
@@ -4291,6 +4319,7 @@ document.querySelectorAll(".filter-btn")
 
 });
 
+
 function renderPublicProperties(){
 
     const grid =
@@ -4303,6 +4332,7 @@ function renderPublicProperties(){
         property.visible !== false
     );
 
+
     if(currentFilter !== "all"){
 
         visible =
@@ -4311,6 +4341,7 @@ function renderPublicProperties(){
         );
 
     }
+
 
     if(!visible.length){
 
@@ -4373,6 +4404,7 @@ function renderPublicProperties(){
         return;
     }
 
+
     grid.innerHTML =
     visible.map(property=>
         propertyCardHTML(property)
@@ -4380,11 +4412,13 @@ function renderPublicProperties(){
 
 }
 
+
 function propertyCardHTML(property){
 
     const images = getPropertyImages(property);
     const video = property.video || property.videoUrl || "";
     const mediaCount = images.length + (video ? 1 : 0);
+
 
     const imageHTML =
     images.length
@@ -4408,6 +4442,7 @@ function propertyCardHTML(property){
         </div>
     `;
 
+
     const details = [];
 
     if(property.bedrooms)
@@ -4425,12 +4460,14 @@ function propertyCardHTML(property){
             `▱ ${escapeHTML(property.size)}`
         );
 
+
     const price =
     property.price
     ?
     `${escapeHTML(property.currency || "₦")}${escapeHTML(property.price)}`
     :
     "Contact for price";
+
 
     return `
 
@@ -4453,14 +4490,8 @@ function propertyCardHTML(property){
 
                 ${mediaCount ? `<span class="property-media-badge">▣ ${mediaCount} media</span>` : ""}
 
-                <button type="button"
-                        class="like-btn${isLiked(property.id) ? " liked" : ""}"
-                        onclick="toggleLike(event,'${escapeJS(property.id)}')"
-                        aria-label="Save property">
-                    <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.1C.3 8.2 1.8 4.5 5.4 3.6c2-.5 4 .3 5.1 2 .3.4.7 1 1.5 1s1.2-.6 1.5-1c1.1-1.7 3.1-2.5 5.1-2 3.6.9 5.1 4.6 3.4 8.3-2.5 4.5-10 9.1-10 9.1z"/></svg>
-                </button>
-
             </div>
+
 
             <div class="property-body">
 
@@ -4478,6 +4509,7 @@ function propertyCardHTML(property){
 
                 </div>
 
+
                 <h3 class="property-name">
 
                     ${escapeHTML(
@@ -4485,6 +4517,7 @@ function propertyCardHTML(property){
                     )}
 
                 </h3>
+
 
                 <p class="property-description">
 
@@ -4494,6 +4527,7 @@ function propertyCardHTML(property){
                     )}
 
                 </p>
+
 
                 ${
                     details.length
@@ -4511,6 +4545,7 @@ function propertyCardHTML(property){
                     ""
                 }
 
+
                 <div class="property-price">
 
                     <span class="price">
@@ -4518,6 +4553,7 @@ function propertyCardHTML(property){
                         ${price}
 
                     </span>
+
 
                     <a
                         class="property-btn"
@@ -4540,6 +4576,7 @@ function propertyCardHTML(property){
     `;
 
 }
+
 
 /* =========================================================
    PROPERTY MEDIA HELPERS
@@ -4637,6 +4674,7 @@ function typeLabel(type){
 
 }
 
+
 /* =========================================================
    ESCAPE HTML
 ========================================================= */
@@ -4651,6 +4689,7 @@ function escapeHTML(value){
     .replace(/'/g,"&#039;");
 
 }
+
 
 /* =========================================================
    PROPERTY MANAGER PASSWORD
@@ -4667,6 +4706,7 @@ function openManager(){
     ).classList.add("open");
 
 }
+
 
 /* =========================================================
    MANAGER LOGIN
@@ -4738,6 +4778,7 @@ async function managerLogin(){
 
 }
 
+
 /* =========================================================
    CLOSE MANAGER
 ========================================================= */
@@ -4762,17 +4803,20 @@ function closeManager(){
 
 }
 
+
 /* =========================================================
    PROPERTY FORM
 ========================================================= */
 
 let editingPropertyId = null;
 
+
 function openPropertyForm(property=null){
 
     document.getElementById(
         "managerForm"
     ).classList.add("open");
+
 
     if(property){
 
@@ -4783,6 +4827,7 @@ function openPropertyForm(property=null){
             "formHeading"
         ).textContent =
         "Edit Property";
+
 
         fillPropertyForm(property);
 
@@ -4796,9 +4841,11 @@ function openPropertyForm(property=null){
         ).textContent =
         "Add Property";
 
+
         clearPropertyForm();
 
     }
+
 
     document.getElementById(
         "managerForm"
@@ -4807,6 +4854,7 @@ function openPropertyForm(property=null){
     });
 
 }
+
 
 function closePropertyForm(){
 
@@ -4819,6 +4867,7 @@ function closePropertyForm(){
     clearPropertyForm();
 
 }
+
 
 /* =========================================================
    CLEAR FORM
@@ -4843,11 +4892,13 @@ function clearPropertyForm(){
 
     ];
 
+
     fields.forEach(id=>{
 
         document.getElementById(id).value="";
 
     });
+
 
     document.getElementById(
         "propertyType"
@@ -4866,6 +4917,7 @@ function clearPropertyForm(){
     ).value="false";
 
 }
+
 
 /* =========================================================
    FILL FORM
@@ -4956,4 +5008,699 @@ function fillPropertyForm(property){
     const photoFiles=document.getElementById("propertyPhotoFiles");
     const videoFile=document.getElementById("propertyVideoFile");
     if(photoFiles) photoFiles.value="";
-    if(videoFile) vid
+    if(videoFile) videoFile.value="";
+    const photoPreview=document.getElementById("propertyPhotoPreview");
+    const videoPreview=document.getElementById("propertyVideoPreview");
+    if(photoPreview) photoPreview.innerHTML=getPropertyImages(property).slice(3).map(url=>`<div class="media-preview-item"><img src="${escapeHTML(url)}" alt=""><span>EXISTING</span></div>`).join("");
+    if(videoPreview && (property.video || property.videoUrl)) videoPreview.innerHTML=`<div class="media-preview-item"><video src="${escapeHTML(property.video || property.videoUrl)}" muted></video><span>EXISTING</span></div>`;
+
+}
+
+
+/* =========================================================
+   SAVE PROPERTY
+========================================================= */
+
+async function saveProperty(){
+
+    const name =
+    document.getElementById(
+        "propertyName"
+    ).value.trim();
+
+
+    if(!name){
+
+        alert(
+            "Please enter a property name."
+        );
+
+        return;
+
+    }
+
+
+    const property = {
+
+        id:
+        editingPropertyId ||
+        Date.now().toString(),
+
+        name,
+
+        country:
+        document.getElementById(
+            "propertyCountry"
+        ).value.trim(),
+
+        city:
+        document.getElementById(
+            "propertyCity"
+        ).value.trim(),
+
+        location:
+        document.getElementById(
+            "propertyLocation"
+        ).value.trim(),
+
+        type:
+        document.getElementById(
+            "propertyType"
+        ).value,
+
+        status:
+        document.getElementById(
+            "propertyStatus"
+        ).value,
+
+        price:
+        document.getElementById(
+            "propertyPrice"
+        ).value.trim(),
+
+        currency:
+        document.getElementById(
+            "propertyCurrency"
+        ).value,
+
+        bedrooms:
+        document.getElementById(
+            "propertyBedrooms"
+        ).value,
+
+        bathrooms:
+        document.getElementById(
+            "propertyBathrooms"
+        ).value,
+
+        size:
+        document.getElementById(
+            "propertySize"
+        ).value.trim(),
+
+        featured:
+        document.getElementById(
+            "propertyFeatured"
+        ).value === "true",
+
+        description:
+        document.getElementById(
+            "propertyDescription"
+        ).value.trim(),
+
+        image1:
+        document.getElementById(
+            "propertyImage1"
+        ).value.trim(),
+
+        image2:
+        document.getElementById(
+            "propertyImage2"
+        ).value.trim(),
+
+        image3:
+        document.getElementById(
+            "propertyImage3"
+        ).value.trim(),
+
+        images: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.images || []) : [],
+        video: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.video || "") : "",
+
+        visible:true
+
+    };
+
+
+    /* Upload newly selected media when the existing Supabase Storage bucket is available.
+       If Storage is not configured, the existing URL-based property system continues unchanged. */
+    const selectedPhotos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,12);
+    const selectedVideo=document.getElementById("propertyVideoFile")?.files?.[0];
+    if(selectedPhotos.length || selectedVideo){
+        const uploadId=property.id;
+        const uploadedPhotos=[];
+        for(const file of selectedPhotos){
+            const url=await uploadMediaFile(file,uploadId);
+            if(url) uploadedPhotos.push(url);
+        }
+        if(uploadedPhotos.length) property.images=[...(property.images||[]),...uploadedPhotos];
+        if(selectedVideo){
+            const videoUrl=await uploadMediaFile(selectedVideo,uploadId);
+            if(videoUrl) property.video=videoUrl;
+        }
+    }
+
+    if(editingPropertyId){
+
+        properties =
+        properties.map(item=>
+            item.id === editingPropertyId
+            ? property
+            : item
+        );
+
+    }
+    else{
+
+        properties.unshift(
+            property
+        );
+
+    }
+
+
+    saveDatabase();
+
+    // Save the listing to Supabase so it is available on every device.
+    // The local copy above remains as a fallback if Supabase is unavailable.
+    try {
+        if (supabaseClient) {
+            const dbProperty = {
+                id: property.id,
+                title: property.name,
+                name: property.name,
+                description: property.description,
+                location: property.location,
+                city: property.city,
+                country: property.country,
+                price: property.price,
+                property_type: property.type,
+                type: property.type,
+                listing_type: property.status,
+                status: property.status,
+                currency: property.currency,
+                bedrooms: property.bedrooms,
+                bathrooms: property.bathrooms,
+                size: property.size,
+                featured: property.featured,
+                image1: property.image1,
+                image2: property.image2,
+                image3: property.image3,
+                images: property.images || [],
+                video_url: property.video || '',
+                video: property.video || '',
+                visible: property.visible
+            };
+            const { error: dbError } = await supabaseClient
+                .from('properties')
+                .upsert(dbProperty, { onConflict: 'id' });
+            if (dbError) console.warn('Supabase listing save failed:', dbError.message);
+        }
+    } catch (dbSaveError) {
+        console.warn('Supabase listing save failed:', dbSaveError);
+    }
+
+    closePropertyForm();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   MANAGER PROPERTY LIST
+========================================================= */
+
+function renderManagerProperties(){
+
+    const list =
+    document.getElementById(
+        "managerPropertyList"
+    );
+
+
+    const search =
+    document.getElementById(
+        "managerSearch"
+    ).value
+    .toLowerCase()
+    .trim();
+
+
+    let filtered =
+    properties.filter(property=>{
+
+        const text =
+        [
+            property.name,
+            property.city,
+            property.country,
+            property.location,
+            property.type,
+            property.status
+        ]
+        .join(" ")
+        .toLowerCase();
+
+
+        return text.includes(search);
+
+    });
+
+
+    if(!filtered.length){
+
+        list.innerHTML = `
+
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:50px;
+                color:#666;
+            ">
+
+                No properties found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+    filtered.map(property=>`
+
+        <div class="manager-property">
+
+            <div class="manager-property-head">
+
+                <div>
+
+                    <h3>
+                        ${escapeHTML(
+                            property.name
+                        )}
+                    </h3>
+
+                    <div class="manager-property-meta">
+
+                        ${escapeHTML(
+                            property.city || ""
+                        )}
+
+                        ${property.city && property.country ? " • " : ""}
+
+                        ${escapeHTML(
+                            property.country || ""
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <span class="
+                    property-status
+                    status-${property.status}
+                " style="
+                    position:static;
+                    display:inline-block;
+                    height:max-content;
+                ">
+
+                    ${property.status}
+
+                </span>
+
+            </div>
+
+
+            <div class="manager-property-meta"
+                 style="margin-top:13px;">
+
+                ${typeLabel(property.type)}
+
+                ${property.price
+                    ? " • " +
+                    escapeHTML(
+                        property.currency || ""
+                    ) +
+                    escapeHTML(
+                        property.price
+                    )
+                    : ""
+                }
+
+            </div>
+
+
+            <div class="manager-property-actions">
+
+                <button
+                    onclick="editProperty('${property.id}')">
+                    Edit
+                </button>
+
+                <button
+                    onclick="togglePropertyVisibility('${property.id}')">
+
+                    ${
+                        property.visible === false
+                        ? "Publish"
+                        : "Hide"
+                    }
+
+                </button>
+
+                <button
+                    onclick="changePropertyStatus('${property.id}')">
+
+                    Change Status
+
+                </button>
+
+                <button
+                    onclick="deleteProperty('${property.id}')">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =========================================================
+   EDIT PROPERTY
+========================================================= */
+
+function editProperty(id){
+
+    const property =
+    properties.find(
+        item=>item.id===id
+    );
+
+
+    if(property){
+
+        openPropertyForm(
+            property
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   HIDE / PUBLISH
+========================================================= */
+
+function togglePropertyVisibility(id){
+
+    properties =
+    properties.map(property=>{
+
+        if(property.id===id){
+
+            return {
+                ...property,
+                visible:
+                property.visible === false
+                ? true
+                : false
+            };
+
+        }
+
+        return property;
+
+    });
+
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+}
+
+
+/* =========================================================
+   CHANGE STATUS
+========================================================= */
+
+function changePropertyStatus(id){
+
+    const property =
+    properties.find(
+        item=>item.id===id
+    );
+
+
+    if(!property) return;
+
+
+    const options =
+    [
+        "available",
+        "reserved",
+        "sold"
+    ];
+
+
+    const current =
+    options.indexOf(
+        property.status
+    );
+
+
+    property.status =
+    options[
+        (current + 1) %
+        options.length
+    ];
+
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+function deleteProperty(id){
+
+    const property =
+    properties.find(
+        item=>item.id===id
+    );
+
+
+    if(!property) return;
+
+
+    const confirmed =
+    confirm(
+        `Delete "${property.name}"?`
+    );
+
+
+    if(!confirmed) return;
+
+
+    properties =
+    properties.filter(
+        item=>item.id!==id
+    );
+
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   CLEAR ALL
+========================================================= */
+
+function clearAllProperties(){
+
+    if(!properties.length){
+
+        alert(
+            "There are no properties to clear."
+        );
+
+        return;
+
+    }
+
+
+    const confirmed =
+    confirm(
+        "Delete ALL AWF property listings?"
+    );
+
+
+    if(!confirmed) return;
+
+
+    properties=[];
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+function updateStats(){
+
+    document.getElementById(
+        "statTotal"
+    ).textContent =
+    properties.length;
+
+
+    document.getElementById(
+        "statAvailable"
+    ).textContent =
+    properties.filter(
+        p=>p.status==="available"
+    ).length;
+
+
+    document.getElementById(
+        "statReserved"
+    ).textContent =
+    properties.filter(
+        p=>p.status==="reserved"
+    ).length;
+
+
+    document.getElementById(
+        "statSold"
+    ).textContent =
+    properties.filter(
+        p=>p.status==="sold"
+    ).length;
+
+}
+
+
+/* =========================================================
+   HIDDEN MANAGER ACCESS
+========================================================= */
+
+/*
+    To open the private manager:
+
+    Add #awf-manager to the end of the website URL.
+
+    Example:
+    yourwebsite.com/#awf-manager
+
+*/
+
+function checkManagerAccess(){
+
+    if(
+        window.location.hash ===
+        "#awf-manager"
+    ){
+
+        openManager();
+
+    }
+
+}
+
+
+window.addEventListener(
+    "hashchange",
+    checkManagerAccess
+);
+
+checkManagerAccess();
+
+
+/* =========================================================
+   INITIAL PROPERTY RENDER
+========================================================= */
+
+renderPublicProperties();
+
+
+/* =========================================================
+   KEYBOARD ESCAPE
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    e=>{
+
+        if(e.key==="Escape"){
+
+            sideMenu.classList.remove(
+                "open"
+            );
+
+            menuButton.classList.remove(
+                "active"
+            );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+<!-- PROPERTY GALLERY -->
+<div class="gallery-modal" id="galleryModal" onclick="if(event.target===this)closeGallery()">
+  <div class="gallery-inner">
+    <div class="gallery-main" id="galleryMain">
+      <button class="gallery-close" onclick="closeGallery()">×</button>
+      <div id="galleryMedia"></div>
+    </div>
+    <div class="gallery-nav">
+      <button onclick="galleryPrev()">← Previous</button>
+      <span id="galleryCounter" style="color:#aaa;font-size:.75rem"></span>
+      <button onclick="galleryNext()">Next →</button>
+    </div>
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+  </div>
+</div>
+
+</body>
+</html>
