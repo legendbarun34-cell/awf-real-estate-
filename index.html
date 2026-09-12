@@ -369,6 +369,21 @@ header{
     transition:.3s ease;
 }
 
+.menu-manager-btn{
+    display:block;
+    width:100%;
+    margin-top:4px;
+    padding:13px 15px;
+    border:1px solid rgba(212,175,55,.55);
+    border-radius:10px;
+    background:rgba(212,175,55,.08);
+    color:var(--gold);
+    text-align:left;
+    font:inherit;
+    font-weight:700;
+    cursor:pointer;
+}
+
 .menu-links a:hover{
     color:var(--gold);
     background:rgba(212,175,55,.06);
@@ -2431,6 +2446,10 @@ footer{
 
             <a href="#properties">Properties</a>
 
+            <button type="button" class="menu-manager-btn" onclick="closeMenu();openManager();">
+                + Manage Listings
+            </button>
+
             <a href="#international">International</a>
 
             <a href="#partners">Partners</a>
@@ -2893,6 +2912,16 @@ footer{
                     <span>opportunity.</span>
                 </h2>
 
+                <p style="margin-top:12px;max-width:650px;color:#999;">
+                    Browse AWF Real Estate listings, or open the private manager to add and update properties.
+                </p>
+
+            </div>
+
+            <div style="display:flex;align-items:center;justify-content:flex-end;">
+                <button class="btn btn-gold" type="button" onclick="openManager()">
+                    + Manage Listings
+                </button>
             </div>
 
         </div>
@@ -3597,7 +3626,9 @@ footer{
 <input type="password"
        id="managerPassword"
        placeholder="Enter manager password"
-
+       autocomplete="current-password"
+       required
+>
 
         <button class="btn btn-gold"
                 style="width:100%;margin-top:12px;"
@@ -4219,6 +4250,30 @@ JSON.parse(
 
 let galleryItems = [];
 let galleryIndex = 0;
+
+// Load shared listings from Supabase when available.
+(async function loadSharedProperties(){
+    try {
+        if (!supabaseClient) return;
+        const { data, error } = await supabaseClient.from('properties').select('*');
+        if (error || !Array.isArray(data) || !data.length) return;
+        properties = data.map(row => ({
+            ...row,
+            id: String(row.id),
+            name: row.name || row.title || '',
+            type: row.type || row.property_type || '',
+            status: row.status || row.listing_type || '',
+            video: row.video || row.video_url || '',
+            images: Array.isArray(row.images) ? row.images : []
+        }));
+        saveDatabase();
+        if (typeof renderPublicProperties === 'function') renderPublicProperties();
+        if (typeof renderManagerProperties === 'function') renderManagerProperties();
+        if (typeof updateStats === 'function') updateStats();
+    } catch (loadError) {
+        console.warn('Could not load shared listings:', loadError);
+    }
+}());
 
 
 /* =========================================================
@@ -5114,6 +5169,45 @@ async function saveProperty(){
 
 
     saveDatabase();
+
+    // Save the listing to Supabase so it is available on every device.
+    // The local copy above remains as a fallback if Supabase is unavailable.
+    try {
+        if (supabaseClient) {
+            const dbProperty = {
+                id: property.id,
+                title: property.name,
+                name: property.name,
+                description: property.description,
+                location: property.location,
+                city: property.city,
+                country: property.country,
+                price: property.price,
+                property_type: property.type,
+                type: property.type,
+                listing_type: property.status,
+                status: property.status,
+                currency: property.currency,
+                bedrooms: property.bedrooms,
+                bathrooms: property.bathrooms,
+                size: property.size,
+                featured: property.featured,
+                image1: property.image1,
+                image2: property.image2,
+                image3: property.image3,
+                images: property.images || [],
+                video_url: property.video || '',
+                video: property.video || '',
+                visible: property.visible
+            };
+            const { error: dbError } = await supabaseClient
+                .from('properties')
+                .upsert(dbProperty, { onConflict: 'id' });
+            if (dbError) console.warn('Supabase listing save failed:', dbError.message);
+        }
+    } catch (dbSaveError) {
+        console.warn('Supabase listing save failed:', dbSaveError);
+    }
 
     closePropertyForm();
 
