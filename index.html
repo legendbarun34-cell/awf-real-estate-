@@ -2332,19 +2332,41 @@ footer{
     }
 }
 
+
+/* =========================================================
+   PROPERTY MEDIA UPGRADE
+========================================================= */
+.property-media-tools{margin-top:12px;padding:18px;border:1px solid rgba(212,175,55,.15);border-radius:18px;background:rgba(255,255,255,.018)}
+.property-media-tools label{display:block;color:#d4af37;font-size:.68rem;font-weight:800;letter-spacing:1.5px;margin-bottom:8px}
+.property-media-tools input[type=file]{width:100%;padding:12px;border:1px dashed rgba(212,175,55,.28);border-radius:12px;background:#0b0b0b;color:#aaa}
+.media-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-top:10px}
+.media-preview-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#080808;border:1px solid rgba(255,255,255,.08)}
+.media-preview-item img,.media-preview-item video{width:100%;height:100%;object-fit:cover}
+.media-preview-item span{position:absolute;left:5px;bottom:5px;background:rgba(0,0,0,.75);padding:3px 6px;border-radius:7px;font-size:.58rem;color:#fff}
+.property-media-badge{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.78);border:1px solid rgba(212,175,55,.3);color:#fff;padding:6px 9px;border-radius:999px;font-size:.65rem;backdrop-filter:blur(8px)}
+.property-image{cursor:pointer}
+.gallery-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:20px}
+.gallery-modal.open{display:flex}
+.gallery-inner{width:min(1100px,96vw);max-height:94vh;display:flex;flex-direction:column;gap:12px}
+.gallery-main{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#050505;border:1px solid rgba(212,175,55,.18);border-radius:20px;overflow:hidden}
+.gallery-main img,.gallery-main video{max-width:100%;max-height:72vh;object-fit:contain}
+.gallery-close{position:absolute;right:14px;top:14px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.65);color:#fff;font-size:22px;cursor:pointer;z-index:2}
+.gallery-nav{display:flex;align-items:center;justify-content:center;gap:10px}
+.gallery-nav button{border:1px solid rgba(212,175,55,.25);background:#0d0d0d;color:#fff;border-radius:12px;padding:9px 15px;cursor:pointer}
+.gallery-thumbs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.gallery-thumb{flex:0 0 70px;height:55px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1);cursor:pointer;background:#080808}
+.gallery-thumb.active{border-color:#d4af37}
+.gallery-thumb img,.gallery-thumb video{width:100%;height:100%;object-fit:cover}
+.media-url-list{margin-top:10px;display:grid;gap:8px}
+.media-url-row{display:flex;gap:8px}.media-url-row input{flex:1}
+.media-help{font-size:.68rem;color:#777;margin-top:7px}
+@media(max-width:700px){.gallery-modal{padding:10px}.gallery-main img,.gallery-main video{max-height:68vh}.media-url-row{flex-direction:column}}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-const SUPABASE_URL = "https://avlpogxqcbfmeoiwzbiq.supabase.co";
-const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
-</script>
 
 </head>
 <body>
@@ -3961,6 +3983,20 @@ const supabaseClient = window.supabase.createClient(
 
                     </div>
 
+                    <div class="manager-field full property-media-tools">
+                        <label>PROPERTY PHOTOS — UP TO 12</label>
+                        <input id="propertyPhotoFiles" type="file" accept="image/*" multiple onchange="previewPropertyMedia()">
+                        <div class="media-help">You can select multiple photos at once. Existing image URLs above are preserved.</div>
+                        <div class="media-preview" id="propertyPhotoPreview"></div>
+                    </div>
+
+                    <div class="manager-field full property-media-tools">
+                        <label>PROPERTY VIDEO — OPTIONAL</label>
+                        <input id="propertyVideoFile" type="file" accept="video/*" onchange="previewPropertyMedia()">
+                        <div class="media-help">For online persistence, the selected media can be uploaded to your configured Supabase Storage bucket when available.</div>
+                        <div class="media-preview" id="propertyVideoPreview"></div>
+                    </div>
+
                 </div>
 
 
@@ -4035,6 +4071,10 @@ supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
 );
+
+/* Media uses Supabase Storage only when this existing bucket is available.
+   Your existing Supabase URL, key, database and authentication are unchanged. */
+const SUPABASE_MEDIA_BUCKET = "awf-property-media";
 /* =========================================================
    BASIC
 ========================================================= */
@@ -4177,6 +4217,9 @@ JSON.parse(
     ) || "[]"
 );
 
+let galleryItems = [];
+let galleryIndex = 0;
+
 
 /* =========================================================
    SAVE DATABASE
@@ -4317,12 +4360,9 @@ function renderPublicProperties(){
 
 function propertyCardHTML(property){
 
-    const images =
-    [
-        property.image1,
-        property.image2,
-        property.image3
-    ].filter(Boolean);
+    const images = getPropertyImages(property);
+    const video = property.video || property.videoUrl || "";
+    const mediaCount = images.length + (video ? 1 : 0);
 
 
     const imageHTML =
@@ -4330,6 +4370,7 @@ function propertyCardHTML(property){
     ?
     `<img src="${escapeHTML(images[0])}"
           alt="${escapeHTML(property.name)}"
+          onclick="openGallery('${escapeJS(property.id)}')"
           onerror="this.style.display='none';">`
     :
     `
@@ -4391,6 +4432,8 @@ function propertyCardHTML(property){
                 <span class="property-type">
                     ${typeLabel(property.type)}
                 </span>
+
+                ${mediaCount ? `<span class="property-media-badge">▣ ${mediaCount} media</span>` : ""}
 
             </div>
 
@@ -4479,6 +4522,80 @@ function propertyCardHTML(property){
 
 }
 
+
+/* =========================================================
+   PROPERTY MEDIA HELPERS
+========================================================= */
+function escapeJS(value){
+    return String(value || "").replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/"/g,'\\"');
+}
+
+function getPropertyImages(property){
+    const extra = Array.isArray(property.images) ? property.images : [];
+    return [property.image1,property.image2,property.image3,...extra].filter(Boolean);
+}
+
+function previewPropertyMedia(){
+    const photoBox=document.getElementById("propertyPhotoPreview");
+    const videoBox=document.getElementById("propertyVideoPreview");
+    const photos=[...(document.getElementById("propertyPhotoFiles")?.files||[])];
+    const video=document.getElementById("propertyVideoFile")?.files?.[0];
+    photoBox.innerHTML="";
+    videoBox.innerHTML="";
+    photos.slice(0,12).forEach(file=>{
+        const url=URL.createObjectURL(file);
+        photoBox.innerHTML += `<div class="media-preview-item"><img src="${url}" alt=""><span>PHOTO</span></div>`;
+    });
+    if(video){
+        const url=URL.createObjectURL(video);
+        videoBox.innerHTML=`<div class="media-preview-item"><video src="${url}" muted></video><span>VIDEO</span></div>`;
+    }
+}
+
+async function uploadMediaFile(file, propertyId){
+    try{
+        const path=`properties/${propertyId}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,"-")}`;
+        const {data,error}=await supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+        if(error) throw error;
+        const {data:publicData}=supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).getPublicUrl(data.path);
+        return publicData.publicUrl;
+    }catch(err){
+        console.warn("Supabase media upload unavailable:",err);
+        return null;
+    }
+}
+
+function openGallery(id){
+    const property=properties.find(p=>String(p.id)===String(id));
+    if(!property) return;
+    galleryItems=getPropertyImages(property).map(url=>({type:"image",url}));
+    if(property.video || property.videoUrl) galleryItems.push({type:"video",url:property.video || property.videoUrl});
+    if(!galleryItems.length) return;
+    galleryIndex=0;
+    document.getElementById("galleryModal").classList.add("open");
+    document.body.classList.add("menu-open");
+    renderGallery();
+}
+function closeGallery(){
+    document.getElementById("galleryModal").classList.remove("open");
+    document.body.classList.remove("menu-open");
+    document.getElementById("galleryMedia").innerHTML="";
+}
+function galleryPrev(){if(!galleryItems.length)return;galleryIndex=(galleryIndex-1+galleryItems.length)%galleryItems.length;renderGallery();}
+function galleryNext(){if(!galleryItems.length)return;galleryIndex=(galleryIndex+1)%galleryItems.length;renderGallery();}
+function renderGallery(){
+    const item=galleryItems[galleryIndex];
+    document.getElementById("galleryMedia").innerHTML=item.type==="video"?`<video src="${escapeHTML(item.url)}" controls playsinline></video>`:`<img src="${escapeHTML(item.url)}" alt="Property media">`;
+    document.getElementById("galleryCounter").textContent=`${galleryIndex+1} / ${galleryItems.length}`;
+    document.getElementById("galleryThumbs").innerHTML=galleryItems.map((x,i)=>`<div class="gallery-thumb ${i===galleryIndex?'active':''}" onclick="galleryIndex=${i};renderGallery()">${x.type==='video'?`<video src="${escapeHTML(x.url)}" muted></video>`:`<img src="${escapeHTML(x.url)}" alt="">`}</div>`).join("");
+}
+
+document.addEventListener("keydown",e=>{
+    if(!document.getElementById("galleryModal")?.classList.contains("open")) return;
+    if(e.key==="Escape") closeGallery();
+    if(e.key==="ArrowLeft") galleryPrev();
+    if(e.key==="ArrowRight") galleryNext();
+});
 
 /* =========================================================
    TYPE LABEL
@@ -4833,6 +4950,15 @@ function fillPropertyForm(property){
     ).value =
     property.image3 || "";
 
+    const photoFiles=document.getElementById("propertyPhotoFiles");
+    const videoFile=document.getElementById("propertyVideoFile");
+    if(photoFiles) photoFiles.value="";
+    if(videoFile) videoFile.value="";
+    const photoPreview=document.getElementById("propertyPhotoPreview");
+    const videoPreview=document.getElementById("propertyVideoPreview");
+    if(photoPreview) photoPreview.innerHTML=getPropertyImages(property).slice(3).map(url=>`<div class="media-preview-item"><img src="${escapeHTML(url)}" alt=""><span>EXISTING</span></div>`).join("");
+    if(videoPreview && (property.video || property.videoUrl)) videoPreview.innerHTML=`<div class="media-preview-item"><video src="${escapeHTML(property.video || property.videoUrl)}" muted></video><span>EXISTING</span></div>`;
+
 }
 
 
@@ -4840,7 +4966,7 @@ function fillPropertyForm(property){
    SAVE PROPERTY
 ========================================================= */
 
-function saveProperty(){
+async function saveProperty(){
 
     const name =
     document.getElementById(
@@ -4942,10 +5068,31 @@ function saveProperty(){
             "propertyImage3"
         ).value.trim(),
 
+        images: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.images || []) : [],
+        video: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.video || "") : "",
+
         visible:true
 
     };
 
+
+    /* Upload newly selected media when the existing Supabase Storage bucket is available.
+       If Storage is not configured, the existing URL-based property system continues unchanged. */
+    const selectedPhotos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,12);
+    const selectedVideo=document.getElementById("propertyVideoFile")?.files?.[0];
+    if(selectedPhotos.length || selectedVideo){
+        const uploadId=property.id;
+        const uploadedPhotos=[];
+        for(const file of selectedPhotos){
+            const url=await uploadMediaFile(file,uploadId);
+            if(url) uploadedPhotos.push(url);
+        }
+        if(uploadedPhotos.length) property.images=[...(property.images||[]),...uploadedPhotos];
+        if(selectedVideo){
+            const videoUrl=await uploadMediaFile(selectedVideo,uploadId);
+            if(videoUrl) property.video=videoUrl;
+        }
+    }
 
     if(editingPropertyId){
 
@@ -5444,6 +5591,22 @@ document.addEventListener(
 );
 
 </script>
+
+<!-- PROPERTY GALLERY -->
+<div class="gallery-modal" id="galleryModal" onclick="if(event.target===this)closeGallery()">
+  <div class="gallery-inner">
+    <div class="gallery-main" id="galleryMain">
+      <button class="gallery-close" onclick="closeGallery()">×</button>
+      <div id="galleryMedia"></div>
+    </div>
+    <div class="gallery-nav">
+      <button onclick="galleryPrev()">← Previous</button>
+      <span id="galleryCounter" style="color:#aaa;font-size:.75rem"></span>
+      <button onclick="galleryNext()">Next →</button>
+    </div>
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+  </div>
+</div>
 
 </body>
 </html>
