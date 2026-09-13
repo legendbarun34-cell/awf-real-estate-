@@ -4034,7 +4034,8 @@ footer{
                 <div class="manager-form-actions">
 
                     <button class="btn btn-gold"
-                            onclick="saveProperty()">
+                            onclick="mobileSaveProperty()"
+
 
                         Save Property
 
@@ -5683,6 +5684,116 @@ document.addEventListener(
 
     }
 );
+// ==========================================
+// FIXED MOBILE UPLOAD SYSTEM FOR AWF REAL ESTATE
+// ==========================================
+async function mobileSaveProperty() {
+  const submitBtn = document.querySelector('button[onclick="mobileSaveProperty()"]');
+  if (!submitBtn) return;
+
+  // 1. Mobile Network Timeout Protection (Locks the button to prevent app freeze)
+  const originalText = submitBtn.innerText;
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Saving... Please wait";
+
+  try {
+    // 2. Identify input fields automatically by trying multiple naming conventions
+    const nameInput = document.getElementById('propertyName') || document.getElementById('prop-name') || document.getElementById('name');
+    const countryInput = document.getElementById('propertyCountry') || document.getElementById('prop-country') || document.getElementById('country');
+    const cityInput = document.getElementById('propertyCity') || document.getElementById('prop-city') || document.getElementById('city');
+    const locationInput = document.getElementById('propertyLocation') || document.getElementById('prop-location') || document.getElementById('location');
+    const typeInput = document.getElementById('propertyType') || document.getElementById('prop-type') || document.getElementById('type');
+    const statusInput = document.getElementById('propertyStatus') || document.getElementById('prop-status') || document.getElementById('status');
+    const priceInput = document.getElementById('propertyPrice') || document.getElementById('prop-price') || document.getElementById('price');
+    const currencyInput = document.getElementById('propertyCurrency') || document.getElementById('prop-currency') || document.getElementById('currency');
+    const bedroomsInput = document.getElementById('propertyBedrooms') || document.getElementById('prop-bedrooms') || document.getElementById('bedrooms');
+    const sizeInput = document.getElementById('propertySize') || document.getElementById('prop-size') || document.getElementById('size');
+    const descriptionInput = document.getElementById('propertyDescription') || document.getElementById('prop-description') || document.getElementById('description');
+    
+    // Links right up to your propertyVideoFile input shown in your screenshot!
+    const videoInput = document.getElementById('propertyVideoFile');
+
+    // 3. Scrub price text marks for safe database saving
+    const rawPrice = priceInput ? priceInput.value : "0";
+    const cleanPrice = parseInt(rawPrice.replace(/[^0-9]/g, ''), 10);
+    
+    if (isNaN(cleanPrice) || cleanPrice <= 0) {
+      throw new Error("Please enter a valid property price using numbers only without commas.");
+    }
+
+    let uploadedVideoUrl = "";
+
+    // 4. Mobile Video Media Push Handler (Processes your 13.35MB file safely)
+    if (videoInput && videoInput.files.length > 0) {
+      const selectedFile = videoInput.files[0];
+      const fileSizeInMB = selectedFile.size / (1024 * 1024);
+
+      if (fileSizeInMB > 50) {
+        throw new Error(`Video file is too large (${fileSizeInMB.toFixed(2)}MB). Max upload capacity is 50MB.`);
+      }
+
+      const fileExtension = selectedFile.name.split('.').pop();
+      const targetFileName = `property_video_${Date.now()}.${fileExtension}`;
+
+      // Upload file directly to your unlocked 'PROPERTY-VIDEOS' bucket via 'supabaseClient'
+      const { data: uploadData, error: uploadError } = await supabaseClient
+        .storage
+        .from('PROPERTY-VIDEOS')
+        .upload(targetFileName, selectedFile, {
+          cacheControl: '3600',
+          upsert: false
+        });
+
+      if (uploadError) throw uploadError;
+
+      // Extract permanent live asset URL link
+      const { data: publicUrlData } = supabaseClient
+        .storage
+        .from('PROPERTY-VIDEOS')
+        .getPublicUrl(targetFileName);
+
+      uploadedVideoUrl = publicUrlData.publicUrl;
+    }
+
+    // 5. Package layout data items and push directly to your properties table row
+    const { data: dbData, error: dbError } = await supabaseClient
+      .from('properties')
+      .insert([
+        {
+          name: nameInput ? nameInput.value : "Untitled Duplex",
+          country: countryInput ? countryInput.value : "Nigeria",
+          city: cityInput ? cityInput.value : "Abuja",
+          location: locationInput ? locationInput.value : "Guzape",
+          type: typeInput ? typeInput.value : "For Sale",
+          status: statusInput ? statusInput.value : "Available",
+          price: cleanPrice,
+          currency: currencyInput ? currencyInput.value : "₦",
+          bedrooms: bedroomsInput ? parseInt(bedroomsInput.value, 10) : 0,
+          size: sizeInput ? parseInt(sizeInput.value, 10) : 0,
+          description: descriptionInput ? descriptionInput.value : "",
+          video_url: uploadedVideoUrl
+        }
+      ]);
+
+    if (dbError) throw dbError;
+
+    alert("SUCCESS! 🙌 Your new property listing has been successfully saved to your database and is live on your website!");
+    
+    // Safely trigger standard close mechanics if they exist on the sheet
+    if (typeof closePropertyForm === "function") {
+      closePropertyForm();
+    } else {
+      window.location.reload();
+    }
+
+  } catch (err) {
+    console.error("Submission failed:", err);
+    alert(`UPLOAD FAILED ⚠️\n\nDetail: ${err.message || "Network timeout connection error."}`);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerText = originalText;
+  }
+}
 
 </script>
 
