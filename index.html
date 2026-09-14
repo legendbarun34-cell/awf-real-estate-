@@ -2377,6 +2377,28 @@ footer{
 .media-help{font-size:.68rem;color:#777;margin-top:7px}
 @media(max-width:700px){.gallery-modal{padding:10px}.gallery-main img,.gallery-main video{max-height:68vh}.media-url-row{flex-direction:column}}
 
+
+.property-video-play{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.45);
+    background:rgba(0,0,0,.72);
+    color:#d4af37;
+    font-size:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:5;
+    backdrop-filter:blur(4px);
+}
+.property-video-play:hover{transform:translate(-50%,-50%) scale(1.06);}
+.property-video-play-overlay{margin:0;}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -4421,6 +4443,7 @@ function propertyCardHTML(property){
     const mediaCount = images.length + videos.length;
 
 
+    const hasVideo = videos.length > 0;
     const imageHTML =
     images.length
     ?
@@ -4428,6 +4451,17 @@ function propertyCardHTML(property){
           alt="${escapeHTML(property.name)}"
           onclick="openGallery('${escapeJS(property.id)}')"
           onerror="this.style.display='none';">`
+    : hasVideo
+    ?
+    `<video class="property-card-video"
+          src="${escapeHTML(videos[0])}"
+          muted
+          playsinline
+          preload="metadata"
+          onclick="openGallery('${escapeJS(property.id)}')"
+          style="width:100%;height:100%;object-fit:cover;display:block;background:#000;cursor:pointer;">
+      </video>
+      <button type="button" class="property-video-play" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')" aria-label="Play property video">▶</button>`
     :
     `
         <div class="property-placeholder">
@@ -4488,6 +4522,8 @@ function propertyCardHTML(property){
                 <span class="property-type">
                     ${typeLabel(property.type)}
                 </span>
+
+                ${hasVideo && images.length ? `<button type="button" class="property-video-play property-video-play-overlay" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')" aria-label="Play property video">▶</button>` : ""}
 
                 ${mediaCount ? `<span class="property-media-badge">▣ ${mediaCount} media</span>` : ""}
 
@@ -4662,14 +4698,15 @@ function renderGallery(){
     const mediaBox=document.getElementById("galleryMedia");
 
     if(item.type==="video"){
-        // Stream the Supabase Storage file instead of trying to load it all at once.
+        // Stream the Supabase Storage file directly. Do not hard-code video/mp4,
+        // because the uploaded file may be MP4, WebM, MOV, or another format.
         mediaBox.innerHTML=`<video id="awfGalleryVideo"
+            src="${escapeHTML(item.url)}"
             controls
             playsinline
             preload="metadata"
             controlsList="nodownload"
             style="max-width:100%;max-height:70vh;width:100%;height:auto;display:block;border-radius:12px;background:#000;">
-            <source src="${escapeHTML(item.url)}" type="video/mp4">
             Your browser could not play this property video.
         </video>
         <div id="awfVideoStatus" style="margin-top:8px;font-size:13px;color:#aaa;text-align:center;"></div>`;
