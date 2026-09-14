@@ -2371,7 +2371,7 @@ footer{
 .gallery-thumbs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
 .gallery-thumb{flex:0 0 70px;height:55px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1);cursor:pointer;background:#080808}
 .gallery-thumb.active{border-color:#d4af37}
-.gallery-thumb img,.gallery-thumb video{width:100%;height:100%;object-fit:cover}
+.gallery-thumb img,.gallery-thumb video{width:100%;height:100%;object-fit:cover}\n.gallery-thumb .video-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#d4af37;background:#111}
 .media-url-list{margin-top:10px;display:grid;gap:8px}
 .media-url-row{display:flex;gap:8px}.media-url-row input{flex:1}
 .media-help{font-size:.68rem;color:#777;margin-top:7px}
@@ -4622,9 +4622,20 @@ function previewPropertyMedia(){
 async function uploadMediaFile(file, propertyId){
     const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
     const path=`properties/${propertyId}/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${safeName}`;
-    const {data,error}=await supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+    const contentType=file.type || (safeName.toLowerCase().endsWith(".webm") ? "video/webm" :
+        safeName.toLowerCase().endsWith(".mov") ? "video/quicktime" :
+        safeName.toLowerCase().endsWith(".m4v") ? "video/x-m4v" :
+        safeName.toLowerCase().endsWith(".mp4") ? "video/mp4" : "application/octet-stream");
+
+    const {data,error}=await supabaseClient.storage
+        .from(SUPABASE_MEDIA_BUCKET)
+        .upload(path,file,{upsert:false,contentType,cacheControl:"3600"});
     if(error) throw error;
-    const {data:publicData}=supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).getPublicUrl(data.path);
+
+    const {data:publicData}=supabaseClient.storage
+        .from(SUPABASE_MEDIA_BUCKET)
+        .getPublicUrl(data.path);
+
     return publicData.publicUrl;
 }
 
@@ -4648,9 +4659,45 @@ function galleryPrev(){if(!galleryItems.length)return;galleryIndex=(galleryIndex
 function galleryNext(){if(!galleryItems.length)return;galleryIndex=(galleryIndex+1)%galleryItems.length;renderGallery();}
 function renderGallery(){
     const item=galleryItems[galleryIndex];
-    document.getElementById("galleryMedia").innerHTML=item.type==="video"?`<video src="${escapeHTML(item.url)}" controls playsinline></video>`:`<img src="${escapeHTML(item.url)}" alt="Property media">`;
+    const mediaBox=document.getElementById("galleryMedia");
+
+    if(item.type==="video"){
+        // Stream the Supabase Storage file instead of trying to load it all at once.
+        mediaBox.innerHTML=`<video id="awfGalleryVideo"
+            controls
+            playsinline
+            preload="metadata"
+            controlsList="nodownload"
+            style="max-width:100%;max-height:70vh;width:100%;height:auto;display:block;border-radius:12px;background:#000;">
+            <source src="${escapeHTML(item.url)}" type="video/mp4">
+            Your browser could not play this property video.
+        </video>
+        <div id="awfVideoStatus" style="margin-top:8px;font-size:13px;color:#aaa;text-align:center;"></div>`;
+
+        const video=document.getElementById("awfGalleryVideo");
+        const status=document.getElementById("awfVideoStatus");
+
+        video.addEventListener("loadedmetadata",()=>{
+            if(status) status.textContent="";
+        },{once:true});
+
+        video.addEventListener("error",()=>{
+            if(status) status.textContent="This video could not be played. Please check the video format or Storage access.";
+        },{once:true});
+    }else{
+        mediaBox.innerHTML=`<img src="${escapeHTML(item.url)}" alt="Property media" loading="eager" style="max-width:100%;max-height:70vh;width:auto;height:auto;display:block;margin:auto;border-radius:12px;">`;
+    }
+
     document.getElementById("galleryCounter").textContent=`${galleryIndex+1} / ${galleryItems.length}`;
-    document.getElementById("galleryThumbs").innerHTML=galleryItems.map((x,i)=>`<div class="gallery-thumb ${i===galleryIndex?'active':''}" onclick="galleryIndex=${i};renderGallery()">${x.type==='video'?`<video src="${escapeHTML(x.url)}" muted></video>`:`<img src="${escapeHTML(x.url)}" alt="">`}</div>`).join("");
+
+    // Do not load every video thumbnail at once. This prevents large videos
+    // from being downloaded repeatedly just to render the thumbnail strip.
+    document.getElementById("galleryThumbs").innerHTML=galleryItems.map((x,i)=>{
+        const thumb=x.type==="video"
+            ? `<div class="video-thumb-placeholder" aria-label="Property video">▶</div>`
+            : `<img src="${escapeHTML(x.url)}" alt="" loading="lazy">`;
+        return `<div class="gallery-thumb ${i===galleryIndex?'active':''}" onclick="galleryIndex=${i};renderGallery()">${thumb}</div>`;
+    }).join("");
 }
 
 document.addEventListener("keydown",e=>{
@@ -5020,7 +5067,7 @@ function fillPropertyForm(property){
     const photoPreview=document.getElementById("propertyPhotoPreview");
     const videoPreview=document.getElementById("propertyVideoPreview");
     if(photoPreview) photoPreview.innerHTML=getPropertyImages(property).slice(3).map(url=>`<div class="media-preview-item"><img src="${escapeHTML(url)}" alt=""><span>EXISTING</span></div>`).join("");
-    if(videoPreview && (property.video || property.videoUrl)) videoPreview.innerHTML=`<div class="media-preview-item"><video src="${escapeHTML(property.video || property.videoUrl)}" muted></video><span>EXISTING</span></div>`;
+    if(videoPreview && (property.video || property.videoUrl)) videoPreview.innerHTML=`<div class="media-preview-item"><video src="${escapeHTML(property.video || property.videoUrl)}" muted preload="metadata" playsinline></video><span>EXISTING</span></div>`;
 
 }
 
