@@ -4015,16 +4015,16 @@ footer{
                     </div>
 
                     <div class="manager-field full property-media-tools">
-                        <label>PROPERTY PHOTOS — UP TO 12</label>
+                        <label>PROPERTY PHOTOS — UP TO 30</label>
                         <input id="propertyPhotoFiles" type="file" accept="image/*" multiple onchange="previewPropertyMedia()">
                         <div class="media-help">You can select multiple photos at once. Existing image URLs above are preserved.</div>
                         <div class="media-preview" id="propertyPhotoPreview"></div>
                     </div>
 
                     <div class="manager-field full property-media-tools">
-                        <label>PROPERTY VIDEO — OPTIONAL</label>
-                        <input id="propertyVideoFile" type="file" accept="video/*" onchange="previewPropertyMedia()">
-                        <div class="media-help">For online persistence, the selected media can be uploaded to your configured Supabase Storage bucket when available.</div>
+                        <label>PROPERTY VIDEOS — UP TO 3</label>
+                        <input id="propertyVideoFiles" type="file" accept="video/*" multiple onchange="previewPropertyMedia()">
+                        <div class="media-help">Select up to 3 videos. Photos and videos are uploaded to your AWF Supabase media bucket for online access when Storage is configured.</div>
                         <div class="media-preview" id="propertyVideoPreview"></div>
                     </div>
 
@@ -4034,8 +4034,7 @@ footer{
                 <div class="manager-form-actions">
 
                     <button class="btn btn-gold"
-                            onclick="mobileSaveProperty()"
-
+                            onclick="saveProperty()">
 
                         Save Property
 
@@ -4265,6 +4264,7 @@ let galleryIndex = 0;
             type: row.type || row.property_type || '',
             status: row.status || row.listing_type || '',
             video: row.video || row.video_url || '',
+            videos: Array.isArray(row.videos) ? row.videos : [],
             images: Array.isArray(row.images) ? row.images : []
         }));
         saveDatabase();
@@ -4417,8 +4417,8 @@ function renderPublicProperties(){
 function propertyCardHTML(property){
 
     const images = getPropertyImages(property);
-    const video = property.video || property.videoUrl || "";
-    const mediaCount = images.length + (video ? 1 : 0);
+    const videos = getPropertyVideos(property);
+    const mediaCount = images.length + videos.length;
 
 
     const imageHTML =
@@ -4591,41 +4591,48 @@ function getPropertyImages(property){
     return [property.image1,property.image2,property.image3,...extra].filter(Boolean);
 }
 
+function getPropertyVideos(property){
+    if(Array.isArray(property.videos) && property.videos.length) return property.videos.filter(Boolean);
+    const raw = property.video || property.video_url || property.videoUrl || "";
+    if(!raw) return [];
+    try{
+        const parsed = JSON.parse(raw);
+        if(Array.isArray(parsed)) return parsed.filter(Boolean);
+    }catch(e){}
+    return [raw].filter(Boolean);
+}
+
 function previewPropertyMedia(){
     const photoBox=document.getElementById("propertyPhotoPreview");
     const videoBox=document.getElementById("propertyVideoPreview");
-    const photos=[...(document.getElementById("propertyPhotoFiles")?.files||[])];
-    const video=document.getElementById("propertyVideoFile")?.files?.[0];
+    const photos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,30);
+    const videos=[...(document.getElementById("propertyVideoFiles")?.files||[])].slice(0,3);
     photoBox.innerHTML="";
     videoBox.innerHTML="";
-    photos.slice(0,12).forEach(file=>{
+    photos.forEach(file=>{
         const url=URL.createObjectURL(file);
         photoBox.innerHTML += `<div class="media-preview-item"><img src="${url}" alt=""><span>PHOTO</span></div>`;
     });
-    if(video){
-        const url=URL.createObjectURL(video);
-        videoBox.innerHTML=`<div class="media-preview-item"><video src="${url}" muted></video><span>VIDEO</span></div>`;
-    }
+    videos.forEach(file=>{
+        const url=URL.createObjectURL(file);
+        videoBox.innerHTML += `<div class="media-preview-item"><video src="${url}" muted></video><span>VIDEO</span></div>`;
+    });
 }
 
 async function uploadMediaFile(file, propertyId){
-    try{
-        const path=`properties/${propertyId}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,"-")}`;
-        const {data,error}=await supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
-        if(error) throw error;
-        const {data:publicData}=supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).getPublicUrl(data.path);
-        return publicData.publicUrl;
-    }catch(err){
-        console.warn("Supabase media upload unavailable:",err);
-        return null;
-    }
+    const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
+    const path=`properties/${propertyId}/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${safeName}`;
+    const {data,error}=await supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+    if(error) throw error;
+    const {data:publicData}=supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).getPublicUrl(data.path);
+    return publicData.publicUrl;
 }
 
 function openGallery(id){
     const property=properties.find(p=>String(p.id)===String(id));
     if(!property) return;
     galleryItems=getPropertyImages(property).map(url=>({type:"image",url}));
-    if(property.video || property.videoUrl) galleryItems.push({type:"video",url:property.video || property.videoUrl});
+    getPropertyVideos(property).forEach(url=>galleryItems.push({type:"video",url}));
     if(!galleryItems.length) return;
     galleryIndex=0;
     document.getElementById("galleryModal").classList.add("open");
@@ -5007,7 +5014,7 @@ function fillPropertyForm(property){
     property.image3 || "";
 
     const photoFiles=document.getElementById("propertyPhotoFiles");
-    const videoFile=document.getElementById("propertyVideoFile");
+    const videoFile=document.getElementById("propertyVideoFiles");
     if(photoFiles) photoFiles.value="";
     if(videoFile) videoFile.value="";
     const photoPreview=document.getElementById("propertyPhotoPreview");
@@ -5023,201 +5030,111 @@ function fillPropertyForm(property){
 ========================================================= */
 
 async function saveProperty(){
+    const name=document.getElementById("propertyName").value.trim();
+    if(!name){ alert("Please enter a property name."); return; }
 
-    const name =
-    document.getElementById(
-        "propertyName"
-    ).value.trim();
-
-
-    if(!name){
-
-        alert(
-            "Please enter a property name."
-        );
-
-        return;
-
-    }
-
-
-    const property = {
-
-        id:
-        editingPropertyId ||
-        Date.now().toString(),
-
+    const existing=editingPropertyId ? properties.find(p=>String(p.id)===String(editingPropertyId)) : null;
+    const property={
+        id: editingPropertyId || Date.now().toString(),
         name,
-
-        country:
-        document.getElementById(
-            "propertyCountry"
-        ).value.trim(),
-
-        city:
-        document.getElementById(
-            "propertyCity"
-        ).value.trim(),
-
-        location:
-        document.getElementById(
-            "propertyLocation"
-        ).value.trim(),
-
-        type:
-        document.getElementById(
-            "propertyType"
-        ).value,
-
-        status:
-        document.getElementById(
-            "propertyStatus"
-        ).value,
-
-        price:
-        document.getElementById(
-            "propertyPrice"
-        ).value.trim(),
-
-        currency:
-        document.getElementById(
-            "propertyCurrency"
-        ).value,
-
-        bedrooms:
-        document.getElementById(
-            "propertyBedrooms"
-        ).value,
-
-        bathrooms:
-        document.getElementById(
-            "propertyBathrooms"
-        ).value,
-
-        size:
-        document.getElementById(
-            "propertySize"
-        ).value.trim(),
-
-        featured:
-        document.getElementById(
-            "propertyFeatured"
-        ).value === "true",
-
-        description:
-        document.getElementById(
-            "propertyDescription"
-        ).value.trim(),
-
-        image1:
-        document.getElementById(
-            "propertyImage1"
-        ).value.trim(),
-
-        image2:
-        document.getElementById(
-            "propertyImage2"
-        ).value.trim(),
-
-        image3:
-        document.getElementById(
-            "propertyImage3"
-        ).value.trim(),
-
-        images: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.images || []) : [],
-        video: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.video || "") : "",
-
-        visible:true
-
+        country:document.getElementById("propertyCountry").value.trim(),
+        city:document.getElementById("propertyCity").value.trim(),
+        location:document.getElementById("propertyLocation").value.trim(),
+        type:document.getElementById("propertyType").value,
+        status:document.getElementById("propertyStatus").value,
+        price:document.getElementById("propertyPrice").value.trim(),
+        currency:document.getElementById("propertyCurrency").value,
+        bedrooms:document.getElementById("propertyBedrooms").value,
+        bathrooms:document.getElementById("propertyBathrooms").value,
+        size:document.getElementById("propertySize").value.trim(),
+        featured:document.getElementById("propertyFeatured").value === "true",
+        description:document.getElementById("propertyDescription").value.trim(),
+        image1:document.getElementById("propertyImage1").value.trim(),
+        image2:document.getElementById("propertyImage2").value.trim(),
+        image3:document.getElementById("propertyImage3").value.trim(),
+        images: existing && Array.isArray(existing.images) ? [...existing.images] : [],
+        videos: existing ? getPropertyVideos(existing) : [],
+        visible: existing ? existing.visible !== false : true
     };
 
+    const selectedPhotos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,30);
+    const selectedVideos=[...(document.getElementById("propertyVideoFiles")?.files||[])].slice(0,3);
 
-    /* Upload newly selected media when the existing Supabase Storage bucket is available.
-       If Storage is not configured, the existing URL-based property system continues unchanged. */
-    const selectedPhotos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,12);
-    const selectedVideo=document.getElementById("propertyVideoFile")?.files?.[0];
-    if(selectedPhotos.length || selectedVideo){
-        const uploadId=property.id;
+    if(selectedPhotos.length>30 || selectedVideos.length>3){
+        alert("You can upload up to 30 photos and 3 videos per property.");
+        return;
+    }
+
+    try{
         const uploadedPhotos=[];
         for(const file of selectedPhotos){
-            const url=await uploadMediaFile(file,uploadId);
+            const url=await uploadMediaFile(file,property.id);
             if(url) uploadedPhotos.push(url);
         }
-        if(uploadedPhotos.length) property.images=[...(property.images||[]),...uploadedPhotos];
-        if(selectedVideo){
-            const videoUrl=await uploadMediaFile(selectedVideo,uploadId);
-            if(videoUrl) property.video=videoUrl;
+        if(uploadedPhotos.length) property.images=[...property.images,...uploadedPhotos];
+
+        const uploadedVideos=[];
+        for(const file of selectedVideos){
+            const url=await uploadMediaFile(file,property.id);
+            if(url) uploadedVideos.push(url);
         }
+        if(uploadedVideos.length) property.videos=[...property.videos,...uploadedVideos];
+    }catch(mediaError){
+        console.error("Property media upload failed:",mediaError);
+        alert("Media upload failed. Check that the Supabase Storage bucket 'awf-property-media' exists and allows your manager account to upload, then try again.\n\n"+ (mediaError.message || mediaError));
+        return;
     }
+
+    property.video=property.videos.length>1 ? JSON.stringify(property.videos) : (property.videos[0] || "");
 
     if(editingPropertyId){
-
-        properties =
-        properties.map(item=>
-            item.id === editingPropertyId
-            ? property
-            : item
-        );
-
+        properties=properties.map(item=>String(item.id)===String(editingPropertyId)?property:item);
+    }else{
+        properties.unshift(property);
     }
-    else{
-
-        properties.unshift(
-            property
-        );
-
-    }
-
-
     saveDatabase();
 
-    // Save the listing to Supabase so it is available on every device.
-    // The local copy above remains as a fallback if Supabase is unavailable.
-    try {
-        if (supabaseClient) {
-            const dbProperty = {
-                id: property.id,
-                title: property.name,
-                name: property.name,
-                description: property.description,
-                location: property.location,
-                city: property.city,
-                country: property.country,
-                price: property.price,
-                property_type: property.type,
-                type: property.type,
-                listing_type: property.status,
-                status: property.status,
-                currency: property.currency,
-                bedrooms: property.bedrooms,
-                bathrooms: property.bathrooms,
-                size: property.size,
-                featured: property.featured,
-                image1: property.image1,
-                image2: property.image2,
-                image3: property.image3,
-                images: property.images || [],
-                video_url: property.video || '',
-                video: property.video || '',
-                visible: property.visible
-            };
-            const { error: dbError } = await supabaseClient
-                .from('properties')
-                .upsert(dbProperty, { onConflict: 'id' });
-            if (dbError) console.warn('Supabase listing save failed:', dbError.message);
-        }
-    } catch (dbSaveError) {
-        console.warn('Supabase listing save failed:', dbSaveError);
+    try{
+        const dbProperty={
+            id:property.id,
+            title:property.name,
+            name:property.name,
+            description:property.description,
+            location:property.location,
+            city:property.city,
+            country:property.country,
+            price:property.price,
+            property_type:property.type,
+            type:property.type,
+            listing_type:property.status,
+            status:property.status,
+            currency:property.currency,
+            bedrooms:property.bedrooms,
+            bathrooms:property.bathrooms,
+            size:property.size,
+            featured:property.featured,
+            image1:property.image1,
+            image2:property.image2,
+            image3:property.image3,
+            images:property.images || [],
+            video_url:property.video || "",
+            video:property.video || "",
+            visible:property.visible
+        };
+        const {error:dbError}=await supabaseClient.from("properties").upsert(dbProperty,{onConflict:"id"});
+        if(dbError) throw dbError;
+        closePropertyForm();
+        renderManagerProperties();
+        renderPublicProperties();
+        updateStats();
+        alert("Property saved successfully and synced to AWF online listings.");
+    }catch(dbSaveError){
+        console.error("Supabase listing save failed:",dbSaveError);
+        renderManagerProperties();
+        renderPublicProperties();
+        updateStats();
+        alert("The property was saved on this device, but online sync failed.\n\n"+(dbSaveError.message || dbSaveError)+"\n\nYour Supabase properties table/RLS may need to be checked.");
     }
-
-    closePropertyForm();
-
-    renderManagerProperties();
-
-    renderPublicProperties();
-
-    updateStats();
-
 }
 
 
@@ -5684,117 +5601,6 @@ document.addEventListener(
 
     }
 );
-// ==========================================
-// FIXED MOBILE UPLOAD SYSTEM FOR AWF REAL ESTATE
-// ==========================================
-async function saveProperty() {
-
-  const submitBtn = document.querySelector('button[onclick="mobileSaveProperty()"]');
-  if (!submitBtn) return;
-
-  // 1. Mobile Network Timeout Protection (Locks the button to prevent app freeze)
-  const originalText = submitBtn.innerText;
-  submitBtn.disabled = true;
-  submitBtn.innerText = "Saving... Please wait";
-
-  try {
-    // 2. Identify input fields automatically by trying multiple naming conventions
-    const nameInput = document.getElementById('propertyName') || document.getElementById('prop-name') || document.getElementById('name');
-    const countryInput = document.getElementById('propertyCountry') || document.getElementById('prop-country') || document.getElementById('country');
-    const cityInput = document.getElementById('propertyCity') || document.getElementById('prop-city') || document.getElementById('city');
-    const locationInput = document.getElementById('propertyLocation') || document.getElementById('prop-location') || document.getElementById('location');
-    const typeInput = document.getElementById('propertyType') || document.getElementById('prop-type') || document.getElementById('type');
-    const statusInput = document.getElementById('propertyStatus') || document.getElementById('prop-status') || document.getElementById('status');
-    const priceInput = document.getElementById('propertyPrice') || document.getElementById('prop-price') || document.getElementById('price');
-    const currencyInput = document.getElementById('propertyCurrency') || document.getElementById('prop-currency') || document.getElementById('currency');
-    const bedroomsInput = document.getElementById('propertyBedrooms') || document.getElementById('prop-bedrooms') || document.getElementById('bedrooms');
-    const sizeInput = document.getElementById('propertySize') || document.getElementById('prop-size') || document.getElementById('size');
-    const descriptionInput = document.getElementById('propertyDescription') || document.getElementById('prop-description') || document.getElementById('description');
-    
-    // Links right up to your propertyVideoFile input shown in your screenshot!
-    const videoInput = document.getElementById('propertyVideoFile');
-
-    // 3. Scrub price text marks for safe database saving
-    const rawPrice = priceInput ? priceInput.value : "0";
-    const cleanPrice = parseInt(rawPrice.replace(/[^0-9]/g, ''), 10);
-    
-    if (isNaN(cleanPrice) || cleanPrice <= 0) {
-      throw new Error("Please enter a valid property price using numbers only without commas.");
-    }
-
-    let uploadedVideoUrl = "";
-
-    // 4. Mobile Video Media Push Handler (Processes your 13.35MB file safely)
-    if (videoInput && videoInput.files.length > 0) {
-      const selectedFile = videoInput.files[0];
-      const fileSizeInMB = selectedFile.size / (1024 * 1024);
-
-      if (fileSizeInMB > 50) {
-        throw new Error(`Video file is too large (${fileSizeInMB.toFixed(2)}MB). Max upload capacity is 50MB.`);
-      }
-
-      const fileExtension = selectedFile.name.split('.').pop();
-      const targetFileName = `property_video_${Date.now()}.${fileExtension}`;
-
-      // Upload file directly to your unlocked 'PROPERTY-VIDEOS' bucket via 'supabaseClient'
-      const { data: uploadData, error: uploadError } = await supabaseClient
-        .storage
-        .from('PROPERTY-VIDEOS')
-        .upload(targetFileName, selectedFile, {
-          cacheControl: '3600',
-          upsert: false
-        });
-
-      if (uploadError) throw uploadError;
-
-      // Extract permanent live asset URL link
-      const { data: publicUrlData } = supabaseClient
-        .storage
-        .from('PROPERTY-VIDEOS')
-        .getPublicUrl(targetFileName);
-
-      uploadedVideoUrl = publicUrlData.publicUrl;
-    }
-
-    // 5. Package layout data items and push directly to your properties table row
-    const { data: dbData, error: dbError } = await supabaseClient
-      .from('properties')
-      .insert([
-        {
-          name: nameInput ? nameInput.value : "Untitled Duplex",
-          country: countryInput ? countryInput.value : "Nigeria",
-          city: cityInput ? cityInput.value : "Abuja",
-          location: locationInput ? locationInput.value : "Guzape",
-          type: typeInput ? typeInput.value : "For Sale",
-          status: statusInput ? statusInput.value : "Available",
-          price: cleanPrice,
-          currency: currencyInput ? currencyInput.value : "₦",
-          bedrooms: bedroomsInput ? parseInt(bedroomsInput.value, 10) : 0,
-          size: sizeInput ? parseInt(sizeInput.value, 10) : 0,
-          description: descriptionInput ? descriptionInput.value : "",
-          video_url: uploadedVideoUrl
-        }
-      ]);
-
-    if (dbError) throw dbError;
-
-    alert("SUCCESS! 🙌 Your new property listing has been successfully saved to your database and is live on your website!");
-    
-    // Safely trigger standard close mechanics if they exist on the sheet
-    if (typeof closePropertyForm === "function") {
-      closePropertyForm();
-    } else {
-      window.location.reload();
-    }
-
-  } catch (err) {
-    console.error("Submission failed:", err);
-    alert(`UPLOAD FAILED ⚠️\n\nDetail: ${err.message || "Network timeout connection error."}`);
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.innerText = originalText;
-  }
-}
 
 </script>
 
