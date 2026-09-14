@@ -4105,7 +4105,7 @@ supabase.createClient(
 
 /* Media uses Supabase Storage only when this existing bucket is available.
    Your existing Supabase URL, key, database and authentication are unchanged. */
-const SUPABASE_MEDIA_BUCKET = "awf-property-media";
+const SUPABASE_MEDIA_BUCKET = "property-videos";
 /* =========================================================
    BASIC
 ========================================================= */
@@ -5081,7 +5081,7 @@ async function saveProperty(){
         if(uploadedVideos.length) property.videos=[...property.videos,...uploadedVideos];
     }catch(mediaError){
         console.error("Property media upload failed:",mediaError);
-        alert("Media upload failed. Check that the Supabase Storage bucket 'awf-property-media' exists and allows your manager account to upload, then try again.\n\n"+ (mediaError.message || mediaError));
+        alert("Media upload failed. Check that the Supabase Storage bucket 'property-videos' exists and allows your manager account to upload, then try again.\n\n"+ (mediaError.message || mediaError));
         return;
     }
 
