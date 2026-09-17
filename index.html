@@ -9,8 +9,8 @@
 
 <meta name="theme-color" content="#050505">
 
-<link rel="icon" type="image/png" href="awf-logo-new.png">
-<link rel="apple-touch-icon" href="awf-logo-new.png">
+<link rel="icon" type="image/png" href="awf-logo-transparent.png">
+<link rel="apple-touch-icon" href="awf-logo-transparent.png">
 
 <meta name="description"
 content="AWF Real Estate — premium real estate, property sales, rentals and investment opportunities in Nigeria and selected international markets.">
@@ -2522,78 +2522,108 @@ footer{
 </style>
 
 
-<style id="awf-elite-upgrade-css">
-/* =========================================================
-   AWF ELITE 2026 — PREMIUM MARKETPLACE LAYER
-   Additive styles only. Existing AWF classes/functions remain.
-========================================================= */
-:root{
-  --awf-gold:#d4af37;
-  --awf-gold-light:#f4d76b;
-  --awf-bg:#070706;
-  --awf-panel:#10100d;
-  --awf-white:#f8f6ef;
-  --awf-muted:#96938a;
-  --awf-line:rgba(212,175,55,.18);
+<style id="awf-v5-direction-css">
+:root{--awf-gold:#D4AF37;--awf-gold2:#f4d77a;--awf-black:#050505;--awf-panel:#0b0b0b;--awf-line:rgba(212,175,55,.22)}
+body{background:#050505;color:#f7f5ef}
+/* V5 visual direction */
+.navbar{max-width:1400px!important;padding:14px 28px!important;height:82px!important}
+.logo-wrap img{width:210px!important;max-height:72px!important;object-fit:contain}
+.awf-account-button{order:3!important}
+@media(min-width:901px){
+ .navbar{display:grid!important;grid-template-columns:240px 1fr 240px!important;align-items:center!important}
+ .logo-wrap{grid-column:1!important;justify-self:start!important;position:static!important}
+ .awf-desktop-links{grid-column:2!important;display:flex!important;justify-content:center!important;gap:30px!important}
+ .awf-desktop-links a{color:#eee;text-decoration:none;font-size:.78rem;font-weight:700;transition:.2s}
+ .awf-desktop-links a:hover{color:var(--awf-gold2)}
+ .awf-account-button{grid-column:3!important;justify-self:end!important}
+ .menu-button{display:none!important}
 }
-.awf-elite-container{width:min(1180px,92%);margin:0 auto}
-.awf-elite-discovery{position:relative;padding:38px 0 92px;background:linear-gradient(180deg,#070706 0%,#0d0c09 100%)}
-.awf-elite-discovery-card{padding:32px;border:1px solid var(--awf-line);border-radius:30px;background:linear-gradient(145deg,rgba(212,175,55,.09),rgba(255,255,255,.025));box-shadow:0 35px 100px rgba(0,0,0,.35)}
-.awf-elite-kicker{font-size:.68rem;letter-spacing:2.5px;font-weight:900;color:var(--awf-gold);text-transform:uppercase}
-.awf-elite-discovery h2,.awf-elite-section-head h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.02;margin:10px 0 12px;color:var(--awf-white);letter-spacing:-1.5px}
-.awf-elite-discovery h2 span,.awf-elite-section-head h2 span,.awf-elite-diaspora h2 span,.awf-elite-listing-card h2 span{color:var(--awf-gold)}
-.awf-elite-lead{max-width:760px;color:#aaa69d;line-height:1.75;font-size:.92rem}
-.awf-elite-intents{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 14px}
-.awf-elite-intent{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#bbb7ad;padding:10px 15px;border-radius:999px;font-weight:800;cursor:pointer}
-.awf-elite-intent.active,.awf-elite-intent:hover{background:var(--awf-gold);border-color:var(--awf-gold);color:#080806}
-.awf-elite-searchbox{display:grid;grid-template-columns:2fr 1.2fr 1.1fr .8fr 1fr auto;gap:9px;align-items:end;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:#080806}
-.awf-elite-field label,.awf-elite-tool label{display:block;color:#8f8b82;font-size:.63rem;font-weight:800;margin:0 0 6px}
-.awf-elite-field input,.awf-elite-field select,.awf-elite-tool input{width:100%;box-sizing:border-box;padding:13px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.09);background:#11110e;color:#fff;outline:none}
-.awf-elite-field input:focus,.awf-elite-field select:focus,.awf-elite-tool input:focus{border-color:rgba(212,175,55,.7)}
-.awf-elite-search-btn{min-height:48px;border:0;border-radius:13px;background:linear-gradient(135deg,var(--awf-gold-light),var(--awf-gold));color:#080806;font-weight:900;padding:0 18px;cursor:pointer;white-space:nowrap}
-.awf-elite-search-btn:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(212,175,55,.2)}
-.awf-elite-search-note{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px;color:#77746c;font-size:.68rem}
-.awf-elite-search-note span:first-child{color:#27d47d}
-.awf-elite-quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
-.awf-elite-quick{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:11px;text-align:left;padding:15px;border:1px solid rgba(255,255,255,.07);border-radius:17px;background:rgba(255,255,255,.025);color:#fff;cursor:pointer}
-.awf-elite-quick:hover{border-color:var(--awf-line);background:rgba(212,175,55,.05);transform:translateY(-2px)}
-.awf-elite-quick-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--awf-line);color:var(--awf-gold)}
-.awf-elite-quick b{display:block;font-size:.78rem}.awf-elite-quick small{display:block;color:#77746c;margin-top:3px;font-size:.64rem}.awf-elite-quick>span:last-child{color:var(--awf-gold)}
-.awf-elite-trust{padding:95px 0;background:#080806}
-.awf-elite-section-head{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:35px}
-.awf-elite-section-head>p{max-width:480px;color:#858178;line-height:1.8;font-size:.82rem}
-.awf-elite-trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.awf-elite-trust-card{min-height:190px;padding:22px;border:1px solid rgba(255,255,255,.07);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.01))}
-.awf-elite-step{color:var(--awf-gold);font-family:Georgia,serif;font-size:1.7rem}.awf-elite-trust-card h3{font-size:.8rem;margin:18px 0 8px}.awf-elite-trust-card p{color:#817e76;font-size:.72rem;line-height:1.65}
-.awf-elite-journey{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin:30px 0 0;padding:16px;border:1px solid rgba(212,175,55,.12);border-radius:18px;color:#aaa69d;font-size:.67rem}
-.awf-elite-journey i{color:var(--awf-gold);font-style:normal}.awf-elite-disclaimer{color:#626058;font-size:.62rem;line-height:1.6;margin:14px auto 0;max-width:900px;text-align:center}
-.awf-elite-ecosystem{padding:95px 0;background:linear-gradient(180deg,#0a0a08,#10100c)}
-.awf-elite-ecosystem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.awf-elite-eco-card{position:relative;min-height:145px;padding:24px;border:1px solid rgba(255,255,255,.07);border-radius:22px;background:rgba(255,255,255,.025);color:#fff;text-decoration:none;transition:.3s}
-.awf-elite-eco-card:hover{transform:translateY(-4px);border-color:var(--awf-line);background:rgba(212,175,55,.05)}
-.awf-elite-eco-card span{display:block;color:#6e6a62;font-size:.62rem;margin-bottom:20px}.awf-elite-eco-card strong{display:block;font-family:Georgia,serif;font-size:1.25rem}.awf-elite-eco-card small{display:block;color:#7f7b73;margin-top:7px;font-size:.68rem}.awf-elite-eco-card b{position:absolute;right:20px;bottom:18px;color:var(--awf-gold)}
-.awf-elite-tools{padding:95px 0;background:#080806}
-.awf-elite-tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.awf-elite-tool{padding:24px;border:1px solid rgba(255,255,255,.07);border-radius:22px;background:rgba(255,255,255,.025)}
-.awf-elite-tool-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:18px;color:var(--awf-gold);font-weight:900;font-size:.72rem;letter-spacing:1.5px}.awf-elite-tool-title small{color:#66625b;font-size:.6rem;letter-spacing:0}
-.awf-elite-tool-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.awf-elite-tool-btn{margin-top:12px;min-height:45px;border-radius:11px;border:1px solid var(--awf-line);background:rgba(212,175,55,.08);color:#fff;font-weight:800;padding:0 16px;cursor:pointer}.awf-elite-tool-btn:hover{background:var(--awf-gold);color:#080806}
-.awf-elite-tool-result{margin-top:12px;padding:13px;border-radius:12px;background:#090908;border:1px solid rgba(255,255,255,.06);color:#aaa69d;font-size:.72rem;min-height:18px}
-.awf-elite-diaspora{padding:35px 0 95px;background:#080806}
-.awf-elite-diaspora-card,.awf-elite-listing-card{display:flex;align-items:center;justify-content:space-between;gap:35px;padding:34px;border-radius:28px;border:1px solid var(--awf-line);background:radial-gradient(circle at 85% 30%,rgba(212,175,55,.14),transparent 35%),linear-gradient(145deg,#16140d,#090908)}
-.awf-elite-diaspora h2,.awf-elite-listing-card h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:10px 0}.awf-elite-diaspora p,.awf-elite-listing-card p{max-width:650px;color:#88847b;font-size:.8rem;line-height:1.75}.awf-elite-diaspora-actions,.awf-elite-listing-actions{display:flex;gap:9px;flex-wrap:wrap}
-.awf-elite-white-btn,.awf-elite-dark-btn,.awf-elite-gold-btn,.awf-elite-outline-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 17px;border-radius:12px;text-decoration:none;font-weight:900;font-size:.7rem;cursor:pointer}
-.awf-elite-white-btn,.awf-elite-gold-btn{background:linear-gradient(135deg,var(--awf-gold-light),var(--awf-gold));color:#080806;border:0}.awf-elite-dark-btn,.awf-elite-outline-btn{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);color:#fff}.awf-elite-listing-cta{padding:0 0 95px;background:#080806}.awf-elite-listing-card{background:linear-gradient(145deg,#11110d,#080807)}
-@media(max-width:1050px){
-  .awf-elite-searchbox{grid-template-columns:repeat(3,1fr)}.awf-elite-field-wide{grid-column:span 3}.awf-elite-search-btn{min-height:47px}.awf-elite-trust-grid{grid-template-columns:repeat(2,1fr)}
+.awf-v5-hero{position:relative;min-height:720px;display:flex;align-items:flex-end;overflow:hidden;background:#050505;border-bottom:1px solid var(--awf-line)}
+.awf-v5-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.92);transform:scale(1.02);transition:background-image .5s ease}
+.awf-v5-hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.58) 42%,rgba(0,0,0,.25) 75%,rgba(0,0,0,.62) 100%),linear-gradient(0deg,rgba(0,0,0,.86),transparent 45%)}
+.awf-v5-hero-inner{position:relative;z-index:2;width:min(1400px,calc(100% - 48px));margin:0 auto;padding:110px 0 44px}
+.awf-v5-copy{max-width:760px}
+.awf-v5-eyebrow{display:inline-flex;padding:8px 13px;border:1px solid rgba(212,175,55,.4);border-radius:999px;background:rgba(0,0,0,.35);color:var(--awf-gold2);font-size:.67rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.awf-v5-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3rem,6vw,6rem);line-height:.96;margin:0 0 18px;letter-spacing:-2px}
+.awf-v5-title span{display:block;color:var(--awf-gold2);font-style:italic}
+.awf-v5-sub{font-size:1rem;line-height:1.65;color:#eee;max-width:650px;margin:0 0 28px}
+.awf-v5-search{display:grid;grid-template-columns:1.35fr 1fr 1fr auto;gap:0;max-width:950px;background:#fff;border:1px solid rgba(255,255,255,.45);border-radius:16px;padding:6px;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden}
+.awf-v5-search .marketplace-input,.awf-v5-search .marketplace-select{height:54px;background:#fff!important;color:#161616!important;border:0!important;border-right:1px solid #ddd!important;border-radius:0!important;padding:0 16px!important;font-size:.8rem!important;min-width:0}
+.awf-v5-search .marketplace-input::placeholder{color:#777}
+.awf-v5-search .marketplace-select{appearance:auto}
+.awf-v5-search-btn{height:54px;border:0;border-radius:12px;background:linear-gradient(135deg,#f4d77a,#c79620);color:#070707;font-weight:900;padding:0 28px;cursor:pointer}
+.awf-v5-categories{display:grid;grid-template-columns:repeat(5,minmax(110px,1fr));gap:12px;max-width:850px;margin-top:16px}
+.awf-v5-cat{border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.65);backdrop-filter:blur(10px);border-radius:14px;color:#fff;padding:15px 10px;text-align:center;cursor:pointer;font-weight:800;font-size:.75rem;transition:.2s}
+.awf-v5-cat span{display:block;color:var(--awf-gold2);font-size:1.25rem;margin-bottom:6px}
+.awf-v5-cat:hover,.awf-v5-cat.active{border-color:var(--awf-gold);transform:translateY(-2px);background:rgba(212,175,55,.08)}
+.awf-v5-trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#ddd;font-size:.7rem}
+.awf-v5-trust b{color:var(--awf-gold2);margin-right:5px}
+.properties-head .section-title{margin-bottom:0}
+.marketplace-v2.awf-v5-tools{margin-top:18px}
+.awf-v5-property-head-tools{display:flex;gap:9px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+/* property cards */
+.property-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important}
+.property-card{background:#0a0a0a!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:18px!important;overflow:hidden!important;box-shadow:0 18px 45px rgba(0,0,0,.35)!important;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease!important}
+.property-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.5)!important;box-shadow:0 28px 60px rgba(0,0,0,.5)!important}
+.property-image{height:235px!important;border-radius:0!important;background:#111!important;position:relative!important;overflow:hidden!important}
+.property-image img,.property-image video{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important;transition:transform .45s ease}
+.property-card:hover .property-image img{transform:scale(1.045)}
+.property-status,.property-type{display:none!important}
+.awf-verification-badge{left:12px!important;top:12px!important;background:#f4d77a!important;color:#090909!important;border:0!important;border-radius:999px!important;padding:6px 9px!important;font-size:.62rem!important;font-weight:900!important}
+.property-card-tools{right:10px!important;top:10px!important}
+.property-card-tool{width:36px!important;height:36px!important;border-radius:50%!important;background:rgba(0,0,0,.68)!important;border:1px solid rgba(255,255,255,.25)!important;color:#fff!important;backdrop-filter:blur(8px)}
+.property-card-tool.active{color:var(--awf-gold2)!important;border-color:var(--awf-gold)!important}
+.property-video-play-overlay{left:12px!important;bottom:12px!important;border-radius:999px!important;background:rgba(0,0,0,.72)!important;border:1px solid var(--awf-gold)!important;color:#fff!important;padding:8px 12px!important}
+.property-media-badge{right:12px!important;bottom:12px!important}
+.property-body{padding:17px!important}
+.property-location{font-size:.68rem!important;color:#aaa!important;margin-bottom:7px!important}
+.property-name{font-family:Georgia,'Times New Roman',serif!important;font-size:1.02rem!important;line-height:1.2!important;margin:0 0 10px!important}
+.property-description{font-size:.72rem!important;color:#999!important;line-height:1.55!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px!important}
+.property-details{display:flex!important;gap:6px!important;flex-wrap:wrap!important;margin-bottom:14px!important}
+.property-details span{border:0!important;background:#171717!important;border-radius:999px!important;padding:6px 8px!important;font-size:.62rem!important;color:#ddd!important}
+.property-price{border-top:1px solid rgba(255,255,255,.1)!important;padding-top:13px!important;display:flex!important;align-items:center!important;justify-content:space-between!important}
+.property-price .price{font-family:Georgia,serif!important;color:var(--awf-gold2)!important;font-size:1.05rem!important;font-weight:800!important}
+.property-btn{width:38px!important;height:38px!important;border-radius:50%!important;background:var(--awf-gold)!important;color:#050505!important;display:grid!important;place-items:center!important;text-decoration:none!important;font-weight:900!important}
+/* mobile experience */
+.awf-mobile-bottom-nav{display:none}
+@media(max-width:1100px){.property-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:900px){
+ body{padding-bottom:74px}
+ header{background:rgba(5,5,5,.9)!important}
+ .navbar{height:72px!important;padding:8px 16px!important}
+ .logo-wrap img{width:158px!important;max-height:64px!important;object-fit:contain}
+ .awf-desktop-links{display:none!important}
+ .awf-v5-hero{min-height:760px;align-items:flex-end}
+ .awf-v5-hero-inner{width:calc(100% - 28px);padding:100px 0 24px}
+ .awf-v5-title{font-size:clamp(2.7rem,13vw,4.4rem);letter-spacing:-1.5px}
+ .awf-v5-sub{font-size:.86rem;line-height:1.55}
+ .awf-v5-search{grid-template-columns:1fr auto;gap:0;border-radius:14px}
+ .awf-v5-search .marketplace-input{grid-column:1/2;border-right:0!important}
+ .awf-v5-search .marketplace-select{grid-column:1/2;border-top:1px solid #ddd;border-right:0!important;height:46px}
+ .awf-v5-search .marketplace-select:nth-of-type(2){display:none}
+ .awf-v5-search-btn{grid-column:2;grid-row:1/3;height:100%;min-width:66px;padding:0 16px}
+ .awf-v5-categories{grid-template-columns:repeat(3,1fr);gap:8px}
+ .awf-v5-cat{padding:12px 5px;font-size:.66rem}
+ .awf-v5-cat span{font-size:1.05rem}
+ .awf-v5-trust{gap:12px;margin-top:20px;font-size:.61rem}
+ .property-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ .property-image{height:190px!important}
+ .property-body{padding:13px!important}
+ .property-name{font-size:.9rem!important}
+ .property-description{display:none}
+ .property-details span{font-size:.56rem!important;padding:5px 7px!important}
+ .property-price .price{font-size:.9rem!important}
+ .awf-mobile-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:10px;right:10px;bottom:10px;height:62px;z-index:9998;background:rgba(10,10,10,.94);border:1px solid rgba(212,175,55,.3);border-radius:18px;backdrop-filter:blur(18px);box-shadow:0 15px 50px rgba(0,0,0,.7);overflow:hidden}
+ .awf-mobile-bottom-nav button,.awf-mobile-bottom-nav a{border:0;background:none;color:#aaa;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.56rem;gap:3px;font-weight:700}
+ .awf-mobile-bottom-nav strong{font-size:1.05rem;color:var(--awf-gold2);line-height:1}
+ .properties-head{display:block!important}
+ .awf-v5-property-head-tools{justify-content:flex-start;margin-top:14px}
 }
-@media(max-width:750px){
-  .awf-elite-container{width:min(94%,1180px)}.awf-elite-discovery,.awf-elite-trust,.awf-elite-ecosystem,.awf-elite-tools{padding:70px 0}
-  .awf-elite-discovery-card{padding:20px;border-radius:22px}.awf-elite-searchbox{grid-template-columns:1fr}.awf-elite-field-wide{grid-column:auto}.awf-elite-quick-grid{grid-template-columns:1fr 1fr}
-  .awf-elite-section-head{display:block}.awf-elite-section-head>p{margin-top:15px}.awf-elite-trust-grid{grid-template-columns:1fr}.awf-elite-ecosystem-grid{grid-template-columns:1fr}.awf-elite-tool-grid{grid-template-columns:1fr}.awf-elite-tool-fields{grid-template-columns:1fr}
-  .awf-elite-diaspora-card,.awf-elite-listing-card{display:block;padding:24px}.awf-elite-diaspora-actions,.awf-elite-listing-actions{margin-top:20px}
-}
-@media(max-width:450px){
-  .awf-elite-quick-grid{grid-template-columns:1fr}.awf-elite-intents{overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}.awf-elite-intent{white-space:nowrap}
+@media(max-width:560px){
+ .property-grid{grid-template-columns:1fr!important}
+ .property-image{height:235px!important}
+ .awf-v5-categories{grid-template-columns:repeat(3,1fr)}
+ .awf-v5-cat:nth-child(4),.awf-v5-cat:nth-child(5){grid-column:span 1}
 }
 </style>
 
@@ -2608,32 +2638,21 @@ footer{
 
     <nav class="navbar">
 
-        <!-- EMPTY LEFT COLUMN KEEPS LOGO PERFECTLY CENTERED -->
+        <a href="#home" class="logo-wrap" aria-label="AWF Real Estate Home">
+            <img src="awf-logo-transparent.png" alt="AWF Real Estate">
+        </a>
+
+        <div class="awf-desktop-links" aria-label="Primary navigation">
+            <a href="#home">Home</a><a href="#properties">Properties</a><a href="#about">About</a><a href="#services">Services</a><a href="#international">International</a><a href="#contact">Contact</a>
+        </div>
 
         <button type="button" class="awf-account-button" id="awfAccountButton" onclick="openCustomerAccount()" aria-label="Open AWF customer account">
             <span class="account-dot"></span><span class="account-text">My Account</span>
         </button>
 
-        <a href="#home"
-           class="logo-wrap"
-           aria-label="AWF Real Estate Home">
-
-            <img src="awf-logo-new.png"
-                 alt="AWF Real Estate">
-        </a>
-
-        <button class="menu-button"
-                id="menuButton"
-                aria-label="Open menu">
-
-            <span class="menu-lines">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
-
+        <button class="menu-button" id="menuButton" aria-label="Open menu">
+            <span class="menu-lines"><span></span><span></span><span></span></span>
         </button>
-
     </nav>
 
 </header>
@@ -2649,7 +2668,7 @@ footer{
 
         <div class="menu-brand">
 
-            <img src="awf-logo-new.png"
+            <img src="awf-logo-transparent.png"
                  alt="AWF Real Estate">
 
         </div>
@@ -2704,409 +2723,33 @@ footer{
 
 <main id="home">
 
-<section class="hero">
-
-    <div class="container">
-
-        <div class="hero-grid">
-
-            <div class="hero-logo reveal">
-
-                <img src="awf-logo-new.png"
-                     alt="AWF Real Estate">
-
-            </div>
-
-
-            <div class="hero-content reveal">
-
-                <div class="eyebrow">
-                    Nigeria • International
-                </div>
-
-                <h1 class="hero-title">
-
-                    Building
-                    <span>dreams.</span>
-
-                    Creating
-                    <span>value.</span>
-
-                </h1>
-
-                <p class="hero-description">
-
-                    Find, compare and enquire about property opportunities
-                    across Nigeria — with a premium digital experience
-                    built for buyers, renters, sellers, investors and
-                    Nigerians in the diaspora.
-
-                </p>
-
-                <div class="hero-actions">
-
-                    <a href="#properties"
-                       class="btn btn-gold">
-                        Explore Properties →
-                    </a>
-
-                    <a href="https://wa.me/2348102837598"
-                       target="_blank"
-                       class="btn btn-outline">
-                        WhatsApp AWF
-                    </a>
-
-                </div>
-
-                <div class="hero-mini">
-
-                    <div class="mini-stat">
-                        <strong>BUY</strong>
-                        <span>Homes & Land</span>
-                    </div>
-
-                    <div class="mini-stat">
-                        <strong>RENT</strong>
-                        <span>Residential & Commercial</span>
-                    </div>
-
-                    <div class="mini-stat">
-                        <strong>MANAGE</strong>
-                        <span>Property Management</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+<section class="awf-v5-hero" id="home">
+  <div class="awf-v5-hero-bg" id="awfHeroBg"></div>
+  <div class="awf-v5-hero-inner">
+    <div class="awf-v5-copy reveal">
+      <div class="awf-v5-eyebrow">Nigeria • UAE • USA • UK • Global</div>
+      <h1 class="awf-v5-title">Find Your Next Property.<span>Build Your Future.</span></h1>
+      <p class="awf-v5-sub">Premium property opportunities across Nigeria and selected international markets — with AWF tools for searching, saving, comparing and requesting viewings.</p>
+      <div class="awf-v5-search" role="search">
+        <input id="marketplaceSearch" class="marketplace-input" type="search" autocomplete="off" placeholder="Location, city or property..." aria-label="Search AWF properties" oninput="applyMarketplaceFilters()">
+        <select id="marketplaceType" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Property type">
+          <option value="all">Property Type • Any</option><option value="house">House</option><option value="apartment">Apartment</option><option value="land">Land</option><option value="commercial">Commercial</option><option value="office">Office</option><option value="hotel">Hotel</option><option value="student">Student accommodation</option>
+        </select>
+        <select id="marketplaceCountry" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Market">
+          <option value="all">Location • Anywhere</option><option value="Nigeria">Nigeria</option><option value="UAE">UAE</option><option value="USA">USA</option><option value="UK">UK</option>
+        </select>
+        <button type="button" class="awf-v5-search-btn" onclick="document.getElementById('properties').scrollIntoView({behavior:'smooth'});applyMarketplaceFilters()">⌕ Search</button>
+      </div>
+      <div class="awf-v5-categories">
+        <button class="awf-v5-cat active" type="button" onclick="setMarketplaceFilterFromV5('all',this)"><span>⌂</span>Buy</button>
+        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('rent',this)"><span>⌕</span>Rent</button>
+        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('land',this)"><span>◇</span>Land</button>
+        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('investment',this)"><span>↗</span>Investment</button>
+        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('international',this)"><span>◎</span>International</button>
+      </div>
+      <div class="awf-v5-trust"><span><b>✓</b> Verified Properties</span><span><b>◇</b> Trusted Partners</span><span><b>◎</b> International Listings</span><span><b>◌</b> Dedicated Support</span></div>
     </div>
-
-</section>
-
-
-<!-- =======================================================
-     AWF ELITE DISCOVERY LAYER
-     Front-end enhancement; existing marketplace remains intact.
-======================================================= -->
-
-<section class="awf-elite-discovery" id="awf-discovery">
-    <div class="awf-elite-container">
-
-        <div class="awf-elite-discovery-card">
-            <div class="awf-elite-kicker">AWF SMART PROPERTY SEARCH</div>
-            <h2>Find a property that fits <span>your life.</span></h2>
-            <p class="awf-elite-lead">
-                Search by what you actually need — location, budget, property type,
-                bedrooms and purpose — then jump straight into the AWF marketplace.
-            </p>
-
-            <div class="awf-elite-intents" role="tablist" aria-label="Property search intent">
-                <button class="awf-elite-intent active" data-awf-intent="buy" type="button">Buy</button>
-                <button class="awf-elite-intent" data-awf-intent="rent" type="button">Rent</button>
-                <button class="awf-elite-intent" data-awf-intent="land" type="button">Land</button>
-                <button class="awf-elite-intent" data-awf-intent="commercial" type="button">Commercial</button>
-                <button class="awf-elite-intent" data-awf-intent="investment" type="button">Investment</button>
-            </div>
-
-            <div class="awf-elite-searchbox">
-                <div class="awf-elite-field awf-elite-field-wide">
-                    <label for="awfSmartQuery">Describe what you want</label>
-                    <input id="awfSmartQuery" type="search"
-                           placeholder="e.g. 4 bedroom house in Abuja under ₦150m"
-                           autocomplete="off">
-                </div>
-
-                <div class="awf-elite-field">
-                    <label for="awfSmartLocation">Location</label>
-                    <input id="awfSmartLocation" type="text" placeholder="Abuja, Lagos, Wuse...">
-                </div>
-
-                <div class="awf-elite-field">
-                    <label for="awfSmartType">Property type</label>
-                    <select id="awfSmartType">
-                        <option value="all">Any property</option>
-                        <option value="house">House</option>
-                        <option value="apartment">Apartment</option>
-                        <option value="land">Land</option>
-                        <option value="commercial">Commercial</option>
-                        <option value="office">Office</option>
-                        <option value="hotel">Hotel</option>
-                        <option value="student">Student accommodation</option>
-                    </select>
-                </div>
-
-                <div class="awf-elite-field">
-                    <label for="awfSmartBeds">Bedrooms</label>
-                    <select id="awfSmartBeds">
-                        <option value="all">Any</option>
-                        <option value="1">1+</option>
-                        <option value="2">2+</option>
-                        <option value="3">3+</option>
-                        <option value="4">4+</option>
-                        <option value="5">5+</option>
-                    </select>
-                </div>
-
-                <div class="awf-elite-field">
-                    <label for="awfSmartMax">Maximum price</label>
-                    <input id="awfSmartMax" type="number" min="0" inputmode="decimal" placeholder="Any">
-                </div>
-
-                <button class="awf-elite-search-btn" type="button" onclick="awfEliteSearch()">
-                    Search AWF <span>→</span>
-                </button>
-            </div>
-
-            <div class="awf-elite-search-note">
-                <span>●</span> AWF Marketplace
-                <span>•</span> Save searches
-                <span>•</span> Compare properties
-                <span>•</span> Request a viewing
-            </div>
-        </div>
-
-        <div class="awf-elite-quick-grid">
-            <button type="button" onclick="awfEliteQuick('house')" class="awf-elite-quick">
-                <span class="awf-elite-quick-icon">⌂</span>
-                <span><b>Homes</b><small>Houses & apartments</small></span>
-                <span>→</span>
-            </button>
-
-            <button type="button" onclick="awfEliteQuick('land')" class="awf-elite-quick">
-                <span class="awf-elite-quick-icon">◇</span>
-                <span><b>Land</b><small>Residential & development</small></span>
-                <span>→</span>
-            </button>
-
-            <button type="button" onclick="awfEliteQuick('commercial')" class="awf-elite-quick">
-                <span class="awf-elite-quick-icon">▥</span>
-                <span><b>Commercial</b><small>Office, retail & industrial</small></span>
-                <span>→</span>
-            </button>
-
-            <button type="button" onclick="document.getElementById('international')?.scrollIntoView({behavior:'smooth'})" class="awf-elite-quick">
-                <span class="awf-elite-quick-icon">◎</span>
-                <span><b>Diaspora</b><small>Property support from abroad</small></span>
-                <span>→</span>
-            </button>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- =======================================================
-     AWF TRUST + CUSTOMER JOURNEY
-======================================================= -->
-
-<section class="awf-elite-trust" id="verification">
-    <div class="awf-elite-container">
-
-        <div class="awf-elite-section-head">
-            <div>
-                <div class="awf-elite-kicker">TRUST BY DESIGN</div>
-                <h2>More than a listing.<br><span>A better property journey.</span></h2>
-            </div>
-            <p>
-                AWF is being built around a clear path from discovery to transaction,
-                with verification, professional review and human support built into the experience.
-            </p>
-        </div>
-
-        <div class="awf-elite-trust-grid">
-            <div class="awf-elite-trust-card">
-                <div class="awf-elite-step">01</div>
-                <h3>AWF LISTED</h3>
-                <p>Property submitted and undergoing AWF's internal verification process.</p>
-            </div>
-            <div class="awf-elite-trust-card">
-                <div class="awf-elite-step">02</div>
-                <h3>AWF VERIFIED</h3>
-                <p>Property passes AWF's internal checks before being presented as verified.</p>
-            </div>
-            <div class="awf-elite-trust-card">
-                <div class="awf-elite-step">03</div>
-                <h3>PROFESSIONAL VERIFIED</h3>
-                <p>Relevant documentation reviewed by an appropriately qualified professional where applicable.</p>
-            </div>
-            <div class="awf-elite-trust-card">
-                <div class="awf-elite-step">04</div>
-                <h3>TRANSACTION SUPPORT</h3>
-                <p>Inspection, negotiation, legal review, documentation and after-sales support.</p>
-            </div>
-        </div>
-
-        <div class="awf-elite-journey">
-            <span>Enquiry</span><i>→</i>
-            <span>Match</span><i>→</i>
-            <span>Verify</span><i>→</i>
-            <span>Inspect</span><i>→</i>
-            <span>Negotiate</span><i>→</i>
-            <span>Legal Review</span><i>→</i>
-            <span>Close</span>
-        </div>
-
-        <p class="awf-elite-disclaimer">
-            Verification labels describe AWF's internal process and do not replace independent legal,
-            title, survey, valuation or regulatory advice where required.
-        </p>
-    </div>
-</section>
-
-
-<!-- =======================================================
-     AWF SERVICE ECOSYSTEM
-======================================================= -->
-
-<section class="awf-elite-ecosystem" id="awf-ecosystem">
-    <div class="awf-elite-container">
-        <div class="awf-elite-section-head">
-            <div>
-                <div class="awf-elite-kicker">THE AWF ECOSYSTEM</div>
-                <h2>One platform.<br><span>Multiple property needs.</span></h2>
-            </div>
-            <p>
-                Built to grow from a premium real estate agency into a connected property ecosystem
-                for Nigeria and selected international markets.
-            </p>
-        </div>
-
-        <div class="awf-elite-ecosystem-grid">
-            <a href="#properties" class="awf-elite-eco-card">
-                <span>01</span><strong>Residential</strong><small>Buy • Sell • Rent • Lease</small><b>→</b>
-            </a>
-            <a href="#properties" class="awf-elite-eco-card">
-                <span>02</span><strong>Land</strong><small>Residential • Commercial • Agricultural</small><b>→</b>
-            </a>
-            <a href="#properties" class="awf-elite-eco-card">
-                <span>03</span><strong>Commercial</strong><small>Office • Retail • Warehouse • Mixed-use</small><b>→</b>
-            </a>
-            <a href="#contact" class="awf-elite-eco-card">
-                <span>04</span><strong>Property Management</strong><small>Owners • Tenants • Diaspora</small><b>→</b>
-            </a>
-            <a href="#contact" class="awf-elite-eco-card">
-                <span>05</span><strong>Development</strong><small>Partnerships • Projects • Delivery</small><b>→</b>
-            </a>
-            <a href="#contact" class="awf-elite-eco-card">
-                <span>06</span><strong>Investment</strong><small>Property opportunities • Due diligence</small><b>→</b>
-            </a>
-        </div>
-    </div>
-</section>
-
-
-<!-- =======================================================
-     AFFORDABILITY + ROI TOOLS
-======================================================= -->
-
-<section class="awf-elite-tools" id="awf-tools">
-    <div class="awf-elite-container">
-        <div class="awf-elite-section-head">
-            <div>
-                <div class="awf-elite-kicker">PROPERTY TOOLS</div>
-                <h2>Think clearly.<br><span>Then move.</span></h2>
-            </div>
-            <p>Simple planning tools for early-stage property decisions. They are estimates, not financial or professional advice.</p>
-        </div>
-
-        <div class="awf-elite-tool-grid">
-
-            <div class="awf-elite-tool">
-                <div class="awf-elite-tool-title">
-                    <span>BUYING POWER</span>
-                    <small>Illustrative</small>
-                </div>
-
-                <div class="awf-elite-tool-fields">
-                    <label>Monthly budget (₦)
-                        <input id="awfBudgetMonthly" type="number" min="0" placeholder="500000">
-                    </label>
-                    <label>Annual rate (%)
-                        <input id="awfBudgetRate" type="number" min="0" step="0.1" value="15">
-                    </label>
-                    <label>Term (years)
-                        <input id="awfBudgetTerm" type="number" min="1" max="40" value="20">
-                    </label>
-                </div>
-
-                <button type="button" class="awf-elite-tool-btn" onclick="awfCalculateBuyingPower()">Calculate</button>
-                <div class="awf-elite-tool-result" id="awfBudgetResult">Enter your numbers to see an estimate.</div>
-            </div>
-
-            <div class="awf-elite-tool">
-                <div class="awf-elite-tool-title">
-                    <span>RENTAL YIELD</span>
-                    <small>Illustrative</small>
-                </div>
-
-                <div class="awf-elite-tool-fields">
-                    <label>Purchase price (₦)
-                        <input id="awfRoiPrice" type="number" min="0" placeholder="50000000">
-                    </label>
-                    <label>Annual rent (₦)
-                        <input id="awfRoiRent" type="number" min="0" placeholder="5000000">
-                    </label>
-                    <label>Annual costs (₦)
-                        <input id="awfRoiCosts" type="number" min="0" placeholder="500000">
-                    </label>
-                </div>
-
-                <button type="button" class="awf-elite-tool-btn" onclick="awfCalculateROI()">Calculate</button>
-                <div class="awf-elite-tool-result" id="awfRoiResult">Enter your numbers to see an estimate.</div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- =======================================================
-     DIASPORA CTA
-======================================================= -->
-
-<section class="awf-elite-diaspora" id="diaspora">
-    <div class="awf-elite-container">
-        <div class="awf-elite-diaspora-card">
-            <div>
-                <div class="awf-elite-kicker">AWF DIASPORA DESK</div>
-                <h2>Own, manage or invest in Nigeria<br><span>from wherever you are.</span></h2>
-                <p>
-                    From property search and inspection coordination to management support,
-                    AWF is designed to make Nigerian property easier to navigate from abroad.
-                </p>
-            </div>
-            <div class="awf-elite-diaspora-actions">
-                <a href="https://wa.me/2348102837598?text=Hello%20AWF%20Real%20Estate%2C%20I%20am%20a%20diaspora%20client%20and%20need%20property%20support%20in%20Nigeria." target="_blank" rel="noopener" class="awf-elite-white-btn">Talk to AWF →</a>
-                <a href="#properties" class="awf-elite-dark-btn">Explore properties</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- =======================================================
-     SELL / LIST PROPERTY
-======================================================= -->
-
-<section class="awf-elite-listing-cta">
-    <div class="awf-elite-container">
-        <div class="awf-elite-listing-card">
-            <div>
-                <div class="awf-elite-kicker">PROPERTY OWNERS & DEVELOPERS</div>
-                <h2>Have a property to sell,<br><span>rent or market?</span></h2>
-                <p>Tell AWF about the property and our team can guide you through the next step.</p>
-            </div>
-            <div class="awf-elite-listing-actions">
-                <a href="https://wa.me/2348102837598?text=Hello%20AWF%20Real%20Estate%2C%20I%20want%20to%20list%20a%20property." target="_blank" rel="noopener" class="awf-elite-gold-btn">List with AWF →</a>
-                <button type="button" class="awf-elite-outline-btn" onclick="openManager()">Manager Login</button>
-            </div>
-        </div>
-    </div>
-</section>
-
-
+  </div>
 </section>
 
 
@@ -3185,7 +2828,7 @@ footer{
 
             <div class="about-visual reveal">
 
-                <img src="awf-logo-new.png"
+                <img src="awf-logo-transparent.png"
                      alt="AWF Real Estate">
 
             </div>
@@ -3485,56 +3128,36 @@ footer{
 
 
 
-        <div class="marketplace-v2" id="awfMarketplace">
-            <div class="marketplace-main-row">
-                <input id="marketplaceSearch" class="marketplace-input" type="search" autocomplete="off" placeholder="Search homes, land, cities, estates..." aria-label="Search AWF properties" oninput="applyMarketplaceFilters()">
-                <select id="marketplaceType" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Property type">
-                    <option value="all">All types</option>
-                    <option value="house">House</option><option value="apartment">Apartment</option><option value="land">Land</option><option value="commercial">Commercial</option><option value="office">Office</option><option value="hotel">Hotel</option><option value="student">Student accommodation</option>
-                </select>
-                <select id="marketplaceCountry" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Market">
-                    <option value="all">All markets</option><option value="Nigeria">Nigeria</option><option value="UAE">UAE</option><option value="USA">USA</option><option value="UK">UK</option>
-                </select>
-                <select id="marketplaceSort" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Sort properties">
-                    <option value="newest">Newest first</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="name">Name A–Z</option>
-                </select>
-                <div class="marketplace-actions">
-                    <button class="marketplace-mini-btn" id="advancedBtn" type="button" onclick="toggleAdvancedFilters()">⚙ Filters</button>
-                    <button class="marketplace-mini-btn" id="savedOnlyBtn" type="button" onclick="toggleSavedOnly()">♡ Saved <span id="savedCount"></span></button>
-                    <button class="marketplace-mini-btn" id="compareBtn" type="button" onclick="showCompare()">⚖ Compare <span id="compareCount">0</span></button>
-                </div>
-            </div>
-
-            <div class="marketplace-secondary-row">
-                <div class="marketplace-filter-chips" role="group" aria-label="Quick property filters">
-                    <button class="marketplace-chip active" type="button" data-filter="all">All</button>
-                    <button class="marketplace-chip" type="button" data-filter="sale">For Sale</button>
-                    <button class="marketplace-chip" type="button" data-filter="rent">For Rent</button>
-                    <button class="marketplace-chip" type="button" data-filter="investment">Investment</button>
-                    <button class="marketplace-chip" type="button" data-filter="international">International</button>
-                </div>
-                <div class="marketplace-actions">
-                    <button class="marketplace-mini-btn" type="button" onclick="saveCurrentSearch()">＋ Save Search</button>
-                    <button class="marketplace-mini-btn" type="button" onclick="shareCurrentSearch()">↗ Share</button>
-                    <button class="marketplace-mini-btn" id="viewToggleBtn" type="button" onclick="toggleMarketplaceView()">▦ Grid</button>
-                    <button class="marketplace-mini-btn" type="button" onclick="resetMarketplaceFilters()">Reset</button>
-                </div>
-            </div>
-
-            <div class="marketplace-advanced" id="marketplaceAdvanced" aria-hidden="true">
-                <div class="marketplace-field"><label for="marketplaceMinPrice">Min price</label><input id="marketplaceMinPrice" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
-                <div class="marketplace-field"><label for="marketplaceMaxPrice">Max price</label><input id="marketplaceMaxPrice" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
-                <div class="marketplace-field"><label for="marketplaceBeds">Bedrooms</label><select id="marketplaceBeds" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
-                <div class="marketplace-field"><label for="marketplaceBaths">Bathrooms</label><select id="marketplaceBaths" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
-                <div class="marketplace-field"><label for="marketplaceStatus">Status</label><select id="marketplaceStatus" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any status</option><option value="available">Available</option><option value="for sale">For Sale</option><option value="for rent">For Rent</option><option value="investment">Investment</option></select></div>
-                <div class="marketplace-field"><label for="marketplaceVerified">Trust</label><select id="marketplaceVerified" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">All listings</option><option value="verified">Verified only</option><option value="featured">Featured only</option></select></div>
-            </div>
-
-            <div class="marketplace-count">
-                <span id="marketplaceCount">Showing <strong>0</strong> properties</span>
-                <div class="marketplace-count-tools"><span id="marketplaceSearchState">AWF Marketplace • Nigeria & International</span></div>
-            </div>
-        </div>
+        <div class="marketplace-v2 awf-v5-tools" id="awfMarketplace">
+  <div class="marketplace-secondary-row">
+    <div class="marketplace-filter-chips" role="group" aria-label="Quick property filters">
+      <button class="marketplace-chip active" type="button" data-filter="all">All</button>
+      <button class="marketplace-chip" type="button" data-filter="sale">For Sale</button>
+      <button class="marketplace-chip" type="button" data-filter="rent">For Rent</button>
+      <button class="marketplace-chip" type="button" data-filter="investment">Investment</button>
+      <button class="marketplace-chip" type="button" data-filter="international">International</button>
+    </div>
+    <div class="marketplace-actions">
+      <button class="marketplace-mini-btn" id="advancedBtn" type="button" onclick="toggleAdvancedFilters()">⚙ Filters</button>
+      <button class="marketplace-mini-btn" id="savedOnlyBtn" type="button" onclick="toggleSavedOnly()">♡ Saved <span id="savedCount"></span></button>
+      <button class="marketplace-mini-btn" id="compareBtn" type="button" onclick="showCompare()">⚖ Compare <span id="compareCount">0</span></button>
+      <button class="marketplace-mini-btn" type="button" onclick="saveCurrentSearch()">＋ Save Search</button>
+      <button class="marketplace-mini-btn" type="button" onclick="shareCurrentSearch()">↗ Share</button>
+      <button class="marketplace-mini-btn" id="viewToggleBtn" type="button" onclick="toggleMarketplaceView()">▦ Grid</button>
+      <button class="marketplace-mini-btn" type="button" onclick="resetMarketplaceFilters()">Reset</button>
+    </div>
+  </div>
+  <div class="marketplace-advanced" id="marketplaceAdvanced" aria-hidden="true">
+    <div class="marketplace-field"><label for="marketplaceMinPrice">Min price</label><input id="marketplaceMinPrice" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
+    <div class="marketplace-field"><label for="marketplaceMaxPrice">Max price</label><input id="marketplaceMaxPrice" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
+    <div class="marketplace-field"><label for="marketplaceBeds">Bedrooms</label><select id="marketplaceBeds" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
+    <div class="marketplace-field"><label for="marketplaceBaths">Bathrooms</label><select id="marketplaceBaths" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
+    <div class="marketplace-field"><label for="marketplaceStatus">Status</label><select id="marketplaceStatus" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any status</option><option value="available">Available</option><option value="for sale">For Sale</option><option value="for rent">For Rent</option><option value="investment">Investment</option></select></div>
+    <div class="marketplace-field"><label for="marketplaceVerified">Trust</label><select id="marketplaceVerified" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">All listings</option><option value="verified">Verified only</option><option value="featured">Featured only</option></select></div>
+  </div>
+  <div class="marketplace-count"><span id="marketplaceCount">Showing <strong>0</strong> properties</span><div class="marketplace-count-tools"><select id="marketplaceSort" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Sort properties"><option value="newest">Newest first</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="name">Name A–Z</option></select><span id="marketplaceSearchState">AWF Marketplace • Nigeria & International</span></div></div>
+</div>
+</div>
 
         <div class="property-grid" id="publicPropertyGrid"></div>
     </div>
@@ -4046,7 +3669,7 @@ footer{
 
                 <div class="footer-logo">
 
-                    <img src="awf-logo-new.png"
+                    <img src="awf-logo-transparent.png"
                          alt="AWF Real Estate">
 
                 </div>
@@ -4169,7 +3792,7 @@ footer{
 
         <div class="manager-login-logo">
 
-            <img src="awf-logo-new.png"
+            <img src="awf-logo-transparent.png"
                  alt="AWF">
 
         </div>
@@ -4224,7 +3847,7 @@ footer{
 
             <div class="manager-brand">
 
-                <img src="awf-logo-new.png"
+                <img src="awf-logo-transparent.png"
                      alt="AWF">
 
                 <span>
@@ -5008,10 +4631,10 @@ function renderPublicProperties(){applyMarketplaceFilters();}
 function propertyCardHTML(property){
     const images=getPropertyImages(property),videos=getPropertyVideos(property),mediaCount=images.length+videos.length,hasVideo=videos.length>0;
     const imageHTML=images[0]?`<img src="${escapeHTML(images[0])}" alt="${escapeHTML(property.name||property.title||"AWF Property")}" loading="lazy" onerror="this.style.display='none'">`:videos[0]?`<video src="${escapeHTML(videos[0])}" muted playsinline preload="metadata" aria-label="Property video"></video>`:`<div class="property-placeholder"><strong>${escapeHTML(property.name||property.title||"AWF Property")}</strong><span>Property media coming soon</span></div>`;
-    const details=[]; if(property.bedrooms!==null&&property.bedrooms!==undefined&&property.bedrooms!=="")details.push(`🛏 ${escapeHTML(property.bedrooms)} Beds`); if(property.bathrooms!==null&&property.bathrooms!==undefined&&property.bathrooms!=="")details.push(`◆ ${escapeHTML(property.bathrooms)} Baths`); if(property.size)details.push(`▱ ${escapeHTML(property.size)}`);
+    const details=[]; if(property.bedrooms!==null&&property.bedrooms!==undefined&&property.bedrooms!=="")details.push(`🛏 ${escapeHTML(property.bedrooms)} Beds`); if(property.bathrooms!==null&&property.bathrooms!==undefined&&property.bathrooms!=="")details.push(`♨ ${escapeHTML(property.bathrooms)} Baths`); if(property.size)details.push(`▱ ${escapeHTML(property.size)}`);
     const price=property.price?`${escapeHTML(property.currency||"₦")}${escapeHTML(property.price)}`:"Contact for price";
     const verified=getVerificationState(property);
-    return `<article class="property-card reveal"><div class="property-image">${imageHTML}<span class="property-status status-${escapeHTML(String(property.status||"").toLowerCase().replace(/\s+/g,"-"))}">${escapeHTML(property.status||"Available")}</span><span class="property-type">${escapeHTML(typeLabel(property.type||property.property_type||"Property"))}</span>${verified?`<span class="awf-verification-badge" style="position:absolute;left:14px;top:14px;z-index:3">✓ AWF Verified</span>`:""}${property.featured?`<span class="awf-featured-badge" style="position:absolute;left:14px;bottom:14px;z-index:3">★ Featured</span>`:""}${hasVideo&&images.length?`<button type="button" class="property-video-play property-video-play-overlay" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')" aria-label="Play property video">▶</button>`:""}${mediaCount?`<span class="property-media-badge">▣ ${mediaCount} media</span>`:""}<div class="property-card-tools"><button type="button" class="property-card-tool ${savedProperties.includes(String(property.id))?"active":""}" onclick="event.stopPropagation();toggleSaved('${escapeJS(property.id)}')" aria-label="Save property">${savedProperties.includes(String(property.id))?"♥":"♡"}</button><button type="button" class="property-card-tool ${comparedProperties.includes(String(property.id))?"active":""}" onclick="event.stopPropagation();toggleCompare('${escapeJS(property.id)}')" aria-label="Compare property">⚖</button></div></div><div class="property-body property-card-link" onclick="openPropertyDetail('${escapeJS(property.id)}')"><div class="property-location">${escapeHTML([property.city,property.country].filter(Boolean).join(" • "))}</div><h3 class="property-name">${escapeHTML(property.name||property.title||"AWF Property")}</h3><p class="property-description">${escapeHTML(property.description||"Selected property opportunity available through AWF Real Estate.")}</p>${details.length?`<div class="property-details">${details.map(d=>`<span>${d}</span>`).join("")}</div>`:""}<div class="property-price"><span class="price">${price}</span><a class="property-btn" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(property.name||property.title||""))}" target="_blank" rel="noopener" aria-label="Enquire about property">→</a></div></div></article>`;
+    return `<article class="property-card reveal"><div class="property-image">${imageHTML}${verified?`<span class="awf-verification-badge">✓ VERIFIED</span>`:""}${hasVideo&&images.length?`<button type="button" class="property-video-play property-video-play-overlay" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')">▶ View Video</button>`:""}<div class="property-card-tools"><button type="button" class="property-card-tool ${savedProperties.includes(String(property.id))?"active":""}" onclick="event.stopPropagation();toggleSaved('${escapeJS(property.id)}')" aria-label="Save property">${savedProperties.includes(String(property.id))?"♥":"♡"}</button></div></div><div class="property-body property-card-link" onclick="openPropertyDetail('${escapeJS(property.id)}')"><div class="property-location">⌖ ${escapeHTML([property.city,property.country].filter(Boolean).join(", ")||property.location||"Nigeria")}</div><h3 class="property-name">${escapeHTML(property.name||property.title||"AWF Property")}</h3><p class="property-description">${escapeHTML(property.description||"Selected property opportunity available through AWF Real Estate.")}</p>${details.length?`<div class="property-details">${details.map(d=>`<span>${d}</span>`).join("")}</div>`:""}<div class="property-price"><span class="price">${price}</span><a class="property-btn" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(property.name||property.title||""))}" target="_blank" rel="noopener" aria-label="Enquire about property">→</a></div></div></article>`;
 }
 
 function toggleSaved(id){id=String(id);savedProperties=savedProperties.includes(id)?savedProperties.filter(x=>x!==id):[...savedProperties,id];syncMarketplaceState();applyMarketplaceFilters();marketplaceToast(savedProperties.includes(id)?"Property saved":"Property removed from saved");}
@@ -6125,7 +5748,7 @@ document.addEventListener(
   <div class="awf-v3-panel">
     <button class="awf-v3-close" type="button" onclick="closeCustomerAccount()">×</button>
 
-    <div class="awf-v3-brand"><img src="awf-logo-new.png" alt="AWF Real Estate"><h2 class="awf-v3-title">Your AWF Account</h2><p class="awf-v3-sub">Save properties, follow opportunities, manage viewing requests and keep your property search in one place.</p></div>
+    <div class="awf-v3-brand"><img src="awf-logo-transparent.png" alt="AWF Real Estate"><h2 class="awf-v3-title">Your AWF Account</h2><p class="awf-v3-sub">Save properties, follow opportunities, manage viewing requests and keep your property search in one place.</p></div>
 
     <div id="awfCustomerAuthView">
       <div class="awf-v3-tabs">
@@ -6165,7 +5788,7 @@ document.addEventListener(
 <div class="awf-v3-modal" id="viewingRequestModal" onclick="if(event.target===this)closeViewingRequest()">
   <div class="awf-v3-panel" style="max-width:620px">
     <button class="awf-v3-close" type="button" onclick="closeViewingRequest()">×</button>
-    <div class="awf-v3-brand"><img src="awf-logo-new.png" alt="AWF Real Estate"><h2 class="awf-v3-title">Request a Property Viewing</h2><p class="awf-v3-sub">Choose a preferred date and time. AWF will follow up to confirm availability.</p></div>
+    <div class="awf-v3-brand"><img src="awf-logo-transparent.png" alt="AWF Real Estate"><h2 class="awf-v3-title">Request a Property Viewing</h2><p class="awf-v3-sub">Choose a preferred date and time. AWF will follow up to confirm availability.</p></div>
     <div id="viewingRequestProperty"></div>
     <form class="awf-v3-form" onsubmit="submitViewingRequest(event)">
       <input id="viewingName" type="text" autocomplete="name" placeholder="Your name" required>
@@ -6547,129 +6170,30 @@ window.managerLogin=async function(){
 setTimeout(()=>checkAWFManagerRole(),800);
 </script>
 
-
-<script id="awf-elite-upgrade-js">
-/* =========================================================
-   AWF ELITE — SMART SEARCH / TOOLS
-   Additive only. Uses the existing marketplace controls.
-========================================================= */
-(function(){
-  const $ = id => document.getElementById(id);
-  let awfEliteIntent = "buy";
-
-  document.querySelectorAll(".awf-elite-intent").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      document.querySelectorAll(".awf-elite-intent").forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-      awfEliteIntent = btn.dataset.awfIntent || "buy";
-      const type = $("awfSmartType");
-      if(type){
-        if(awfEliteIntent==="land") type.value="land";
-        else if(awfEliteIntent==="commercial") type.value="commercial";
-        else if(awfEliteIntent==="buy") type.value="all";
-        else if(awfEliteIntent==="rent") type.value="all";
-        else if(awfEliteIntent==="investment") type.value="all";
-      }
-    });
-  });
-
-  window.awfEliteQuick = function(type){
-    const t=$("awfSmartType");
-    if(t) t.value=type;
-    const q=$("awfSmartQuery");
-    if(q) q.value = type==="land" ? "land" : type==="commercial" ? "commercial property" : "homes";
-    awfEliteSearch();
-  };
-
-  window.awfEliteSearch = function(){
-    const q=$("awfSmartQuery")?.value.trim() || "";
-    const loc=$("awfSmartLocation")?.value.trim() || "";
-    const type=$("awfSmartType")?.value || "all";
-    const beds=$("awfSmartBeds")?.value || "all";
-    const max=$("awfSmartMax")?.value || "";
-
-    const search=$("marketplaceSearch");
-    const mType=$("marketplaceType");
-    const mCountry=$("marketplaceCountry");
-    const mMax=$("marketplaceMaxPrice");
-    const mBeds=$("marketplaceBeds");
-
-    if(search) search.value=[q,loc].filter(Boolean).join(" ");
-    if(mType) mType.value=type;
-
-    const combined=(q+" "+loc).toLowerCase();
-    if(mCountry){
-      if(/\bnigeria\b/.test(combined)) mCountry.value="Nigeria";
-      else if(/\buae\b|\bdubai\b/.test(combined)) mCountry.value="UAE";
-      else if(/\busa\b|\bunited states\b/.test(combined)) mCountry.value="USA";
-      else if(/\buk\b|\blondon\b|\bengland\b/.test(combined)) mCountry.value="UK";
-      else mCountry.value="all";
-    }
-
-    if(mMax) mMax.value=max;
-    if(mBeds) mBeds.value=beds;
-
-    const filterMap={rent:"rent",investment:"investment",buy:"sale",land:"all",commercial:"all"};
-    const wanted=filterMap[awfEliteIntent] || "all";
-
-    const buttons=document.querySelectorAll(".marketplace-chip,[data-filter]");
-    buttons.forEach(b=>{
-      const value=b.dataset.filter;
-      if(value===wanted && typeof b.click==="function") b.click();
-    });
-
-    const propertiesSection=$("properties");
-    if(propertiesSection) propertiesSection.scrollIntoView({behavior:"smooth",block:"start"});
-
-    setTimeout(()=>{
-      try{
-        if(typeof applyMarketplaceFilters==="function") applyMarketplaceFilters();
-      }catch(e){console.warn("AWF smart search:",e);}
-    },250);
-  };
-
-  window.awfCalculateBuyingPower = function(){
-    const payment=Number($("awfBudgetMonthly")?.value||0);
-    const annual=Number($("awfBudgetRate")?.value||0);
-    const years=Number($("awfBudgetTerm")?.value||0);
-    const result=$("awfBudgetResult");
-    if(!result || payment<=0 || years<=0){if(result) result.textContent="Enter a monthly budget and term.";return;}
-    const r=annual/100/12, n=years*12;
-    const pv=r===0 ? payment*n : payment*(1-Math.pow(1+r,-n))/r;
-    result.innerHTML="<strong>Estimated loan amount: ₦"+Math.round(pv).toLocaleString()+"</strong><br><small>This is a mathematical estimate only and excludes fees, taxes, insurance, lender criteria and other transaction costs.</small>";
-  };
-
-  window.awfCalculateROI = function(){
-    const price=Number($("awfRoiPrice")?.value||0);
-    const rent=Number($("awfRoiRent")?.value||0);
-    const costs=Number($("awfRoiCosts")?.value||0);
-    const result=$("awfRoiResult");
-    if(!result || price<=0){if(result) result.textContent="Enter a purchase price.";return;}
-    const net=Math.max(0,rent-costs);
-    const gross=rent/price*100;
-    const netYield=net/price*100;
-    result.innerHTML="<strong>Gross yield: "+gross.toFixed(2)+"% • Net yield: "+netYield.toFixed(2)+"%</strong><br><small>Illustrative only. Actual returns depend on vacancy, taxes, maintenance, financing, fees and other costs.</small>";
-  };
-
-  // Enter-to-search on the smart search box.
-  $("awfSmartQuery")?.addEventListener("keydown",e=>{
-    if(e.key==="Enter"){e.preventDefault();awfEliteSearch();}
-  });
-
-  // Keep the new experience visible even when the old marketplace is used.
-  window.addEventListener("load",()=>{
-    try{
-      const nav=document.querySelector(".menu-links");
-      if(nav && !document.getElementById("awfEliteMenuTools")){
-        const wrap=document.createElement("div");
-        wrap.id="awfEliteMenuTools";
-        wrap.innerHTML='<a href="#awf-discovery">Smart Search</a><a href="#verification">Trust & Verification</a><a href="#awf-tools">Property Tools</a>';
-        nav.appendChild(wrap);
-      }
-    }catch(e){}
-  });
-})();
+<nav class="awf-mobile-bottom-nav" aria-label="Mobile navigation">
+  <a href="#home"><strong>⌂</strong>Home</a>
+  <a href="#properties"><strong>⌕</strong>Search</a>
+  <button type="button" onclick="toggleSavedOnly()"><strong>♡</strong>Saved</button>
+  <button type="button" onclick="openCustomerAccount()"><strong>♙</strong>Account</button>
+</nav>
+<script id="awf-v5-direction-js">
+function setMarketplaceFilterFromV5(filter,btn){
+  document.querySelectorAll('.awf-v5-cat').forEach(x=>x.classList.remove('active')); if(btn)btn.classList.add('active');
+  currentFilter=filter||'all';
+  document.querySelectorAll('.filter-btn,.marketplace-chip').forEach(x=>x.classList.toggle('active',x.dataset.filter===currentFilter));
+  applyMarketplaceFilters();
+  document.getElementById('properties')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function updateAWFHeroVisual(){
+  const bg=document.getElementById('awfHeroBg'); if(!bg)return;
+  const first=Array.isArray(properties)?properties.find(p=>p.visible!==false&&getPropertyImages(p).length):null;
+  const img=first?getPropertyImages(first)[0]:'';
+  if(img)bg.style.backgroundImage=`url("${img.replace(/"/g,'\\"')}")`;
+  else bg.style.backgroundImage='linear-gradient(135deg,#080808,#17130a 55%,#050505)';
+}
+const awfOriginalRenderPublicProperties=window.renderPublicProperties;
+window.renderPublicProperties=function(){const r=awfOriginalRenderPublicProperties?awfOriginalRenderPublicProperties():null;setTimeout(updateAWFHeroVisual,80);return r;};
+setTimeout(updateAWFHeroVisual,400);
 </script>
-
 </body>
 </html>
