@@ -6186,10 +6186,7 @@ function setMarketplaceFilterFromV5(filter,btn){
 }
 function updateAWFHeroVisual(){
   const bg=document.getElementById('awfHeroBg'); if(!bg)return;
-  const first=Array.isArray(properties)?properties.find(p=>p.visible!==false&&getPropertyImages(p).length):null;
-  const img=first?getPropertyImages(first)[0]:'';
-  if(img)bg.style.backgroundImage=`url("${img.replace(/"/g,'\\"')}")`;
-  else bg.style.backgroundImage='linear-gradient(135deg,#080808,#17130a 55%,#050505)';
+  bg.style.backgroundImage='url("awf-hero-luxury-building.png")';
 }
 const awfOriginalRenderPublicProperties=window.renderPublicProperties;
 window.renderPublicProperties=function(){const r=awfOriginalRenderPublicProperties?awfOriginalRenderPublicProperties():null;setTimeout(updateAWFHeroVisual,80);return r;};
