@@ -3954,6 +3954,10 @@ body{background:#050505;color:#f7f5ef}
                     Add Property
                 </h2>
 
+                <p style="color:#777;font-size:.72rem;max-width:720px;margin:-8px 0 18px">
+                    Mark a listing as AWF Verified only after your internal property checks are complete.
+                </p>
+
 
                 <div class="manager-form-grid">
 
@@ -4140,6 +4144,24 @@ body{background:#050505;color:#f7f5ef}
 
                         <input id="propertySize"
                                placeholder="e.g. 650 sqm">
+
+                    </div>
+
+
+                    <div class="manager-field">
+
+                        <label>
+                            VERIFIED
+                        </label>
+
+                        <select id="propertyVerified">
+                            <option value="false">
+                                Not Verified
+                            </option>
+                            <option value="true">
+                                AWF Verified
+                            </option>
+                        </select>
 
                     </div>
 
@@ -5116,6 +5138,11 @@ function fillPropertyForm(property){
     property.size || "";
 
     document.getElementById(
+        "propertyVerified"
+    ).value =
+    String(property.verified || property.is_verified || String(property.verification_status || "").toLowerCase() === "verified");
+
+    document.getElementById(
         "propertyFeatured"
     ).value =
     String(property.featured || false);
@@ -5174,6 +5201,9 @@ async function saveProperty(){
         bedrooms:(document.getElementById("propertyBedrooms").value.trim() === "" ? null : parseInt(document.getElementById("propertyBedrooms").value, 10)),
         bathrooms:(document.getElementById("propertyBathrooms").value.trim() === "" ? null : parseInt(document.getElementById("propertyBathrooms").value, 10)),
         size:document.getElementById("propertySize").value.trim(),
+        verified:document.getElementById("propertyVerified").value === "true",
+        is_verified:document.getElementById("propertyVerified").value === "true",
+        verification_status:document.getElementById("propertyVerified").value === "true" ? "verified" : "unverified",
         featured:document.getElementById("propertyFeatured").value === "true",
         description:document.getElementById("propertyDescription").value.trim(),
         image1:document.getElementById("propertyImage1").value.trim(),
@@ -5239,6 +5269,9 @@ async function saveProperty(){
             bedrooms:(property.bedrooms === "" || property.bedrooms == null ? null : parseInt(property.bedrooms, 10)),
             bathrooms:(property.bathrooms === "" || property.bathrooms == null ? null : parseInt(property.bathrooms, 10)),
             size:property.size,
+            verified:property.verified,
+            is_verified:property.is_verified,
+            verification_status:property.verification_status,
             featured:property.featured,
             image1:property.image1,
             image2:property.image2,
