@@ -5578,79 +5578,48 @@ function changePropertyStatus(id){
    DELETE
 ========================================================= */
 
-function deleteProperty(id){
-
-    const property =
-    properties.find(
-        item=>item.id===id
-    );
-
-
+async function deleteProperty(id){
+    const property = properties.find(item=>String(item.id)===String(id));
     if(!property) return;
-
-
-    const confirmed =
-    confirm(
-        `Delete "${property.name}"?`
-    );
-
-
+    const confirmed = confirm(`Delete "${property.name || property.title || "this property"}"?`);
     if(!confirmed) return;
-
-
-    properties =
-    properties.filter(
-        item=>item.id!==id
-    );
-
-
-    saveDatabase();
-
-    renderManagerProperties();
-
-    renderPublicProperties();
-
-    updateStats();
-
+    try {
+        if (supabaseClient) {
+            const { error } = await supabaseClient.from("properties").delete().eq("id", id);
+            if (error) throw error;
+        }
+        properties = properties.filter(item=>String(item.id)!==String(id));
+        saveDatabase();
+        renderManagerProperties();
+        renderPublicProperties();
+        updateStats();
+        marketplaceToast("Property deleted successfully");
+    } catch (error) {
+        console.error("AWF delete property:", error);
+        alert("Could not delete the property from AWF online listings. " + (error.message || "Please try again."));
+    }
 }
 
 
-/* =========================================================
-   CLEAR ALL
-========================================================= */
-
-function clearAllProperties(){
-
-    if(!properties.length){
-
-        alert(
-            "There are no properties to clear."
-        );
-
-        return;
-
-    }
-
-
-    const confirmed =
-    confirm(
-        "Delete ALL AWF property listings?"
-    );
-
-
+async function clearAllProperties(){
+    if(!properties.length){ alert("There are no properties to clear."); return; }
+    const confirmed = confirm("Delete ALL AWF property listings? This cannot be undone.");
     if(!confirmed) return;
-
-
-    properties=[];
-
-    saveDatabase();
-
-    renderManagerProperties();
-
-    renderPublicProperties();
-
-    updateStats();
-
+    try {
+        if (supabaseClient) {
+            const { error } = await supabaseClient.from("properties").delete().not("id", "is", null);
+            if (error) throw error;
+        }
+        properties = [];
+        saveDatabase();
+        renderManagerProperties();
+        renderPublicProperties();
+        updateStats();
+        marketplaceToast("All property listings deleted");
+    } catch (error) {
+        console.error("AWF clear properties:", error);
+        alert("Could not clear the online property listings. " + (error.message || "Please try again."));
+    }
 }
 
 
