@@ -3184,6 +3184,10 @@ body{background:#050505;color:#f7f5ef}
     <div class="marketplace-field"><label for="marketplaceBaths">Bathrooms</label><select id="marketplaceBaths" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
     <div class="marketplace-field"><label for="marketplaceStatus">Status</label><select id="marketplaceStatus" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any status</option><option value="available">Available</option><option value="for sale">For Sale</option><option value="for rent">For Rent</option><option value="investment">Investment</option></select></div>
     <div class="marketplace-field"><label for="marketplaceVerified">Trust</label><select id="marketplaceVerified" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">All listings</option><option value="verified">Verified only</option><option value="featured">Featured only</option></select></div>
+    <div class="marketplace-field"><label for="marketplaceMinSize">Min size (sqm)</label><input id="marketplaceMinSize" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
+    <div class="marketplace-field"><label for="marketplaceMaxSize">Max size (sqm)</label><input id="marketplaceMaxSize" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
+    <div class="marketplace-field"><label for="marketplaceAmenity">Amenity</label><select id="marketplaceAmenity" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any amenity</option><option value="pool">Swimming pool</option><option value="bq">BQ</option><option value="parking">Parking</option><option value="generator">Generator</option><option value="solar">Solar</option><option value="elevator">Elevator</option><option value="gym">Gym</option><option value="smart">Smart home</option><option value="furnished">Furnished</option><option value="cinema">Cinema</option></select></div>
+    <div class="marketplace-field"><label for="marketplaceMedia">Media</label><select id="marketplaceMedia" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any media</option><option value="video">Video available</option><option value="photos">Photos available</option></select></div>
   </div>
   <div class="marketplace-count"><span id="marketplaceCount">Showing <strong>0</strong> properties</span><div class="marketplace-count-tools"><select id="marketplaceSort" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Sort properties"><option value="newest">Newest first</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="name">Name A–Z</option></select><span id="marketplaceSearchState">AWF Marketplace • Nigeria & International</span></div></div>
 </div>
@@ -4628,10 +4632,18 @@ function displayPropertyPrice(p){
 function numericPrice(p){ const n=numericField(p.price); return n===null?Infinity:n; }
 function numericBeds(p){ const n=Number(p.bedrooms); return Number.isFinite(n)?n:null; }
 function numericBaths(p){ const n=Number(p.bathrooms); return Number.isFinite(n)?n:null; }
+function numericSize(p){
+    const raw=String(p.size??"").toLowerCase().replace(/,/g,"");
+    const m=raw.match(/(\\d+(?:\\.\\d+)?)/);
+    return m?Number(m[1]):null;
+}
+function propertyAmenityText(p){
+    return [p.features,p.amenities,p.description,p.title,p.name,p.size].filter(Boolean).join(" ").toLowerCase();
+}
 
 function propertyMatchesSearch(p,q){
     if(!q) return true;
-    const hay=[p.name,p.title,p.description,p.location,p.city,p.country,p.type,p.property_type,p.listing_type,p.status,p.size].filter(Boolean).join(" ").toLowerCase();
+    const hay=[p.name,p.title,p.description,p.location,p.city,p.country,p.type,p.property_type,p.listing_type,p.status,p.size,p.features,p.amenities].filter(Boolean).join(" ").toLowerCase();
     return hay.includes(q.toLowerCase());
 }
 function statusText(p){return String(p.status||p.listing_type||"").toLowerCase();}
@@ -4665,20 +4677,20 @@ function toggleSavedOnly(){marketplaceSavedOnly=!marketplaceSavedOnly;syncMarket
 function toggleMarketplaceView(){marketplaceListView=!marketplaceListView;applyMarketplaceFilters();}
 
 function resetMarketplaceFilters(){
-    ["marketplaceSearch","marketplaceMinPrice","marketplaceMaxPrice"].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
-    ["marketplaceType","marketplaceCountry","marketplaceSort","marketplaceBeds","marketplaceBaths","marketplaceStatus","marketplaceVerified"].forEach(id=>{const el=document.getElementById(id);if(el)el.value=id==="marketplaceSort"?"newest":"all";});
+    ["marketplaceSearch","marketplaceMinPrice","marketplaceMaxPrice","marketplaceMinSize","marketplaceMaxSize"].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
+    ["marketplaceType","marketplaceCountry","marketplaceSort","marketplaceBeds","marketplaceBaths","marketplaceStatus","marketplaceVerified","marketplaceAmenity","marketplaceMedia"].forEach(id=>{const el=document.getElementById(id);if(el)el.value=id==="marketplaceSort"?"newest":"all";});
     currentFilter="all"; marketplaceSavedOnly=false;
     document.querySelectorAll(".marketplace-chip").forEach(btn=>btn.classList.toggle("active",btn.dataset.filter==="all"));
     syncMarketplaceState();applyMarketplaceFilters();marketplaceToast("Marketplace filters reset");
 }
 
 function saveCurrentSearch(){
-    const state={q:document.getElementById("marketplaceSearch")?.value.trim()||"",type:document.getElementById("marketplaceType")?.value||"all",country:document.getElementById("marketplaceCountry")?.value||"all",sort:document.getElementById("marketplaceSort")?.value||"newest",min:document.getElementById("marketplaceMinPrice")?.value||"",max:document.getElementById("marketplaceMaxPrice")?.value||"",beds:document.getElementById("marketplaceBeds")?.value||"all",baths:document.getElementById("marketplaceBaths")?.value||"all",status:document.getElementById("marketplaceStatus")?.value||"all",verified:document.getElementById("marketplaceVerified")?.value||"all",quick:currentFilter};
+    const state={q:document.getElementById("marketplaceSearch")?.value.trim()||"",type:document.getElementById("marketplaceType")?.value||"all",country:document.getElementById("marketplaceCountry")?.value||"all",sort:document.getElementById("marketplaceSort")?.value||"newest",min:document.getElementById("marketplaceMinPrice")?.value||"",max:document.getElementById("marketplaceMaxPrice")?.value||"",beds:document.getElementById("marketplaceBeds")?.value||"all",baths:document.getElementById("marketplaceBaths")?.value||"all",status:document.getElementById("marketplaceStatus")?.value||"all",verified:document.getElementById("marketplaceVerified")?.value||"all",minSize:document.getElementById("marketplaceMinSize")?.value||"",maxSize:document.getElementById("marketplaceMaxSize")?.value||"",amenity:document.getElementById("marketplaceAmenity")?.value||"all",media:document.getElementById("marketplaceMedia")?.value||"all",quick:currentFilter};
     savedSearches=[state,...savedSearches.filter(s=>JSON.stringify(s)!==JSON.stringify(state))].slice(0,10);syncMarketplaceState();marketplaceToast("Search saved on this device");
 }
 function currentSearchParams(){
     const p=new URLSearchParams();
-    const map={q:"marketplaceSearch",type:"marketplaceType",country:"marketplaceCountry",sort:"marketplaceSort",min:"marketplaceMinPrice",max:"marketplaceMaxPrice",beds:"marketplaceBeds",baths:"marketplaceBaths",status:"marketplaceStatus",verified:"marketplaceVerified"};
+    const map={q:"marketplaceSearch",type:"marketplaceType",country:"marketplaceCountry",sort:"marketplaceSort",min:"marketplaceMinPrice",max:"marketplaceMaxPrice",beds:"marketplaceBeds",baths:"marketplaceBaths",status:"marketplaceStatus",verified:"marketplaceVerified",minSize:"marketplaceMinSize",maxSize:"marketplaceMaxSize",amenity:"marketplaceAmenity",media:"marketplaceMedia"};
     Object.entries(map).forEach(([key,id])=>{const v=document.getElementById(id)?.value||"";if(v&&v!=="all"&&!(key==="sort"&&v==="newest"))p.set(key,v);});
     if(currentFilter!=="all")p.set("quick",currentFilter); return p;
 }
@@ -4688,7 +4700,7 @@ async function shareCurrentSearch(){
     catch(e){window.prompt("Copy this AWF search link:",url);}
 }
 function restoreMarketplaceSearchFromURL(){
-    const p=new URLSearchParams(location.search); const map={q:"marketplaceSearch",type:"marketplaceType",country:"marketplaceCountry",sort:"marketplaceSort",min:"marketplaceMinPrice",max:"marketplaceMaxPrice",beds:"marketplaceBeds",baths:"marketplaceBaths",status:"marketplaceStatus",verified:"marketplaceVerified"};
+    const p=new URLSearchParams(location.search); const map={q:"marketplaceSearch",type:"marketplaceType",country:"marketplaceCountry",sort:"marketplaceSort",min:"marketplaceMinPrice",max:"marketplaceMaxPrice",beds:"marketplaceBeds",baths:"marketplaceBaths",status:"marketplaceStatus",verified:"marketplaceVerified",minSize:"marketplaceMinSize",maxSize:"marketplaceMaxSize",amenity:"marketplaceAmenity",media:"marketplaceMedia"};
     Object.entries(map).forEach(([key,id])=>{if(p.has(key)){const el=document.getElementById(id);if(el)el.value=p.get(key);}});
     if(p.get("quick")){currentFilter=p.get("quick");document.querySelectorAll(".marketplace-chip").forEach(b=>b.classList.toggle("active",b.dataset.filter===currentFilter));}
 }
@@ -4702,6 +4714,8 @@ function applyMarketplaceFilters(){
     const min=numericField(document.getElementById("marketplaceMinPrice")?.value); const max=numericField(document.getElementById("marketplaceMaxPrice")?.value);
     const beds=document.getElementById("marketplaceBeds")?.value||"all"; const baths=document.getElementById("marketplaceBaths")?.value||"all";
     const status=document.getElementById("marketplaceStatus")?.value||"all"; const trust=document.getElementById("marketplaceVerified")?.value||"all";
+    const minSize=numericField(document.getElementById("marketplaceMinSize")?.value); const maxSize=numericField(document.getElementById("marketplaceMaxSize")?.value);
+    const amenity=document.getElementById("marketplaceAmenity")?.value||"all"; const media=document.getElementById("marketplaceMedia")?.value||"all";
     let visible=properties.filter(p=>p.visible!==false);
     if(currentFilter!=="all") visible=visible.filter(p=>{const t=typeText(p),s=statusText(p);if(currentFilter==="international")return String(p.country||"").toLowerCase()!=="nigeria";if(currentFilter==="investment")return t.includes("investment")||s.includes("investment");if(currentFilter==="sale")return s.includes("sale");if(currentFilter==="rent")return s.includes("rent");return true;});
     if(type!=="all")visible=visible.filter(p=>typeText(p).includes(type.toLowerCase()));
@@ -4710,6 +4724,11 @@ function applyMarketplaceFilters(){
     if(max!==null)visible=visible.filter(p=>numericPrice(p)!==Infinity&&numericPrice(p)<=max);
     if(beds!=="all")visible=visible.filter(p=>{const n=numericBeds(p);return n!==null&&n>=Number(beds);});
     if(baths!=="all")visible=visible.filter(p=>{const n=numericBaths(p);return n!==null&&n>=Number(baths);});
+    if(minSize!==null)visible=visible.filter(p=>{const n=numericSize(p);return n!==null&&n>=minSize;});
+    if(maxSize!==null)visible=visible.filter(p=>{const n=numericSize(p);return n!==null&&n<=maxSize;});
+    if(amenity!=="all")visible=visible.filter(p=>propertyAmenityText(p).includes(amenity));
+    if(media==="video")visible=visible.filter(p=>getPropertyVideos(p).length>0);
+    if(media==="photos")visible=visible.filter(p=>getPropertyImages(p).length>0);
     if(status!=="all")visible=visible.filter(p=>statusText(p).includes(status));
     if(trust==="verified")visible=visible.filter(getVerificationState); else if(trust==="featured")visible=visible.filter(p=>p.featured===true);
     if(marketplaceSavedOnly)visible=visible.filter(p=>savedProperties.includes(String(p.id)));
