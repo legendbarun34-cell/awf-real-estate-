@@ -2496,6 +2496,34 @@ footer{
 }
 .property-video-play:hover{transform:translate(-50%,-50%) scale(1.06);}
 .property-video-play-overlay{margin:0;}
+
+/* =========================================================
+   AWF V7 INTERACTIVE PROPERTY MAP
+========================================================= */
+.awf-map-panel{display:none;margin-top:18px;border:1px solid rgba(212,175,55,.18);border-radius:24px;overflow:hidden;background:#090909;box-shadow:0 20px 70px rgba(0,0,0,.35)}
+.awf-map-panel.open{display:block}
+.awf-map-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+.awf-map-head h3{margin:0;font-family:Georgia,serif;font-size:1.05rem}
+.awf-map-head p{margin:4px 0 0;color:#777;font-size:.68rem}
+.awf-map-actions{display:flex;gap:8px;flex-wrap:wrap}
+#awfPropertyMap{height:480px;width:100%;background:#111}
+.awf-map-legend{display:flex;gap:12px;flex-wrap:wrap;padding:10px 14px;color:#888;font-size:.68rem;border-top:1px solid rgba(255,255,255,.06)}
+.awf-map-pin{width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#d4af37;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;color:#080808;font-weight:900;font-size:12px}
+.awf-map-pin span{transform:rotate(45deg)}
+.awf-map-popup{min-width:190px;color:#111}
+.awf-map-popup strong{display:block;font-size:14px;margin-bottom:5px}
+.awf-map-popup small{display:block;color:#555;margin-bottom:8px}
+.awf-map-popup b{color:#8f6d16}
+.awf-map-empty{padding:26px;text-align:center;color:#777;font-size:.75rem}
+.awf-map-picker-modal{position:fixed;inset:0;z-index:10050;background:rgba(0,0,0,.84);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:18px}
+.awf-map-picker-modal.open{display:flex}
+.awf-map-picker-inner{width:min(900px,100%);background:#0c0c0c;border:1px solid rgba(212,175,55,.2);border-radius:22px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.7)}
+.awf-map-picker-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+.awf-map-picker-head h3{margin:0;font-family:Georgia,serif;font-size:1rem}
+#awfPickerMap{height:430px}
+.awf-map-picker-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;color:#777;font-size:.7rem}
+.awf-map-coords{color:#d4af37;font-weight:700}
+@media(max-width:700px){#awfPropertyMap{height:390px}#awfPickerMap{height:360px}.awf-map-head{align-items:flex-start;flex-direction:column}.awf-map-picker-foot{align-items:flex-start;flex-direction:column}}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -2627,6 +2655,7 @@ body{background:#050505;color:#f7f5ef}
 }
 </style>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -3144,6 +3173,7 @@ body{background:#050505;color:#f7f5ef}
       <button class="marketplace-mini-btn" type="button" onclick="saveCurrentSearch()">＋ Save Search</button>
       <button class="marketplace-mini-btn" type="button" onclick="shareCurrentSearch()">↗ Share</button>
       <button class="marketplace-mini-btn" id="viewToggleBtn" type="button" onclick="toggleMarketplaceView()">▦ Grid</button>
+      <button class="marketplace-mini-btn" id="mapViewBtn" type="button" onclick="toggleAWFMap()">⌖ Map</button>
       <button class="marketplace-mini-btn" type="button" onclick="resetMarketplaceFilters()">Reset</button>
     </div>
   </div>
@@ -3159,7 +3189,24 @@ body{background:#050505;color:#f7f5ef}
 </div>
 </div>
 
-        <div class="property-grid" id="publicPropertyGrid"></div>
+        <div class="awf-map-panel" id="awfMapPanel" aria-hidden="true">
+  <div class="awf-map-head">
+    <div><h3>AWF Property Map</h3><p>Explore available AWF listings by location.</p></div>
+    <div class="awf-map-actions"><button class="marketplace-mini-btn" type="button" onclick="fitAWFMapToListings()">Fit listings</button><button class="marketplace-mini-btn" type="button" onclick="toggleAWFMap()">Close map</button></div>
+  </div>
+  <div id="awfPropertyMap"></div>
+  <div class="awf-map-legend"><span>● Each marker is an AWF listing</span><span>Click a marker to view the property</span><span>Managers can set exact coordinates when adding a listing</span></div>
+</div>
+
+<div class="awf-map-picker-modal" id="awfMapPickerModal" aria-hidden="true">
+  <div class="awf-map-picker-inner">
+    <div class="awf-map-picker-head"><h3>Set Property Location</h3><button class="property-detail-close" type="button" onclick="closeAWFMapPicker()">×</button></div>
+    <div id="awfPickerMap"></div>
+    <div class="awf-map-picker-foot"><span>Tap the exact property position on the map.</span><span class="awf-map-coords" id="awfPickerCoords">No location selected</span><button class="btn btn-gold" type="button" onclick="useAWFMapPickerLocation()">Use This Location</button></div>
+  </div>
+</div>
+
+<div class="property-grid" id="publicPropertyGrid"></div>
     </div>
 
 </section>
@@ -4008,6 +4055,20 @@ body{background:#050505;color:#f7f5ef}
 
                     </div>
 
+                    <div class="manager-field">
+                        <label>LATITUDE</label>
+                        <input id="propertyLatitude" inputmode="decimal" placeholder="e.g. 9.0765">
+                    </div>
+
+                    <div class="manager-field">
+                        <label>LONGITUDE</label>
+                        <input id="propertyLongitude" inputmode="decimal" placeholder="e.g. 7.3986">
+                    </div>
+
+                    <div class="manager-field" style="display:flex;align-items:flex-end">
+                        <button class="btn btn-outline" type="button" style="width:100%" onclick="openAWFMapPicker()">⌖ Pick Location on Map</button>
+                    </div>
+
 
                     <div class="manager-field">
 
@@ -4476,7 +4537,7 @@ let galleryIndex = 0;
     try {
         if (!supabaseClient) return;
         const { data, error } = await supabaseClient.from('properties').select('*');
-        if (error || !Array.isArray(data) || !data.length) return;
+        if (error || !Array.isArray(data)) return;
         properties = data.map(row => ({
             ...row,
             id: String(row.id),
@@ -4664,8 +4725,9 @@ function applyMarketplaceFilters(){
     grid.innerHTML=visible.map(propertyCardHTML).join("");
     document.querySelectorAll(".property-card.reveal").forEach(el=>{try{observer.observe(el)}catch(e){}});
     syncMarketplaceState();
+    if(awfPropertyMap) renderAWFMapMarkers();
 }
-function renderPublicProperties(){applyMarketplaceFilters();}
+function renderPublicProperties(){applyMarketplaceFilters();if(awfPropertyMap)renderAWFMapMarkers();}
 
 function propertyCardHTML(property){
     const images=getPropertyImages(property),videos=getPropertyVideos(property),mediaCount=images.length+videos.length,hasVideo=videos.length>0;
@@ -5055,6 +5117,8 @@ function clearPropertyForm(){
         "propertyCountry",
         "propertyCity",
         "propertyLocation",
+        "propertyLatitude",
+        "propertyLongitude",
         "propertyPrice",
         "propertyBedrooms",
         "propertyBathrooms",
@@ -5118,6 +5182,9 @@ function fillPropertyForm(property){
         "propertyLocation"
     ).value =
     property.location || "";
+
+    document.getElementById("propertyLatitude").value = property.latitude ?? property.lat ?? "";
+    document.getElementById("propertyLongitude").value = property.longitude ?? property.lng ?? "";
 
     document.getElementById(
         "propertyType"
@@ -5197,6 +5264,105 @@ function fillPropertyForm(property){
 
 
 /* =========================================================
+   AWF INTERACTIVE PROPERTY MAP
+========================================================= */
+let awfPropertyMap=null;
+let awfMapMarkers=[];
+let awfPickerMap=null;
+let awfPickerMarker=null;
+let awfPickerLatLng=null;
+
+function awfMapNumber(v){
+    const n=parseFloat(v);
+    return Number.isFinite(n)?n:null;
+}
+function propertyCoordinates(p){
+    const lat=awfMapNumber(p.latitude ?? p.lat), lng=awfMapNumber(p.longitude ?? p.lng);
+    if(lat===null||lng===null) return null;
+    if(lat<-90||lat>90||lng<-180||lng>180) return null;
+    return [lat,lng];
+}
+function awfMapIcon(){
+    return L.divIcon({className:'awf-map-icon-wrap',html:'<div class="awf-map-pin"><span>AWF</span></div>',iconSize:[34,34],iconAnchor:[17,34],popupAnchor:[0,-30]});
+}
+function initAWFPropertyMap(){
+    if(typeof L==='undefined') return false;
+    if(!awfPropertyMap){
+        awfPropertyMap=L.map('awfPropertyMap',{scrollWheelZoom:true}).setView([9.0765,7.3986],11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(awfPropertyMap);
+    }
+    setTimeout(()=>awfPropertyMap.invalidateSize(),100);
+    renderAWFMapMarkers();
+    return true;
+}
+function renderAWFMapMarkers(){
+    if(!awfPropertyMap||typeof L==='undefined') return;
+    awfMapMarkers.forEach(m=>m.remove()); awfMapMarkers=[];
+    const visible=properties.filter(p=>p.visible!==false).filter(p=>propertyCoordinates(p));
+    visible.forEach(p=>{
+        const c=propertyCoordinates(p); if(!c)return;
+        const price=escapeHTML(displayPropertyPrice(p));
+        const title=escapeHTML(p.name||p.title||'AWF Property');
+        const location=escapeHTML([p.city,p.location,p.country].filter(Boolean).join(' • ')||'AWF Property');
+        const marker=L.marker(c,{icon:awfMapIcon()}).addTo(awfPropertyMap);
+        marker.bindPopup(`<div class="awf-map-popup"><strong>${title}</strong><small>${location}</small><b>${price}</b><br><button type="button" class="marketplace-mini-btn" style="margin-top:9px" onclick="openPropertyDetail('${escapeJS(p.id)}')">View Property →</button></div>`);
+        awfMapMarkers.push(marker);
+    });
+    const note=document.querySelector('.awf-map-legend');
+    if(note) note.firstElementChild.textContent=`● ${visible.length} mapped ${visible.length===1?'listing':'listings'}`;
+}
+function fitAWFMapToListings(){
+    if(!awfPropertyMap) return;
+    const coords=properties.filter(p=>p.visible!==false).map(propertyCoordinates).filter(Boolean);
+    if(!coords.length){awfPropertyMap.setView([9.0765,7.3986],11);marketplaceToast('No property coordinates have been added yet');return;}
+    awfPropertyMap.fitBounds(coords,{padding:[35,35],maxZoom:14});
+}
+function toggleAWFMap(){
+    const panel=document.getElementById('awfMapPanel'); if(!panel)return;
+    const open=panel.classList.toggle('open'); panel.setAttribute('aria-hidden',String(!open));
+    const btn=document.getElementById('mapViewBtn'); if(btn)btn.classList.toggle('active',open);
+    if(open){
+        if(!initAWFPropertyMap()){marketplaceToast('Map library is still loading. Please try again in a moment.');return;}
+        fitAWFMapToListings();
+    }
+}
+function openAWFMapPicker(){
+    const modal=document.getElementById('awfMapPickerModal'); if(!modal||typeof L==='undefined'){marketplaceToast('Map library is still loading. Please try again.');return;}
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    const lat=awfMapNumber(document.getElementById('propertyLatitude')?.value)||9.0765;
+    const lng=awfMapNumber(document.getElementById('propertyLongitude')?.value)||7.3986;
+    setTimeout(()=>{
+        if(!awfPickerMap){
+            awfPickerMap=L.map('awfPickerMap').setView([lat,lng],13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(awfPickerMap);
+            awfPickerMap.on('click',e=>setAWFPickerPoint(e.latlng.lat,e.latlng.lng));
+        }else{awfPickerMap.setView([lat,lng],13);}
+        setAWFPickerPoint(lat,lng); awfPickerMap.invalidateSize();
+    },80);
+}
+function setAWFPickerPoint(lat,lng){
+    awfPickerLatLng={lat,lng};
+    if(!awfPickerMap)return;
+    if(awfPickerMarker)awfPickerMarker.setLatLng([lat,lng]);
+    else awfPickerMarker=L.marker([lat,lng],{draggable:true}).addTo(awfPickerMap);
+    awfPickerMarker.on('dragend',()=>{const p=awfPickerMarker.getLatLng();awfPickerLatLng={lat:p.lat,lng:p.lng};updateAWFPickerCoords();});
+    updateAWFPickerCoords();
+}
+function updateAWFPickerCoords(){
+    const el=document.getElementById('awfPickerCoords'); if(el&&awfPickerLatLng)el.textContent=`${awfPickerLatLng.lat.toFixed(6)}, ${awfPickerLatLng.lng.toFixed(6)}`;
+}
+function useAWFMapPickerLocation(){
+    if(!awfPickerLatLng)return;
+    document.getElementById('propertyLatitude').value=awfPickerLatLng.lat.toFixed(6);
+    document.getElementById('propertyLongitude').value=awfPickerLatLng.lng.toFixed(6);
+    closeAWFMapPicker(); marketplaceToast('Property map location set');
+}
+function closeAWFMapPicker(){
+    const modal=document.getElementById('awfMapPickerModal'); if(!modal)return;
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+}
+
+/* =========================================================
    SAVE PROPERTY
 ========================================================= */
 
@@ -5211,6 +5377,8 @@ async function saveProperty(){
         country:document.getElementById("propertyCountry").value.trim(),
         city:document.getElementById("propertyCity").value.trim(),
         location:document.getElementById("propertyLocation").value.trim(),
+        latitude:(document.getElementById("propertyLatitude").value.trim()==="" ? null : parseFloat(document.getElementById("propertyLatitude").value)),
+        longitude:(document.getElementById("propertyLongitude").value.trim()==="" ? null : parseFloat(document.getElementById("propertyLongitude").value)),
         type:document.getElementById("propertyType").value,
         status:document.getElementById("propertyStatus").value,
         price_display:document.getElementById("propertyPrice").value.trim(),
@@ -5288,6 +5456,8 @@ async function saveProperty(){
             price_display:property.price_display || '',
             description:property.description,
             location:property.location,
+            latitude:property.latitude,
+            longitude:property.longitude,
             city:property.city,
             country:property.country,
             price:normalizePropertyPrice(property.price),
@@ -6218,5 +6388,6 @@ const awfOriginalRenderPublicProperties=window.renderPublicProperties;
 window.renderPublicProperties=function(){const r=awfOriginalRenderPublicProperties?awfOriginalRenderPublicProperties():null;setTimeout(updateAWFHeroVisual,80);return r;};
 setTimeout(updateAWFHeroVisual,400);
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
 </html>
