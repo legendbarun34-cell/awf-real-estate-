@@ -4481,6 +4481,7 @@ let galleryIndex = 0;
             ...row,
             id: String(row.id),
             name: row.name || row.title || '',
+            price_display: row.price_display || '',
             type: row.type || row.property_type || '',
             status: row.status || row.listing_type || '',
             video: row.video || row.video_url || '',
@@ -4557,6 +4558,11 @@ function normalizePropertyPrice(value){
     if(raw.includes("million") || /\bmn\b/.test(raw)) return Math.round(n*1000000);
     if(raw.includes("thousand") || /\bkn\b/.test(raw)) return Math.round(n*1000);
     return n;
+}
+function displayPropertyPrice(p){
+    if(p && String(p.price_display||'').trim()) return String(p.price_display).trim();
+    if(p && p.price!==null && p.price!==undefined && String(p.price).trim()) return `${p.currency||'₦'}${p.price}`;
+    return 'Contact for price';
 }
 function numericPrice(p){ const n=numericField(p.price); return n===null?Infinity:n; }
 function numericBeds(p){ const n=Number(p.bedrooms); return Number.isFinite(n)?n:null; }
@@ -4665,7 +4671,7 @@ function propertyCardHTML(property){
     const images=getPropertyImages(property),videos=getPropertyVideos(property),mediaCount=images.length+videos.length,hasVideo=videos.length>0;
     const imageHTML=images[0]?`<img src="${escapeHTML(images[0])}" alt="${escapeHTML(property.name||property.title||"AWF Property")}" loading="lazy" onerror="this.style.display='none'">`:videos[0]?`<video src="${escapeHTML(videos[0])}" muted playsinline preload="metadata" aria-label="Property video"></video>`:`<div class="property-placeholder"><strong>${escapeHTML(property.name||property.title||"AWF Property")}</strong><span>Property media coming soon</span></div>`;
     const details=[]; if(property.bedrooms!==null&&property.bedrooms!==undefined&&property.bedrooms!=="")details.push(`🛏 ${escapeHTML(property.bedrooms)} Beds`); if(property.bathrooms!==null&&property.bathrooms!==undefined&&property.bathrooms!=="")details.push(`♨ ${escapeHTML(property.bathrooms)} Baths`); if(property.size)details.push(`▱ ${escapeHTML(property.size)}`);
-    const price=property.price?`${escapeHTML(property.currency||"₦")}${escapeHTML(property.price)}`:"Contact for price";
+    const price=escapeHTML(displayPropertyPrice(property));
     const verified=getVerificationState(property);
     return `<article class="property-card reveal"><div class="property-image">${imageHTML}${verified?`<span class="awf-verification-badge">✓ VERIFIED</span>`:""}${hasVideo&&images.length?`<button type="button" class="property-video-play property-video-play-overlay" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')">▶ View Video</button>`:""}<div class="property-card-tools"><button type="button" class="property-card-tool ${savedProperties.includes(String(property.id))?"active":""}" onclick="event.stopPropagation();toggleSaved('${escapeJS(property.id)}')" aria-label="Save property">${savedProperties.includes(String(property.id))?"♥":"♡"}</button></div></div><div class="property-body property-card-link" onclick="openPropertyDetail('${escapeJS(property.id)}')"><div class="property-location">⌖ ${escapeHTML([property.city,property.country].filter(Boolean).join(", ")||property.location||"Nigeria")}</div><h3 class="property-name">${escapeHTML(property.name||property.title||"AWF Property")}</h3><p class="property-description">${escapeHTML(property.description||"Selected property opportunity available through AWF Real Estate.")}</p>${details.length?`<div class="property-details">${details.map(d=>`<span>${d}</span>`).join("")}</div>`:""}<div class="property-price"><span class="price">${price}</span><a class="property-btn" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(property.name||property.title||""))}" target="_blank" rel="noopener" aria-label="Enquire about property">→</a></div></div></article>`;
 }
@@ -4676,7 +4682,7 @@ function openPropertyDetail(id){
     const p=properties.find(x=>String(x.id)===String(id));if(!p)return;
     const images=getPropertyImages(p),videos=getPropertyVideos(p),mediaCount=images.length+videos.length;
     const primary=images[0]?`<img src="${escapeHTML(images[0])}" alt="${escapeHTML(p.name||p.title||"AWF Property")}">`:videos[0]?`<video src="${escapeHTML(videos[0])}" controls playsinline preload="metadata"></video>`:`<div class="property-placeholder"><strong>${escapeHTML(p.name||p.title||"AWF Property")}</strong><span>Property media coming soon</span></div>`;
-    const price=p.price?`${escapeHTML(p.currency||"₦")}${escapeHTML(p.price)}`:"Contact for price";
+    const price=escapeHTML(displayPropertyPrice(p));
     const meta=[p.bedrooms!==null&&p.bedrooms!==undefined&&p.bedrooms!==""?`🛏 ${escapeHTML(p.bedrooms)} Beds`:"",p.bathrooms!==null&&p.bathrooms!==undefined&&p.bathrooms!==""?`◆ ${escapeHTML(p.bathrooms)} Baths`:"",p.size?`▱ ${escapeHTML(p.size)}`:"",p.property_type||p.type?escapeHTML(typeLabel(p.property_type||p.type)):"",p.status?escapeHTML(String(p.status).toUpperCase()):""].filter(Boolean);
     const verified=getVerificationState(p);
     document.getElementById("propertyDetailContent").innerHTML=`<div class="property-detail-content"><div class="property-detail-media">${primary}<div class="property-detail-media-tools"><div>${verified?`<span class="awf-verification-badge">✓ AWF Verified</span>`:""}</div><button class="marketplace-mini-btn" type="button" onclick="closePropertyDetail();openGallery('${escapeJS(p.id)}')" ${mediaCount?'':'disabled'}>View ${mediaCount} media</button></div></div><div class="property-detail-info"><div class="property-detail-badges"><span class="global-badge">${escapeHTML(String(p.country||"Nigeria").toUpperCase())}</span><span class="property-type" style="position:static;display:inline-block">${escapeHTML(typeLabel(p.type||p.property_type||""))}</span></div><h2 class="property-detail-title">${escapeHTML(p.name||p.title||"AWF Property")}</h2><div style="color:#d4af37;margin-top:9px">${escapeHTML([p.city,p.location,p.country].filter(Boolean).join(" • "))}</div><div class="property-detail-price">${price}</div><div class="property-detail-meta">${meta.map(x=>`<span>${x}</span>`).join("")}</div><p class="property-detail-desc">${escapeHTML(p.description||"Selected property opportunity available through AWF Real Estate.")}</p><div class="property-detail-actions"><a class="btn btn-gold" target="_blank" rel="noopener" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(p.name||p.title||""))}">WhatsApp AWF →</a><a class="btn btn-outline" href="tel:+2348102837598">Call AWF</a><button class="btn btn-outline" type="button" onclick="openViewingRequest('${escapeJS(p.id)}')">Request Viewing</button><button class="btn btn-outline" onclick="toggleSaved('${escapeJS(p.id)}')">${savedProperties.includes(String(p.id))?"♥ Saved":"♡ Save Property"}</button><button class="btn btn-outline" onclick="toggleCompare('${escapeJS(p.id)}')">⚖ Compare</button></div></div></div>`;
@@ -4686,7 +4692,7 @@ function closePropertyDetail(){document.getElementById("propertyDetailModal").cl
 function showCompare(){
     const selected=comparedProperties.map(id=>properties.find(p=>String(p.id)===String(id))).filter(Boolean);
     if(!selected.length){marketplaceToast("Select up to 3 properties to compare");return;}
-    const rows=[['Price',p=>p.price?`${p.currency||"₦"}${p.price}`:"Contact"],['Location',p=>[p.city,p.country].filter(Boolean).join(", ")||"—"],['Type',p=>typeLabel(p.type||p.property_type||"")||"—"],['Bedrooms',p=>p.bedrooms??"—"],['Bathrooms',p=>p.bathrooms??"—"],['Size',p=>p.size||"—"],['Status',p=>p.status||"—"],['Verified',p=>getVerificationState(p)?"Yes":"—"]];
+    const rows=[['Price',p=>displayPropertyPrice(p)],['Location',p=>[p.city,p.country].filter(Boolean).join(", ")||"—"],['Type',p=>typeLabel(p.type||p.property_type||"")||"—"],['Bedrooms',p=>p.bedrooms??"—"],['Bathrooms',p=>p.bathrooms??"—"],['Size',p=>p.size||"—"],['Status',p=>p.status||"—"],['Verified',p=>getVerificationState(p)?"Yes":"—"]];
     document.getElementById("propertyDetailContent").innerHTML=`<div style="padding:32px;overflow:auto"><div class="section-label">AWF PROPERTY COMPARISON</div><h2 class="property-detail-title" style="margin-top:8px">Compare selected properties</h2><table style="width:100%;border-collapse:collapse;margin-top:25px;font-size:.75rem"><thead><tr><th style="text-align:left;padding:12px;border-bottom:1px solid #222">Feature</th>${selected.map(p=>`<th style="text-align:left;padding:12px;border-bottom:1px solid #222;color:#d4af37">${escapeHTML(p.name||p.title||"Property")}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr><td style="padding:12px;border-bottom:1px solid #181818;color:#777">${r[0]}</td>${selected.map(p=>`<td style="padding:12px;border-bottom:1px solid #181818">${escapeHTML(String(r[1](p)))}</td>`).join("")}</tr>`).join("")}</tbody></table><div class="property-detail-actions"><button class="btn btn-gold" onclick="closePropertyDetail()">Done</button><button class="btn btn-outline" onclick="comparedProperties=[];syncMarketplaceState();applyMarketplaceFilters();closePropertyDetail()">Clear Comparison</button></div></div>`;
     document.getElementById("propertyDetailModal").classList.add("open");document.body.classList.add("menu-open");
 }
@@ -5126,7 +5132,7 @@ function fillPropertyForm(property){
     document.getElementById(
         "propertyPrice"
     ).value =
-    property.price || "";
+    property.price_display || property.price || "";
 
     document.getElementById(
         "propertyCurrency"
@@ -5207,6 +5213,7 @@ async function saveProperty(){
         location:document.getElementById("propertyLocation").value.trim(),
         type:document.getElementById("propertyType").value,
         status:document.getElementById("propertyStatus").value,
+        price_display:document.getElementById("propertyPrice").value.trim(),
         price:document.getElementById("propertyPrice").value.trim(),
         currency:document.getElementById("propertyCurrency").value,
         bedrooms:(document.getElementById("propertyBedrooms").value.trim() === "" ? null : parseInt(document.getElementById("propertyBedrooms").value, 10)),
@@ -5255,6 +5262,17 @@ async function saveProperty(){
 
     property.video=property.videos.length>1 ? JSON.stringify(property.videos) : (property.videos[0] || "");
 
+    // Keep exactly what the manager entered for customer display, while storing
+    // a normalized numeric value separately for Supabase numeric price columns.
+    const enteredPriceDisplay=String(property.price_display||property.price||"").trim();
+    const normalizedPrice=normalizePropertyPrice(enteredPriceDisplay);
+    if(normalizedPrice===null){
+        alert("Please enter a valid property price, for example 3 billion naira or ₦3,000,000,000.");
+        return;
+    }
+    property.price_display=enteredPriceDisplay;
+    property.price=String(normalizedPrice);
+
     if(editingPropertyId){
         properties=properties.map(item=>String(item.id)===String(editingPropertyId)?property:item);
     }else{
@@ -5267,6 +5285,7 @@ async function saveProperty(){
             id:property.id,
             title:property.name,
             name:property.name,
+            price_display:property.price_display || '',
             description:property.description,
             location:property.location,
             city:property.city,
@@ -5426,13 +5445,7 @@ function renderManagerProperties(){
                 ${typeLabel(property.type)}
 
                 ${property.price
-                    ? " • " +
-                    escapeHTML(
-                        property.currency || ""
-                    ) +
-                    escapeHTML(
-                        property.price
-                    )
+                    ? " • " + escapeHTML(displayPropertyPrice(property))
                     : ""
                 }
 
