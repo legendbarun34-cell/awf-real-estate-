@@ -4547,6 +4547,17 @@ function numericField(value){
     const n=parseFloat(String(value??"").replace(/[^0-9.]/g,""));
     return Number.isFinite(n)?n:null;
 }
+
+function normalizePropertyPrice(value){
+    const raw=String(value??"").trim().toLowerCase().replace(/₦/g,"").replace(/,/g,"").replace(/\s+/g," ");
+    if(!raw) return null;
+    const n=parseFloat(raw.replace(/[^0-9.]/g,""));
+    if(!Number.isFinite(n)) return null;
+    if(raw.includes("billion") || /\bbn\b/.test(raw)) return Math.round(n*1000000000);
+    if(raw.includes("million") || /\bmn\b/.test(raw)) return Math.round(n*1000000);
+    if(raw.includes("thousand") || /\bkn\b/.test(raw)) return Math.round(n*1000);
+    return n;
+}
 function numericPrice(p){ const n=numericField(p.price); return n===null?Infinity:n; }
 function numericBeds(p){ const n=Number(p.bedrooms); return Number.isFinite(n)?n:null; }
 function numericBaths(p){ const n=Number(p.bathrooms); return Number.isFinite(n)?n:null; }
@@ -5260,7 +5271,7 @@ async function saveProperty(){
             location:property.location,
             city:property.city,
             country:property.country,
-            price:property.price,
+            price:normalizePropertyPrice(property.price),
             property_type:property.type,
             type:property.type,
             listing_type:property.status,
