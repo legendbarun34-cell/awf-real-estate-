@@ -2656,7 +2656,9 @@ body{background:#050505;color:#f7f5ef}
 </style>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-</head>
+<style id="awf-vault-css">
+.awf-vault-btn{border:1px solid #d4af37;color:#d4af37;background:#0b0b0b;border-radius:999px;padding:10px 15px;font-weight:800;cursor:pointer}.awf-vault-btn:hover{background:#d4af37;color:#050505}.awf-vault-badge{position:absolute;left:12px;bottom:12px;background:rgba(5,5,5,.88);border:1px solid #d4af37;color:#f4d77a;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em}.awf-vault-lock{background:linear-gradient(135deg,#0a0a0a,#17130a);border:1px solid rgba(212,175,55,.35);border-radius:18px;padding:22px;text-align:center}.awf-vault-lock h3{margin:0 0 8px;color:#f4d77a}.awf-vault-lock p{color:#aaa59a;margin:0 0 15px}.awf-vault-modal{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(12px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}.awf-vault-modal.open{display:flex}.awf-vault-panel{width:min(620px,100%);max-height:90vh;overflow:auto;background:#080808;border:1px solid rgba(212,175,55,.35);border-radius:26px;padding:26px;box-shadow:0 30px 100px rgba(0,0,0,.6)}.awf-vault-panel h2{color:#f4d77a;margin:0 0 8px}.awf-vault-panel .sub{color:#aaa59a;margin:0 0 20px}.awf-vault-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.awf-vault-grid input,.awf-vault-grid select{width:100%;box-sizing:border-box;background:#111;border:1px solid #333;color:#fff;border-radius:12px;padding:13px}.awf-vault-grid .full{grid-column:1/-1}.awf-vault-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.awf-vault-actions button{padding:12px 16px;border-radius:12px;cursor:pointer}.awf-vault-primary{background:#d4af37;color:#050505;border:0;font-weight:800}.awf-vault-secondary{background:transparent;color:#fff;border:1px solid #444}.awf-vault-status{margin-top:12px;color:#aaa59a;font-size:13px}.awf-vault-hero{margin:20px 0;padding:28px;border:1px solid rgba(212,175,55,.28);border-radius:24px;background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(0,0,0,.75));}.awf-vault-hero h2{font-size:clamp(28px,5vw,48px);margin:0 0 10px}.awf-vault-hero p{color:#c4c0b7;max-width:720px}.awf-vault-hero button{margin-top:8px}@media(max-width:650px){.awf-vault-grid{grid-template-columns:1fr}}
+</style></head>
 <body>
 
 <!-- =======================================================
@@ -2682,7 +2684,7 @@ body{background:#050505;color:#f7f5ef}
         <button class="menu-button" id="menuButton" aria-label="Open menu">
             <span class="menu-lines"><span></span><span></span><span></span></span>
         </button>
-    </nav>
+    <button class="awf-vault-btn" type="button" onclick="openAWFVault()">PRIVATE VAULT</button></nav>
 
 </header>
 
@@ -4252,6 +4254,20 @@ body{background:#050505;color:#f7f5ef}
                     </div>
 
 
+                    <div class="manager-field">
+                        <label>PRIVATE VAULT</label>
+                        <select id="propertyVaultOnly">
+                            <option value="false">Public Listing</option>
+                            <option value="true">Vault Only</option>
+                        </select>
+                    </div>
+                    <div class="manager-field">
+                        <label>NDA REQUIRED</label>
+                        <select id="propertyNdaRequired">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
                     <div class="manager-field full">
 
                         <label>
@@ -4550,6 +4566,10 @@ let galleryIndex = 0;
             type: row.type || row.property_type || '',
             status: row.status || row.listing_type || '',
             video: row.video || row.video_url || '',
+            vault_only: !!row.vault_only,
+            vault_teaser: row.vault_teaser || '',
+            price_on_request: !!row.price_on_request,
+            nda_required: row.nda_required !== false,
             videos: Array.isArray(row.videos) ? row.videos : [],
             images: Array.isArray(row.images) ? row.images : []
         }));
@@ -4717,6 +4737,8 @@ function applyMarketplaceFilters(){
     const minSize=numericField(document.getElementById("marketplaceMinSize")?.value); const maxSize=numericField(document.getElementById("marketplaceMaxSize")?.value);
     const amenity=document.getElementById("marketplaceAmenity")?.value||"all"; const media=document.getElementById("marketplaceMedia")?.value||"all";
     let visible=properties.filter(p=>p.visible!==false);
+    const vaultVisible = !!window.awfVaultAccess;
+    visible = visible.filter(p=>!p.vault_only || vaultVisible);
     if(currentFilter!=="all") visible=visible.filter(p=>{const t=typeText(p),s=statusText(p);if(currentFilter==="international")return String(p.country||"").toLowerCase()!=="nigeria";if(currentFilter==="investment")return t.includes("investment")||s.includes("investment");if(currentFilter==="sale")return s.includes("sale");if(currentFilter==="rent")return s.includes("rent");return true;});
     if(type!=="all")visible=visible.filter(p=>typeText(p).includes(type.toLowerCase()));
     if(country!=="all")visible=visible.filter(p=>String(p.country||"").toLowerCase()===country.toLowerCase());
@@ -4752,9 +4774,9 @@ function propertyCardHTML(property){
     const images=getPropertyImages(property),videos=getPropertyVideos(property),mediaCount=images.length+videos.length,hasVideo=videos.length>0;
     const imageHTML=images[0]?`<img src="${escapeHTML(images[0])}" alt="${escapeHTML(property.name||property.title||"AWF Property")}" loading="lazy" onerror="this.style.display='none'">`:videos[0]?`<video src="${escapeHTML(videos[0])}" muted playsinline preload="metadata" aria-label="Property video"></video>`:`<div class="property-placeholder"><strong>${escapeHTML(property.name||property.title||"AWF Property")}</strong><span>Property media coming soon</span></div>`;
     const details=[]; if(property.bedrooms!==null&&property.bedrooms!==undefined&&property.bedrooms!=="")details.push(`🛏 ${escapeHTML(property.bedrooms)} Beds`); if(property.bathrooms!==null&&property.bathrooms!==undefined&&property.bathrooms!=="")details.push(`♨ ${escapeHTML(property.bathrooms)} Baths`); if(property.size)details.push(`▱ ${escapeHTML(property.size)}`);
-    const price=escapeHTML(displayPropertyPrice(property));
+    const price=escapeHTML(property.vault_only ? "PRICE ON NDA • VAULT ONLY" : displayPropertyPrice(property));
     const verified=getVerificationState(property);
-    return `<article class="property-card reveal"><div class="property-image">${imageHTML}${verified?`<span class="awf-verification-badge">✓ VERIFIED</span>`:""}${hasVideo&&images.length?`<button type="button" class="property-video-play property-video-play-overlay" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')">▶ View Video</button>`:""}<div class="property-card-tools"><button type="button" class="property-card-tool ${savedProperties.includes(String(property.id))?"active":""}" onclick="event.stopPropagation();toggleSaved('${escapeJS(property.id)}')" aria-label="Save property">${savedProperties.includes(String(property.id))?"♥":"♡"}</button></div></div><div class="property-body property-card-link" onclick="openPropertyDetail('${escapeJS(property.id)}')"><div class="property-location">⌖ ${escapeHTML([property.city,property.country].filter(Boolean).join(", ")||property.location||"Nigeria")}</div><h3 class="property-name">${escapeHTML(property.name||property.title||"AWF Property")}</h3><p class="property-description">${escapeHTML(property.description||"Selected property opportunity available through AWF Real Estate.")}</p>${details.length?`<div class="property-details">${details.map(d=>`<span>${d}</span>`).join("")}</div>`:""}<div class="property-price"><span class="price">${price}</span><a class="property-btn" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(property.name||property.title||""))}" target="_blank" rel="noopener" aria-label="Enquire about property">→</a></div></div></article>`;
+    return `<article class="property-card reveal"><div class="property-image">${imageHTML}${property.vault_only?`<span class="awf-vault-badge">🔒 PRIVATE VAULT</span>`:""}${verified?`<span class="awf-verification-badge">✓ VERIFIED</span>`:""}${hasVideo&&images.length?`<button type="button" class="property-video-play property-video-play-overlay" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')">▶ View Video</button>`:""}<div class="property-card-tools"><button type="button" class="property-card-tool ${savedProperties.includes(String(property.id))?"active":""}" onclick="event.stopPropagation();toggleSaved('${escapeJS(property.id)}')" aria-label="Save property">${savedProperties.includes(String(property.id))?"♥":"♡"}</button></div></div><div class="property-body property-card-link" onclick="openPropertyDetail('${escapeJS(property.id)}')"><div class="property-location">⌖ ${escapeHTML([property.city,property.country].filter(Boolean).join(", ")||property.location||"Nigeria")}</div><h3 class="property-name">${escapeHTML(property.name||property.title||"AWF Property")}</h3><p class="property-description">${escapeHTML(property.description||"Selected property opportunity available through AWF Real Estate.")}</p>${details.length?`<div class="property-details">${details.map(d=>`<span>${d}</span>`).join("")}</div>`:""}<div class="property-price"><span class="price">${price}</span><a class="property-btn" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(property.name||property.title||""))}" target="_blank" rel="noopener" aria-label="Enquire about property">→</a></div></div></article>`;
 }
 
 function toggleSaved(id){id=String(id);savedProperties=savedProperties.includes(id)?savedProperties.filter(x=>x!==id):[...savedProperties,id];syncMarketplaceState();applyMarketplaceFilters();marketplaceToast(savedProperties.includes(id)?"Property saved":"Property removed from saved");}
@@ -5391,6 +5413,9 @@ async function saveProperty(){
 
     const existing=editingPropertyId ? properties.find(p=>String(p.id)===String(editingPropertyId)) : null;
     const property={
+        vault_only:document.getElementById("propertyVaultOnly")?.value === "true",
+        nda_required:document.getElementById("propertyNdaRequired")?.value !== "false",
+        price_on_request:document.getElementById("propertyVaultOnly")?.value === "true",
         id: editingPropertyId || Date.now().toString(),
         name,
         country:document.getElementById("propertyCountry").value.trim(),
@@ -5491,6 +5516,10 @@ async function saveProperty(){
             verified:property.verified,
             is_verified:property.is_verified,
             verification_status:property.verification_status,
+            vault_only:!!property.vault_only,
+            vault_teaser:property.vault_teaser || property.description || "Private AWF property opportunity.",
+            price_on_request:!!property.price_on_request,
+            nda_required:property.nda_required!==false,
             featured:property.featured,
             image1:property.image1,
             image2:property.image2,
@@ -6408,5 +6437,32 @@ window.renderPublicProperties=function(){const r=awfOriginalRenderPublicProperti
 setTimeout(updateAWFHeroVisual,400);
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<div id="awfVaultModal" class="awf-vault-modal" aria-hidden="true">
+ <div class="awf-vault-panel">
+  <button type="button" class="awf-vault-actions awf-vault-secondary" style="float:right" onclick="closeAWFVault()">Close</button>
+  <div class="awf-vault-hero"><h2>AWF PRIVATE VAULT</h2><p><strong>We don't list homes. We move legacies.</strong><br>Private property opportunities, deeper due diligence and confidential investor access.</p></div>
+  <div id="awfVaultLoggedOut">
+   <div class="awf-vault-grid">
+    <input id="vaultName" class="full" placeholder="Full name">
+    <input id="vaultEmail" class="full" type="email" placeholder="Email address">
+    <input id="vaultPassword" class="full" type="password" placeholder="Create password">
+    <select id="vaultInvestorType"><option>UHNW Investor</option><option>Family Office</option><option>Institutional Investor</option><option>Private Investor</option><option>Broker / Partner</option></select>
+    <select id="vaultNetWorth"><option>Prefer not to say</option><option>Under $1M</option><option>$1M–$10M</option><option>$10M–$50M</option><option>$50M+</option></select>
+   </div>
+   <div class="awf-vault-actions"><button class="awf-vault-primary" onclick="requestAWFVaultAccess()">Request Private Access</button></div>
+   <div id="awfVaultStatus" class="awf-vault-status"></div>
+  </div>
+  <div id="awfVaultLoggedIn" style="display:none"><p class="awf-vault-status">You are signed in to the AWF Private Vault. Access to confidential assets remains subject to AWF approval and any required NDA.</p><div class="awf-vault-actions"><button class="awf-vault-primary" onclick="openVaultListings()">Enter Vault</button><button class="awf-vault-secondary" onclick="awfVaultSignOut()">Sign Out</button></div></div>
+ </div>
+</div>
+<script id="awf-vault-js">
+window.awfVaultAccess=false;
+async function openAWFVault(){const m=document.getElementById('awfVaultModal');m.classList.add('open');m.setAttribute('aria-hidden','false');try{const {data}=await supabaseClient.auth.getSession();if(data?.session){document.getElementById('awfVaultLoggedOut').style.display='none';document.getElementById('awfVaultLoggedIn').style.display='block';}else{document.getElementById('awfVaultLoggedOut').style.display='block';document.getElementById('awfVaultLoggedIn').style.display='none';}}catch(e){}}
+function closeAWFVault(){document.getElementById('awfVaultModal').classList.remove('open');document.getElementById('awfVaultModal').setAttribute('aria-hidden','true');}
+async function requestAWFVaultAccess(){const name=document.getElementById('vaultName').value.trim(),email=document.getElementById('vaultEmail').value.trim(),password=document.getElementById('vaultPassword').value,investor_type=document.getElementById('vaultInvestorType').value,net_worth_range=document.getElementById('vaultNetWorth').value,status=document.getElementById('awfVaultStatus');if(!name||!email||!password){status.textContent='Please complete your name, email and password.';return;}status.textContent='Creating your private access request…';try{const {data,error}=await supabaseClient.auth.signUp({email,password,options:{data:{full_name:name,investor_type,net_worth_range}}});if(error)throw error;const userId=data.user?.id;if(userId){const {error:e2}=await supabaseClient.from('awf_vault_access').upsert({user_id:userId,full_name:name,email,investor_type,net_worth_range,status:'pending'},{onConflict:'user_id'});if(e2)throw e2;}status.textContent='Request received. Check your email if confirmation is required. AWF will review your private access request.';}catch(e){status.textContent=e.message||'Could not create the vault request.';}}
+async function openVaultListings(){window.awfVaultAccess=true;closeAWFVault();document.getElementById('marketplaceVerified')?.dispatchEvent(new Event('change'));renderPublicProperties();marketplaceToast('Private Vault access enabled for this session');}
+async function awfVaultSignOut(){await supabaseClient.auth.signOut();window.awfVaultAccess=false;closeAWFVault();renderPublicProperties();}
+</script>
 </body>
 </html>
