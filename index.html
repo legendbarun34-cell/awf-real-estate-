@@ -2657,7 +2657,36 @@ body{background:#050505;color:#f7f5ef}
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style id="awf-vault-css">
-.awf-vault-btn{border:1px solid #d4af37;color:#d4af37;background:#0b0b0b;border-radius:999px;padding:10px 15px;font-weight:800;cursor:pointer}.awf-vault-btn:hover{background:#d4af37;color:#050505}.awf-vault-badge{position:absolute;left:12px;bottom:12px;background:rgba(5,5,5,.88);border:1px solid #d4af37;color:#f4d77a;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em}.awf-vault-lock{background:linear-gradient(135deg,#0a0a0a,#17130a);border:1px solid rgba(212,175,55,.35);border-radius:18px;padding:22px;text-align:center}.awf-vault-lock h3{margin:0 0 8px;color:#f4d77a}.awf-vault-lock p{color:#aaa59a;margin:0 0 15px}.awf-vault-modal{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(12px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}.awf-vault-modal.open{display:flex}.awf-vault-panel{width:min(620px,100%);max-height:90vh;overflow:auto;background:#080808;border:1px solid rgba(212,175,55,.35);border-radius:26px;padding:26px;box-shadow:0 30px 100px rgba(0,0,0,.6)}.awf-vault-panel h2{color:#f4d77a;margin:0 0 8px}.awf-vault-panel .sub{color:#aaa59a;margin:0 0 20px}.awf-vault-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.awf-vault-grid input,.awf-vault-grid select{width:100%;box-sizing:border-box;background:#111;border:1px solid #333;color:#fff;border-radius:12px;padding:13px}.awf-vault-grid .full{grid-column:1/-1}.awf-vault-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.awf-vault-actions button{padding:12px 16px;border-radius:12px;cursor:pointer}.awf-vault-primary{background:#d4af37;color:#050505;border:0;font-weight:800}.awf-vault-secondary{background:transparent;color:#fff;border:1px solid #444}.awf-vault-status{margin-top:12px;color:#aaa59a;font-size:13px}.awf-vault-hero{margin:20px 0;padding:28px;border:1px solid rgba(212,175,55,.28);border-radius:24px;background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(0,0,0,.75));}.awf-vault-hero h2{font-size:clamp(28px,5vw,48px);margin:0 0 10px}.awf-vault-hero p{color:#c4c0b7;max-width:720px}.awf-vault-hero button{margin-top:8px}@media(max-width:650px){.awf-vault-grid{grid-template-columns:1fr}}
+:root{--vault-black:#0A0A0A;--vault-ivory:#F5F3F0;--vault-gold:#C6A961;--vault-line:rgba(198,169,97,.28)}
+body.awf-vault-open{overflow:hidden}
+.awf-vault-btn{border:1px solid var(--vault-gold);color:var(--vault-gold);background:#0b0b0b;border-radius:0;padding:11px 16px;font-weight:700;letter-spacing:.08em;cursor:pointer;font-size:11px}
+.awf-vault-btn:hover{background:var(--vault-gold);color:var(--vault-black)}
+.awf-vault-badge{position:absolute;left:12px;bottom:12px;background:rgba(5,5,5,.88);border:1px solid #d4af37;color:#f4d77a;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em}
+.awf-vault-lock{background:linear-gradient(135deg,#0a0a0a,#17130a);border:1px solid rgba(212,175,55,.35);border-radius:18px;padding:22px;text-align:center}
+.awf-vault-lock h3{margin:0 0 8px;color:#f4d77a}.awf-vault-lock p{color:#aaa59a;margin:0 0 15px}
+.awf-vault-modal{position:fixed;inset:0;background:var(--vault-black);z-index:99999;display:none;overflow:auto}
+.awf-vault-modal.open{display:block}
+.awf-vault-door{min-height:100%;box-sizing:border-box;padding:42px clamp(22px,6vw,90px) 38px;color:var(--vault-ivory);font-family:Inter,Arial,sans-serif;position:relative}
+.awf-vault-close{position:absolute;right:24px;top:20px;width:42px;height:42px;border:1px solid rgba(245,243,240,.25);background:transparent;color:var(--vault-ivory);font-size:25px;line-height:1;cursor:pointer}
+.awf-vault-kicker{font-size:11px;letter-spacing:.22em;color:var(--vault-gold);font-weight:700;margin:22px 0 18px}
+.awf-vault-door h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(44px,8vw,94px);letter-spacing:-.035em;line-height:.94;margin:0 0 18px;color:var(--vault-ivory)}
+.awf-vault-lead{font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2.7vw,32px);line-height:1.25;max-width:760px;margin:0;color:#eeeae4}
+.awf-vault-note{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--vault-gold);margin:18px 0 42px}
+.awf-vault-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1180px;margin:0 auto}
+.awf-vault-card{background:#111;border:1px solid var(--vault-line);min-width:0}
+.awf-vault-image-wrap{height:310px;position:relative;overflow:hidden;background:#151515}
+.awf-vault-teaser-image{width:100%;height:100%;object-fit:cover;display:block;filter:blur(10px) saturate(.55);transform:scale(1.08);opacity:.72}
+.awf-vault-image-label{position:absolute;left:18px;top:18px;border:1px solid rgba(245,243,240,.55);padding:8px 10px;font-size:9px;letter-spacing:.18em;color:#fff;background:rgba(10,10,10,.7)}
+.awf-vault-blur-fallback{height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 40% 30%,#35312a,#141414 55%,#090909);filter:blur(.2px)}
+.awf-vault-blur-fallback span{font-family:Georgia,'Times New Roman',serif;color:rgba(245,243,240,.58);font-size:20px;letter-spacing:.12em}
+.awf-vault-card-body{padding:24px 24px 26px}.awf-vault-card-meta{font-size:9px;letter-spacing:.19em;color:var(--vault-gold);font-weight:700;margin-bottom:12px}
+.awf-vault-card h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 13px;color:var(--vault-ivory)}
+.awf-vault-card p{font-size:14px;line-height:1.65;color:#bdb9b2;max-width:620px;margin:0 0 21px}
+.awf-vault-enquire{border:1px solid var(--vault-gold);background:transparent;color:var(--vault-gold);padding:12px 16px;font-size:10px;font-weight:700;letter-spacing:.14em;cursor:pointer}
+.awf-vault-enquire:hover{background:var(--vault-gold);color:var(--vault-black)}
+.awf-vault-footer{max-width:1180px;margin:38px auto 0;padding-top:18px;border-top:1px solid rgba(245,243,240,.12);display:flex;gap:20px;flex-wrap:wrap;color:#88837b;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.awf-vault-loading{grid-column:1/-1;min-height:180px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(245,243,240,.12);color:#9c978f;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:760px){.awf-vault-door{padding:28px 16px 28px}.awf-vault-close{right:16px;top:14px}.awf-vault-cards{grid-template-columns:1fr;gap:16px}.awf-vault-image-wrap{height:235px}.awf-vault-card-body{padding:20px}.awf-vault-footer{display:block}.awf-vault-footer span{display:block;margin-bottom:8px}}
 </style></head>
 <body>
 
@@ -6439,30 +6468,107 @@ setTimeout(updateAWFHeroVisual,400);
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <div id="awfVaultModal" class="awf-vault-modal" aria-hidden="true">
- <div class="awf-vault-panel">
-  <button type="button" class="awf-vault-actions awf-vault-secondary" style="float:right" onclick="closeAWFVault()">Close</button>
-  <div class="awf-vault-hero"><h2>AWF PRIVATE VAULT</h2><p><strong>We don't list homes. We move legacies.</strong><br>Private property opportunities, deeper due diligence and confidential investor access.</p></div>
-  <div id="awfVaultLoggedOut">
-   <div class="awf-vault-grid">
-    <input id="vaultName" class="full" placeholder="Full name">
-    <input id="vaultEmail" class="full" type="email" placeholder="Email address">
-    <input id="vaultPassword" class="full" type="password" placeholder="Create password">
-    <select id="vaultInvestorType"><option>UHNW Investor</option><option>Family Office</option><option>Institutional Investor</option><option>Private Investor</option><option>Broker / Partner</option></select>
-    <select id="vaultNetWorth"><option>Prefer not to say</option><option>Under $1M</option><option>$1M–$10M</option><option>$10M–$50M</option><option>$50M+</option></select>
-   </div>
-   <div class="awf-vault-actions"><button class="awf-vault-primary" onclick="requestAWFVaultAccess()">Request Private Access</button></div>
-   <div id="awfVaultStatus" class="awf-vault-status"></div>
+  <div class="awf-vault-door" role="dialog" aria-modal="true" aria-labelledby="awfVaultTitle">
+    <button type="button" class="awf-vault-close" onclick="closeAWFVault()" aria-label="Close Private Vault">×</button>
+    <div class="awf-vault-kicker">PRIVATE SALES • ABUJA</div>
+    <h2 id="awfVaultTitle">PRIVATE VAULT</h2>
+    <p class="awf-vault-lead">Off-market placements for private investors, family offices and institutions.</p>
+    <p class="awf-vault-note">Discreet. By Appointment Only.</p>
+
+    <div id="awfVaultCards" class="awf-vault-cards" aria-live="polite">
+      <div class="awf-vault-loading">Curating private placements…</div>
+    </div>
+
+    <div class="awf-vault-footer">
+      <span>All placements are off-market.</span>
+      <span>Identities not disclosed.</span>
+      <span>POF required for data room access.</span>
+    </div>
   </div>
-  <div id="awfVaultLoggedIn" style="display:none"><p class="awf-vault-status">You are signed in to the AWF Private Vault. Access to confidential assets remains subject to AWF approval and any required NDA.</p><div class="awf-vault-actions"><button class="awf-vault-primary" onclick="openVaultListings()">Enter Vault</button><button class="awf-vault-secondary" onclick="awfVaultSignOut()">Sign Out</button></div></div>
+</div>
+
+<div id="awfVaultEnquiryModal" class="awf-k-overlay" aria-hidden="true">
+ <div class="awf-k-panel">
+  <button type="button" class="awf-k-close" onclick="closeVaultEnquiry()">×</button>
+  <div class="awf-k-eyebrow">AWF PRIVATE SALES</div>
+  <h2>Enquire to Specialist</h2>
+  <p class="awf-k-sub">Private placements are handled discreetly. No public price, owner identity or exact address is disclosed at this stage.</p>
+  <div id="awfVaultSelectedAsset" class="awf-k-selected">Private placement selected</div>
+  <form onsubmit="submitVaultEnquiry(event)">
+   <div class="awf-k-grid">
+    <div class="awf-k-field"><label>Full Name *</label><input id="vaultEnqName" required autocomplete="name"></div>
+    <div class="awf-k-field"><label>Company / Family Office *</label><input id="vaultEnqCompany" required></div>
+    <div class="awf-k-field"><label>Corporate Email *</label><input id="vaultEnqEmail" type="email" required autocomplete="email"></div>
+    <div class="awf-k-field"><label>Phone *</label><input id="vaultEnqPhone" type="tel" required autocomplete="tel"></div>
+    <div class="awf-k-field"><label>POF Range *</label><select id="vaultEnqPof" required><option value="">Select range</option><option>₦10B–₦30B</option><option>₦30B–₦60B</option><option>₦60B+</option></select></div>
+    <div class="awf-k-field"><label>Proof of Funds</label><input id="vaultEnqPofFile" class="awf-k-file" type="file" accept="application/pdf,image/jpeg,image/png"></div>
+    <div class="awf-k-field full"><label>Message</label><textarea id="vaultEnqMessage" placeholder="Tell our specialist what you are seeking."></textarea></div>
+   </div>
+   <button id="awfVaultSubmit" class="awf-k-submit" type="submit">SUBMIT ENQUIRY</button>
+   <div id="awfVaultEnquiryStatus" class="awf-k-status"></div>
+   <div class="awf-k-note">Proof of funds is optional at initial enquiry but may be required before confidential data-room access. Documents are intended for restricted AWF review only.</div>
+  </form>
  </div>
 </div>
 <script id="awf-vault-js">
 window.awfVaultAccess=false;
-async function openAWFVault(){const m=document.getElementById('awfVaultModal');m.classList.add('open');m.setAttribute('aria-hidden','false');try{const {data}=await supabaseClient.auth.getSession();if(data?.session){document.getElementById('awfVaultLoggedOut').style.display='none';document.getElementById('awfVaultLoggedIn').style.display='block';}else{document.getElementById('awfVaultLoggedOut').style.display='block';document.getElementById('awfVaultLoggedIn').style.display='none';}}catch(e){}}
-function closeAWFVault(){document.getElementById('awfVaultModal').classList.remove('open');document.getElementById('awfVaultModal').setAttribute('aria-hidden','true');}
-async function requestAWFVaultAccess(){const name=document.getElementById('vaultName').value.trim(),email=document.getElementById('vaultEmail').value.trim(),password=document.getElementById('vaultPassword').value,investor_type=document.getElementById('vaultInvestorType').value,net_worth_range=document.getElementById('vaultNetWorth').value,status=document.getElementById('awfVaultStatus');if(!name||!email||!password){status.textContent='Please complete your name, email and password.';return;}status.textContent='Creating your private access request…';try{const {data,error}=await supabaseClient.auth.signUp({email,password,options:{data:{full_name:name,investor_type,net_worth_range}}});if(error)throw error;const userId=data.user?.id;if(userId){const {error:e2}=await supabaseClient.from('awf_vault_access').upsert({user_id:userId,full_name:name,email,investor_type,net_worth_range,status:'pending'},{onConflict:'user_id'});if(e2)throw e2;}status.textContent='Request received. Check your email if confirmation is required. AWF will review your private access request.';}catch(e){status.textContent=e.message||'Could not create the vault request.';}}
-async function openVaultListings(){window.awfVaultAccess=true;closeAWFVault();document.getElementById('marketplaceVerified')?.dispatchEvent(new Event('change'));renderPublicProperties();marketplaceToast('Private Vault access enabled for this session');}
-async function awfVaultSignOut(){await supabaseClient.auth.signOut();window.awfVaultAccess=false;closeAWFVault();renderPublicProperties();}
+window.awfVaultSelectedProperty=null;
+
+function escapeVaultText(value){return String(value ?? '').replace(/[&<>"']/g,function(ch){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]);});}
+function vaultImageUrl(value){return String(value||'').trim();}
+
+async function loadAWFVaultDoor(){
+ const wrap=document.getElementById('awfVaultCards'); if(!wrap)return;
+ wrap.innerHTML='<div class="awf-vault-loading">Curating private placements…</div>';
+ try{
+  const {data,error}=await supabaseClient.from('awf_vault_teasers').select('id,property_id,title,country,city,teaser,cover_image,featured,visible').eq('visible',true).order('featured',{ascending:false}).order('created_at',{ascending:false}).limit(6);
+  if(error)throw error; const rows=Array.isArray(data)?data:[];
+  if(!rows.length){wrap.innerHTML='<article class="awf-vault-card awf-vault-empty-card"><div class="awf-vault-blur-fallback"><span>PRIVATE PLACEMENT</span></div><div class="awf-vault-card-body"><div class="awf-vault-card-meta">GLOBAL • PRIVATE INSTRUCTION</div><h3>Selected Off-Market Opportunity</h3><p>Confidential asset details are released selectively following enquiry and qualification.</p><button type="button" class="awf-vault-enquire" onclick="openVaultEnquiry()">ENQUIRE TO SPECIALIST</button></div></article><article class="awf-vault-card awf-vault-empty-card"><div class="awf-vault-blur-fallback"><span>INSTITUTIONAL</span></div><div class="awf-vault-card-body"><div class="awf-vault-card-meta">GLOBAL • OFF-MARKET</div><h3>Private Institutional Placement</h3><p>Selected opportunities are presented privately and are not exposed on the public marketplace.</p><button type="button" class="awf-vault-enquire" onclick="openVaultEnquiry()">ENQUIRE TO SPECIALIST</button></div></article>';return;}
+  wrap.innerHTML=rows.map(row=>{const img=vaultImageUrl(row.cover_image),title=String(row.title||'Private Placement').trim(),area=String(row.city||row.country||'GLOBAL').trim().toUpperCase(),teaser=String(row.teaser||'Confidential property information is released selectively following enquiry and qualification.').trim();return `<article class="awf-vault-card"><div class="awf-vault-image-wrap">${img?`<img class="awf-vault-teaser-image" src="${escapeVaultText(img)}" alt="Private property teaser" loading="lazy">`:'<div class="awf-vault-blur-fallback"><span>PRIVATE ASSET</span></div>'}<span class="awf-vault-image-label">PRIVATE TEASER</span></div><div class="awf-vault-card-body"><div class="awf-vault-card-meta">${escapeVaultText(area)} • PRIVATE INSTRUCTION</div><h3>${escapeVaultText(title)}</h3><p>${escapeVaultText(teaser)}</p><button type="button" class="awf-vault-enquire" onclick="openVaultEnquiry(${JSON.stringify(String(row.id||''))})">ENQUIRE TO SPECIALIST</button></div></article>`;}).join('');
+ }catch(error){console.error('AWF Private Vault teaser load:',error);wrap.innerHTML='<div class="awf-vault-loading">Private placements are available by specialist enquiry.</div>';}
+}
+
+function openAWFVault(){const m=document.getElementById('awfVaultModal');if(!m)return;m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.classList.add('awf-vault-open');loadAWFVaultDoor();}
+function closeAWFVault(){const m=document.getElementById('awfVaultModal');if(!m)return;m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.classList.remove('awf-vault-open');}
+
+function openVaultEnquiry(propertyId){
+ window.awfVaultSelectedProperty=propertyId||null;
+ const o=document.getElementById('awfVaultEnquiryModal');if(!o)return;
+ const label=document.getElementById('awfVaultSelectedAsset');
+ label.textContent=propertyId?'Private placement selected':'General private placement enquiry';
+ o.classList.add('open');o.setAttribute('aria-hidden','false');
+}
+function closeVaultEnquiry(){const o=document.getElementById('awfVaultEnquiryModal');if(!o)return;o.classList.remove('open');o.setAttribute('aria-hidden','true');}
+function isCorporateEmail(email){const e=String(email||'').trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(e))return false;return !['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','aol.com','proton.me','protonmail.com'].includes(e.split('@')[1]);}
+
+async function submitVaultEnquiry(event){
+ event.preventDefault();
+ const form=event.target,status=document.getElementById('awfVaultEnquiryStatus'),btn=document.getElementById('awfVaultSubmit');
+ const full_name=document.getElementById('vaultEnqName').value.trim(),company=document.getElementById('vaultEnqCompany').value.trim(),email=document.getElementById('vaultEnqEmail').value.trim(),phone=document.getElementById('vaultEnqPhone').value.trim(),pof_range=document.getElementById('vaultEnqPof').value,message=document.getElementById('vaultEnqMessage').value.trim(),file=document.getElementById('vaultEnqPofFile').files[0];
+ if(!full_name||!company||!email||!phone||!pof_range){status.textContent='Please complete all required fields.';return;}
+ if(!isCorporateEmail(email)){status.textContent='Please use a corporate or institutional email address.';return;}
+ if(file && !['application/pdf','image/jpeg','image/png'].includes(file.type)){status.textContent='POF file must be PDF, JPG or PNG.';return;}
+ if(file && file.size>10*1024*1024){status.textContent='POF file must be 10 MB or smaller.';return;}
+ btn.disabled=true;btn.textContent='SUBMITTING…';status.textContent='Securely submitting your enquiry…';
+ try{
+   let proof_url=null;
+   const {data:authData}=await supabaseClient.auth.getSession();
+   const userId=authData?.session?.user?.id||null;
+   if(file){
+     if(!userId) throw new Error('Please sign in or use the secure confirmation flow before uploading proof of funds.');
+     const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+     const path=`${userId}/${Date.now()}-${safeName}`;
+     const up=await supabaseClient.storage.from('awf-private-pof').upload(path,file,{contentType:file.type,upsert:false});
+     if(up.error)throw up.error; proof_url=path;
+   }
+   const payload={full_name,company,email,phone,pof_range,message,asset_id:window.awfVaultSelectedProperty||null,proof_of_funds_path:proof_url,status:'pending'};
+   const {error}=await supabaseClient.from('awf_vault_enquiries').insert(payload);
+   if(error)throw error;
+   status.textContent='Your enquiry has been received. Our specialist will review your KYC and release vault access within 24 hours if qualified.';
+   form.reset();
+ }catch(error){console.error('AWF vault enquiry:',error);status.textContent=error.message||'We could not submit your enquiry. Please try again.';}finally{btn.disabled=false;btn.textContent='SUBMIT ENQUIRY';}
+}
+window.addEventListener('keydown',function(e){if(e.key==='Escape'){closeVaultEnquiry();closeAWFVault();}});
 </script>
 </body>
 </html>
