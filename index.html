@@ -6523,7 +6523,7 @@ setTimeout(updateAWFHeroVisual,400);
    </div>
    <button id="awfVaultSubmit" class="awf-k-submit" type="submit">SUBMIT ENQUIRY</button>
    <div id="awfVaultEnquiryStatus" class="awf-k-status"></div>
-   <div class="awf-k-note">Proof of funds is optional at initial enquiry but may be required before confidential data-room access. Documents are intended for restricted AWF review only.</div>
+   <div class="awf-k-note">Proof of funds is optional at initial enquiry. If you want to upload it now, sign in to AWF first; otherwise our specialist may request it during review. Documents are restricted to AWF review only.</div>
   </form>
  </div>
 </div>
@@ -6572,13 +6572,13 @@ async function submitVaultEnquiry(event){
    const {data:authData}=await supabaseClient.auth.getSession();
    const userId=authData?.session?.user?.id||null;
    if(file){
-     if(!userId) throw new Error('Please sign in or use the secure confirmation flow before uploading proof of funds.');
+     if(!userId) throw new Error('For security, sign in to AWF before uploading a Proof of Funds document. You can submit the enquiry without the document.');
      const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
      const path=`${userId}/${Date.now()}-${safeName}`;
      const up=await supabaseClient.storage.from('awf-private-pof').upload(path,file,{contentType:file.type,upsert:false});
      if(up.error)throw up.error; proof_url=path;
    }
-   const payload={full_name,company,email,phone,pof_range,message,asset_id:window.awfVaultSelectedProperty||null,proof_of_funds_path:proof_url,status:'pending'};
+   const payload={user_id:userId,full_name,company,email,phone,pof_range,message,asset_id:window.awfVaultSelectedProperty||null,proof_of_funds_path:proof_url,status:'pending'};
    const {error}=await supabaseClient.from('awf_vault_enquiries').insert(payload);
    if(error)throw error;
    status.textContent='Your enquiry has been received. Our specialist will review your KYC and release vault access within 24 hours if qualified.';
