@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex,nofollow,noarchive">
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -6587,5 +6588,163 @@ async function submitVaultEnquiry(event){
 }
 window.addEventListener('keydown',function(e){if(e.key==='Escape'){closeVaultEnquiry();closeAWFVault();}});
 </script>
+
+<!-- =========================================================
+     AWF PRIVATE VAULT — LAYER 3 SECURE DATA ROOM
+========================================================= -->
+<section id="awfLayer3Room" class="awf-l3-page" hidden>
+  <div class="awf-l3-shell">
+    <div class="awf-l3-top">
+      <div>
+        <div class="awf-l3-kicker">AWF PRIVATE VAULT • CONFIDENTIAL</div>
+        <h1 id="awfL3Title">Private Data Room</h1>
+        <p id="awfL3Subtitle">Access is limited to the approved recipient of this private placement.</p>
+      </div>
+      <button class="awf-l3-close" type="button" onclick="closeAWFL3Room()">Close</button>
+    </div>
+
+    <div id="awfL3Status" class="awf-l3-status">Checking secure access…</div>
+
+    <div id="awfL3Content" class="awf-l3-content" hidden>
+      <div class="awf-l3-hero-card">
+        <div>
+          <span class="awf-l3-badge">VAULT ACCESS GRANTED</span>
+          <h2 id="awfL3AssetTitle">Private Placement</h2>
+          <p id="awfL3AssetLocation">Confidential location</p>
+        </div>
+        <div class="awf-l3-expiry">
+          <span>ACCESS EXPIRES</span>
+          <strong id="awfL3Expiry">—</strong>
+        </div>
+      </div>
+
+      <div class="awf-l3-grid">
+        <article class="awf-l3-card">
+          <div class="awf-l3-card-kicker">INSTITUTIONAL BRIEF</div>
+          <h3>Placement Overview</h3>
+          <p id="awfL3Description">—</p>
+          <div class="awf-l3-facts" id="awfL3Facts"></div>
+        </article>
+
+        <article class="awf-l3-card">
+          <div class="awf-l3-card-kicker">PRIVATE MATERIALS</div>
+          <h3>Documents & Evidence</h3>
+          <div id="awfL3Documents" class="awf-l3-documents"></div>
+        </article>
+      </div>
+
+      <div class="awf-l3-gallery-wrap">
+        <div class="awf-l3-card-kicker">CONFIDENTIAL GALLERY</div>
+        <div id="awfL3Gallery" class="awf-l3-gallery"></div>
+      </div>
+
+      <div class="awf-l3-footer-note">
+        Confidential AWF Private Vault material. Do not forward, publish, reproduce or distribute without written authorization.
+      </div>
+    </div>
+  </div>
+</section>
+
+<style id="awf-layer3-css">
+.awf-l3-page{position:fixed;inset:0;z-index:100000;background:#080808;color:#f5f3f0;overflow:auto;font-family:Inter,Arial,sans-serif}
+.awf-l3-shell{width:min(1180px,100%);margin:0 auto;padding:34px 20px 70px}
+.awf-l3-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:1px solid rgba(198,169,97,.22);padding-bottom:24px}
+.awf-l3-kicker,.awf-l3-card-kicker{font-size:.68rem;letter-spacing:.18em;color:#c6a961;font-weight:800}
+.awf-l3-top h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2rem,5vw,4rem);margin:9px 0}
+.awf-l3-top p{color:#aaa59a;max-width:700px}
+.awf-l3-close{border:1px solid rgba(198,169,97,.45);background:transparent;color:#f5f3f0;padding:11px 16px;border-radius:999px;cursor:pointer}
+.awf-l3-status{margin:24px 0;padding:16px;border:1px solid rgba(255,255,255,.10);background:#0d0d0d;border-radius:16px;color:#aaa59a}
+.awf-l3-status.ok{color:#d9c27c;border-color:rgba(198,169,97,.35)}
+.awf-l3-status.err{color:#ffb4a8;border-color:rgba(255,120,100,.35)}
+.awf-l3-content{display:block}
+.awf-l3-hero-card{display:flex;justify-content:space-between;gap:25px;align-items:flex-end;padding:30px;border:1px solid rgba(198,169,97,.28);border-radius:24px;background:linear-gradient(135deg,#111 0%,#0a0a0a 70%);box-shadow:0 25px 80px rgba(0,0,0,.45)}
+.awf-l3-badge{display:inline-block;border:1px solid rgba(198,169,97,.45);color:#d8bd6e;padding:7px 10px;border-radius:999px;font-size:.65rem;font-weight:800;letter-spacing:.1em}
+.awf-l3-hero-card h2{font-family:Georgia,serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:500;margin:14px 0 7px}
+.awf-l3-hero-card p{margin:0;color:#aaa59a}
+.awf-l3-expiry{min-width:180px;text-align:right}.awf-l3-expiry span{display:block;color:#777;font-size:.62rem;letter-spacing:.14em}.awf-l3-expiry strong{display:block;margin-top:7px;color:#f0dfaa}
+.awf-l3-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}
+.awf-l3-card,.awf-l3-gallery-wrap{border:1px solid rgba(255,255,255,.09);background:#0d0d0d;border-radius:22px;padding:25px}
+.awf-l3-card h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500;margin:9px 0 13px}
+.awf-l3-card p{color:#aaa59a;line-height:1.75;white-space:pre-line}
+.awf-l3-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.awf-l3-fact{padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:#101010}.awf-l3-fact span{display:block;color:#777;font-size:.62rem;letter-spacing:.1em}.awf-l3-fact strong{display:block;margin-top:5px;color:#eee}
+.awf-l3-documents{display:grid;gap:10px}.awf-l3-doc{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px;border:1px solid rgba(198,169,97,.18);border-radius:14px}.awf-l3-doc span{color:#ddd}.awf-l3-doc a{color:#d8bd6e;text-decoration:none;font-weight:700;font-size:.78rem}
+.awf-l3-gallery-wrap{margin-top:18px}.awf-l3-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.awf-l3-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:15px;border:1px solid rgba(255,255,255,.08);background:#080808}
+.awf-l3-footer-note{margin-top:18px;color:#777;font-size:.76rem;line-height:1.7;text-align:center}
+@media(max-width:760px){.awf-l3-shell{padding:22px 14px 50px}.awf-l3-top{display:block}.awf-l3-close{margin-top:14px}.awf-l3-hero-card{display:block}.awf-l3-expiry{text-align:left;margin-top:20px}.awf-l3-grid{grid-template-columns:1fr}.awf-l3-gallery{grid-template-columns:1fr 1fr}.awf-l3-facts{grid-template-columns:1fr}}
+</style>
+
+<script id="awf-layer3-js">
+(function(){
+  function l3Escape(v){return String(v ?? '').replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]);});}
+  function l3GetToken(){
+    const p=new URLSearchParams(window.location.search);
+    return (p.get('vault')||p.get('token')||'').trim();
+  }
+  function l3Status(msg,type){
+    const el=document.getElementById('awfL3Status');
+    if(!el)return;
+    el.textContent=msg;
+    el.className='awf-l3-status '+(type||'');
+  }
+  function l3FormatDate(v){
+    if(!v)return '—';
+    const d=new Date(v);
+    if(Number.isNaN(d.getTime()))return String(v);
+    return d.toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'});
+  }
+  function l3Open(){
+    const page=document.getElementById('awfLayer3Room');
+    if(!page)return;
+    page.hidden=false;
+    document.body.style.overflow='hidden';
+  }
+  window.closeAWFL3Room=function(){
+    const page=document.getElementById('awfLayer3Room');
+    if(page)page.hidden=true;
+    document.body.style.overflow='';
+  };
+
+  async function loadL3(){
+    const token=l3GetToken();
+    if(!token)return;
+    l3Open();
+    l3Status('Checking secure access…');
+    try{
+      const {data,error}=await supabaseClient.rpc('awf_open_vault_room',{p_token:token});
+      if(error)throw error;
+      if(!data || data.allowed!==true)throw new Error(data?.message||'This private access link is invalid, expired or has been revoked.');
+      const room=data.room||{};
+      document.getElementById('awfL3Title').textContent='Private Data Room';
+      document.getElementById('awfL3AssetTitle').textContent=room.title||'Private Placement';
+      document.getElementById('awfL3AssetLocation').textContent=[room.city,room.country].filter(Boolean).join(' • ')||'Confidential location';
+      document.getElementById('awfL3Description').textContent=room.description||'Confidential placement information released under private access.';
+      document.getElementById('awfL3Expiry').textContent=l3FormatDate(data.expires_at);
+
+      const facts=room.facts||{};
+      document.getElementById('awfL3Facts').innerHTML=Object.entries(facts).map(([k,v])=>`<div class="awf-l3-fact"><span>${l3Escape(k.replace(/_/g,' ').toUpperCase())}</span><strong>${l3Escape(v)}</strong></div>`).join('');
+
+      const docs=Array.isArray(room.documents)?room.documents:[];
+      document.getElementById('awfL3Documents').innerHTML=docs.length
+        ? docs.map(d=>`<div class="awf-l3-doc"><span>${l3Escape(d.label||'Private document')}</span><a href="${l3Escape(d.url||'#')}" target="_blank" rel="noopener">OPEN</a></div>`).join('')
+        : '<div class="awf-l3-doc"><span>Documents will be released by the specialist.</span></div>';
+
+      const images=Array.isArray(room.images)?room.images:[];
+      document.getElementById('awfL3Gallery').innerHTML=images.length
+        ? images.map((u,i)=>`<img src="${l3Escape(u)}" alt="Confidential property image ${i+1}" loading="lazy">`).join('')
+        : '<div class="awf-l3-doc"><span>Confidential gallery pending release.</span></div>';
+
+      document.getElementById('awfL3Content').hidden=false;
+      l3Status('Secure access verified. This room is restricted to the approved recipient.','ok');
+    }catch(err){
+      console.error('AWF Layer 3:',err);
+      l3Status(err.message||'Secure access could not be verified.','err');
+    }
+  }
+
+  if(l3GetToken()) loadL3();
+})();
+</script>
+
 </body>
 </html>
