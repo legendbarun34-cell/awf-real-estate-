@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex,nofollow,noarchive">
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -10,13 +9,10 @@
 
 <meta name="theme-color" content="#050505">
 
-<link rel="icon" type="image/png" href="awf-logo-transparent.png">
-<link rel="apple-touch-icon" href="awf-logo-transparent.png">
-
 <meta name="description"
-content="AWF Real Estate — premium real estate, property sales, rentals and investment opportunities in Nigeria and selected international markets.">
+content="AWF Real Estate — Alexander White Fortress. Selected properties, private opportunities and real estate services in Nigeria and beyond.">
 
-<title>AWF Real Estate | Building Dreams. Creating Value.</title>
+<title>AWF Real Estate | Access Withheld — Alexander White Fortress</title>
 
 <style>
 
@@ -1203,100 +1199,6 @@ header{
     color:#000;
 }
 
-
-
-/* =========================================================
-   AWF MARKETPLACE V2 — SMART MARKETPLACE UI
-========================================================= */
-.marketplace-v2{margin-top:24px;padding:18px;border:1px solid rgba(212,175,55,.16);border-radius:24px;background:linear-gradient(135deg,rgba(212,175,55,.06),rgba(255,255,255,.018));box-shadow:0 20px 60px rgba(0,0,0,.18)}
-.marketplace-main-row{display:grid;grid-template-columns:minmax(220px,2fr) repeat(3,minmax(120px,1fr)) auto;gap:10px;align-items:center}
-.marketplace-input,.marketplace-select{width:100%;min-height:46px;background:#080808;border:1px solid rgba(255,255,255,.09);color:#eee;border-radius:13px;padding:12px 14px;outline:none;font:inherit;font-size:.76rem}
-.marketplace-input:focus,.marketplace-select:focus{border-color:rgba(212,175,55,.62);box-shadow:0 0 0 3px rgba(212,175,55,.06)}
-.marketplace-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
-.marketplace-mini-btn{border:1px solid rgba(255,255,255,.09);background:#0c0c0c;color:#aaa;border-radius:12px;padding:11px 12px;cursor:pointer;font-size:.7rem;white-space:nowrap;transition:.2s ease}
-.marketplace-mini-btn.active,.marketplace-mini-btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
-.marketplace-secondary-row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px}
-.marketplace-filter-chips{display:flex;gap:7px;flex-wrap:wrap}
-.marketplace-chip{border:1px solid rgba(255,255,255,.08);background:#0a0a0a;color:#888;border-radius:999px;padding:8px 11px;cursor:pointer;font-size:.67rem}
-.marketplace-chip.active,.marketplace-chip:hover{border-color:rgba(212,175,55,.5);color:var(--gold);background:rgba(212,175,55,.045)}
-.marketplace-advanced{display:none;margin-top:12px;padding:14px;border-top:1px solid rgba(255,255,255,.07);grid-template-columns:repeat(6,minmax(100px,1fr));gap:10px}
-.marketplace-advanced.open{display:grid}
-.marketplace-field label{display:block;color:#777;font-size:.61rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 6px 2px}
-.marketplace-range{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.marketplace-count{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:13px;color:#777;font-size:.7rem}
-.marketplace-count strong{color:#ddd}
-.marketplace-count-tools{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-.marketplace-empty{grid-column:1/-1;padding:55px 30px;text-align:center;border:1px dashed rgba(212,175,55,.18);border-radius:28px;background:#0b0b0b}
-.marketplace-empty h3{font-family:Georgia,serif;font-size:1.5rem;margin-top:10px}
-.marketplace-list-view .property-card{display:grid;grid-template-columns:270px 1fr;min-height:210px}
-.marketplace-list-view .property-image{height:100%;min-height:210px}
-.marketplace-list-view .property-image img,.marketplace-list-view .property-image video{height:100%;min-height:210px;object-fit:cover}
-.property-card{position:relative}
-.property-card-tools{position:absolute;right:14px;bottom:14px;display:flex;gap:7px;z-index:4}
-.property-card-tool{width:35px;height:35px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.72);backdrop-filter:blur(8px);color:#bbb;cursor:pointer;transition:.2s ease}
-.property-card-tool.active,.property-card-tool:hover{color:var(--gold);border-color:rgba(212,175,55,.5);transform:translateY(-1px)}
-.property-card-link{cursor:pointer}
-.awf-verification-badge{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(72,196,125,.35);color:#8ee0b0;background:rgba(72,196,125,.08);border-radius:999px;padding:6px 9px;font-size:.61rem;font-weight:700;letter-spacing:.04em}
-.awf-featured-badge{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(212,175,55,.32);color:var(--gold);background:rgba(212,175,55,.07);border-radius:999px;padding:6px 9px;font-size:.61rem;font-weight:700}
-.property-detail-modal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.84);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:18px}
-.property-detail-modal.open{display:flex}
-.property-detail-inner{width:min(1100px,100%);max-height:92vh;overflow:auto;background:#0c0c0c;border:1px solid rgba(212,175,55,.2);border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.7);position:relative}
-.property-detail-close{position:absolute;right:18px;top:16px;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.7);color:#fff;font-size:24px;cursor:pointer;z-index:10}
-.property-detail-content{display:grid;grid-template-columns:1.05fr .95fr;gap:0}
-.property-detail-media{min-height:480px;background:#050505;position:relative;overflow:hidden}
-.property-detail-media img,.property-detail-media video{width:100%;height:100%;min-height:480px;object-fit:cover;display:block}
-.property-detail-info{padding:34px}
-.property-detail-badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}
-.property-detail-title{font-family:Georgia,serif;font-size:2rem;margin:0}
-.property-detail-price{font-family:Georgia,serif;font-size:1.55rem;color:var(--gold);margin-top:15px}
-.property-detail-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
-.property-detail-meta span{padding:8px 10px;border:1px solid rgba(255,255,255,.08);border-radius:10px;color:#aaa;font-size:.7rem}
-.property-detail-desc{color:#999;line-height:1.8;font-size:.82rem;margin-top:22px}
-.property-detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
-.property-detail-media-tools{position:absolute;left:14px;bottom:14px;right:14px;display:flex;justify-content:space-between;align-items:center;z-index:4;pointer-events:none}
-.property-detail-media-tools button{pointer-events:auto}
-.marketplace-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:10001;background:#111;border:1px solid rgba(212,175,55,.35);color:#eee;border-radius:12px;padding:11px 15px;font-size:.72rem;box-shadow:0 15px 50px rgba(0,0,0,.5);transition:.22s ease}
-.marketplace-toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:1050px){.marketplace-main-row{grid-template-columns:1fr 1fr}.marketplace-actions{grid-column:1/-1;justify-content:flex-start}.marketplace-advanced{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.marketplace-main-row{grid-template-columns:1fr}.marketplace-actions{grid-column:auto}.marketplace-advanced{grid-template-columns:1fr 1fr}.marketplace-count{align-items:flex-start;flex-direction:column}.marketplace-list-view .property-card{grid-template-columns:1fr}.marketplace-list-view .property-image{min-height:220px}.property-detail-content{grid-template-columns:1fr}.property-detail-media,.property-detail-media img,.property-detail-media video{min-height:320px;height:320px}.property-detail-info{padding:24px}.property-detail-title{font-size:1.55rem}}
-@media(max-width:450px){.marketplace-advanced{grid-template-columns:1fr}.marketplace-range{grid-template-columns:1fr}.property-detail-actions .btn{width:100%;text-align:center}}
-
-/* =========================================================
-   AWF MARKETPLACE V1
-========================================================= */
-.marketplace-tools{margin-top:24px;padding:18px;border:1px solid rgba(212,175,55,.16);border-radius:22px;background:linear-gradient(135deg,rgba(212,175,55,.055),rgba(255,255,255,.018));}
-.marketplace-search-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:10px;align-items:center}
-.marketplace-input,.marketplace-select{width:100%;background:#080808;border:1px solid rgba(255,255,255,.09);color:#eee;border-radius:13px;padding:13px 14px;outline:none;font:inherit;font-size:.76rem}
-.marketplace-input:focus,.marketplace-select:focus{border-color:rgba(212,175,55,.55);box-shadow:0 0 0 3px rgba(212,175,55,.06)}
-.marketplace-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end}
-.marketplace-mini-btn{border:1px solid rgba(255,255,255,.09);background:#0c0c0c;color:#aaa;border-radius:12px;padding:11px 12px;cursor:pointer;font-size:.7rem;white-space:nowrap}
-.marketplace-mini-btn.active,.marketplace-mini-btn:hover{border-color:var(--gold);color:var(--gold)}
-.marketplace-count{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:13px;color:#777;font-size:.7rem}
-.marketplace-count strong{color:#ddd}
-.property-card{position:relative}
-.property-card-tools{position:absolute;right:14px;bottom:14px;display:flex;gap:7px;z-index:4}
-.property-card-tool{width:35px;height:35px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.72);backdrop-filter:blur(8px);color:#bbb;cursor:pointer}
-.property-card-tool.active,.property-card-tool:hover{color:var(--gold);border-color:rgba(212,175,55,.5)}
-.property-card-link{cursor:pointer}
-.marketplace-empty{grid-column:1/-1;padding:55px 30px;text-align:center;border:1px dashed rgba(212,175,55,.18);border-radius:28px;background:#0b0b0b}
-.property-detail-modal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:18px}
-.property-detail-modal.open{display:flex}
-.property-detail-inner{width:min(1050px,100%);max-height:92vh;overflow:auto;background:#0c0c0c;border:1px solid rgba(212,175,55,.2);border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.7);position:relative}
-.property-detail-close{position:absolute;right:18px;top:16px;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.7);color:#fff;font-size:24px;cursor:pointer;z-index:3}
-.property-detail-content{display:grid;grid-template-columns:1.1fr .9fr;gap:0}
-.property-detail-media{min-height:480px;background:#050505;position:relative}
-.property-detail-media img,.property-detail-media video{width:100%;height:100%;min-height:480px;object-fit:cover}
-.property-detail-info{padding:34px}
-.property-detail-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}
-.property-detail-title{font-family:Georgia,serif;font-size:2rem;margin:0}
-.property-detail-price{font-family:Georgia,serif;font-size:1.55rem;color:var(--gold);margin-top:15px}
-.property-detail-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
-.property-detail-meta span{padding:8px 10px;border:1px solid rgba(255,255,255,.08);border-radius:10px;color:#aaa;font-size:.7rem}
-.property-detail-desc{color:#999;line-height:1.8;font-size:.82rem;margin-top:22px}
-.property-detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
-@media(max-width:900px){.marketplace-search-row{grid-template-columns:1fr 1fr}.marketplace-actions{grid-column:1/-1;justify-content:flex-start}.property-detail-content{grid-template-columns:1fr}.property-detail-media,.property-detail-media img,.property-detail-media video{min-height:320px;height:320px}}
-@media(max-width:600px){.marketplace-search-row{grid-template-columns:1fr}.marketplace-count{align-items:flex-start;flex-direction:column}.property-detail-info{padding:24px}.property-detail-title{font-size:1.55rem}}
-
 /* =========================================================
    INTERNATIONAL
 ========================================================= */
@@ -2469,243 +2371,332 @@ footer{
 .gallery-thumbs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
 .gallery-thumb{flex:0 0 70px;height:55px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1);cursor:pointer;background:#080808}
 .gallery-thumb.active{border-color:#d4af37}
-.gallery-thumb img,.gallery-thumb video{width:100%;height:100%;object-fit:cover}\n.gallery-thumb .video-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#d4af37;background:#111}
+.gallery-thumb img,.gallery-thumb video{width:100%;height:100%;object-fit:cover}
 .media-url-list{margin-top:10px;display:grid;gap:8px}
 .media-url-row{display:flex;gap:8px}.media-url-row input{flex:1}
 .media-help{font-size:.68rem;color:#777;margin-top:7px}
 @media(max-width:700px){.gallery-modal{padding:10px}.gallery-main img,.gallery-main video{max-height:68vh}.media-url-row{flex-direction:column}}
 
 
-.property-video-play{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.45);
-    background:rgba(0,0,0,.72);
-    color:#d4af37;
-    font-size:22px;
+
+/* =========================================================
+   AWF FORTRESS / PRIVATE-ESTATE INTERFACE OVERRIDES
+   Inspired by the supplied reference direction.
+========================================================= */
+:root{
+    --gold:#b8c2cb;
+    --gold-light:#f0f4f7;
+    --gold-dark:#66727d;
+    --line:rgba(184,194,203,.22);
+    --black:#020304;
+    --black2:#07090b;
+    --black3:#0c1014;
+    --panel:#0c1014;
+    --panel2:#11171d;
+}
+
+body{
+    background:
+      radial-gradient(circle at 50% 0%,rgba(185,200,214,.08),transparent 30%),
+      linear-gradient(180deg,#020304 0%,#050709 48%,#020304 100%);
+}
+
+header{
+    height:82px;
+    background:rgba(3,5,7,.92);
+    border-bottom:1px solid rgba(184,194,203,.12);
+    box-shadow:0 12px 45px rgba(0,0,0,.45);
+}
+
+.navbar{
+    width:min(1180px,94%);
+    grid-template-columns:auto 1fr auto;
+    gap:24px;
+}
+
+.logo-wrap{
+    grid-column:1;
+    justify-self:start;
+    height:68px;
+}
+
+.logo-wrap img{
+    width:78px;
+    max-height:62px;
+    object-fit:contain;
+    mix-blend-mode:screen;
+    filter:grayscale(.15) brightness(1.12) drop-shadow(0 0 12px rgba(185,205,220,.16));
+}
+
+.reference-nav{
+    grid-column:2;
     display:flex;
     align-items:center;
     justify-content:center;
-    cursor:pointer;
-    z-index:5;
-    backdrop-filter:blur(4px);
+    gap:14px;
+    min-width:0;
+    white-space:nowrap;
 }
-.property-video-play:hover{transform:translate(-50%,-50%) scale(1.06);}
-.property-video-play-overlay{margin:0;}
 
-/* =========================================================
-   AWF V7 INTERACTIVE PROPERTY MAP
-========================================================= */
-.awf-map-panel{display:none;margin-top:18px;border:1px solid rgba(212,175,55,.18);border-radius:24px;overflow:hidden;background:#090909;box-shadow:0 20px 70px rgba(0,0,0,.35)}
-.awf-map-panel.open{display:block}
-.awf-map-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
-.awf-map-head h3{margin:0;font-family:Georgia,serif;font-size:1.05rem}
-.awf-map-head p{margin:4px 0 0;color:#777;font-size:.68rem}
-.awf-map-actions{display:flex;gap:8px;flex-wrap:wrap}
-#awfPropertyMap{height:480px;width:100%;background:#111}
-.awf-map-legend{display:flex;gap:12px;flex-wrap:wrap;padding:10px 14px;color:#888;font-size:.68rem;border-top:1px solid rgba(255,255,255,.06)}
-.awf-map-pin{width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#d4af37;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;color:#080808;font-weight:900;font-size:12px}
-.awf-map-pin span{transform:rotate(45deg)}
-.awf-map-popup{min-width:190px;color:#111}
-.awf-map-popup strong{display:block;font-size:14px;margin-bottom:5px}
-.awf-map-popup small{display:block;color:#555;margin-bottom:8px}
-.awf-map-popup b{color:#8f6d16}
-.awf-map-empty{padding:26px;text-align:center;color:#777;font-size:.75rem}
-.awf-map-picker-modal{position:fixed;inset:0;z-index:10050;background:rgba(0,0,0,.84);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:18px}
-.awf-map-picker-modal.open{display:flex}
-.awf-map-picker-inner{width:min(900px,100%);background:#0c0c0c;border:1px solid rgba(212,175,55,.2);border-radius:22px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.7)}
-.awf-map-picker-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
-.awf-map-picker-head h3{margin:0;font-family:Georgia,serif;font-size:1rem}
-#awfPickerMap{height:430px}
-.awf-map-picker-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;color:#777;font-size:.7rem}
-.awf-map-coords{color:#d4af37;font-weight:700}
-@media(max-width:700px){#awfPropertyMap{height:390px}#awfPickerMap{height:360px}.awf-map-head{align-items:flex-start;flex-direction:column}.awf-map-picker-foot{align-items:flex-start;flex-direction:column}}
+.reference-nav > a{
+    color:#c6ccd1;
+    font-size:.62rem;
+    font-weight:800;
+    letter-spacing:1.7px;
+    transition:.25s ease;
+}
+
+.reference-nav > a:hover{
+    color:#fff;
+}
+
+.reference-nav > span{
+    color:#59636c;
+    font-size:.7rem;
+}
+
+.reference-nav .gatekeeper-nav{
+    margin-left:8px;
+    padding:9px 13px;
+    border:1px solid rgba(184,194,203,.38);
+    border-radius:8px;
+    background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.025));
+    color:#eef2f5;
+    box-shadow:inset 0 0 14px rgba(255,255,255,.03);
+}
+
+.menu-button{
+    grid-column:3;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    border-color:rgba(184,194,203,.2);
+}
+
+/* Make the mobile menu use the same fortress vocabulary. */
+.side-menu{
+    background:
+      radial-gradient(circle at 50% 0%,rgba(185,200,214,.09),transparent 34%),
+      rgba(2,4,6,.985);
+}
+
+.menu-brand img{
+    filter:grayscale(.12) brightness(1.12) drop-shadow(0 0 18px rgba(185,205,220,.16));
+}
+
+/* Reference-style hero */
+.hero{
+    min-height:calc(100svh - 82px);
+    padding-top:82px;
+    background:
+      linear-gradient(180deg,rgba(2,3,4,.78),rgba(2,3,4,.94)),
+      radial-gradient(circle at 50% 42%,rgba(130,150,170,.12),transparent 42%);
+}
+
+.hero::before{display:none;}
+
+.hero-grid{display:block;}
+.hero-logo{display:none;}
+
+.hero-reference-container{
+    position:relative;
+    min-height:calc(100svh - 82px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    z-index:2;
+}
+
+.hero-fortress-mark{
+    position:absolute;
+    inset:82px 0 0;
+    z-index:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.hero-fortress-mark img{
+    width:min(780px,82vw);
+    max-height:760px;
+    object-fit:contain;
+    opacity:.12;
+    filter:grayscale(1) brightness(1.5) contrast(.9) blur(.2px);
+    mix-blend-mode:screen;
+}
+
+.hero-vignette{
+    position:absolute;
+    inset:82px 0 0;
+    z-index:1;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse at center,transparent 18%,rgba(0,0,0,.18) 54%,rgba(0,0,0,.82) 100%),
+      linear-gradient(90deg,rgba(0,0,0,.75),transparent 25%,transparent 75%,rgba(0,0,0,.75));
+}
+
+.hero-content{
+    max-width:1050px;
+    margin:auto;
+}
+
+.eyebrow{
+    display:inline-flex;
+    padding:8px 18px;
+    border:1px solid rgba(184,194,203,.28);
+    border-radius:2px;
+    background:rgba(9,12,15,.62);
+    color:#cfd6dc;
+    font-size:.58rem;
+    letter-spacing:2px;
+}
+
+.eyebrow::before{display:none;}
+
+.hero-title{
+    margin-top:18px;
+    font-size:clamp(3.1rem,8vw,7.4rem);
+    line-height:.9;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#edf1f4;
+    text-shadow:0 5px 30px rgba(0,0,0,.7);
+}
+
+.hero-title span{
+    color:#eef2f5;
+    font-weight:400;
+}
+
+.hero-subtitle{
+    margin:15px auto 0;
+    color:#c1c8ce;
+    font-size:clamp(.9rem,2vw,1.15rem);
+    letter-spacing:1.4px;
+}
+
+.hero-ornament{
+    color:#aeb9c3;
+    font-size:.65rem;
+    margin:18px 0 3px;
+    opacity:.8;
+}
+
+.hero-actions{
+    justify-content:center;
+    margin-top:20px;
+}
+
+.btn{
+    min-height:48px;
+    border-radius:3px;
+    letter-spacing:1.2px;
+    font-size:.65rem;
+}
+
+.btn-gold{
+    background:linear-gradient(180deg,#f0f3f5,#aeb7bf);
+    color:#101317;
+    border-color:#e4e9ed;
+    box-shadow:0 10px 30px rgba(150,170,185,.12),inset 0 1px rgba(255,255,255,.8);
+}
+
+.btn-outline{
+    border-color:rgba(210,220,228,.38);
+    color:#e1e6ea;
+    background:rgba(6,9,12,.45);
+}
+
+.hero-reference-note{
+    margin-top:23px;
+    color:#858f98;
+    font-size:.65rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.hero-reference-note span{color:#b9c3cb;}
+.hero-reference-note b{color:#59636c;padding:0 8px;}
+
+/* Turn major surfaces into fortress panels. */
+.marquee,
+.service-card,
+.property-card,
+.partner-card,
+.contact-card,
+.contact-form,
+.international-box,
+.about-visual,
+.manager-app,
+.manager-login{
+    border-color:rgba(184,194,203,.14);
+    background-color:#080b0e;
+}
+
+.section-label{
+    color:#bfc8cf;
+}
+
+.section-label::before{background:linear-gradient(90deg,#bfc8cf,transparent);}
+.section-title span{color:#dbe1e5;}
+
+.filter-btn:hover,
+.filter-btn.active{
+    border-color:#b8c2cb;
+    color:#e3e8ec;
+    background:rgba(184,194,203,.06);
+}
+
+.property-type{
+    background:rgba(190,200,210,.92);
+}
+
+/* A more reference-like property strip. */
+.property-card{
+    border-radius:3px;
+    box-shadow:0 18px 55px rgba(0,0,0,.35);
+}
+
+.property-card:hover{
+    border-color:rgba(205,215,223,.34);
+}
+
+.property-image{
+    height:245px;
+    background:linear-gradient(135deg,#151a1e,#050708);
+}
+
+/* Mobile: reference nav collapses into the existing menu button. */
+@media (max-width:980px){
+    .reference-nav{display:none;}
+    .navbar{grid-template-columns:1fr auto;}
+    .logo-wrap{grid-column:1;}
+    .menu-button{grid-column:2;}
+}
+
+@media (max-width:700px){
+    header{height:74px;}
+    .logo-wrap{height:62px;}
+    .logo-wrap img{width:68px;}
+    .hero{min-height:calc(100svh - 74px);padding-top:74px;}
+    .hero-reference-container{min-height:calc(100svh - 74px);}
+    .hero-fortress-mark{inset:74px 0 0;}
+    .hero-vignette{inset:74px 0 0;}
+    .hero-title{font-size:clamp(2.7rem,13vw,5rem);letter-spacing:1px;}
+    .hero-subtitle{max-width:340px;}
+    .hero-reference-note{line-height:1.8;max-width:330px;margin-left:auto;margin-right:auto;}
+}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 
-
-<style id="awf-v3-customer-css">
-/* =========================================================
-   AWF MARKETPLACE V3 — CUSTOMER ACCOUNTS
-========================================================= */
-.awf-account-button{grid-column:1;justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:1px solid rgba(212,175,55,.28);border-radius:14px;background:rgba(212,175,55,.06);color:#f7f5ef;font-weight:700;font-size:.76rem;cursor:pointer;transition:.3s ease}.awf-account-button:hover{border-color:#d4af37;background:rgba(212,175,55,.12);transform:translateY(-1px)}
-.awf-account-button .account-dot{width:8px;height:8px;border-radius:50%;background:#777;box-shadow:0 0 0 3px rgba(255,255,255,.05)}.awf-account-button.signed-in .account-dot{background:#d4af37;box-shadow:0 0 0 3px rgba(212,175,55,.12)}
-.awf-v3-modal{position:fixed;inset:0;z-index:10050;background:rgba(0,0,0,.78);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:18px}.awf-v3-modal.open{display:flex}.awf-v3-panel{width:min(980px,100%);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#0b0b0b,#15130e);border:1px solid rgba(212,175,55,.22);border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.65);padding:26px;position:relative}.awf-v3-close{position:absolute;right:18px;top:15px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#fff;font-size:1.5rem;cursor:pointer}.awf-v3-brand{text-align:center;margin-bottom:20px}.awf-v3-brand img{width:145px;max-height:90px;object-fit:contain;mix-blend-mode:screen}.awf-v3-title{font-family:Georgia,serif;font-size:2rem;margin:4px 0;color:#f7f5ef}.awf-v3-sub{color:#9e9a90;font-size:.82rem;line-height:1.7}.awf-v3-tabs{display:flex;gap:8px;margin:20px 0}.awf-v3-tab{flex:1;padding:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);color:#aaa;border-radius:12px;cursor:pointer;font-weight:700}.awf-v3-tab.active{color:#050505;background:#d4af37;border-color:#d4af37}.awf-v3-form{display:grid;gap:12px}.awf-v3-form input,.awf-v3-form textarea,.awf-v3-form select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.09);background:#080808;color:#f7f5ef;outline:none}.awf-v3-form input:focus,.awf-v3-form textarea:focus,.awf-v3-form select:focus{border-color:rgba(212,175,55,.65)}.awf-v3-error{color:#ff9d9d;font-size:.76rem;min-height:18px}.awf-v3-success{color:#d4af37;font-size:.76rem;min-height:18px}.awf-v3-dashboard{display:none}.awf-v3-dashboard.active{display:block}.awf-v3-profile-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border:1px solid rgba(255,255,255,.07);border-radius:18px;background:rgba(255,255,255,.025);margin-bottom:18px}.awf-v3-profile-name{font-weight:800;color:#fff}.awf-v3-profile-email{font-size:.75rem;color:#8d8a82;margin-top:4px}.awf-v3-dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.awf-v3-stat{padding:16px;border:1px solid rgba(212,175,55,.12);border-radius:16px;background:rgba(212,175,55,.035)}.awf-v3-stat strong{display:block;color:#d4af37;font-size:1.4rem}.awf-v3-stat span{display:block;color:#8d8a82;font-size:.72rem;margin-top:4px}.awf-v3-section{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;margin-top:18px}.awf-v3-section h3{margin:0 0 10px;font-family:Georgia,serif}.awf-v3-list{display:grid;gap:9px}.awf-v3-list-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(255,255,255,.02)}.awf-v3-list-item small{color:#8d8a82}.awf-v3-empty{color:#777;font-size:.78rem;padding:12px 0}.awf-v3-actions{display:flex;gap:8px;flex-wrap:wrap}.awf-v3-mini{padding:9px 12px;border-radius:10px;border:1px solid rgba(212,175,55,.22);background:rgba(212,175,55,.05);color:#f7f5ef;cursor:pointer;font-size:.72rem}.awf-v3-mini:hover{border-color:#d4af37}.awf-v3-request-note{font-size:.72rem;color:#8d8a82;line-height:1.6}.awf-v3-request-property{display:flex;gap:12px;align-items:center;padding:12px;border-radius:14px;background:rgba(255,255,255,.025);margin-bottom:14px}.awf-v3-request-property img{width:74px;height:58px;object-fit:cover;border-radius:10px}.awf-v3-request-property strong{display:block}.awf-v3-request-property small{color:#8d8a82}.awf-v3-pill{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;background:rgba(212,175,55,.1);color:#d4af37;font-size:.64rem;font-weight:700}
-@media(max-width:650px){.awf-account-button{padding:10px 11px;font-size:.68rem;border-radius:12px}.awf-account-button .account-text{display:none}.awf-v3-panel{padding:20px;border-radius:20px}.awf-v3-title{font-size:1.55rem}.awf-v3-dashboard-grid{grid-template-columns:1fr}.awf-v3-profile-head{align-items:flex-start;flex-direction:column}}
-</style>
-
-
-<style id="awf-v4-admin-css">
-.awf-v4-admin-btn{min-height:40px;padding:0 14px;border-radius:12px;border:1px solid rgba(212,175,55,.3);background:rgba(212,175,55,.08);color:#f7f5ef;cursor:pointer;font-weight:800;font-size:.72rem}.awf-v4-admin-btn:hover{background:rgba(212,175,55,.16);border-color:#d4af37}
-.awf-v4-modal{position:fixed;inset:0;z-index:10150;background:rgba(0,0,0,.88);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:14px}.awf-v4-modal.open{display:flex}.awf-v4-panel{width:min(1250px,100%);height:min(94vh,900px);overflow:auto;background:linear-gradient(145deg,#090909,#15130e);border:1px solid rgba(212,175,55,.24);border-radius:24px;box-shadow:0 35px 120px rgba(0,0,0,.8);padding:22px;position:relative}.awf-v4-close{position:absolute;right:16px;top:14px;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0a0a0a;color:#fff;font-size:20px;cursor:pointer;z-index:3}.awf-v4-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:4px 52px 18px 0;border-bottom:1px solid rgba(255,255,255,.07)}.awf-v4-kicker{font-size:.62rem;letter-spacing:2px;color:#d4af37;font-weight:900}.awf-v4-head h2{font-family:Georgia,serif;font-size:1.8rem;margin:5px 0}.awf-v4-head p{color:#8d8a82;font-size:.75rem;margin:0}.awf-v4-refresh{padding:9px 12px;border-radius:10px;border:1px solid rgba(212,175,55,.25);background:rgba(212,175,55,.05);color:#fff;cursor:pointer}.awf-v4-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.awf-v4-stat{padding:15px;border:1px solid rgba(212,175,55,.13);border-radius:15px;background:rgba(255,255,255,.025)}.awf-v4-stat strong{display:block;color:#d4af37;font-size:1.5rem}.awf-v4-stat span{display:block;color:#858178;font-size:.68rem;margin-top:5px}.awf-v4-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.awf-v4-tab{padding:10px 13px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);color:#aaa;cursor:pointer;font-weight:800;font-size:.7rem}.awf-v4-tab.active{background:#d4af37;color:#050505;border-color:#d4af37}.awf-v4-section{display:none}.awf-v4-section.active{display:block}.awf-v4-table-wrap{overflow:auto;border:1px solid rgba(255,255,255,.07);border-radius:15px}.awf-v4-table{width:100%;border-collapse:collapse;min-width:760px}.awf-v4-table th,.awf-v4-table td{padding:12px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left;font-size:.7rem;vertical-align:top}.awf-v4-table th{color:#d4af37;font-size:.62rem;letter-spacing:1px;text-transform:uppercase;background:rgba(212,175,55,.04)}.awf-v4-table td{color:#ddd}.awf-v4-table tr:last-child td{border-bottom:0}.awf-v4-pill{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;font-size:.6rem;font-weight:900;background:rgba(212,175,55,.1);color:#d4af37}.awf-v4-select,.awf-v4-input{padding:8px 9px;border-radius:9px;border:1px solid rgba(255,255,255,.09);background:#080808;color:#fff;outline:none;font-size:.68rem}.awf-v4-note{width:100%;min-width:150px;min-height:55px;resize:vertical}.awf-v4-action{padding:8px 10px;border-radius:9px;border:1px solid rgba(212,175,55,.22);background:rgba(212,175,55,.06);color:#fff;cursor:pointer;font-size:.65rem;font-weight:800}.awf-v4-action:hover{border-color:#d4af37}.awf-v4-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.awf-v4-card{padding:15px;border:1px solid rgba(255,255,255,.07);border-radius:15px;background:rgba(255,255,255,.02)}.awf-v4-card h3{font-family:Georgia,serif;font-size:1rem;margin:0 0 8px}.awf-v4-card p{color:#8d8a82;font-size:.7rem;line-height:1.6;margin:5px 0}.awf-v4-empty{padding:20px;color:#777;text-align:center;font-size:.75rem}.awf-v4-form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.awf-v4-field label{display:block;color:#8d8a82;font-size:.62rem;font-weight:800;margin-bottom:5px}.awf-v4-field input,.awf-v4-field select{width:100%;padding:10px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:#080808;color:#fff}.awf-v4-message{min-height:18px;color:#d4af37;font-size:.7rem;margin:8px 0}.awf-v4-danger{color:#ff9b9b}.awf-v4-deal-form{padding:15px;border:1px solid rgba(212,175,55,.12);border-radius:15px;background:rgba(212,175,55,.025);margin-bottom:14px}.awf-v4-subtitle{font-family:Georgia,serif;margin:0 0 12px}.awf-v4-list{display:grid;gap:9px}.awf-v4-lead-card{padding:14px;border:1px solid rgba(255,255,255,.07);border-radius:14px;background:rgba(255,255,255,.02)}.awf-v4-lead-card strong{display:block;color:#fff}.awf-v4-lead-card small{color:#888}.awf-v4-lead-meta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.awf-v4-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}.awf-v4-toolbar input{flex:1;min-width:180px}.awf-v4-chartbar{display:flex;align-items:end;gap:8px;height:180px;padding:14px;border:1px solid rgba(255,255,255,.07);border-radius:15px;background:rgba(255,255,255,.02)}.awf-v4-bar{flex:1;min-width:15px;border-radius:7px 7px 0 0;background:linear-gradient(to top,#6f5715,#d4af37);position:relative}.awf-v4-bar span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:.55rem;color:#aaa;margin-bottom:4px}.awf-v4-bar small{position:absolute;top:100%;left:50%;transform:translateX(-50%);font-size:.5rem;color:#777;margin-top:5px;white-space:nowrap}
-@media(max-width:850px){.awf-v4-grid{grid-template-columns:repeat(2,1fr)}.awf-v4-card-grid,.awf-v4-form-grid{grid-template-columns:1fr}.awf-v4-head{align-items:flex-start;flex-direction:column}.awf-v4-panel{padding:17px}}
-@media(max-width:520px){.awf-v4-grid{grid-template-columns:1fr}.awf-v4-head h2{font-size:1.45rem}.awf-v4-panel{border-radius:17px;padding:14px}}
-</style>
-
-
-<style id="awf-v5-direction-css">
-:root{--awf-gold:#D4AF37;--awf-gold2:#f4d77a;--awf-black:#050505;--awf-panel:#0b0b0b;--awf-line:rgba(212,175,55,.22)}
-body{background:#050505;color:#f7f5ef}
-/* V5 visual direction */
-.navbar{max-width:1400px!important;padding:14px 28px!important;height:82px!important}
-.logo-wrap img{width:210px!important;max-height:72px!important;object-fit:contain}
-.awf-account-button{order:3!important}
-@media(min-width:901px){
- .navbar{display:grid!important;grid-template-columns:240px 1fr 240px!important;align-items:center!important}
- .logo-wrap{grid-column:1!important;justify-self:start!important;position:static!important}
- .awf-desktop-links{grid-column:2!important;display:flex!important;justify-content:center!important;gap:30px!important}
- .awf-desktop-links a{color:#eee;text-decoration:none;font-size:.78rem;font-weight:700;transition:.2s}
- .awf-desktop-links a:hover{color:var(--awf-gold2)}
- .awf-account-button{grid-column:3!important;justify-self:end!important}
- .menu-button{display:none!important}
-}
-.awf-v5-hero{position:relative;min-height:720px;display:flex;align-items:flex-end;overflow:hidden;background:#050505;border-bottom:1px solid var(--awf-line)}
-.awf-v5-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.92);transform:scale(1.02);transition:background-image .5s ease}
-.awf-v5-hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.58) 42%,rgba(0,0,0,.25) 75%,rgba(0,0,0,.62) 100%),linear-gradient(0deg,rgba(0,0,0,.86),transparent 45%)}
-.awf-v5-hero-inner{position:relative;z-index:2;width:min(1400px,calc(100% - 48px));margin:0 auto;padding:110px 0 44px}
-.awf-v5-copy{max-width:760px}
-.awf-v5-eyebrow{display:inline-flex;padding:8px 13px;border:1px solid rgba(212,175,55,.4);border-radius:999px;background:rgba(0,0,0,.35);color:var(--awf-gold2);font-size:.67rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
-.awf-v5-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3rem,6vw,6rem);line-height:.96;margin:0 0 18px;letter-spacing:-2px}
-.awf-v5-title span{display:block;color:var(--awf-gold2);font-style:italic}
-.awf-v5-sub{font-size:1rem;line-height:1.65;color:#eee;max-width:650px;margin:0 0 28px}
-.awf-v5-search{display:grid;grid-template-columns:1.35fr 1fr 1fr auto;gap:0;max-width:950px;background:#fff;border:1px solid rgba(255,255,255,.45);border-radius:16px;padding:6px;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden}
-.awf-v5-search .marketplace-input,.awf-v5-search .marketplace-select{height:54px;background:#fff!important;color:#161616!important;border:0!important;border-right:1px solid #ddd!important;border-radius:0!important;padding:0 16px!important;font-size:.8rem!important;min-width:0}
-.awf-v5-search .marketplace-input::placeholder{color:#777}
-.awf-v5-search .marketplace-select{appearance:auto}
-.awf-v5-search-btn{height:54px;border:0;border-radius:12px;background:linear-gradient(135deg,#f4d77a,#c79620);color:#070707;font-weight:900;padding:0 28px;cursor:pointer}
-.awf-v5-categories{display:grid;grid-template-columns:repeat(5,minmax(110px,1fr));gap:12px;max-width:850px;margin-top:16px}
-.awf-v5-cat{border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.65);backdrop-filter:blur(10px);border-radius:14px;color:#fff;padding:15px 10px;text-align:center;cursor:pointer;font-weight:800;font-size:.75rem;transition:.2s}
-.awf-v5-cat span{display:block;color:var(--awf-gold2);font-size:1.25rem;margin-bottom:6px}
-.awf-v5-cat:hover,.awf-v5-cat.active{border-color:var(--awf-gold);transform:translateY(-2px);background:rgba(212,175,55,.08)}
-.awf-v5-trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#ddd;font-size:.7rem}
-.awf-v5-trust b{color:var(--awf-gold2);margin-right:5px}
-.properties-head .section-title{margin-bottom:0}
-.marketplace-v2.awf-v5-tools{margin-top:18px}
-.awf-v5-property-head-tools{display:flex;gap:9px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
-/* property cards */
-.property-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important}
-.property-card{background:#0a0a0a!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:18px!important;overflow:hidden!important;box-shadow:0 18px 45px rgba(0,0,0,.35)!important;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease!important}
-.property-card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.5)!important;box-shadow:0 28px 60px rgba(0,0,0,.5)!important}
-.property-image{height:235px!important;border-radius:0!important;background:#111!important;position:relative!important;overflow:hidden!important}
-.property-image img,.property-image video{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important;transition:transform .45s ease}
-.property-card:hover .property-image img{transform:scale(1.045)}
-.property-status,.property-type{display:none!important}
-.awf-verification-badge{left:12px!important;top:12px!important;background:#f4d77a!important;color:#090909!important;border:0!important;border-radius:999px!important;padding:6px 9px!important;font-size:.62rem!important;font-weight:900!important}
-.property-card-tools{right:10px!important;top:10px!important}
-.property-card-tool{width:36px!important;height:36px!important;border-radius:50%!important;background:rgba(0,0,0,.68)!important;border:1px solid rgba(255,255,255,.25)!important;color:#fff!important;backdrop-filter:blur(8px)}
-.property-card-tool.active{color:var(--awf-gold2)!important;border-color:var(--awf-gold)!important}
-.property-video-play-overlay{left:12px!important;bottom:12px!important;border-radius:999px!important;background:rgba(0,0,0,.72)!important;border:1px solid var(--awf-gold)!important;color:#fff!important;padding:8px 12px!important}
-.property-media-badge{right:12px!important;bottom:12px!important}
-.property-body{padding:17px!important}
-.property-location{font-size:.68rem!important;color:#aaa!important;margin-bottom:7px!important}
-.property-name{font-family:Georgia,'Times New Roman',serif!important;font-size:1.02rem!important;line-height:1.2!important;margin:0 0 10px!important}
-.property-description{font-size:.72rem!important;color:#999!important;line-height:1.55!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px!important}
-.property-details{display:flex!important;gap:6px!important;flex-wrap:wrap!important;margin-bottom:14px!important}
-.property-details span{border:0!important;background:#171717!important;border-radius:999px!important;padding:6px 8px!important;font-size:.62rem!important;color:#ddd!important}
-.property-price{border-top:1px solid rgba(255,255,255,.1)!important;padding-top:13px!important;display:flex!important;align-items:center!important;justify-content:space-between!important}
-.property-price .price{font-family:Georgia,serif!important;color:var(--awf-gold2)!important;font-size:1.05rem!important;font-weight:800!important}
-.property-btn{width:38px!important;height:38px!important;border-radius:50%!important;background:var(--awf-gold)!important;color:#050505!important;display:grid!important;place-items:center!important;text-decoration:none!important;font-weight:900!important}
-/* mobile experience */
-.awf-mobile-bottom-nav{display:none}
-@media(max-width:1100px){.property-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
-@media(max-width:900px){
- body{padding-bottom:74px}
- header{background:rgba(5,5,5,.9)!important}
- .navbar{height:72px!important;padding:8px 16px!important}
- .logo-wrap img{width:158px!important;max-height:64px!important;object-fit:contain}
- .awf-desktop-links{display:none!important}
- .awf-v5-hero{min-height:760px;align-items:flex-end}
- .awf-v5-hero-inner{width:calc(100% - 28px);padding:100px 0 24px}
- .awf-v5-title{font-size:clamp(2.7rem,13vw,4.4rem);letter-spacing:-1.5px}
- .awf-v5-sub{font-size:.86rem;line-height:1.55}
- .awf-v5-search{grid-template-columns:1fr auto;gap:0;border-radius:14px}
- .awf-v5-search .marketplace-input{grid-column:1/2;border-right:0!important}
- .awf-v5-search .marketplace-select{grid-column:1/2;border-top:1px solid #ddd;border-right:0!important;height:46px}
- .awf-v5-search .marketplace-select:nth-of-type(2){display:none}
- .awf-v5-search-btn{grid-column:2;grid-row:1/3;height:100%;min-width:66px;padding:0 16px}
- .awf-v5-categories{grid-template-columns:repeat(3,1fr);gap:8px}
- .awf-v5-cat{padding:12px 5px;font-size:.66rem}
- .awf-v5-cat span{font-size:1.05rem}
- .awf-v5-trust{gap:12px;margin-top:20px;font-size:.61rem}
- .property-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
- .property-image{height:190px!important}
- .property-body{padding:13px!important}
- .property-name{font-size:.9rem!important}
- .property-description{display:none}
- .property-details span{font-size:.56rem!important;padding:5px 7px!important}
- .property-price .price{font-size:.9rem!important}
- .awf-mobile-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:10px;right:10px;bottom:10px;height:62px;z-index:9998;background:rgba(10,10,10,.94);border:1px solid rgba(212,175,55,.3);border-radius:18px;backdrop-filter:blur(18px);box-shadow:0 15px 50px rgba(0,0,0,.7);overflow:hidden}
- .awf-mobile-bottom-nav button,.awf-mobile-bottom-nav a{border:0;background:none;color:#aaa;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.56rem;gap:3px;font-weight:700}
- .awf-mobile-bottom-nav strong{font-size:1.05rem;color:var(--awf-gold2);line-height:1}
- .properties-head{display:block!important}
- .awf-v5-property-head-tools{justify-content:flex-start;margin-top:14px}
-}
-@media(max-width:560px){
- .property-grid{grid-template-columns:1fr!important}
- .property-image{height:235px!important}
- .awf-v5-categories{grid-template-columns:repeat(3,1fr)}
- .awf-v5-cat:nth-child(4),.awf-v5-cat:nth-child(5){grid-column:span 1}
-}
-</style>
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<style id="awf-vault-css">
-:root{--vault-black:#0A0A0A;--vault-ivory:#F5F3F0;--vault-gold:#C6A961;--vault-line:rgba(198,169,97,.28)}
-body.awf-vault-open{overflow:hidden}
-.awf-vault-btn{border:1px solid var(--vault-gold);color:var(--vault-gold);background:#0b0b0b;border-radius:0;padding:11px 16px;font-weight:700;letter-spacing:.08em;cursor:pointer;font-size:11px}
-.awf-vault-btn:hover{background:var(--vault-gold);color:var(--vault-black)}
-.awf-vault-badge{position:absolute;left:12px;bottom:12px;background:rgba(5,5,5,.88);border:1px solid #d4af37;color:#f4d77a;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em}
-.awf-vault-lock{background:linear-gradient(135deg,#0a0a0a,#17130a);border:1px solid rgba(212,175,55,.35);border-radius:18px;padding:22px;text-align:center}
-.awf-vault-lock h3{margin:0 0 8px;color:#f4d77a}.awf-vault-lock p{color:#aaa59a;margin:0 0 15px}
-.awf-vault-modal{position:fixed;inset:0;background:var(--vault-black);z-index:99999;display:none;overflow:auto}
-.awf-vault-modal.open{display:block}
-.awf-vault-door{min-height:100%;box-sizing:border-box;padding:42px clamp(22px,6vw,90px) 38px;color:var(--vault-ivory);font-family:Inter,Arial,sans-serif;position:relative}
-.awf-vault-close{position:absolute;right:24px;top:20px;width:42px;height:42px;border:1px solid rgba(245,243,240,.25);background:transparent;color:var(--vault-ivory);font-size:25px;line-height:1;cursor:pointer}
-.awf-vault-kicker{font-size:11px;letter-spacing:.22em;color:var(--vault-gold);font-weight:700;margin:22px 0 18px}
-.awf-vault-door h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(44px,8vw,94px);letter-spacing:-.035em;line-height:.94;margin:0 0 18px;color:var(--vault-ivory)}
-.awf-vault-lead{font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2.7vw,32px);line-height:1.25;max-width:760px;margin:0;color:#eeeae4}
-.awf-vault-note{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--vault-gold);margin:18px 0 42px}
-.awf-vault-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1180px;margin:0 auto}
-.awf-vault-card{background:#111;border:1px solid var(--vault-line);min-width:0}
-.awf-vault-image-wrap{height:310px;position:relative;overflow:hidden;background:#151515}
-.awf-vault-teaser-image{width:100%;height:100%;object-fit:cover;display:block;filter:blur(10px) saturate(.55);transform:scale(1.08);opacity:.72}
-.awf-vault-image-label{position:absolute;left:18px;top:18px;border:1px solid rgba(245,243,240,.55);padding:8px 10px;font-size:9px;letter-spacing:.18em;color:#fff;background:rgba(10,10,10,.7)}
-.awf-vault-blur-fallback{height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 40% 30%,#35312a,#141414 55%,#090909);filter:blur(.2px)}
-.awf-vault-blur-fallback span{font-family:Georgia,'Times New Roman',serif;color:rgba(245,243,240,.58);font-size:20px;letter-spacing:.12em}
-.awf-vault-card-body{padding:24px 24px 26px}.awf-vault-card-meta{font-size:9px;letter-spacing:.19em;color:var(--vault-gold);font-weight:700;margin-bottom:12px}
-.awf-vault-card h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 13px;color:var(--vault-ivory)}
-.awf-vault-card p{font-size:14px;line-height:1.65;color:#bdb9b2;max-width:620px;margin:0 0 21px}
-.awf-vault-enquire{border:1px solid var(--vault-gold);background:transparent;color:var(--vault-gold);padding:12px 16px;font-size:10px;font-weight:700;letter-spacing:.14em;cursor:pointer}
-.awf-vault-enquire:hover{background:var(--vault-gold);color:var(--vault-black)}
-.awf-vault-footer{max-width:1180px;margin:38px auto 0;padding-top:18px;border-top:1px solid rgba(245,243,240,.12);display:flex;gap:20px;flex-wrap:wrap;color:#88837b;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
-.awf-vault-loading{grid-column:1/-1;min-height:180px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(245,243,240,.12);color:#9c978f;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-@media(max-width:760px){.awf-vault-door{padding:28px 16px 28px}.awf-vault-close{right:16px;top:14px}.awf-vault-cards{grid-template-columns:1fr;gap:16px}.awf-vault-image-wrap{height:235px}.awf-vault-card-body{padding:20px}.awf-vault-footer{display:block}.awf-vault-footer span{display:block;margin-bottom:8px}}
-
-.awf-k-overlay{position:fixed;inset:0;z-index:100100;background:rgba(0,0,0,.86);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:16px;overflow:auto}
-.awf-k-overlay.open{display:flex}
-.awf-k-panel{position:relative;width:min(820px,100%);max-height:94vh;overflow:auto;background:linear-gradient(145deg,#0b0b0b,#15130e);border:1px solid rgba(198,169,97,.38);box-shadow:0 35px 120px rgba(0,0,0,.8);padding:28px;border-radius:20px;color:#f5f3f0}
-.awf-k-close{position:absolute;right:16px;top:14px;width:40px;height:40px;border:1px solid rgba(245,243,240,.18);background:#080808;color:#f5f3f0;border-radius:10px;font-size:24px;cursor:pointer;z-index:2}
-.awf-k-eyebrow{font-size:10px;letter-spacing:.2em;color:#c6a961;font-weight:800;margin-bottom:9px}
-.awf-k-panel h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(30px,5vw,48px);font-weight:400;margin:0 55px 10px 0}
-.awf-k-sub{color:#aaa59a;font-size:13px;line-height:1.65;max-width:680px;margin:0 0 16px}
-.awf-k-selected{border:1px solid rgba(198,169,97,.18);background:rgba(198,169,97,.05);color:#c6a961;padding:11px 13px;font-size:11px;letter-spacing:.08em;margin-bottom:18px}
-.awf-k-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.awf-k-field{min-width:0}.awf-k-field.full{grid-column:1/-1}
-.awf-k-field label{display:block;color:#aaa59a;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin:0 0 6px}
-.awf-k-field input,.awf-k-field select,.awf-k-field textarea{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:#070707;color:#f5f3f0;outline:none;font:inherit;font-size:13px}
-.awf-k-field textarea{min-height:105px;resize:vertical}.awf-k-field input:focus,.awf-k-field select:focus,.awf-k-field textarea:focus{border-color:rgba(198,169,97,.7)}
-.awf-k-file{padding:9px!important}.awf-k-submit{width:100%;margin-top:16px;padding:14px 18px;border:1px solid #c6a961;background:#c6a961;color:#0a0a0a;font-weight:900;letter-spacing:.12em;font-size:11px;cursor:pointer}.awf-k-submit:disabled{opacity:.55;cursor:wait}
-.awf-k-status{min-height:20px;margin-top:12px;color:#c6a961;font-size:12px;line-height:1.5}.awf-k-note{margin-top:13px;color:#77736c;font-size:10px;line-height:1.6}
-@media(max-width:650px){.awf-k-overlay{padding:8px}.awf-k-panel{padding:22px 16px;border-radius:16px;max-height:96vh}.awf-k-grid{grid-template-columns:1fr}.awf-k-field.full{grid-column:auto}.awf-k-panel h2{font-size:32px}}
-</style></head>
+</head>
 <body>
 
 <!-- =======================================================
@@ -2716,22 +2707,42 @@ body.awf-vault-open{overflow:hidden}
 
     <nav class="navbar">
 
-        <a href="#home" class="logo-wrap" aria-label="AWF Real Estate Home">
-            <img src="awf-logo-transparent.png" alt="AWF Real Estate">
+        <!-- EMPTY LEFT COLUMN KEEPS LOGO PERFECTLY CENTERED -->
+
+        <a href="#home"
+           class="logo-wrap"
+           aria-label="AWF Real Estate Home">
+
+            <img src="awf-logo-transparent.png"
+                 alt="AWF Real Estate">
         </a>
 
-        <div class="awf-desktop-links" aria-label="Primary navigation">
-            <a href="#home">Home</a><a href="#properties">Properties</a><a href="#about">About</a><a href="#services">Services</a><a href="#international">International</a><a href="#contact">Contact</a>
+        <div class="reference-nav" aria-label="Primary navigation">
+            <a href="#properties">PORTFOLIO</a>
+            <span>•</span>
+            <a href="#properties">ENCLAVES</a>
+            <span>•</span>
+            <a href="#about">PROVENANCE</a>
+            <span>•</span>
+            <a href="#why">STEWARDSHIP</a>
+            <span>•</span>
+            <a href="#international">JOURNAL</a>
+            <a href="#contact" class="gatekeeper-nav">GATEKEEPER ACCESS</a>
         </div>
 
-        <button type="button" class="awf-account-button" id="awfAccountButton" onclick="openCustomerAccount()" aria-label="Open AWF customer account">
-            <span class="account-dot"></span><span class="account-text">My Account</span>
+        <button class="menu-button"
+                id="menuButton"
+                aria-label="Open menu">
+
+            <span class="menu-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+
         </button>
 
-        <button class="menu-button" id="menuButton" aria-label="Open menu">
-            <span class="menu-lines"><span></span><span></span><span></span></span>
-        </button>
-    <button class="awf-vault-btn" type="button" onclick="openAWFVault()">PRIVATE VAULT</button></nav>
+    </nav>
 
 </header>
 
@@ -2801,33 +2812,52 @@ body.awf-vault-open{overflow:hidden}
 
 <main id="home">
 
-<section class="awf-v5-hero" id="home">
-  <div class="awf-v5-hero-bg" id="awfHeroBg"></div>
-  <div class="awf-v5-hero-inner">
-    <div class="awf-v5-copy reveal">
-      <div class="awf-v5-eyebrow">Nigeria • UAE • USA • UK • Global</div>
-      <h1 class="awf-v5-title">Find Your Next Property.<span>Build Your Future.</span></h1>
-      <p class="awf-v5-sub">Premium property opportunities across Nigeria and selected international markets — with AWF tools for searching, saving, comparing and requesting viewings.</p>
-      <div class="awf-v5-search" role="search">
-        <input id="marketplaceSearch" class="marketplace-input" type="search" autocomplete="off" placeholder="Location, city or property..." aria-label="Search AWF properties" oninput="applyMarketplaceFilters()">
-        <select id="marketplaceType" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Property type">
-          <option value="all">Property Type • Any</option><option value="house">House</option><option value="apartment">Apartment</option><option value="land">Land</option><option value="commercial">Commercial</option><option value="office">Office</option><option value="hotel">Hotel</option><option value="student">Student accommodation</option>
-        </select>
-        <select id="marketplaceCountry" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Market">
-          <option value="all">Location • Anywhere</option><option value="Nigeria">Nigeria</option><option value="UAE">UAE</option><option value="USA">USA</option><option value="UK">UK</option>
-        </select>
-        <button type="button" class="awf-v5-search-btn" onclick="document.getElementById('properties').scrollIntoView({behavior:'smooth'});applyMarketplaceFilters()">⌕ Search</button>
-      </div>
-      <div class="awf-v5-categories">
-        <button class="awf-v5-cat active" type="button" onclick="setMarketplaceFilterFromV5('all',this)"><span>⌂</span>Buy</button>
-        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('rent',this)"><span>⌕</span>Rent</button>
-        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('land',this)"><span>◇</span>Land</button>
-        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('investment',this)"><span>↗</span>Investment</button>
-        <button class="awf-v5-cat" type="button" onclick="setMarketplaceFilterFromV5('international',this)"><span>◎</span>International</button>
-      </div>
-      <div class="awf-v5-trust"><span><b>✓</b> Verified Properties</span><span><b>◇</b> Trusted Partners</span><span><b>◎</b> International Listings</span><span><b>◌</b> Dedicated Support</span></div>
+<section class="hero">
+
+    <div class="hero-fortress-mark" aria-hidden="true">
+        <img src="awflogo-mark.png" alt="">
     </div>
-  </div>
+
+    <div class="hero-vignette" aria-hidden="true"></div>
+
+    <div class="container hero-reference-container">
+
+        <div class="hero-content reveal">
+
+            <div class="eyebrow">
+                ALEXANDER WHITE FORTRESS — SOVEREIGN PORTFOLIO
+            </div>
+
+            <h1 class="hero-title">
+                ACCESS <span>WITHHELD</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Selected estates. Private enclaves. Direct access.
+            </p>
+
+            <div class="hero-ornament" aria-hidden="true">◆</div>
+
+            <div class="hero-actions">
+
+                <a href="#contact" class="btn btn-gold">
+                    REQUEST GATEKEEPER ACCESS
+                </a>
+
+                <a href="#about" class="btn btn-outline">
+                    VIEW PROVENANCE
+                </a>
+
+            </div>
+
+            <div class="hero-reference-note">
+                <span>◆</span> Selected opportunities <b>•</b> Discretion assured <b>•</b> Direct enquiry
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 
@@ -2906,7 +2936,7 @@ body.awf-vault-open{overflow:hidden}
 
             <div class="about-visual reveal">
 
-                <img src="awf-logo-transparent.png"
+                <img src="awflogo-mark.png"
                      alt="AWF Real Estate">
 
             </div>
@@ -3204,62 +3234,18 @@ body.awf-vault-open{overflow:hidden}
         </div>
 
 
+        <div class="property-grid"
+             id="publicPropertyGrid">
 
+            <!--
+                PROPERTY MANAGER DATA WILL APPEAR HERE.
 
-        <div class="marketplace-v2 awf-v5-tools" id="awfMarketplace">
-  <div class="marketplace-secondary-row">
-    <div class="marketplace-filter-chips" role="group" aria-label="Quick property filters">
-      <button class="marketplace-chip active" type="button" data-filter="all">All</button>
-      <button class="marketplace-chip" type="button" data-filter="sale">For Sale</button>
-      <button class="marketplace-chip" type="button" data-filter="rent">For Rent</button>
-      <button class="marketplace-chip" type="button" data-filter="investment">Investment</button>
-      <button class="marketplace-chip" type="button" data-filter="international">International</button>
-    </div>
-    <div class="marketplace-actions">
-      <button class="marketplace-mini-btn" id="advancedBtn" type="button" onclick="toggleAdvancedFilters()">⚙ Filters</button>
-      <button class="marketplace-mini-btn" id="savedOnlyBtn" type="button" onclick="toggleSavedOnly()">♡ Saved <span id="savedCount"></span></button>
-      <button class="marketplace-mini-btn" id="compareBtn" type="button" onclick="showCompare()">⚖ Compare <span id="compareCount">0</span></button>
-      <button class="marketplace-mini-btn" type="button" onclick="saveCurrentSearch()">＋ Save Search</button>
-      <button class="marketplace-mini-btn" type="button" onclick="shareCurrentSearch()">↗ Share</button>
-      <button class="marketplace-mini-btn" id="viewToggleBtn" type="button" onclick="toggleMarketplaceView()">▦ Grid</button>
-      <button class="marketplace-mini-btn" id="mapViewBtn" type="button" onclick="toggleAWFMap()">⌖ Map</button>
-      <button class="marketplace-mini-btn" type="button" onclick="resetMarketplaceFilters()">Reset</button>
-    </div>
-  </div>
-  <div class="marketplace-advanced" id="marketplaceAdvanced" aria-hidden="true">
-    <div class="marketplace-field"><label for="marketplaceMinPrice">Min price</label><input id="marketplaceMinPrice" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
-    <div class="marketplace-field"><label for="marketplaceMaxPrice">Max price</label><input id="marketplaceMaxPrice" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
-    <div class="marketplace-field"><label for="marketplaceBeds">Bedrooms</label><select id="marketplaceBeds" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
-    <div class="marketplace-field"><label for="marketplaceBaths">Bathrooms</label><select id="marketplaceBaths" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></div>
-    <div class="marketplace-field"><label for="marketplaceStatus">Status</label><select id="marketplaceStatus" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any status</option><option value="available">Available</option><option value="for sale">For Sale</option><option value="for rent">For Rent</option><option value="investment">Investment</option></select></div>
-    <div class="marketplace-field"><label for="marketplaceVerified">Trust</label><select id="marketplaceVerified" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">All listings</option><option value="verified">Verified only</option><option value="featured">Featured only</option></select></div>
-    <div class="marketplace-field"><label for="marketplaceMinSize">Min size (sqm)</label><input id="marketplaceMinSize" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
-    <div class="marketplace-field"><label for="marketplaceMaxSize">Max size (sqm)</label><input id="marketplaceMaxSize" class="marketplace-input" inputmode="decimal" placeholder="Any" oninput="applyMarketplaceFilters()"></div>
-    <div class="marketplace-field"><label for="marketplaceAmenity">Amenity</label><select id="marketplaceAmenity" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any amenity</option><option value="pool">Swimming pool</option><option value="bq">BQ</option><option value="parking">Parking</option><option value="generator">Generator</option><option value="solar">Solar</option><option value="elevator">Elevator</option><option value="gym">Gym</option><option value="smart">Smart home</option><option value="furnished">Furnished</option><option value="cinema">Cinema</option></select></div>
-    <div class="marketplace-field"><label for="marketplaceMedia">Media</label><select id="marketplaceMedia" class="marketplace-select" onchange="applyMarketplaceFilters()"><option value="all">Any media</option><option value="video">Video available</option><option value="photos">Photos available</option></select></div>
-  </div>
-  <div class="marketplace-count"><span id="marketplaceCount">Showing <strong>0</strong> properties</span><div class="marketplace-count-tools"><select id="marketplaceSort" class="marketplace-select" onchange="applyMarketplaceFilters()" aria-label="Sort properties"><option value="newest">Newest first</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="name">Name A–Z</option></select><span id="marketplaceSearchState">AWF Marketplace • Nigeria & International</span></div></div>
-</div>
-</div>
+                Until you add real properties,
+                AWF does NOT invent property details.
+            -->
 
-        <div class="awf-map-panel" id="awfMapPanel" aria-hidden="true">
-  <div class="awf-map-head">
-    <div><h3>AWF Property Map</h3><p>Explore available AWF listings by location.</p></div>
-    <div class="awf-map-actions"><button class="marketplace-mini-btn" type="button" onclick="fitAWFMapToListings()">Fit listings</button><button class="marketplace-mini-btn" type="button" onclick="toggleAWFMap()">Close map</button></div>
-  </div>
-  <div id="awfPropertyMap"></div>
-  <div class="awf-map-legend"><span>● Each marker is an AWF listing</span><span>Click a marker to view the property</span><span>Managers can set exact coordinates when adding a listing</span></div>
-</div>
+        </div>
 
-<div class="awf-map-picker-modal" id="awfMapPickerModal" aria-hidden="true">
-  <div class="awf-map-picker-inner">
-    <div class="awf-map-picker-head"><h3>Set Property Location</h3><button class="property-detail-close" type="button" onclick="closeAWFMapPicker()">×</button></div>
-    <div id="awfPickerMap"></div>
-    <div class="awf-map-picker-foot"><span>Tap the exact property position on the map.</span><span class="awf-map-coords" id="awfPickerCoords">No location selected</span><button class="btn btn-gold" type="button" onclick="useAWFMapPickerLocation()">Use This Location</button></div>
-  </div>
-</div>
-
-<div class="property-grid" id="publicPropertyGrid"></div>
     </div>
 
 </section>
@@ -3967,13 +3953,6 @@ body.awf-vault-open{overflow:hidden}
 
                 </button>
 
-                <button class="awf-v4-admin-btn"
-                        id="awfLeadCenterButton"
-                        onclick="openAWFAdminDashboard()"
-                        style="display:none;">
-                    Lead Center
-                </button>
-
                 <button class="manager-close"
                         onclick="closeManager()">
 
@@ -4054,10 +4033,6 @@ body.awf-vault-open{overflow:hidden}
                     Add Property
                 </h2>
 
-                <p style="color:#777;font-size:.72rem;max-width:720px;margin:-8px 0 18px">
-                    Mark a listing as AWF Verified only after your internal property checks are complete.
-                </p>
-
 
                 <div class="manager-form-grid">
 
@@ -4106,20 +4081,6 @@ body.awf-vault-open{overflow:hidden}
                         <input id="propertyLocation"
                                placeholder="Maitama, Abuja">
 
-                    </div>
-
-                    <div class="manager-field">
-                        <label>LATITUDE</label>
-                        <input id="propertyLatitude" inputmode="decimal" placeholder="e.g. 9.0765">
-                    </div>
-
-                    <div class="manager-field">
-                        <label>LONGITUDE</label>
-                        <input id="propertyLongitude" inputmode="decimal" placeholder="e.g. 7.3986">
-                    </div>
-
-                    <div class="manager-field" style="display:flex;align-items:flex-end">
-                        <button class="btn btn-outline" type="button" style="width:100%" onclick="openAWFMapPicker()">⌖ Pick Location on Map</button>
                     </div>
 
 
@@ -4265,24 +4226,6 @@ body.awf-vault-open{overflow:hidden}
                     <div class="manager-field">
 
                         <label>
-                            VERIFIED
-                        </label>
-
-                        <select id="propertyVerified">
-                            <option value="false">
-                                Not Verified
-                            </option>
-                            <option value="true">
-                                AWF Verified
-                            </option>
-                        </select>
-
-                    </div>
-
-
-                    <div class="manager-field">
-
-                        <label>
                             FEATURED
                         </label>
 
@@ -4301,20 +4244,6 @@ body.awf-vault-open{overflow:hidden}
                     </div>
 
 
-                    <div class="manager-field">
-                        <label>PRIVATE VAULT</label>
-                        <select id="propertyVaultOnly">
-                            <option value="false">Public Listing</option>
-                            <option value="true">Vault Only</option>
-                        </select>
-                    </div>
-                    <div class="manager-field">
-                        <label>NDA REQUIRED</label>
-                        <select id="propertyNdaRequired">
-                            <option value="true">Yes</option>
-                            <option value="false">No</option>
-                        </select>
-                    </div>
                     <div class="manager-field full">
 
                         <label>
@@ -4363,16 +4292,16 @@ body.awf-vault-open{overflow:hidden}
                     </div>
 
                     <div class="manager-field full property-media-tools">
-                        <label>PROPERTY PHOTOS — UP TO 30</label>
+                        <label>PROPERTY PHOTOS — UP TO 12</label>
                         <input id="propertyPhotoFiles" type="file" accept="image/*" multiple onchange="previewPropertyMedia()">
                         <div class="media-help">You can select multiple photos at once. Existing image URLs above are preserved.</div>
                         <div class="media-preview" id="propertyPhotoPreview"></div>
                     </div>
 
                     <div class="manager-field full property-media-tools">
-                        <label>PROPERTY VIDEOS — UP TO 3</label>
-                        <input id="propertyVideoFiles" type="file" accept="video/*" multiple onchange="previewPropertyMedia()">
-                        <div class="media-help">Select up to 3 videos. Photos and videos are uploaded to your AWF Supabase media bucket for online access when Storage is configured.</div>
+                        <label>PROPERTY VIDEO — OPTIONAL</label>
+                        <input id="propertyVideoFile" type="file" accept="video/*" onchange="previewPropertyMedia()">
+                        <div class="media-help">For online persistence, the selected media can be uploaded to your configured Supabase Storage bucket when available.</div>
                         <div class="media-preview" id="propertyVideoPreview"></div>
                     </div>
 
@@ -4453,7 +4382,7 @@ supabase.createClient(
 
 /* Media uses Supabase Storage only when this existing bucket is available.
    Your existing Supabase URL, key, database and authentication are unchanged. */
-const SUPABASE_MEDIA_BUCKET = "property-videos";
+const SUPABASE_MEDIA_BUCKET = "awf-property-media";
 /* =========================================================
    BASIC
 ========================================================= */
@@ -4604,20 +4533,14 @@ let galleryIndex = 0;
     try {
         if (!supabaseClient) return;
         const { data, error } = await supabaseClient.from('properties').select('*');
-        if (error || !Array.isArray(data)) return;
+        if (error || !Array.isArray(data) || !data.length) return;
         properties = data.map(row => ({
             ...row,
             id: String(row.id),
             name: row.name || row.title || '',
-            price_display: row.price_display || '',
             type: row.type || row.property_type || '',
             status: row.status || row.listing_type || '',
             video: row.video || row.video_url || '',
-            vault_only: !!row.vault_only,
-            vault_teaser: row.vault_teaser || '',
-            price_on_request: !!row.price_on_request,
-            nda_required: row.nda_required !== false,
-            videos: Array.isArray(row.videos) ? row.videos : [],
             images: Array.isArray(row.images) ? row.images : []
         }));
         saveDatabase();
@@ -4649,203 +4572,288 @@ function saveDatabase(){
 ========================================================= */
 
 let currentFilter = "all";
-let marketplaceSavedOnly = false;
-let marketplaceListView = false;
-let savedProperties = JSON.parse(localStorage.getItem("AWF_SAVED_PROPERTIES") || "[]");
-let comparedProperties = JSON.parse(localStorage.getItem("AWF_COMPARE_PROPERTIES") || "[]");
-let savedSearches = JSON.parse(localStorage.getItem("AWF_SAVED_SEARCHES") || "[]");
 
-function marketplaceToast(message){
-    let toast=document.getElementById("marketplaceToast");
-    if(!toast){toast=document.createElement("div");toast.id="marketplaceToast";toast.className="marketplace-toast";document.body.appendChild(toast);}
-    toast.textContent=message; toast.classList.add("show");
-    clearTimeout(window.__awfToastTimer); window.__awfToastTimer=setTimeout(()=>toast.classList.remove("show"),2200);
-}
 
-function syncMarketplaceState(){
-    localStorage.setItem("AWF_SAVED_PROPERTIES", JSON.stringify(savedProperties));
-    localStorage.setItem("AWF_COMPARE_PROPERTIES", JSON.stringify(comparedProperties));
-    localStorage.setItem("AWF_SAVED_SEARCHES", JSON.stringify(savedSearches));
-    const cc=document.getElementById("compareCount"); if(cc) cc.textContent=comparedProperties.length;
-    const sc=document.getElementById("savedCount"); if(sc) sc.textContent=savedProperties.length ? `(${savedProperties.length})` : "";
-    const sb=document.getElementById("savedOnlyBtn"); if(sb) sb.classList.toggle("active",marketplaceSavedOnly);
-    const vb=document.getElementById("viewToggleBtn"); if(vb) vb.textContent=marketplaceListView ? "▤ List" : "▦ Grid";
-}
+document.querySelectorAll(".filter-btn")
+.forEach(button=>{
 
-function getVerificationState(p){
-    return p.verified===true || p.is_verified===true || String(p.verification_status||"").toLowerCase()==="verified";
-}
-
-function numericField(value){
-    const n=parseFloat(String(value??"").replace(/[^0-9.]/g,""));
-    return Number.isFinite(n)?n:null;
-}
-
-function normalizePropertyPrice(value){
-    const raw=String(value??"").trim().toLowerCase().replace(/₦/g,"").replace(/,/g,"").replace(/\s+/g," ");
-    if(!raw) return null;
-    const n=parseFloat(raw.replace(/[^0-9.]/g,""));
-    if(!Number.isFinite(n)) return null;
-    if(raw.includes("billion") || /\bbn\b/.test(raw)) return Math.round(n*1000000000);
-    if(raw.includes("million") || /\bmn\b/.test(raw)) return Math.round(n*1000000);
-    if(raw.includes("thousand") || /\bkn\b/.test(raw)) return Math.round(n*1000);
-    return n;
-}
-function displayPropertyPrice(p){
-    if(p && String(p.price_display||'').trim()) return String(p.price_display).trim();
-    if(p && p.price!==null && p.price!==undefined && String(p.price).trim()) return `${p.currency||'₦'}${p.price}`;
-    return 'Contact for price';
-}
-function numericPrice(p){ const n=numericField(p.price); return n===null?Infinity:n; }
-function numericBeds(p){ const n=Number(p.bedrooms); return Number.isFinite(n)?n:null; }
-function numericBaths(p){ const n=Number(p.bathrooms); return Number.isFinite(n)?n:null; }
-function numericSize(p){
-    const raw=String(p.size??"").toLowerCase().replace(/,/g,"");
-    const m=raw.match(/(\\d+(?:\\.\\d+)?)/);
-    return m?Number(m[1]):null;
-}
-function propertyAmenityText(p){
-    return [p.features,p.amenities,p.description,p.title,p.name,p.size].filter(Boolean).join(" ").toLowerCase();
-}
-
-function propertyMatchesSearch(p,q){
-    if(!q) return true;
-    const hay=[p.name,p.title,p.description,p.location,p.city,p.country,p.type,p.property_type,p.listing_type,p.status,p.size,p.features,p.amenities].filter(Boolean).join(" ").toLowerCase();
-    return hay.includes(q.toLowerCase());
-}
-function statusText(p){return String(p.status||p.listing_type||"").toLowerCase();}
-function typeText(p){return String(p.type||p.property_type||"").toLowerCase();}
-
-function applyQuickFilter(button){
-    document.querySelectorAll(".marketplace-chip").forEach(btn=>btn.classList.remove("active"));
-    if(button) button.classList.add("active");
-    currentFilter=button?.dataset.filter||"all";
-    applyMarketplaceFilters();
-}
-
-document.querySelectorAll(".marketplace-chip").forEach(button=>button.addEventListener("click",()=>applyQuickFilter(button)));
-
-document.querySelectorAll(".filter-btn").forEach(button=>{
     button.addEventListener("click",()=>{
-        document.querySelectorAll(".filter-btn").forEach(btn=>btn.classList.remove("active"));
+
+        document.querySelectorAll(
+            ".filter-btn"
+        ).forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
         button.classList.add("active");
-        currentFilter=button.dataset.filter;
-        document.querySelectorAll(".marketplace-chip").forEach(btn=>btn.classList.toggle("active",btn.dataset.filter===currentFilter));
-        applyMarketplaceFilters();
+
+        currentFilter =
+        button.dataset.filter;
+
+        renderPublicProperties();
+
     });
+
 });
 
-function toggleAdvancedFilters(){
-    const box=document.getElementById("marketplaceAdvanced"), btn=document.getElementById("advancedBtn");
-    if(!box) return;
-    const open=box.classList.toggle("open"); box.setAttribute("aria-hidden",String(!open)); if(btn) btn.classList.toggle("active",open);
-}
-function toggleSavedOnly(){marketplaceSavedOnly=!marketplaceSavedOnly;syncMarketplaceState();applyMarketplaceFilters();}
-function toggleMarketplaceView(){marketplaceListView=!marketplaceListView;applyMarketplaceFilters();}
 
-function resetMarketplaceFilters(){
-    ["marketplaceSearch","marketplaceMinPrice","marketplaceMaxPrice","marketplaceMinSize","marketplaceMaxSize"].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
-    ["marketplaceType","marketplaceCountry","marketplaceSort","marketplaceBeds","marketplaceBaths","marketplaceStatus","marketplaceVerified","marketplaceAmenity","marketplaceMedia"].forEach(id=>{const el=document.getElementById(id);if(el)el.value=id==="marketplaceSort"?"newest":"all";});
-    currentFilter="all"; marketplaceSavedOnly=false;
-    document.querySelectorAll(".marketplace-chip").forEach(btn=>btn.classList.toggle("active",btn.dataset.filter==="all"));
-    syncMarketplaceState();applyMarketplaceFilters();marketplaceToast("Marketplace filters reset");
+function renderPublicProperties(){
+
+    const grid =
+    document.getElementById(
+        "publicPropertyGrid"
+    );
+
+    let visible =
+    properties.filter(property=>
+        property.visible !== false
+    );
+
+
+    if(currentFilter !== "all"){
+
+        visible =
+        visible.filter(property=>
+            property.type === currentFilter
+        );
+
+    }
+
+
+    if(!visible.length){
+
+        grid.innerHTML = `
+
+            <div style="
+                grid-column:1/-1;
+                min-height:300px;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                text-align:center;
+                border:1px dashed rgba(212,175,55,.18);
+                border-radius:28px;
+                background:#0b0b0b;
+                padding:40px;
+            ">
+
+                <div style="
+                    color:#d4af37;
+                    font-size:2rem;
+                    margin-bottom:15px;
+                ">
+                    ◇
+                </div>
+
+                <h3 style="
+                    font-family:Georgia,serif;
+                    font-size:1.5rem;
+                ">
+                    Property listings coming soon
+                </h3>
+
+                <p style="
+                    color:#666;
+                    max-width:430px;
+                    margin-top:8px;
+                    font-size:.78rem;
+                ">
+                    AWF Real Estate is preparing
+                    selected property opportunities.
+                    Contact us directly for current
+                    availability.
+                </p>
+
+                <a
+                    href="https://wa.me/2348102837598"
+                    target="_blank"
+                    class="btn btn-gold"
+                    style="margin-top:20px;"
+                >
+                    Contact AWF →
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    grid.innerHTML =
+    visible.map(property=>
+        propertyCardHTML(property)
+    ).join("");
+
 }
 
-function saveCurrentSearch(){
-    const state={q:document.getElementById("marketplaceSearch")?.value.trim()||"",type:document.getElementById("marketplaceType")?.value||"all",country:document.getElementById("marketplaceCountry")?.value||"all",sort:document.getElementById("marketplaceSort")?.value||"newest",min:document.getElementById("marketplaceMinPrice")?.value||"",max:document.getElementById("marketplaceMaxPrice")?.value||"",beds:document.getElementById("marketplaceBeds")?.value||"all",baths:document.getElementById("marketplaceBaths")?.value||"all",status:document.getElementById("marketplaceStatus")?.value||"all",verified:document.getElementById("marketplaceVerified")?.value||"all",minSize:document.getElementById("marketplaceMinSize")?.value||"",maxSize:document.getElementById("marketplaceMaxSize")?.value||"",amenity:document.getElementById("marketplaceAmenity")?.value||"all",media:document.getElementById("marketplaceMedia")?.value||"all",quick:currentFilter};
-    savedSearches=[state,...savedSearches.filter(s=>JSON.stringify(s)!==JSON.stringify(state))].slice(0,10);syncMarketplaceState();marketplaceToast("Search saved on this device");
-}
-function currentSearchParams(){
-    const p=new URLSearchParams();
-    const map={q:"marketplaceSearch",type:"marketplaceType",country:"marketplaceCountry",sort:"marketplaceSort",min:"marketplaceMinPrice",max:"marketplaceMaxPrice",beds:"marketplaceBeds",baths:"marketplaceBaths",status:"marketplaceStatus",verified:"marketplaceVerified",minSize:"marketplaceMinSize",maxSize:"marketplaceMaxSize",amenity:"marketplaceAmenity",media:"marketplaceMedia"};
-    Object.entries(map).forEach(([key,id])=>{const v=document.getElementById(id)?.value||"";if(v&&v!=="all"&&!(key==="sort"&&v==="newest"))p.set(key,v);});
-    if(currentFilter!=="all")p.set("quick",currentFilter); return p;
-}
-async function shareCurrentSearch(){
-    const url=`${location.origin}${location.pathname}?${currentSearchParams().toString()}#properties`;
-    try{await navigator.clipboard.writeText(url);marketplaceToast("Search link copied");}
-    catch(e){window.prompt("Copy this AWF search link:",url);}
-}
-function restoreMarketplaceSearchFromURL(){
-    const p=new URLSearchParams(location.search); const map={q:"marketplaceSearch",type:"marketplaceType",country:"marketplaceCountry",sort:"marketplaceSort",min:"marketplaceMinPrice",max:"marketplaceMaxPrice",beds:"marketplaceBeds",baths:"marketplaceBaths",status:"marketplaceStatus",verified:"marketplaceVerified",minSize:"marketplaceMinSize",maxSize:"marketplaceMaxSize",amenity:"marketplaceAmenity",media:"marketplaceMedia"};
-    Object.entries(map).forEach(([key,id])=>{if(p.has(key)){const el=document.getElementById(id);if(el)el.value=p.get(key);}});
-    if(p.get("quick")){currentFilter=p.get("quick");document.querySelectorAll(".marketplace-chip").forEach(b=>b.classList.toggle("active",b.dataset.filter===currentFilter));}
-}
-
-function applyMarketplaceFilters(){
-    const grid=document.getElementById("publicPropertyGrid"); if(!grid)return;
-    const q=document.getElementById("marketplaceSearch")?.value.trim()||"";
-    const type=document.getElementById("marketplaceType")?.value||"all";
-    const country=document.getElementById("marketplaceCountry")?.value||"all";
-    const sort=document.getElementById("marketplaceSort")?.value||"newest";
-    const min=numericField(document.getElementById("marketplaceMinPrice")?.value); const max=numericField(document.getElementById("marketplaceMaxPrice")?.value);
-    const beds=document.getElementById("marketplaceBeds")?.value||"all"; const baths=document.getElementById("marketplaceBaths")?.value||"all";
-    const status=document.getElementById("marketplaceStatus")?.value||"all"; const trust=document.getElementById("marketplaceVerified")?.value||"all";
-    const minSize=numericField(document.getElementById("marketplaceMinSize")?.value); const maxSize=numericField(document.getElementById("marketplaceMaxSize")?.value);
-    const amenity=document.getElementById("marketplaceAmenity")?.value||"all"; const media=document.getElementById("marketplaceMedia")?.value||"all";
-    let visible=properties.filter(p=>p.visible!==false);
-    const vaultVisible = !!window.awfVaultAccess;
-    visible = visible.filter(p=>!p.vault_only || vaultVisible);
-    if(currentFilter!=="all") visible=visible.filter(p=>{const t=typeText(p),s=statusText(p);if(currentFilter==="international")return String(p.country||"").toLowerCase()!=="nigeria";if(currentFilter==="investment")return t.includes("investment")||s.includes("investment");if(currentFilter==="sale")return s.includes("sale");if(currentFilter==="rent")return s.includes("rent");return true;});
-    if(type!=="all")visible=visible.filter(p=>typeText(p).includes(type.toLowerCase()));
-    if(country!=="all")visible=visible.filter(p=>String(p.country||"").toLowerCase()===country.toLowerCase());
-    if(min!==null)visible=visible.filter(p=>numericPrice(p)!==Infinity&&numericPrice(p)>=min);
-    if(max!==null)visible=visible.filter(p=>numericPrice(p)!==Infinity&&numericPrice(p)<=max);
-    if(beds!=="all")visible=visible.filter(p=>{const n=numericBeds(p);return n!==null&&n>=Number(beds);});
-    if(baths!=="all")visible=visible.filter(p=>{const n=numericBaths(p);return n!==null&&n>=Number(baths);});
-    if(minSize!==null)visible=visible.filter(p=>{const n=numericSize(p);return n!==null&&n>=minSize;});
-    if(maxSize!==null)visible=visible.filter(p=>{const n=numericSize(p);return n!==null&&n<=maxSize;});
-    if(amenity!=="all")visible=visible.filter(p=>propertyAmenityText(p).includes(amenity));
-    if(media==="video")visible=visible.filter(p=>getPropertyVideos(p).length>0);
-    if(media==="photos")visible=visible.filter(p=>getPropertyImages(p).length>0);
-    if(status!=="all")visible=visible.filter(p=>statusText(p).includes(status));
-    if(trust==="verified")visible=visible.filter(getVerificationState); else if(trust==="featured")visible=visible.filter(p=>p.featured===true);
-    if(marketplaceSavedOnly)visible=visible.filter(p=>savedProperties.includes(String(p.id)));
-    visible=visible.filter(p=>propertyMatchesSearch(p,q));
-    if(sort==="price-low")visible.sort((a,b)=>numericPrice(a)-numericPrice(b));
-    else if(sort==="price-high")visible.sort((a,b)=>numericPrice(b)-numericPrice(a));
-    else if(sort==="name")visible.sort((a,b)=>String(a.name||a.title||"").localeCompare(String(b.name||b.title||"")));
-    else visible.sort((a,b)=>String(b.created_at||b.id||"").localeCompare(String(a.created_at||a.id||"")));
-    const count=document.getElementById("marketplaceCount"); if(count)count.innerHTML=`Showing <strong>${visible.length}</strong> ${visible.length===1?"property":"properties"}`;
-    const state=document.getElementById("marketplaceSearchState"); if(state)state.textContent=q?`Results for “${q.slice(0,40)}${q.length>40?"…":""}”`:`AWF Marketplace • Nigeria & International`;
-    grid.classList.toggle("marketplace-list-view",marketplaceListView);
-    if(!visible.length){grid.innerHTML=`<div class="marketplace-empty"><div style="color:#d4af37;font-size:2rem">◇</div><h3>No matching properties</h3><p style="color:#666;max-width:460px;margin:9px auto;font-size:.78rem">Try adjusting your filters, or ask AWF to source a property that is not publicly listed.</p><a href="https://wa.me/2348102837598" target="_blank" rel="noopener" class="btn btn-gold" style="margin-top:18px">Ask AWF to Source →</a></div>`;syncMarketplaceState();return;}
-    grid.innerHTML=visible.map(propertyCardHTML).join("");
-    document.querySelectorAll(".property-card.reveal").forEach(el=>{try{observer.observe(el)}catch(e){}});
-    syncMarketplaceState();
-    if(awfPropertyMap) renderAWFMapMarkers();
-}
-function renderPublicProperties(){applyMarketplaceFilters();if(awfPropertyMap)renderAWFMapMarkers();}
 
 function propertyCardHTML(property){
-    const images=getPropertyImages(property),videos=getPropertyVideos(property),mediaCount=images.length+videos.length,hasVideo=videos.length>0;
-    const imageHTML=images[0]?`<img src="${escapeHTML(images[0])}" alt="${escapeHTML(property.name||property.title||"AWF Property")}" loading="lazy" onerror="this.style.display='none'">`:videos[0]?`<video src="${escapeHTML(videos[0])}" muted playsinline preload="metadata" aria-label="Property video"></video>`:`<div class="property-placeholder"><strong>${escapeHTML(property.name||property.title||"AWF Property")}</strong><span>Property media coming soon</span></div>`;
-    const details=[]; if(property.bedrooms!==null&&property.bedrooms!==undefined&&property.bedrooms!=="")details.push(`🛏 ${escapeHTML(property.bedrooms)} Beds`); if(property.bathrooms!==null&&property.bathrooms!==undefined&&property.bathrooms!=="")details.push(`♨ ${escapeHTML(property.bathrooms)} Baths`); if(property.size)details.push(`▱ ${escapeHTML(property.size)}`);
-    const price=escapeHTML(property.vault_only ? "PRICE ON NDA • VAULT ONLY" : displayPropertyPrice(property));
-    const verified=getVerificationState(property);
-    return `<article class="property-card reveal"><div class="property-image">${imageHTML}${property.vault_only?`<span class="awf-vault-badge">🔒 PRIVATE VAULT</span>`:""}${verified?`<span class="awf-verification-badge">✓ VERIFIED</span>`:""}${hasVideo&&images.length?`<button type="button" class="property-video-play property-video-play-overlay" onclick="event.stopPropagation();openGallery('${escapeJS(property.id)}')">▶ View Video</button>`:""}<div class="property-card-tools"><button type="button" class="property-card-tool ${savedProperties.includes(String(property.id))?"active":""}" onclick="event.stopPropagation();toggleSaved('${escapeJS(property.id)}')" aria-label="Save property">${savedProperties.includes(String(property.id))?"♥":"♡"}</button></div></div><div class="property-body property-card-link" onclick="openPropertyDetail('${escapeJS(property.id)}')"><div class="property-location">⌖ ${escapeHTML([property.city,property.country].filter(Boolean).join(", ")||property.location||"Nigeria")}</div><h3 class="property-name">${escapeHTML(property.name||property.title||"AWF Property")}</h3><p class="property-description">${escapeHTML(property.description||"Selected property opportunity available through AWF Real Estate.")}</p>${details.length?`<div class="property-details">${details.map(d=>`<span>${d}</span>`).join("")}</div>`:""}<div class="property-price"><span class="price">${price}</span><a class="property-btn" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(property.name||property.title||""))}" target="_blank" rel="noopener" aria-label="Enquire about property">→</a></div></div></article>`;
+
+    const images = getPropertyImages(property);
+    const video = property.video || property.videoUrl || "";
+    const mediaCount = images.length + (video ? 1 : 0);
+
+
+    const imageHTML =
+    images.length
+    ?
+    `<img src="${escapeHTML(images[0])}"
+          alt="${escapeHTML(property.name)}"
+          onclick="openGallery('${escapeJS(property.id)}')"
+          onerror="this.style.display='none';">`
+    :
+    `
+        <div class="property-placeholder">
+
+            <strong>
+                ${escapeHTML(property.name)}
+            </strong>
+
+            <span>
+                Property image coming soon
+            </span>
+
+        </div>
+    `;
+
+
+    const details = [];
+
+    if(property.bedrooms)
+        details.push(
+            `🛏 ${property.bedrooms} Beds`
+        );
+
+    if(property.bathrooms)
+        details.push(
+            `◆ ${property.bathrooms} Baths`
+        );
+
+    if(property.size)
+        details.push(
+            `▱ ${escapeHTML(property.size)}`
+        );
+
+
+    const price =
+    property.price
+    ?
+    `${escapeHTML(property.currency || "₦")}${escapeHTML(property.price)}`
+    :
+    "Contact for price";
+
+
+    return `
+
+        <article class="property-card reveal">
+
+            <div class="property-image">
+
+                ${imageHTML}
+
+                <span class="
+                    property-status
+                    status-${property.status}
+                ">
+                    ${property.status}
+                </span>
+
+                <span class="property-type">
+                    ${typeLabel(property.type)}
+                </span>
+
+                ${mediaCount ? `<span class="property-media-badge">▣ ${mediaCount} media</span>` : ""}
+
+            </div>
+
+
+            <div class="property-body">
+
+                <div class="property-location">
+
+                    ${escapeHTML(
+                        property.city || ""
+                    )}
+
+                    ${property.city && property.country ? " • " : ""}
+
+                    ${escapeHTML(
+                        property.country || ""
+                    )}
+
+                </div>
+
+
+                <h3 class="property-name">
+
+                    ${escapeHTML(
+                        property.name
+                    )}
+
+                </h3>
+
+
+                <p class="property-description">
+
+                    ${escapeHTML(
+                        property.description ||
+                        "Selected property opportunity available through AWF Real Estate."
+                    )}
+
+                </p>
+
+
+                ${
+                    details.length
+                    ?
+                    `
+                    <div class="property-details">
+
+                        ${details.map(
+                            d=>`<span>${d}</span>`
+                        ).join("")}
+
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+                <div class="property-price">
+
+                    <span class="price">
+
+                        ${price}
+
+                    </span>
+
+
+                    <a
+                        class="property-btn"
+                        href="https://wa.me/2348102837598?text=${encodeURIComponent(
+                            "Hello AWF Real Estate, I am interested in the property: " +
+                            property.name
+                        )}"
+                        target="_blank"
+                        aria-label="Enquire about property"
+                    >
+                        →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    `;
+
 }
 
-function toggleSaved(id){id=String(id);savedProperties=savedProperties.includes(id)?savedProperties.filter(x=>x!==id):[...savedProperties,id];syncMarketplaceState();applyMarketplaceFilters();marketplaceToast(savedProperties.includes(id)?"Property saved":"Property removed from saved");}
-function toggleCompare(id){id=String(id);if(comparedProperties.includes(id))comparedProperties=comparedProperties.filter(x=>x!==id);else{if(comparedProperties.length>=3){marketplaceToast("Compare is limited to 3 properties");return;}comparedProperties.push(id);}syncMarketplaceState();applyMarketplaceFilters();}
-function openPropertyDetail(id){
-    const p=properties.find(x=>String(x.id)===String(id));if(!p)return;
-    const images=getPropertyImages(p),videos=getPropertyVideos(p),mediaCount=images.length+videos.length;
-    const primary=images[0]?`<img src="${escapeHTML(images[0])}" alt="${escapeHTML(p.name||p.title||"AWF Property")}">`:videos[0]?`<video src="${escapeHTML(videos[0])}" controls playsinline preload="metadata"></video>`:`<div class="property-placeholder"><strong>${escapeHTML(p.name||p.title||"AWF Property")}</strong><span>Property media coming soon</span></div>`;
-    const price=escapeHTML(displayPropertyPrice(p));
-    const meta=[p.bedrooms!==null&&p.bedrooms!==undefined&&p.bedrooms!==""?`🛏 ${escapeHTML(p.bedrooms)} Beds`:"",p.bathrooms!==null&&p.bathrooms!==undefined&&p.bathrooms!==""?`◆ ${escapeHTML(p.bathrooms)} Baths`:"",p.size?`▱ ${escapeHTML(p.size)}`:"",p.property_type||p.type?escapeHTML(typeLabel(p.property_type||p.type)):"",p.status?escapeHTML(String(p.status).toUpperCase()):""].filter(Boolean);
-    const verified=getVerificationState(p);
-    document.getElementById("propertyDetailContent").innerHTML=`<div class="property-detail-content"><div class="property-detail-media">${primary}<div class="property-detail-media-tools"><div>${verified?`<span class="awf-verification-badge">✓ AWF Verified</span>`:""}</div><button class="marketplace-mini-btn" type="button" onclick="closePropertyDetail();openGallery('${escapeJS(p.id)}')" ${mediaCount?'':'disabled'}>View ${mediaCount} media</button></div></div><div class="property-detail-info"><div class="property-detail-badges"><span class="global-badge">${escapeHTML(String(p.country||"Nigeria").toUpperCase())}</span><span class="property-type" style="position:static;display:inline-block">${escapeHTML(typeLabel(p.type||p.property_type||""))}</span></div><h2 class="property-detail-title">${escapeHTML(p.name||p.title||"AWF Property")}</h2><div style="color:#d4af37;margin-top:9px">${escapeHTML([p.city,p.location,p.country].filter(Boolean).join(" • "))}</div><div class="property-detail-price">${price}</div><div class="property-detail-meta">${meta.map(x=>`<span>${x}</span>`).join("")}</div><p class="property-detail-desc">${escapeHTML(p.description||"Selected property opportunity available through AWF Real Estate.")}</p><div class="property-detail-actions"><a class="btn btn-gold" target="_blank" rel="noopener" href="https://wa.me/2348102837598?text=${encodeURIComponent("Hello AWF Real Estate, I am interested in the property: "+(p.name||p.title||""))}">WhatsApp AWF →</a><a class="btn btn-outline" href="tel:+2348102837598">Call AWF</a><button class="btn btn-outline" type="button" onclick="openViewingRequest('${escapeJS(p.id)}')">Request Viewing</button><button class="btn btn-outline" onclick="toggleSaved('${escapeJS(p.id)}')">${savedProperties.includes(String(p.id))?"♥ Saved":"♡ Save Property"}</button><button class="btn btn-outline" onclick="toggleCompare('${escapeJS(p.id)}')">⚖ Compare</button></div></div></div>`;
-    document.getElementById("propertyDetailModal").classList.add("open");document.body.classList.add("menu-open");
-}
-function closePropertyDetail(){document.getElementById("propertyDetailModal").classList.remove("open");document.body.classList.remove("menu-open");}
-function showCompare(){
-    const selected=comparedProperties.map(id=>properties.find(p=>String(p.id)===String(id))).filter(Boolean);
-    if(!selected.length){marketplaceToast("Select up to 3 properties to compare");return;}
-    const rows=[['Price',p=>displayPropertyPrice(p)],['Location',p=>[p.city,p.country].filter(Boolean).join(", ")||"—"],['Type',p=>typeLabel(p.type||p.property_type||"")||"—"],['Bedrooms',p=>p.bedrooms??"—"],['Bathrooms',p=>p.bathrooms??"—"],['Size',p=>p.size||"—"],['Status',p=>p.status||"—"],['Verified',p=>getVerificationState(p)?"Yes":"—"]];
-    document.getElementById("propertyDetailContent").innerHTML=`<div style="padding:32px;overflow:auto"><div class="section-label">AWF PROPERTY COMPARISON</div><h2 class="property-detail-title" style="margin-top:8px">Compare selected properties</h2><table style="width:100%;border-collapse:collapse;margin-top:25px;font-size:.75rem"><thead><tr><th style="text-align:left;padding:12px;border-bottom:1px solid #222">Feature</th>${selected.map(p=>`<th style="text-align:left;padding:12px;border-bottom:1px solid #222;color:#d4af37">${escapeHTML(p.name||p.title||"Property")}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr><td style="padding:12px;border-bottom:1px solid #181818;color:#777">${r[0]}</td>${selected.map(p=>`<td style="padding:12px;border-bottom:1px solid #181818">${escapeHTML(String(r[1](p)))}</td>`).join("")}</tr>`).join("")}</tbody></table><div class="property-detail-actions"><button class="btn btn-gold" onclick="closePropertyDetail()">Done</button><button class="btn btn-outline" onclick="comparedProperties=[];syncMarketplaceState();applyMarketplaceFilters();closePropertyDetail()">Clear Comparison</button></div></div>`;
-    document.getElementById("propertyDetailModal").classList.add("open");document.body.classList.add("menu-open");
-}
 
 /* =========================================================
    PROPERTY MEDIA HELPERS
@@ -4859,59 +4867,41 @@ function getPropertyImages(property){
     return [property.image1,property.image2,property.image3,...extra].filter(Boolean);
 }
 
-function getPropertyVideos(property){
-    if(Array.isArray(property.videos) && property.videos.length) return property.videos.filter(Boolean);
-    const raw = property.video || property.video_url || property.videoUrl || "";
-    if(!raw) return [];
-    try{
-        const parsed = JSON.parse(raw);
-        if(Array.isArray(parsed)) return parsed.filter(Boolean);
-    }catch(e){}
-    return [raw].filter(Boolean);
-}
-
 function previewPropertyMedia(){
     const photoBox=document.getElementById("propertyPhotoPreview");
     const videoBox=document.getElementById("propertyVideoPreview");
-    const photos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,30);
-    const videos=[...(document.getElementById("propertyVideoFiles")?.files||[])].slice(0,3);
+    const photos=[...(document.getElementById("propertyPhotoFiles")?.files||[])];
+    const video=document.getElementById("propertyVideoFile")?.files?.[0];
     photoBox.innerHTML="";
     videoBox.innerHTML="";
-    photos.forEach(file=>{
+    photos.slice(0,12).forEach(file=>{
         const url=URL.createObjectURL(file);
         photoBox.innerHTML += `<div class="media-preview-item"><img src="${url}" alt=""><span>PHOTO</span></div>`;
     });
-    videos.forEach(file=>{
-        const url=URL.createObjectURL(file);
-        videoBox.innerHTML += `<div class="media-preview-item"><video src="${url}" muted></video><span>VIDEO</span></div>`;
-    });
+    if(video){
+        const url=URL.createObjectURL(video);
+        videoBox.innerHTML=`<div class="media-preview-item"><video src="${url}" muted></video><span>VIDEO</span></div>`;
+    }
 }
 
 async function uploadMediaFile(file, propertyId){
-    const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
-    const path=`properties/${propertyId}/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${safeName}`;
-    const contentType=file.type || (safeName.toLowerCase().endsWith(".webm") ? "video/webm" :
-        safeName.toLowerCase().endsWith(".mov") ? "video/quicktime" :
-        safeName.toLowerCase().endsWith(".m4v") ? "video/x-m4v" :
-        safeName.toLowerCase().endsWith(".mp4") ? "video/mp4" : "application/octet-stream");
-
-    const {data,error}=await supabaseClient.storage
-        .from(SUPABASE_MEDIA_BUCKET)
-        .upload(path,file,{upsert:false,contentType,cacheControl:"3600"});
-    if(error) throw error;
-
-    const {data:publicData}=supabaseClient.storage
-        .from(SUPABASE_MEDIA_BUCKET)
-        .getPublicUrl(data.path);
-
-    return publicData.publicUrl;
+    try{
+        const path=`properties/${propertyId}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,"-")}`;
+        const {data,error}=await supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+        if(error) throw error;
+        const {data:publicData}=supabaseClient.storage.from(SUPABASE_MEDIA_BUCKET).getPublicUrl(data.path);
+        return publicData.publicUrl;
+    }catch(err){
+        console.warn("Supabase media upload unavailable:",err);
+        return null;
+    }
 }
 
 function openGallery(id){
     const property=properties.find(p=>String(p.id)===String(id));
     if(!property) return;
     galleryItems=getPropertyImages(property).map(url=>({type:"image",url}));
-    getPropertyVideos(property).forEach(url=>galleryItems.push({type:"video",url}));
+    if(property.video || property.videoUrl) galleryItems.push({type:"video",url:property.video || property.videoUrl});
     if(!galleryItems.length) return;
     galleryIndex=0;
     document.getElementById("galleryModal").classList.add("open");
@@ -4927,46 +4917,9 @@ function galleryPrev(){if(!galleryItems.length)return;galleryIndex=(galleryIndex
 function galleryNext(){if(!galleryItems.length)return;galleryIndex=(galleryIndex+1)%galleryItems.length;renderGallery();}
 function renderGallery(){
     const item=galleryItems[galleryIndex];
-    const mediaBox=document.getElementById("galleryMedia");
-
-    if(item.type==="video"){
-        // Stream the Supabase Storage file directly. Do not hard-code video/mp4,
-        // because the uploaded file may be MP4, WebM, MOV, or another format.
-        mediaBox.innerHTML=`<video id="awfGalleryVideo"
-            src="${escapeHTML(item.url)}"
-            controls
-            playsinline
-            preload="metadata"
-            controlsList="nodownload"
-            style="max-width:100%;max-height:70vh;width:100%;height:auto;display:block;border-radius:12px;background:#000;">
-            Your browser could not play this property video.
-        </video>
-        <div id="awfVideoStatus" style="margin-top:8px;font-size:13px;color:#aaa;text-align:center;"></div>`;
-
-        const video=document.getElementById("awfGalleryVideo");
-        const status=document.getElementById("awfVideoStatus");
-
-        video.addEventListener("loadedmetadata",()=>{
-            if(status) status.textContent="";
-        },{once:true});
-
-        video.addEventListener("error",()=>{
-            if(status) status.textContent="This video could not be played. Please check the video format or Storage access.";
-        },{once:true});
-    }else{
-        mediaBox.innerHTML=`<img src="${escapeHTML(item.url)}" alt="Property media" loading="eager" style="max-width:100%;max-height:70vh;width:auto;height:auto;display:block;margin:auto;border-radius:12px;">`;
-    }
-
+    document.getElementById("galleryMedia").innerHTML=item.type==="video"?`<video src="${escapeHTML(item.url)}" controls playsinline></video>`:`<img src="${escapeHTML(item.url)}" alt="Property media">`;
     document.getElementById("galleryCounter").textContent=`${galleryIndex+1} / ${galleryItems.length}`;
-
-    // Do not load every video thumbnail at once. This prevents large videos
-    // from being downloaded repeatedly just to render the thumbnail strip.
-    document.getElementById("galleryThumbs").innerHTML=galleryItems.map((x,i)=>{
-        const thumb=x.type==="video"
-            ? `<div class="video-thumb-placeholder" aria-label="Property video">▶</div>`
-            : `<img src="${escapeHTML(x.url)}" alt="" loading="lazy">`;
-        return `<div class="gallery-thumb ${i===galleryIndex?'active':''}" onclick="galleryIndex=${i};renderGallery()">${thumb}</div>`;
-    }).join("");
+    document.getElementById("galleryThumbs").innerHTML=galleryItems.map((x,i)=>`<div class="gallery-thumb ${i===galleryIndex?'active':''}" onclick="galleryIndex=${i};renderGallery()">${x.type==='video'?`<video src="${escapeHTML(x.url)}" muted></video>`:`<img src="${escapeHTML(x.url)}" alt="">`}</div>`).join("");
 }
 
 document.addEventListener("keydown",e=>{
@@ -5205,8 +5158,6 @@ function clearPropertyForm(){
         "propertyCountry",
         "propertyCity",
         "propertyLocation",
-        "propertyLatitude",
-        "propertyLongitude",
         "propertyPrice",
         "propertyBedrooms",
         "propertyBathrooms",
@@ -5271,9 +5222,6 @@ function fillPropertyForm(property){
     ).value =
     property.location || "";
 
-    document.getElementById("propertyLatitude").value = property.latitude ?? property.lat ?? "";
-    document.getElementById("propertyLongitude").value = property.longitude ?? property.lng ?? "";
-
     document.getElementById(
         "propertyType"
     ).value =
@@ -5287,7 +5235,7 @@ function fillPropertyForm(property){
     document.getElementById(
         "propertyPrice"
     ).value =
-    property.price_display || property.price || "";
+    property.price || "";
 
     document.getElementById(
         "propertyCurrency"
@@ -5308,11 +5256,6 @@ function fillPropertyForm(property){
         "propertySize"
     ).value =
     property.size || "";
-
-    document.getElementById(
-        "propertyVerified"
-    ).value =
-    String(property.verified || property.is_verified || String(property.verification_status || "").toLowerCase() === "verified");
 
     document.getElementById(
         "propertyFeatured"
@@ -5340,256 +5283,217 @@ function fillPropertyForm(property){
     property.image3 || "";
 
     const photoFiles=document.getElementById("propertyPhotoFiles");
-    const videoFile=document.getElementById("propertyVideoFiles");
+    const videoFile=document.getElementById("propertyVideoFile");
     if(photoFiles) photoFiles.value="";
     if(videoFile) videoFile.value="";
     const photoPreview=document.getElementById("propertyPhotoPreview");
     const videoPreview=document.getElementById("propertyVideoPreview");
     if(photoPreview) photoPreview.innerHTML=getPropertyImages(property).slice(3).map(url=>`<div class="media-preview-item"><img src="${escapeHTML(url)}" alt=""><span>EXISTING</span></div>`).join("");
-    if(videoPreview && (property.video || property.videoUrl)) videoPreview.innerHTML=`<div class="media-preview-item"><video src="${escapeHTML(property.video || property.videoUrl)}" muted preload="metadata" playsinline></video><span>EXISTING</span></div>`;
+    if(videoPreview && (property.video || property.videoUrl)) videoPreview.innerHTML=`<div class="media-preview-item"><video src="${escapeHTML(property.video || property.videoUrl)}" muted></video><span>EXISTING</span></div>`;
 
 }
 
-
-/* =========================================================
-   AWF INTERACTIVE PROPERTY MAP
-========================================================= */
-let awfPropertyMap=null;
-let awfMapMarkers=[];
-let awfPickerMap=null;
-let awfPickerMarker=null;
-let awfPickerLatLng=null;
-
-function awfMapNumber(v){
-    const n=parseFloat(v);
-    return Number.isFinite(n)?n:null;
-}
-function propertyCoordinates(p){
-    const lat=awfMapNumber(p.latitude ?? p.lat), lng=awfMapNumber(p.longitude ?? p.lng);
-    if(lat===null||lng===null) return null;
-    if(lat<-90||lat>90||lng<-180||lng>180) return null;
-    return [lat,lng];
-}
-function awfMapIcon(){
-    return L.divIcon({className:'awf-map-icon-wrap',html:'<div class="awf-map-pin"><span>AWF</span></div>',iconSize:[34,34],iconAnchor:[17,34],popupAnchor:[0,-30]});
-}
-function initAWFPropertyMap(){
-    if(typeof L==='undefined') return false;
-    if(!awfPropertyMap){
-        awfPropertyMap=L.map('awfPropertyMap',{scrollWheelZoom:true}).setView([9.0765,7.3986],11);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(awfPropertyMap);
-    }
-    setTimeout(()=>awfPropertyMap.invalidateSize(),100);
-    renderAWFMapMarkers();
-    return true;
-}
-function renderAWFMapMarkers(){
-    if(!awfPropertyMap||typeof L==='undefined') return;
-    awfMapMarkers.forEach(m=>m.remove()); awfMapMarkers=[];
-    const visible=properties.filter(p=>p.visible!==false).filter(p=>propertyCoordinates(p));
-    visible.forEach(p=>{
-        const c=propertyCoordinates(p); if(!c)return;
-        const price=escapeHTML(displayPropertyPrice(p));
-        const title=escapeHTML(p.name||p.title||'AWF Property');
-        const location=escapeHTML([p.city,p.location,p.country].filter(Boolean).join(' • ')||'AWF Property');
-        const marker=L.marker(c,{icon:awfMapIcon()}).addTo(awfPropertyMap);
-        marker.bindPopup(`<div class="awf-map-popup"><strong>${title}</strong><small>${location}</small><b>${price}</b><br><button type="button" class="marketplace-mini-btn" style="margin-top:9px" onclick="openPropertyDetail('${escapeJS(p.id)}')">View Property →</button></div>`);
-        awfMapMarkers.push(marker);
-    });
-    const note=document.querySelector('.awf-map-legend');
-    if(note) note.firstElementChild.textContent=`● ${visible.length} mapped ${visible.length===1?'listing':'listings'}`;
-}
-function fitAWFMapToListings(){
-    if(!awfPropertyMap) return;
-    const coords=properties.filter(p=>p.visible!==false).map(propertyCoordinates).filter(Boolean);
-    if(!coords.length){awfPropertyMap.setView([9.0765,7.3986],11);marketplaceToast('No property coordinates have been added yet');return;}
-    awfPropertyMap.fitBounds(coords,{padding:[35,35],maxZoom:14});
-}
-function toggleAWFMap(){
-    const panel=document.getElementById('awfMapPanel'); if(!panel)return;
-    const open=panel.classList.toggle('open'); panel.setAttribute('aria-hidden',String(!open));
-    const btn=document.getElementById('mapViewBtn'); if(btn)btn.classList.toggle('active',open);
-    if(open){
-        if(!initAWFPropertyMap()){marketplaceToast('Map library is still loading. Please try again in a moment.');return;}
-        fitAWFMapToListings();
-    }
-}
-function openAWFMapPicker(){
-    const modal=document.getElementById('awfMapPickerModal'); if(!modal||typeof L==='undefined'){marketplaceToast('Map library is still loading. Please try again.');return;}
-    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
-    const lat=awfMapNumber(document.getElementById('propertyLatitude')?.value)||9.0765;
-    const lng=awfMapNumber(document.getElementById('propertyLongitude')?.value)||7.3986;
-    setTimeout(()=>{
-        if(!awfPickerMap){
-            awfPickerMap=L.map('awfPickerMap').setView([lat,lng],13);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(awfPickerMap);
-            awfPickerMap.on('click',e=>setAWFPickerPoint(e.latlng.lat,e.latlng.lng));
-        }else{awfPickerMap.setView([lat,lng],13);}
-        setAWFPickerPoint(lat,lng); awfPickerMap.invalidateSize();
-    },80);
-}
-function setAWFPickerPoint(lat,lng){
-    awfPickerLatLng={lat,lng};
-    if(!awfPickerMap)return;
-    if(awfPickerMarker)awfPickerMarker.setLatLng([lat,lng]);
-    else awfPickerMarker=L.marker([lat,lng],{draggable:true}).addTo(awfPickerMap);
-    awfPickerMarker.on('dragend',()=>{const p=awfPickerMarker.getLatLng();awfPickerLatLng={lat:p.lat,lng:p.lng};updateAWFPickerCoords();});
-    updateAWFPickerCoords();
-}
-function updateAWFPickerCoords(){
-    const el=document.getElementById('awfPickerCoords'); if(el&&awfPickerLatLng)el.textContent=`${awfPickerLatLng.lat.toFixed(6)}, ${awfPickerLatLng.lng.toFixed(6)}`;
-}
-function useAWFMapPickerLocation(){
-    if(!awfPickerLatLng)return;
-    document.getElementById('propertyLatitude').value=awfPickerLatLng.lat.toFixed(6);
-    document.getElementById('propertyLongitude').value=awfPickerLatLng.lng.toFixed(6);
-    closeAWFMapPicker(); marketplaceToast('Property map location set');
-}
-function closeAWFMapPicker(){
-    const modal=document.getElementById('awfMapPickerModal'); if(!modal)return;
-    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
-}
 
 /* =========================================================
    SAVE PROPERTY
 ========================================================= */
 
 async function saveProperty(){
-    const name=document.getElementById("propertyName").value.trim();
-    if(!name){ alert("Please enter a property name."); return; }
 
-    const existing=editingPropertyId ? properties.find(p=>String(p.id)===String(editingPropertyId)) : null;
-    const property={
-        vault_only:document.getElementById("propertyVaultOnly")?.value === "true",
-        nda_required:document.getElementById("propertyNdaRequired")?.value !== "false",
-        price_on_request:document.getElementById("propertyVaultOnly")?.value === "true",
-        id: editingPropertyId || Date.now().toString(),
+    const name =
+    document.getElementById(
+        "propertyName"
+    ).value.trim();
+
+
+    if(!name){
+
+        alert(
+            "Please enter a property name."
+        );
+
+        return;
+
+    }
+
+
+    const property = {
+
+        id:
+        editingPropertyId ||
+        Date.now().toString(),
+
         name,
-        country:document.getElementById("propertyCountry").value.trim(),
-        city:document.getElementById("propertyCity").value.trim(),
-        location:document.getElementById("propertyLocation").value.trim(),
-        latitude:(document.getElementById("propertyLatitude").value.trim()==="" ? null : parseFloat(document.getElementById("propertyLatitude").value)),
-        longitude:(document.getElementById("propertyLongitude").value.trim()==="" ? null : parseFloat(document.getElementById("propertyLongitude").value)),
-        type:document.getElementById("propertyType").value,
-        status:document.getElementById("propertyStatus").value,
-        price_display:document.getElementById("propertyPrice").value.trim(),
-        price:document.getElementById("propertyPrice").value.trim(),
-        currency:document.getElementById("propertyCurrency").value,
-        bedrooms:(document.getElementById("propertyBedrooms").value.trim() === "" ? null : parseInt(document.getElementById("propertyBedrooms").value, 10)),
-        bathrooms:(document.getElementById("propertyBathrooms").value.trim() === "" ? null : parseInt(document.getElementById("propertyBathrooms").value, 10)),
-        size:document.getElementById("propertySize").value.trim(),
-        verified:document.getElementById("propertyVerified").value === "true",
-        is_verified:document.getElementById("propertyVerified").value === "true",
-        verification_status:document.getElementById("propertyVerified").value === "true" ? "verified" : "unverified",
-        featured:document.getElementById("propertyFeatured").value === "true",
-        description:document.getElementById("propertyDescription").value.trim(),
-        image1:document.getElementById("propertyImage1").value.trim(),
-        image2:document.getElementById("propertyImage2").value.trim(),
-        image3:document.getElementById("propertyImage3").value.trim(),
-        images: existing && Array.isArray(existing.images) ? [...existing.images] : [],
-        videos: existing ? getPropertyVideos(existing) : [],
-        visible: existing ? existing.visible !== false : true
+
+        country:
+        document.getElementById(
+            "propertyCountry"
+        ).value.trim(),
+
+        city:
+        document.getElementById(
+            "propertyCity"
+        ).value.trim(),
+
+        location:
+        document.getElementById(
+            "propertyLocation"
+        ).value.trim(),
+
+        type:
+        document.getElementById(
+            "propertyType"
+        ).value,
+
+        status:
+        document.getElementById(
+            "propertyStatus"
+        ).value,
+
+        price:
+        document.getElementById(
+            "propertyPrice"
+        ).value.trim(),
+
+        currency:
+        document.getElementById(
+            "propertyCurrency"
+        ).value,
+
+        bedrooms:
+        document.getElementById(
+            "propertyBedrooms"
+        ).value,
+
+        bathrooms:
+        document.getElementById(
+            "propertyBathrooms"
+        ).value,
+
+        size:
+        document.getElementById(
+            "propertySize"
+        ).value.trim(),
+
+        featured:
+        document.getElementById(
+            "propertyFeatured"
+        ).value === "true",
+
+        description:
+        document.getElementById(
+            "propertyDescription"
+        ).value.trim(),
+
+        image1:
+        document.getElementById(
+            "propertyImage1"
+        ).value.trim(),
+
+        image2:
+        document.getElementById(
+            "propertyImage2"
+        ).value.trim(),
+
+        image3:
+        document.getElementById(
+            "propertyImage3"
+        ).value.trim(),
+
+        images: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.images || []) : [],
+        video: editingPropertyId ? (properties.find(p=>p.id===editingPropertyId)?.video || "") : "",
+
+        visible:true
+
     };
 
-    const selectedPhotos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,30);
-    const selectedVideos=[...(document.getElementById("propertyVideoFiles")?.files||[])].slice(0,3);
 
-    if(selectedPhotos.length>30 || selectedVideos.length>3){
-        alert("You can upload up to 30 photos and 3 videos per property.");
-        return;
-    }
-
-    try{
+    /* Upload newly selected media when the existing Supabase Storage bucket is available.
+       If Storage is not configured, the existing URL-based property system continues unchanged. */
+    const selectedPhotos=[...(document.getElementById("propertyPhotoFiles")?.files||[])].slice(0,12);
+    const selectedVideo=document.getElementById("propertyVideoFile")?.files?.[0];
+    if(selectedPhotos.length || selectedVideo){
+        const uploadId=property.id;
         const uploadedPhotos=[];
         for(const file of selectedPhotos){
-            const url=await uploadMediaFile(file,property.id);
+            const url=await uploadMediaFile(file,uploadId);
             if(url) uploadedPhotos.push(url);
         }
-        if(uploadedPhotos.length) property.images=[...property.images,...uploadedPhotos];
-
-        const uploadedVideos=[];
-        for(const file of selectedVideos){
-            const url=await uploadMediaFile(file,property.id);
-            if(url) uploadedVideos.push(url);
+        if(uploadedPhotos.length) property.images=[...(property.images||[]),...uploadedPhotos];
+        if(selectedVideo){
+            const videoUrl=await uploadMediaFile(selectedVideo,uploadId);
+            if(videoUrl) property.video=videoUrl;
         }
-        if(uploadedVideos.length) property.videos=[...property.videos,...uploadedVideos];
-    }catch(mediaError){
-        console.error("Property media upload failed:",mediaError);
-        alert("Media upload failed. Check that the Supabase Storage bucket 'property-videos' exists and allows your manager account to upload, then try again.\n\n"+ (mediaError.message || mediaError));
-        return;
     }
-
-    property.video=property.videos.length>1 ? JSON.stringify(property.videos) : (property.videos[0] || "");
-
-    // Keep exactly what the manager entered for customer display, while storing
-    // a normalized numeric value separately for Supabase numeric price columns.
-    const enteredPriceDisplay=String(property.price_display||property.price||"").trim();
-    const normalizedPrice=normalizePropertyPrice(enteredPriceDisplay);
-    if(normalizedPrice===null){
-        alert("Please enter a valid property price, for example 3 billion naira or ₦3,000,000,000.");
-        return;
-    }
-    property.price_display=enteredPriceDisplay;
-    property.price=String(normalizedPrice);
 
     if(editingPropertyId){
-        properties=properties.map(item=>String(item.id)===String(editingPropertyId)?property:item);
-    }else{
-        properties.unshift(property);
+
+        properties =
+        properties.map(item=>
+            item.id === editingPropertyId
+            ? property
+            : item
+        );
+
     }
+    else{
+
+        properties.unshift(
+            property
+        );
+
+    }
+
+
     saveDatabase();
 
-    try{
-        const dbProperty={
-            id:property.id,
-            title:property.name,
-            name:property.name,
-            price_display:property.price_display || '',
-            description:property.description,
-            location:property.location,
-            latitude:property.latitude,
-            longitude:property.longitude,
-            city:property.city,
-            country:property.country,
-            price:normalizePropertyPrice(property.price),
-            property_type:property.type,
-            type:property.type,
-            listing_type:property.status,
-            status:property.status,
-            currency:property.currency,
-            bedrooms:(property.bedrooms === "" || property.bedrooms == null ? null : parseInt(property.bedrooms, 10)),
-            bathrooms:(property.bathrooms === "" || property.bathrooms == null ? null : parseInt(property.bathrooms, 10)),
-            size:property.size,
-            verified:property.verified,
-            is_verified:property.is_verified,
-            verification_status:property.verification_status,
-            vault_only:!!property.vault_only,
-            vault_teaser:property.vault_teaser || property.description || "Private AWF property opportunity.",
-            price_on_request:!!property.price_on_request,
-            nda_required:property.nda_required!==false,
-            featured:property.featured,
-            image1:property.image1,
-            image2:property.image2,
-            image3:property.image3,
-            images:property.images || [],
-            video_url:property.video || "",
-            video:property.video || "",
-            visible:property.visible
-        };
-        const {error:dbError}=await supabaseClient.from("properties").upsert(dbProperty,{onConflict:"id"});
-        if(dbError) throw dbError;
-        closePropertyForm();
-        renderManagerProperties();
-        renderPublicProperties();
-        updateStats();
-        alert("Property saved successfully and synced to AWF online listings.");
-    }catch(dbSaveError){
-        console.error("Supabase listing save failed:",dbSaveError);
-        renderManagerProperties();
-        renderPublicProperties();
-        updateStats();
-        alert("The property was saved on this device, but online sync failed.\n\n"+(dbSaveError.message || dbSaveError)+"\n\nYour Supabase properties table/RLS may need to be checked.");
+    // Save the listing to Supabase so it is available on every device.
+    // The local copy above remains as a fallback if Supabase is unavailable.
+    try {
+        if (supabaseClient) {
+            const dbProperty = {
+                id: property.id,
+                title: property.name,
+                name: property.name,
+                description: property.description,
+                location: property.location,
+                city: property.city,
+                country: property.country,
+                price: property.price,
+                property_type: property.type,
+                type: property.type,
+                listing_type: property.status,
+                status: property.status,
+                currency: property.currency,
+                bedrooms: property.bedrooms,
+                bathrooms: property.bathrooms,
+                size: property.size,
+                featured: property.featured,
+                image1: property.image1,
+                image2: property.image2,
+                image3: property.image3,
+                images: property.images || [],
+                video_url: property.video || '',
+                video: property.video || '',
+                visible: property.visible
+            };
+            const { error: dbError } = await supabaseClient
+                .from('properties')
+                .upsert(dbProperty, { onConflict: 'id' });
+            if (dbError) console.warn('Supabase listing save failed:', dbError.message);
+        }
+    } catch (dbSaveError) {
+        console.warn('Supabase listing save failed:', dbSaveError);
     }
+
+    closePropertyForm();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
 }
 
 
@@ -5710,7 +5614,13 @@ function renderManagerProperties(){
                 ${typeLabel(property.type)}
 
                 ${property.price
-                    ? " • " + escapeHTML(displayPropertyPrice(property))
+                    ? " • " +
+                    escapeHTML(
+                        property.currency || ""
+                    ) +
+                    escapeHTML(
+                        property.price
+                    )
                     : ""
                 }
 
@@ -5867,48 +5777,79 @@ function changePropertyStatus(id){
    DELETE
 ========================================================= */
 
-async function deleteProperty(id){
-    const property = properties.find(item=>String(item.id)===String(id));
+function deleteProperty(id){
+
+    const property =
+    properties.find(
+        item=>item.id===id
+    );
+
+
     if(!property) return;
-    const confirmed = confirm(`Delete "${property.name || property.title || "this property"}"?`);
+
+
+    const confirmed =
+    confirm(
+        `Delete "${property.name}"?`
+    );
+
+
     if(!confirmed) return;
-    try {
-        if (supabaseClient) {
-            const { error } = await supabaseClient.from("properties").delete().eq("id", id);
-            if (error) throw error;
-        }
-        properties = properties.filter(item=>String(item.id)!==String(id));
-        saveDatabase();
-        renderManagerProperties();
-        renderPublicProperties();
-        updateStats();
-        marketplaceToast("Property deleted successfully");
-    } catch (error) {
-        console.error("AWF delete property:", error);
-        alert("Could not delete the property from AWF online listings. " + (error.message || "Please try again."));
-    }
+
+
+    properties =
+    properties.filter(
+        item=>item.id!==id
+    );
+
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
 }
 
 
-async function clearAllProperties(){
-    if(!properties.length){ alert("There are no properties to clear."); return; }
-    const confirmed = confirm("Delete ALL AWF property listings? This cannot be undone.");
-    if(!confirmed) return;
-    try {
-        if (supabaseClient) {
-            const { error } = await supabaseClient.from("properties").delete().not("id", "is", null);
-            if (error) throw error;
-        }
-        properties = [];
-        saveDatabase();
-        renderManagerProperties();
-        renderPublicProperties();
-        updateStats();
-        marketplaceToast("All property listings deleted");
-    } catch (error) {
-        console.error("AWF clear properties:", error);
-        alert("Could not clear the online property listings. " + (error.message || "Please try again."));
+/* =========================================================
+   CLEAR ALL
+========================================================= */
+
+function clearAllProperties(){
+
+    if(!properties.length){
+
+        alert(
+            "There are no properties to clear."
+        );
+
+        return;
+
     }
+
+
+    const confirmed =
+    confirm(
+        "Delete ALL AWF property listings?"
+    );
+
+
+    if(!confirmed) return;
+
+
+    properties=[];
+
+    saveDatabase();
+
+    renderManagerProperties();
+
+    renderPublicProperties();
+
+    updateStats();
+
 }
 
 
@@ -6022,79 +5963,6 @@ document.addEventListener(
 
 </script>
 
-
-<!-- AWF PROPERTY DETAIL -->
-<div class="property-detail-modal" id="propertyDetailModal" onclick="if(event.target===this)closePropertyDetail()">
-  <div class="property-detail-inner">
-    <button class="property-detail-close" onclick="closePropertyDetail()">×</button>
-    <div id="propertyDetailContent"></div>
-  </div>
-</div>
-
-
-<!-- =======================================================
-     AWF CUSTOMER ACCOUNT + VIEWING REQUESTS (V3)
-======================================================= -->
-<div class="awf-v3-modal" id="customerAccountModal" onclick="if(event.target===this)closeCustomerAccount()">
-  <div class="awf-v3-panel">
-    <button class="awf-v3-close" type="button" onclick="closeCustomerAccount()">×</button>
-
-    <div class="awf-v3-brand"><img src="awf-logo-transparent.png" alt="AWF Real Estate"><h2 class="awf-v3-title">Your AWF Account</h2><p class="awf-v3-sub">Save properties, follow opportunities, manage viewing requests and keep your property search in one place.</p></div>
-
-    <div id="awfCustomerAuthView">
-      <div class="awf-v3-tabs">
-        <button class="awf-v3-tab active" id="customerLoginTab" onclick="switchCustomerAuth('login')">Sign In</button>
-        <button class="awf-v3-tab" id="customerSignupTab" onclick="switchCustomerAuth('signup')">Create Account</button>
-      </div>
-
-      <form class="awf-v3-form" id="customerLoginForm" onsubmit="customerLogin(event)">
-        <input id="customerLoginEmail" type="email" autocomplete="email" placeholder="Email address" required>
-        <input id="customerLoginPassword" type="password" autocomplete="current-password" placeholder="Password" required>
-        <button class="btn btn-gold" type="submit">Sign In to AWF</button>
-        <div class="awf-v3-error" id="customerLoginError"></div>
-      </form>
-
-      <form class="awf-v3-form" id="customerSignupForm" style="display:none" onsubmit="customerSignup(event)">
-        <input id="customerSignupName" type="text" autocomplete="name" placeholder="Full name" required>
-        <input id="customerSignupPhone" type="tel" autocomplete="tel" placeholder="Phone number">
-        <input id="customerSignupEmail" type="email" autocomplete="email" placeholder="Email address" required>
-        <input id="customerSignupPassword" type="password" autocomplete="new-password" minlength="6" placeholder="Create password (6+ characters)" required>
-        <button class="btn btn-gold" type="submit">Create AWF Account</button>
-        <div class="awf-v3-error" id="customerSignupError"></div>
-        <div class="awf-v3-success" id="customerSignupSuccess"></div>
-      </form>
-    </div>
-
-    <div class="awf-v3-dashboard" id="customerDashboard">
-      <div class="awf-v3-profile-head"><div><div class="awf-v3-profile-name" id="customerDashboardName">AWF Client</div><div class="awf-v3-profile-email" id="customerDashboardEmail"></div></div><div class="awf-v3-actions"><button class="awf-v3-mini" type="button" onclick="refreshCustomerDashboard()">↻ Refresh</button><button class="awf-v3-mini" type="button" onclick="customerSignOut()">Sign Out</button></div></div>
-      <div class="awf-v3-dashboard-grid"><div class="awf-v3-stat"><strong id="customerSavedStat">0</strong><span>Saved properties</span></div><div class="awf-v3-stat"><strong id="customerSearchStat">0</strong><span>Saved searches</span></div><div class="awf-v3-stat"><strong id="customerRequestStat">0</strong><span>Viewing requests</span></div></div>
-      <div class="awf-v3-section"><h3>Saved Properties</h3><div class="awf-v3-list" id="customerSavedList"></div></div>
-      <div class="awf-v3-section"><h3>Saved Searches</h3><div class="awf-v3-list" id="customerSearchList"></div></div>
-      <div class="awf-v3-section"><h3>Viewing Requests</h3><div class="awf-v3-list" id="customerRequestList"></div></div>
-      <div class="awf-v3-section"><h3>Profile</h3><form class="awf-v3-form" onsubmit="updateCustomerProfile(event)"><input id="customerProfileName" type="text" placeholder="Full name" required><input id="customerProfilePhone" type="tel" placeholder="Phone number"><button class="btn btn-outline" type="submit">Save Profile</button><div class="awf-v3-success" id="customerProfileMessage"></div></form></div>
-    </div>
-  </div>
-</div>
-
-<div class="awf-v3-modal" id="viewingRequestModal" onclick="if(event.target===this)closeViewingRequest()">
-  <div class="awf-v3-panel" style="max-width:620px">
-    <button class="awf-v3-close" type="button" onclick="closeViewingRequest()">×</button>
-    <div class="awf-v3-brand"><img src="awf-logo-transparent.png" alt="AWF Real Estate"><h2 class="awf-v3-title">Request a Property Viewing</h2><p class="awf-v3-sub">Choose a preferred date and time. AWF will follow up to confirm availability.</p></div>
-    <div id="viewingRequestProperty"></div>
-    <form class="awf-v3-form" onsubmit="submitViewingRequest(event)">
-      <input id="viewingName" type="text" autocomplete="name" placeholder="Your name" required>
-      <input id="viewingPhone" type="tel" autocomplete="tel" placeholder="Phone number" required>
-      <input id="viewingDate" type="date" required>
-      <select id="viewingTime" required><option value="">Preferred time</option><option>9:00 AM</option><option>11:00 AM</option><option>1:00 PM</option><option>3:00 PM</option><option>5:00 PM</option></select>
-      <textarea id="viewingNote" rows="4" placeholder="Anything AWF should know? (optional)"></textarea>
-      <button class="btn btn-gold" type="submit">Send Viewing Request</button>
-      <div class="awf-v3-error" id="viewingRequestError"></div><div class="awf-v3-success" id="viewingRequestSuccess"></div>
-      <div class="awf-v3-request-note">Your request is saved to your AWF account so you can track it later.</div>
-    </form>
-  </div>
-</div>
-
-
 <!-- PROPERTY GALLERY -->
 <div class="gallery-modal" id="galleryModal" onclick="if(event.target===this)closeGallery()">
   <div class="gallery-inner">
@@ -6110,641 +5978,6 @@ document.addEventListener(
     <div class="gallery-thumbs" id="galleryThumbs"></div>
   </div>
 </div>
-
-
-<script>
-(function(){
-    try{
-        restoreMarketplaceSearchFromURL();
-        syncMarketplaceState();
-        applyMarketplaceFilters();
-        const modal=document.getElementById("propertyDetailModal");
-        if(modal) modal.addEventListener("click",e=>{if(e.target===modal)closePropertyDetail();});
-        document.addEventListener("keydown",e=>{if(e.key==="Escape"){closePropertyDetail();if(typeof closeGallery==="function")closeGallery();}});
-    }catch(e){console.warn("AWF marketplace initialization warning:",e);}
-})();
-</script>
-
-
-<script id="awf-v3-customer-js">
-/* =========================================================
-   AWF MARKETPLACE V3 — CUSTOMER ACCOUNTS
-   Uses Supabase Auth + RLS tables. Local storage remains a
-   fallback for visitors who are not signed in.
-========================================================= */
-let awfCustomerUser = null;
-let awfCustomerProfile = null;
-let awfViewingPropertyId = null;
-let awfCustomerReady = false;
-
-function openCustomerAccount(){
-  const modal=document.getElementById('customerAccountModal');
-  if(modal) modal.classList.add('open');
-  if(awfCustomerUser) showCustomerDashboard(); else showCustomerAuth();
-}
-function closeCustomerAccount(){const m=document.getElementById('customerAccountModal');if(m)m.classList.remove('open');}
-function showCustomerAuth(){const a=document.getElementById('awfCustomerAuthView'),d=document.getElementById('customerDashboard');if(a)a.style.display='block';if(d)d.classList.remove('active');}
-function showCustomerDashboard(){const a=document.getElementById('awfCustomerAuthView'),d=document.getElementById('customerDashboard');if(a)a.style.display='none';if(d)d.classList.add('active');refreshCustomerDashboard();}
-function switchCustomerAuth(mode){
-  const login=mode==='login';
-  document.getElementById('customerLoginForm').style.display=login?'grid':'none';
-  document.getElementById('customerSignupForm').style.display=login?'none':'grid';
-  document.getElementById('customerLoginTab').classList.toggle('active',login);
-  document.getElementById('customerSignupTab').classList.toggle('active',!login);
-}
-function customerError(id,msg){const el=document.getElementById(id);if(el)el.textContent=msg||'';}
-async function customerSignup(e){
-  e.preventDefault();
-  customerError('customerSignupError','');document.getElementById('customerSignupSuccess').textContent='Creating your account...';
-  const name=document.getElementById('customerSignupName').value.trim();
-  const phone=document.getElementById('customerSignupPhone').value.trim();
-  const email=document.getElementById('customerSignupEmail').value.trim();
-  const password=document.getElementById('customerSignupPassword').value;
-  try{
-    const {data,error}=await supabaseClient.auth.signUp({email,password,data:{full_name:name,phone:phone}});
-    if(error)throw error;
-    if(data.user) await saveCustomerProfile(data.user,{full_name:name,phone});
-    if(data.session){
-      awfCustomerUser=data.user;await loadCustomerCloudState();showCustomerDashboard();updateCustomerAccountButton();
-      document.getElementById('customerSignupSuccess').textContent='Account created successfully.';
-    }else{
-      document.getElementById('customerSignupSuccess').textContent='Account created. Check your email to confirm your account, then sign in.';
-      switchCustomerAuth('login');
-    }
-  }catch(err){console.error(err);document.getElementById('customerSignupSuccess').textContent='';customerError('customerSignupError',err.message||'Could not create your account.');}
-}
-async function customerLogin(e){
-  e.preventDefault();customerError('customerLoginError','');customerError('customerLoginError','Signing in...');
-  const email=document.getElementById('customerLoginEmail').value.trim();const password=document.getElementById('customerLoginPassword').value;
-  try{
-    const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
-    if(error)throw error;
-    awfCustomerUser=data.user;await loadCustomerCloudState();showCustomerDashboard();updateCustomerAccountButton();customerError('customerLoginError','');
-  }catch(err){console.error(err);customerError('customerLoginError',err.message||'Login failed.');}
-}
-async function customerSignOut(){await supabaseClient.auth.signOut();awfCustomerUser=null;awfCustomerProfile=null;updateCustomerAccountButton();showCustomerAuth();switchCustomerAuth('login');closeCustomerAccount();marketplaceToast('Signed out of your AWF account');}
-function updateCustomerAccountButton(){const b=document.getElementById('awfAccountButton');if(!b)return;b.classList.toggle('signed-in',!!awfCustomerUser);const t=b.querySelector('.account-text');if(t)t.textContent=awfCustomerUser?'Account':'My Account';}
-async function saveCustomerProfile(user,patch={}){
-  if(!user)return;
-  const payload={id:user.id,email:user.email||null,full_name:patch.full_name||user.user_metadata?.full_name||null,phone:patch.phone||user.user_metadata?.phone||null,updated_at:new Date().toISOString()};
-  const {data,error}=await supabaseClient.from('profiles').upsert(payload,{onConflict:'id'}).select().single();
-  if(error)console.warn('AWF profile save:',error.message); else awfCustomerProfile=data;
-}
-async function loadCustomerCloudState(){
-  if(!awfCustomerUser)return;
-  try{
-    const [{data:profile},{data:favs},{data:searches}]=await Promise.all([
-      supabaseClient.from('profiles').select('*').eq('id',awfCustomerUser.id).maybeSingle(),
-      supabaseClient.from('favorites').select('property_id').eq('user_id',awfCustomerUser.id),
-      supabaseClient.from('saved_searches').select('*').eq('user_id',awfCustomerUser.id).order('created_at',{ascending:false}).limit(25)
-    ]);
-    awfCustomerProfile=profile||awfCustomerProfile;
-    if(Array.isArray(favs)){savedProperties=favs.map(x=>String(x.property_id));localStorage.setItem('AWF_SAVED_PROPERTIES',JSON.stringify(savedProperties));}
-    if(Array.isArray(searches)){savedSearches=searches.map(x=>x.filters||{});localStorage.setItem('AWF_SAVED_SEARCHES',JSON.stringify(savedSearches));}
-    awfCustomerReady=true;syncMarketplaceState();applyMarketplaceFilters();
-  }catch(err){console.warn('AWF cloud state:',err.message);}
-}
-async function toggleSavedCloud(id,shouldBeSaved){
-  if(!awfCustomerUser)return;
-  id=String(id);
-  try{
-    if(shouldBeSaved){
-      const {error}=await supabaseClient.from('favorites').upsert({user_id:awfCustomerUser.id,property_id:id},{onConflict:'user_id,property_id'});if(error)throw error;
-    }else{
-      const {error}=await supabaseClient.from('favorites').delete().eq('user_id',awfCustomerUser.id).eq('property_id',id);if(error)throw error;
-    }
-  }catch(err){console.warn('AWF favorite sync:',err.message);marketplaceToast('Could not sync your saved property');}
-  await loadCustomerCloudState();
-}
-async function toggleSavedV3(id){
-  id=String(id);const already=savedProperties.includes(id);
-  savedProperties=already?savedProperties.filter(x=>x!==id):[...savedProperties,id];syncMarketplaceState();applyMarketplaceFilters();marketplaceToast(already?'Property removed from saved':'Property saved');
-  if(awfCustomerUser)await toggleSavedCloud(id,!already);
-  else if(!already) marketplaceToast('Sign in later to keep this saved across devices');
-}
-async function saveCurrentSearchV3(){
-  const state={q:document.getElementById('marketplaceSearch')?.value.trim()||'',type:document.getElementById('marketplaceType')?.value||'all',country:document.getElementById('marketplaceCountry')?.value||'all',sort:document.getElementById('marketplaceSort')?.value||'newest',min:document.getElementById('marketplaceMinPrice')?.value||'',max:document.getElementById('marketplaceMaxPrice')?.value||'',beds:document.getElementById('marketplaceBeds')?.value||'all',baths:document.getElementById('marketplaceBaths')?.value||'all',status:document.getElementById('marketplaceStatus')?.value||'all',verified:document.getElementById('marketplaceVerified')?.value||'all',quick:currentFilter};
-  savedSearches=[state,...savedSearches.filter(x=>JSON.stringify(x)!==JSON.stringify(state))].slice(0,10);syncMarketplaceState();
-  if(awfCustomerUser){try{const {error}=await supabaseClient.from('saved_searches').insert({user_id:awfCustomerUser.id,name:state.q||'AWF Property Search',filters:state});if(error)throw error;marketplaceToast('Search saved to your AWF account');}catch(err){console.warn(err);marketplaceToast('Saved on this device; cloud sync failed');}}
-  else {marketplaceToast('Search saved on this device — sign in to keep it across devices');}
-}
-function propertyById(id){return properties.find(p=>String(p.id)===String(id));}
-function customerPropertyLabel(id){const p=propertyById(id);return p?(p.name||p.title||'AWF Property'):'AWF Property';}
-function refreshCustomerDashboard(){if(!awfCustomerUser)return;const p=awfCustomerProfile||{};document.getElementById('customerDashboardName').textContent=p.full_name||awfCustomerUser.user_metadata?.full_name||'AWF Client';document.getElementById('customerDashboardEmail').textContent=awfCustomerUser.email||'';document.getElementById('customerProfileName').value=p.full_name||awfCustomerUser.user_metadata?.full_name||'';document.getElementById('customerProfilePhone').value=p.phone||awfCustomerUser.user_metadata?.phone||'';renderCustomerSavedList();renderCustomerSearchList();loadCustomerRequests();}
-function renderCustomerSavedList(){const el=document.getElementById('customerSavedList');if(!el)return;document.getElementById('customerSavedStat').textContent=savedProperties.length;if(!savedProperties.length){el.innerHTML='<div class="awf-v3-empty">No saved properties yet. Tap ♡ on any property to save it.</div>';return;}el.innerHTML=savedProperties.map(id=>{const p=propertyById(id);return `<div class="awf-v3-list-item"><div><strong>${escapeHTML(customerPropertyLabel(id))}</strong><br><small>${escapeHTML(p?[p.city,p.country].filter(Boolean).join(' • '):'')}</small></div><div class="awf-v3-actions"><button class="awf-v3-mini" onclick="closeCustomerAccount();openPropertyDetail('${escapeJS(id)}')">View</button><button class="awf-v3-mini" onclick="toggleSavedV3('${escapeJS(id)}');refreshCustomerDashboard()">Remove</button></div></div>`;}).join('');}
-function renderCustomerSearchList(){const el=document.getElementById('customerSearchList');if(!el)return;document.getElementById('customerSearchStat').textContent=savedSearches.length;if(!savedSearches.length){el.innerHTML='<div class="awf-v3-empty">No saved searches yet. Build a search and tap ＋ Save Search.</div>';return;}el.innerHTML=savedSearches.map((s,i)=>`<div class="awf-v3-list-item"><div><strong>${escapeHTML(s.q||'AWF Property Search')}</strong><br><small>${escapeHTML([s.country!=='all'?s.country:'All markets',s.type!=='all'?s.type:'All types'].join(' • '))}</small></div><button class="awf-v3-mini" onclick="applySavedCustomerSearch(${i})">Apply</button></div>`).join('');}
-function applySavedCustomerSearch(i){const s=savedSearches[i];if(!s)return;const map={q:'marketplaceSearch',type:'marketplaceType',country:'marketplaceCountry',sort:'marketplaceSort',min:'marketplaceMinPrice',max:'marketplaceMaxPrice',beds:'marketplaceBeds',baths:'marketplaceBaths',status:'marketplaceStatus',verified:'marketplaceVerified'};Object.entries(map).forEach(([k,id])=>{const el=document.getElementById(id);if(el&&s[k]!=null)el.value=s[k];});currentFilter=s.quick||'all';marketplaceSavedOnly=false;document.querySelectorAll('.marketplace-chip').forEach(b=>b.classList.toggle('active',b.dataset.filter===currentFilter));closeCustomerAccount();applyMarketplaceFilters();document.getElementById('properties')?.scrollIntoView({behavior:'smooth'});}
-async function loadCustomerRequests(){if(!awfCustomerUser)return;try{const {data,error}=await supabaseClient.from('viewing_requests').select('*').eq('user_id',awfCustomerUser.id).order('created_at',{ascending:false}).limit(25);if(error)throw error;document.getElementById('customerRequestStat').textContent=Array.isArray(data)?data.length:0;const el=document.getElementById('customerRequestList');if(!el)return;if(!data?.length){el.innerHTML='<div class="awf-v3-empty">No viewing requests yet.</div>';return;}el.innerHTML=data.map(r=>`<div class="awf-v3-list-item"><div><strong>${escapeHTML(customerPropertyLabel(r.property_id))}</strong><br><small>${escapeHTML(r.preferred_date||'')} • ${escapeHTML(r.preferred_time||'')} • ${escapeHTML(r.status||'Pending')}</small></div><span class="awf-v3-pill">${escapeHTML(r.status||'Pending')}</span></div>`).join('');}catch(err){console.warn('AWF viewing requests:',err.message);}}
-async function updateCustomerProfile(e){e.preventDefault();if(!awfCustomerUser)return;const full_name=document.getElementById('customerProfileName').value.trim();const phone=document.getElementById('customerProfilePhone').value.trim();try{await saveCustomerProfile(awfCustomerUser,{full_name,phone});const m=document.getElementById('customerProfileMessage');m.textContent='Profile updated.';refreshCustomerDashboard();setTimeout(()=>m.textContent='',2200);}catch(err){document.getElementById('customerProfileMessage').textContent=err.message||'Could not update profile.';}}
-function openViewingRequest(id){
-  if(!awfCustomerUser){openCustomerAccount();switchCustomerAuth('login');marketplaceToast('Sign in or create an AWF account to request a viewing');return;}
-  const p=propertyById(id);if(!p)return;awfViewingPropertyId=String(id);const imgs=getPropertyImages(p);document.getElementById('viewingRequestProperty').innerHTML=`<div class="awf-v3-request-property">${imgs[0]?`<img src="${escapeHTML(imgs[0])}" alt="">`:''}<div><strong>${escapeHTML(p.name||p.title||'AWF Property')}</strong><small>${escapeHTML([p.city,p.country].filter(Boolean).join(' • '))}</small></div></div>`;document.getElementById('viewingName').value=awfCustomerProfile?.full_name||awfCustomerUser.user_metadata?.full_name||'';document.getElementById('viewingPhone').value=awfCustomerProfile?.phone||awfCustomerUser.user_metadata?.phone||'';document.getElementById('viewingDate').min=new Date().toISOString().slice(0,10);document.getElementById('viewingRequestError').textContent='';document.getElementById('viewingRequestSuccess').textContent='';document.getElementById('viewingRequestModal').classList.add('open');}
-function closeViewingRequest(){document.getElementById('viewingRequestModal').classList.remove('open');awfViewingPropertyId=null;}
-async function submitViewingRequest(e){e.preventDefault();if(!awfCustomerUser||!awfViewingPropertyId)return;customerError('viewingRequestError','');document.getElementById('viewingRequestSuccess').textContent='Sending request...';try{const {error}=await supabaseClient.from('viewing_requests').insert({user_id:awfCustomerUser.id,property_id:awfViewingPropertyId,name:document.getElementById('viewingName').value.trim(),phone:document.getElementById('viewingPhone').value.trim(),preferred_date:document.getElementById('viewingDate').value,preferred_time:document.getElementById('viewingTime').value,note:document.getElementById('viewingNote').value.trim(),status:'pending'});if(error)throw error;document.getElementById('viewingRequestSuccess').textContent='Viewing request sent. AWF will follow up with you.';e.target.reset();document.getElementById('viewingName').value=awfCustomerProfile?.full_name||'';document.getElementById('viewingPhone').value=awfCustomerProfile?.phone||'';setTimeout(()=>{closeViewingRequest();refreshCustomerDashboard();},1300);}catch(err){console.error(err);document.getElementById('viewingRequestSuccess').textContent='';customerError('viewingRequestError',err.message||'Could not send viewing request.');}}
-
-/* Replace V2 client actions with V3 cloud-aware versions. */
-window.toggleSaved=toggleSavedV3;
-window.saveCurrentSearch=saveCurrentSearchV3;
-
-/* Add account state to the existing auth lifecycle. */
-(async function initAWFCustomer(){
-  try{
-    const {data}=await supabaseClient.auth.getSession();
-    if(data?.session?.user){awfCustomerUser=data.session.user;await loadCustomerCloudState();}
-    updateCustomerAccountButton();
-    supabaseClient.auth.onAuthStateChange((event,session)=>{
-      if(event==='SIGNED_OUT'){awfCustomerUser=null;awfCustomerProfile=null;updateCustomerAccountButton();return;}
-      if(session?.user){awfCustomerUser=session.user;setTimeout(async()=>{await saveCustomerProfile(awfCustomerUser);await loadCustomerCloudState();updateCustomerAccountButton();},0);}
-    });
-  }catch(err){console.warn('AWF customer auth initialization:',err.message);}
-})();
-</script>
-
-
-<!-- =======================================================
-     AWF MARKETPLACE V4 — ADMIN / LEAD CENTER
-======================================================= -->
-<div class="awf-v4-modal" id="awfAdminModal" aria-hidden="true">
-  <div class="awf-v4-panel">
-    <button class="awf-v4-close" onclick="closeAWFAdminDashboard()">×</button>
-    <div class="awf-v4-head">
-      <div>
-        <div class="awf-v4-kicker">AWF REAL ESTATE • PRIVATE OPERATIONS</div>
-        <h2>Lead Center & Property Intelligence</h2>
-        <p>Track customer interest, viewing requests, listings and closed opportunities from one place.</p>
-      </div>
-      <button class="awf-v4-refresh" onclick="loadAWFAdminDashboard()">↻ Refresh</button>
-    </div>
-
-    <div class="awf-v4-grid">
-      <div class="awf-v4-stat"><strong id="v4StatCustomers">0</strong><span>Customers</span></div>
-      <div class="awf-v4-stat"><strong id="v4StatFavorites">0</strong><span>Property Saves</span></div>
-      <div class="awf-v4-stat"><strong id="v4StatRequests">0</strong><span>Viewing Requests</span></div>
-      <div class="awf-v4-stat"><strong id="v4StatOpenLeads">0</strong><span>Open Leads</span></div>
-    </div>
-
-    <div class="awf-v4-tabs">
-      <button class="awf-v4-tab active" data-v4-tab="leads" onclick="switchAWFV4Tab('leads')">Lead Pipeline</button>
-      <button class="awf-v4-tab" data-v4-tab="customers" onclick="switchAWFV4Tab('customers')">Customers</button>
-      <button class="awf-v4-tab" data-v4-tab="properties" onclick="switchAWFV4Tab('properties')">Property Intelligence</button>
-      <button class="awf-v4-tab" data-v4-tab="deals" onclick="switchAWFV4Tab('deals')">Deals & Commission</button>
-    </div>
-
-    <section class="awf-v4-section active" id="v4SectionLeads">
-      <div class="awf-v4-toolbar">
-        <input class="awf-v4-input" id="v4LeadSearch" placeholder="Search customer, property or phone..." oninput="renderAWFLeads()">
-        <select class="awf-v4-select" id="v4LeadFilter" onchange="renderAWFLeads()">
-          <option value="all">All stages</option><option value="new">New</option><option value="contacted">Contacted</option><option value="viewing">Viewing</option><option value="negotiating">Negotiating</option><option value="closed">Closed</option><option value="lost">Lost</option>
-        </select>
-      </div>
-      <div id="v4LeadsContainer"></div>
-    </section>
-
-    <section class="awf-v4-section" id="v4SectionCustomers">
-      <div class="awf-v4-toolbar"><input class="awf-v4-input" id="v4CustomerSearch" placeholder="Search customers..." oninput="renderAWFCustomers()"></div>
-      <div class="awf-v4-table-wrap"><table class="awf-v4-table"><thead><tr><th>Customer</th><th>Phone</th><th>Joined</th><th>Saved</th><th>Requests</th></tr></thead><tbody id="v4CustomersBody"></tbody></table></div>
-    </section>
-
-    <section class="awf-v4-section" id="v4SectionProperties">
-      <div id="v4PropertyIntel" class="awf-v4-card-grid"></div>
-    </section>
-
-    <section class="awf-v4-section" id="v4SectionDeals">
-      <div class="awf-v4-deal-form">
-        <h3 class="awf-v4-subtitle">Record a Closed / Commissionable Deal</h3>
-        <div class="awf-v4-form-grid">
-          <div class="awf-v4-field"><label>PROPERTY</label><select id="v4DealProperty"></select></div>
-          <div class="awf-v4-field"><label>CUSTOMER NAME</label><input id="v4DealCustomer" placeholder="Client name"></div>
-          <div class="awf-v4-field"><label>DEAL VALUE</label><input id="v4DealValue" type="number" min="0" step="0.01" placeholder="0"></div>
-          <div class="awf-v4-field"><label>CURRENCY</label><select id="v4DealCurrency"><option>NGN</option><option>USD</option><option>AED</option><option>GBP</option><option>EUR</option></select></div>
-          <div class="awf-v4-field"><label>COMMISSION</label><input id="v4DealCommission" type="number" min="0" step="0.01" placeholder="0"></div>
-          <div class="awf-v4-field"><label>COMMISSION TYPE</label><select id="v4DealCommissionType"><option value="amount">Amount</option><option value="percent">Percentage</option></select></div>
-        </div>
-        <button class="awf-v4-action" style="margin-top:10px" onclick="createAWFDeal()">Save Deal</button>
-        <div id="v4DealMessage" class="awf-v4-message"></div>
-      </div>
-      <div class="awf-v4-table-wrap"><table class="awf-v4-table"><thead><tr><th>Property</th><th>Customer</th><th>Deal</th><th>Commission</th><th>Date</th></tr></thead><tbody id="v4DealsBody"></tbody></table></div>
-    </section>
-  </div>
-</div>
-
-
-<script id="awf-v4-admin-js">
-/* =========================================================
-   AWF MARKETPLACE V4 — ADMIN / LEAD CENTER
-========================================================= */
-let awfV4Manager=false;
-let awfV4Requests=[];
-let awfV4Profiles=[];
-let awfV4Favorites=[];
-let awfV4Deals=[];
-
-async function checkAWFManagerRole(){
-  try{
-    const {data,error}=await supabaseClient.rpc('is_awf_manager');
-    if(error) throw error;
-    awfV4Manager=!!data;
-    const btn=document.getElementById('awfLeadCenterButton');
-    if(btn)btn.style.display=awfV4Manager?'inline-flex':'none';
-    return awfV4Manager;
-  }catch(err){
-    console.warn('AWF manager role check:',err.message);
-    awfV4Manager=false;
-    const btn=document.getElementById('awfLeadCenterButton');
-    if(btn)btn.style.display='none';
-    return false;
-  }
-}
-
-async function openAWFAdminDashboard(){
-  const ok=await checkAWFManagerRole();
-  if(!ok){alert('AWF Lead Center is restricted to authorized managers.');return;}
-  document.getElementById('awfAdminModal').classList.add('open');
-  await loadAWFAdminDashboard();
-}
-function closeAWFAdminDashboard(){document.getElementById('awfAdminModal').classList.remove('open');}
-function switchAWFV4Tab(tab){
-  document.querySelectorAll('.awf-v4-tab').forEach(b=>b.classList.toggle('active',b.dataset.v4Tab===tab));
-  document.querySelectorAll('.awf-v4-section').forEach(s=>s.classList.remove('active'));
-  const el=document.getElementById('v4Section'+tab.charAt(0).toUpperCase()+tab.slice(1));if(el)el.classList.add('active');
-}
-function v4Esc(v){return escapeHTML(v??'');}
-function v4Date(v){if(!v)return '—';try{return new Date(v).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}catch{return v;}}
-function v4PropertyName(id){const p=propertyById(id);return p?(p.name||p.title||'AWF Property'):'Unknown Property';}
-function v4CustomerById(id){return awfV4Profiles.find(x=>String(x.id)===String(id));}
-function v4StageLabel(s){return String(s||'new').replace(/_/g,' ').replace(/\b\w/g,m=>m.toUpperCase());}
-
-async function loadAWFAdminDashboard(){
-  if(!awfV4Manager)return;
-  const msg=document.getElementById('v4DealMessage');if(msg)msg.textContent='Loading operations data...';
-  try{
-    const [profilesRes,favsRes,reqRes,dealsRes]=await Promise.all([
-      supabaseClient.from('profiles').select('id,email,full_name,phone,created_at').order('created_at',{ascending:false}).limit(500),
-      supabaseClient.from('favorites').select('id,user_id,property_id,created_at').order('created_at',{ascending:false}).limit(2000),
-      supabaseClient.from('viewing_requests').select('*').order('created_at',{ascending:false}).limit(1000),
-      supabaseClient.from('awf_deals').select('*').order('created_at',{ascending:false}).limit(500)
-    ]);
-    if(profilesRes.error)throw profilesRes.error;
-    if(favsRes.error)throw favsRes.error;
-    if(reqRes.error)throw reqRes.error;
-    if(dealsRes.error)throw dealsRes.error;
-    awfV4Profiles=profilesRes.data||[];awfV4Favorites=favsRes.data||[];awfV4Requests=reqRes.data||[];awfV4Deals=dealsRes.data||[];
-    document.getElementById('v4StatCustomers').textContent=awfV4Profiles.length;
-    document.getElementById('v4StatFavorites').textContent=awfV4Favorites.length;
-    document.getElementById('v4StatRequests').textContent=awfV4Requests.length;
-    document.getElementById('v4StatOpenLeads').textContent=awfV4Requests.filter(r=>!['closed','lost'].includes(String(r.lead_stage||r.status||'new').toLowerCase())).length;
-    renderAWFLeads();renderAWFCustomers();renderAWFPropertyIntel();renderAWFDeals();populateAWFDealProperties();
-    if(msg)msg.textContent='';
-  }catch(err){
-    console.error(err);if(msg)msg.innerHTML='<span class="awf-v4-danger">Could not load Lead Center: '+v4Esc(err.message||err)+'</span>';
-  }
-}
-
-function renderAWFLeads(){
-  const el=document.getElementById('v4LeadsContainer');if(!el)return;
-  const q=(document.getElementById('v4LeadSearch')?.value||'').toLowerCase().trim();
-  const filter=document.getElementById('v4LeadFilter')?.value||'all';
-  const rows=awfV4Requests.filter(r=>{
-    const stage=String(r.lead_stage||r.status||'new').toLowerCase();
-    const p=v4CustomerById(r.user_id)||{};
-    const hay=[p.full_name,p.email,p.phone,r.name,r.phone,v4PropertyName(r.property_id),r.note].join(' ').toLowerCase();
-    return (filter==='all'||stage===filter)&&(!q||hay.includes(q));
-  });
-  if(!rows.length){el.innerHTML='<div class="awf-v4-empty">No leads match this view.</div>';return;}
-  el.innerHTML=rows.map(r=>{
-    const p=v4CustomerById(r.user_id)||{};const stage=String(r.lead_stage||r.status||'new').toLowerCase();
-    return `<div class="awf-v4-lead-card">
-      <strong>${v4Esc(p.full_name||r.name||'AWF Client')}</strong>
-      <small>${v4Esc(p.email||'')} ${p.phone?'• '+v4Esc(p.phone):''}</small>
-      <div class="awf-v4-lead-meta"><span class="awf-v4-pill">${v4Esc(v4PropertyName(r.property_id))}</span><span class="awf-v4-pill">${v4Esc(stage)}</span><span class="awf-v4-pill">${v4Esc(r.preferred_date||'')} • ${v4Esc(r.preferred_time||'')}</span></div>
-      <div class="awf-v4-form-grid">
-        <div class="awf-v4-field"><label>LEAD STAGE</label><select class="awf-v4-select" id="stage_${v4Esc(r.id)}"><option value="new" ${stage==='new'?'selected':''}>New</option><option value="contacted" ${stage==='contacted'?'selected':''}>Contacted</option><option value="viewing" ${stage==='viewing'?'selected':''}>Viewing</option><option value="negotiating" ${stage==='negotiating'?'selected':''}>Negotiating</option><option value="closed" ${stage==='closed'?'selected':''}>Closed</option><option value="lost" ${stage==='lost'?'selected':''}>Lost</option></select></div>
-        <div class="awf-v4-field"><label>NEXT FOLLOW-UP</label><input class="awf-v4-input" id="follow_${v4Esc(r.id)}" type="datetime-local" value="${r.next_follow_up?String(r.next_follow_up).slice(0,16):''}"></div>
-        <div class="awf-v4-field"><label>MANAGER NOTE</label><textarea class="awf-v4-input awf-v4-note" id="note_${v4Esc(r.id)}">${v4Esc(r.manager_notes||'')}</textarea></div>
-      </div>
-      <div style="margin-top:9px"><button class="awf-v4-action" onclick="updateAWFLead('${v4Esc(r.id)}')">Save Lead</button></div>
-    </div>`;
-  }).join('');
-}
-async function updateAWFLead(id){
-  if(!awfV4Manager)return;const stage=document.getElementById('stage_'+id)?.value||'new';const follow=document.getElementById('follow_'+id)?.value||null;const note=document.getElementById('note_'+id)?.value.trim()||null;
-  const {error}=await supabaseClient.from('viewing_requests').update({lead_stage:stage,status:stage,manager_notes:note,next_follow_up:follow?new Date(follow).toISOString():null,updated_at:new Date().toISOString()}).eq('id',id);if(error){alert(error.message);return;}const row=awfV4Requests.find(x=>String(x.id)===String(id));if(row){row.lead_stage=stage;row.status=stage;row.manager_notes=note;row.next_follow_up=follow;}document.getElementById('v4StatOpenLeads').textContent=awfV4Requests.filter(r=>!['closed','lost'].includes(String(r.lead_stage||r.status||'new').toLowerCase())).length;alert('Lead updated.');renderAWFLeads();}
-
-function renderAWFCustomers(){
-  const body=document.getElementById('v4CustomersBody');if(!body)return;const q=(document.getElementById('v4CustomerSearch')?.value||'').toLowerCase().trim();
-  const rows=awfV4Profiles.filter(p=>!q||[p.full_name,p.email,p.phone].join(' ').toLowerCase().includes(q));
-  if(!rows.length){body.innerHTML='<tr><td colspan="5" class="awf-v4-empty">No customers found.</td></tr>';return;}
-  body.innerHTML=rows.map(p=>{const fav=awfV4Favorites.filter(x=>String(x.user_id)===String(p.id)).length;const req=awfV4Requests.filter(x=>String(x.user_id)===String(p.id)).length;return `<tr><td><strong>${v4Esc(p.full_name||'AWF Client')}</strong><br><small>${v4Esc(p.email||'')}</small></td><td>${v4Esc(p.phone||'—')}</td><td>${v4Esc(v4Date(p.created_at))}</td><td>${fav}</td><td>${req}</td></tr>`;}).join('');
-}
-
-function renderAWFPropertyIntel(){
-  const el=document.getElementById('v4PropertyIntel');if(!el)return;
-  if(!properties?.length){el.innerHTML='<div class="awf-v4-empty">No properties loaded.</div>';return;}
-  el.innerHTML=properties.map(p=>{const id=String(p.id);const fav=awfV4Favorites.filter(x=>String(x.property_id)===id).length;const req=awfV4Requests.filter(x=>String(x.property_id)===id).length;const deals=awfV4Deals.filter(x=>String(x.property_id)===id).length;const imgs=getPropertyImages(p);return `<div class="awf-v4-card">${imgs[0]?`<img src="${v4Esc(imgs[0])}" alt="" style="width:100%;height:150px;object-fit:cover;border-radius:11px;margin-bottom:10px">`:''}<h3>${v4Esc(p.name||p.title||'AWF Property')}</h3><p>${v4Esc([p.city,p.country].filter(Boolean).join(' • '))}</p><p>❤️ ${fav} saves &nbsp; • &nbsp; 📅 ${req} viewing requests &nbsp; • &nbsp; 💼 ${deals} deals</p></div>`;}).join('');
-}
-
-function populateAWFDealProperties(){const el=document.getElementById('v4DealProperty');if(!el)return;el.innerHTML='<option value="">Select property</option>'+properties.map(p=>`<option value="${v4Esc(p.id)}">${v4Esc(p.name||p.title||'AWF Property')}</option>`).join('');}
-async function createAWFDeal(){
-  if(!awfV4Manager)return;const property_id=document.getElementById('v4DealProperty').value;const customer_name=document.getElementById('v4DealCustomer').value.trim();const deal_value=Number(document.getElementById('v4DealValue').value||0);const currency=document.getElementById('v4DealCurrency').value;const commission=Number(document.getElementById('v4DealCommission').value||0);const commission_type=document.getElementById('v4DealCommissionType').value;const msg=document.getElementById('v4DealMessage');
-  if(!property_id||!customer_name||deal_value<=0){msg.textContent='Select a property, customer and valid deal value.';return;}
-  msg.textContent='Saving deal...';const {data,error}=await supabaseClient.from('awf_deals').insert({property_id,customer_name,deal_value,currency,commission,commission_type,status:'closed'}).select().single();if(error){msg.textContent=error.message;return;}awfV4Deals=[data,...awfV4Deals];msg.textContent='Deal recorded successfully.';document.getElementById('v4DealCustomer').value='';document.getElementById('v4DealValue').value='';document.getElementById('v4DealCommission').value='';renderAWFDeals();renderAWFPropertyIntel();}
-function renderAWFDeals(){const body=document.getElementById('v4DealsBody');if(!body)return;if(!awfV4Deals.length){body.innerHTML='<tr><td colspan="5" class="awf-v4-empty">No deals recorded yet.</td></tr>';return;}body.innerHTML=awfV4Deals.map(d=>`<tr><td>${v4Esc(v4PropertyName(d.property_id))}</td><td>${v4Esc(d.customer_name)}</td><td>${v4Esc(d.currency)} ${Number(d.deal_value||0).toLocaleString()}</td><td>${v4Esc(d.commission_type||'amount')} ${Number(d.commission||0).toLocaleString()}</td><td>${v4Esc(v4Date(d.created_at))}</td></tr>`).join('');}
-
-/* Re-check the manager role after the existing manager login succeeds. */
-const awfOriginalManagerLogin=window.managerLogin;
-window.managerLogin=async function(){
-  await awfOriginalManagerLogin();
-  setTimeout(async()=>{await checkAWFManagerRole();},250);
-};
-
-/* Also check if an already authenticated session is restored. */
-setTimeout(()=>checkAWFManagerRole(),800);
-</script>
-
-<nav class="awf-mobile-bottom-nav" aria-label="Mobile navigation">
-  <a href="#home"><strong>⌂</strong>Home</a>
-  <a href="#properties"><strong>⌕</strong>Search</a>
-  <button type="button" onclick="toggleSavedOnly()"><strong>♡</strong>Saved</button>
-  <button type="button" onclick="openCustomerAccount()"><strong>♙</strong>Account</button>
-</nav>
-<script id="awf-v5-direction-js">
-function setMarketplaceFilterFromV5(filter,btn){
-  document.querySelectorAll('.awf-v5-cat').forEach(x=>x.classList.remove('active')); if(btn)btn.classList.add('active');
-  currentFilter=filter||'all';
-  document.querySelectorAll('.filter-btn,.marketplace-chip').forEach(x=>x.classList.toggle('active',x.dataset.filter===currentFilter));
-  applyMarketplaceFilters();
-  document.getElementById('properties')?.scrollIntoView({behavior:'smooth',block:'start'});
-}
-function updateAWFHeroVisual(){
-  const bg=document.getElementById('awfHeroBg'); if(!bg)return;
-  bg.style.backgroundImage='url("awf-hero-luxury-building.png")';
-}
-const awfOriginalRenderPublicProperties=window.renderPublicProperties;
-window.renderPublicProperties=function(){const r=awfOriginalRenderPublicProperties?awfOriginalRenderPublicProperties():null;setTimeout(updateAWFHeroVisual,80);return r;};
-setTimeout(updateAWFHeroVisual,400);
-</script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<div id="awfVaultModal" class="awf-vault-modal" aria-hidden="true">
-  <div class="awf-vault-door" role="dialog" aria-modal="true" aria-labelledby="awfVaultTitle">
-    <button type="button" class="awf-vault-close" onclick="closeAWFVault()" aria-label="Close Private Vault">×</button>
-    <div class="awf-vault-kicker">PRIVATE SALES • ABUJA</div>
-    <h2 id="awfVaultTitle">PRIVATE VAULT</h2>
-    <p class="awf-vault-lead">Off-market placements for private investors, family offices and institutions.</p>
-    <p class="awf-vault-note">Discreet. By Appointment Only.</p>
-
-    <div id="awfVaultCards" class="awf-vault-cards" aria-live="polite">
-      <div class="awf-vault-loading">Curating private placements…</div>
-    </div>
-
-    <div class="awf-vault-footer">
-      <span>All placements are off-market.</span>
-      <span>Identities not disclosed.</span>
-      <span>POF required for data room access.</span>
-    </div>
-  </div>
-</div>
-
-<div id="awfVaultEnquiryModal" class="awf-k-overlay" aria-hidden="true">
- <div class="awf-k-panel">
-  <button type="button" class="awf-k-close" onclick="closeVaultEnquiry()">×</button>
-  <div class="awf-k-eyebrow">AWF PRIVATE SALES</div>
-  <h2>Enquire to Specialist</h2>
-  <p class="awf-k-sub">Private placements are handled discreetly. No public price, owner identity or exact address is disclosed at this stage.</p>
-  <div id="awfVaultSelectedAsset" class="awf-k-selected">Private placement selected</div>
-  <form onsubmit="submitVaultEnquiry(event)">
-   <div class="awf-k-grid">
-    <div class="awf-k-field"><label>Full Name *</label><input id="vaultEnqName" required autocomplete="name"></div>
-    <div class="awf-k-field"><label>Company / Family Office *</label><input id="vaultEnqCompany" required></div>
-    <div class="awf-k-field"><label>Corporate Email *</label><input id="vaultEnqEmail" type="email" required autocomplete="email"></div>
-    <div class="awf-k-field"><label>Phone *</label><input id="vaultEnqPhone" type="tel" required autocomplete="tel"></div>
-    <div class="awf-k-field"><label>POF Range *</label><select id="vaultEnqPof" required><option value="">Select range</option><option>₦10B–₦30B</option><option>₦30B–₦60B</option><option>₦60B+</option></select></div>
-    <div class="awf-k-field"><label>Proof of Funds</label><input id="vaultEnqPofFile" class="awf-k-file" type="file" accept="application/pdf,image/jpeg,image/png"></div>
-    <div class="awf-k-field full"><label>Message</label><textarea id="vaultEnqMessage" placeholder="Tell our specialist what you are seeking."></textarea></div>
-   </div>
-   <button id="awfVaultSubmit" class="awf-k-submit" type="submit">SUBMIT ENQUIRY</button>
-   <div id="awfVaultEnquiryStatus" class="awf-k-status"></div>
-   <div class="awf-k-note">Proof of funds is optional at initial enquiry. If you want to upload it now, sign in to AWF first; otherwise our specialist may request it during review. Documents are restricted to AWF review only.</div>
-  </form>
- </div>
-</div>
-<script id="awf-vault-js">
-window.awfVaultAccess=false;
-window.awfVaultSelectedProperty=null;
-
-function escapeVaultText(value){return String(value ?? '').replace(/[&<>"']/g,function(ch){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]);});}
-function vaultImageUrl(value){return String(value||'').trim();}
-
-async function loadAWFVaultDoor(){
- const wrap=document.getElementById('awfVaultCards'); if(!wrap)return;
- wrap.innerHTML='<div class="awf-vault-loading">Curating private placements…</div>';
- try{
-  const {data,error}=await supabaseClient.from('awf_vault_teasers').select('id,property_id,title,country,city,teaser,cover_image,featured,visible').eq('visible',true).order('featured',{ascending:false}).order('created_at',{ascending:false}).limit(6);
-  if(error)throw error; const rows=Array.isArray(data)?data:[];
-  if(!rows.length){wrap.innerHTML='<article class="awf-vault-card awf-vault-empty-card"><div class="awf-vault-blur-fallback"><span>PRIVATE PLACEMENT</span></div><div class="awf-vault-card-body"><div class="awf-vault-card-meta">GLOBAL • PRIVATE INSTRUCTION</div><h3>Selected Off-Market Opportunity</h3><p>Confidential asset details are released selectively following enquiry and qualification.</p><button type="button" class="awf-vault-enquire" onclick="openVaultEnquiry()">ENQUIRE TO SPECIALIST</button></div></article><article class="awf-vault-card awf-vault-empty-card"><div class="awf-vault-blur-fallback"><span>INSTITUTIONAL</span></div><div class="awf-vault-card-body"><div class="awf-vault-card-meta">GLOBAL • OFF-MARKET</div><h3>Private Institutional Placement</h3><p>Selected opportunities are presented privately and are not exposed on the public marketplace.</p><button type="button" class="awf-vault-enquire" onclick="openVaultEnquiry()">ENQUIRE TO SPECIALIST</button></div></article>';return;}
-  wrap.innerHTML=rows.map(row=>{const img=vaultImageUrl(row.cover_image),title=String(row.title||'Private Placement').trim(),area=String(row.city||row.country||'GLOBAL').trim().toUpperCase(),teaser=String(row.teaser||'Confidential property information is released selectively following enquiry and qualification.').trim();return `<article class="awf-vault-card"><div class="awf-vault-image-wrap">${img?`<img class="awf-vault-teaser-image" src="${escapeVaultText(img)}" alt="Private property teaser" loading="lazy">`:'<div class="awf-vault-blur-fallback"><span>PRIVATE ASSET</span></div>'}<span class="awf-vault-image-label">PRIVATE TEASER</span></div><div class="awf-vault-card-body"><div class="awf-vault-card-meta">${escapeVaultText(area)} • PRIVATE INSTRUCTION</div><h3>${escapeVaultText(title)}</h3><p>${escapeVaultText(teaser)}</p><button type="button" class="awf-vault-enquire" onclick="openVaultEnquiry(${JSON.stringify(String(row.id||''))})">ENQUIRE TO SPECIALIST</button></div></article>`;}).join('');
- }catch(error){console.error('AWF Private Vault teaser load:',error);wrap.innerHTML='<div class="awf-vault-loading">Private placements are available by specialist enquiry.</div>';}
-}
-
-function openAWFVault(){const m=document.getElementById('awfVaultModal');if(!m)return;m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.classList.add('awf-vault-open');loadAWFVaultDoor();}
-function closeAWFVault(){const m=document.getElementById('awfVaultModal');if(!m)return;m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.classList.remove('awf-vault-open');}
-
-function openVaultEnquiry(propertyId){
- window.awfVaultSelectedProperty=propertyId||null;
- const o=document.getElementById('awfVaultEnquiryModal');if(!o)return;
- const label=document.getElementById('awfVaultSelectedAsset');
- label.textContent=propertyId?'Private placement selected':'General private placement enquiry';
- o.classList.add('open');o.setAttribute('aria-hidden','false');
-}
-function closeVaultEnquiry(){const o=document.getElementById('awfVaultEnquiryModal');if(!o)return;o.classList.remove('open');o.setAttribute('aria-hidden','true');}
-function isCorporateEmail(email){const e=String(email||'').trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(e))return false;return !['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','aol.com','proton.me','protonmail.com'].includes(e.split('@')[1]);}
-
-async function submitVaultEnquiry(event){
- event.preventDefault();
- const form=event.target,status=document.getElementById('awfVaultEnquiryStatus'),btn=document.getElementById('awfVaultSubmit');
- const full_name=document.getElementById('vaultEnqName').value.trim(),company=document.getElementById('vaultEnqCompany').value.trim(),email=document.getElementById('vaultEnqEmail').value.trim(),phone=document.getElementById('vaultEnqPhone').value.trim(),pof_range=document.getElementById('vaultEnqPof').value,message=document.getElementById('vaultEnqMessage').value.trim(),file=document.getElementById('vaultEnqPofFile').files[0];
- if(!full_name||!company||!email||!phone||!pof_range){status.textContent='Please complete all required fields.';return;}
- if(!isCorporateEmail(email)){status.textContent='Please use a corporate or institutional email address.';return;}
- if(file && !['application/pdf','image/jpeg','image/png'].includes(file.type)){status.textContent='POF file must be PDF, JPG or PNG.';return;}
- if(file && file.size>10*1024*1024){status.textContent='POF file must be 10 MB or smaller.';return;}
- btn.disabled=true;btn.textContent='SUBMITTING…';status.textContent='Securely submitting your enquiry…';
- try{
-   let proof_url=null;
-   const {data:authData}=await supabaseClient.auth.getSession();
-   const userId=authData?.session?.user?.id||null;
-   if(file){
-     if(!userId) throw new Error('For security, sign in to AWF before uploading a Proof of Funds document. You can submit the enquiry without the document.');
-     const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
-     const path=`${userId}/${Date.now()}-${safeName}`;
-     const up=await supabaseClient.storage.from('awf-private-pof').upload(path,file,{contentType:file.type,upsert:false});
-     if(up.error)throw up.error; proof_url=path;
-   }
-   const payload={user_id:userId,full_name,company,email,phone,pof_range,message,asset_id:window.awfVaultSelectedProperty||null,proof_of_funds_path:proof_url,status:'pending'};
-   const {error}=await supabaseClient.from('awf_vault_enquiries').insert(payload);
-   if(error)throw error;
-   status.textContent='Your enquiry has been received. Our specialist will review your KYC and release vault access within 24 hours if qualified.';
-   form.reset();
- }catch(error){console.error('AWF vault enquiry:',error);status.textContent=error.message||'We could not submit your enquiry. Please try again.';}finally{btn.disabled=false;btn.textContent='SUBMIT ENQUIRY';}
-}
-window.addEventListener('keydown',function(e){if(e.key==='Escape'){closeVaultEnquiry();closeAWFVault();}});
-</script>
-
-<!-- =========================================================
-     AWF PRIVATE VAULT — LAYER 3 SECURE DATA ROOM
-========================================================= -->
-<section id="awfLayer3Room" class="awf-l3-page" hidden>
-  <div class="awf-l3-shell">
-    <div class="awf-l3-top">
-      <div>
-        <div class="awf-l3-kicker">AWF PRIVATE VAULT • CONFIDENTIAL</div>
-        <h1 id="awfL3Title">Private Data Room</h1>
-        <p id="awfL3Subtitle">Access is limited to the approved recipient of this private placement.</p>
-      </div>
-      <button class="awf-l3-close" type="button" onclick="closeAWFL3Room()">Close</button>
-    </div>
-
-    <div id="awfL3Status" class="awf-l3-status">Checking secure access…</div>
-
-    <div id="awfL3Content" class="awf-l3-content" hidden>
-      <div class="awf-l3-hero-card">
-        <div>
-          <span class="awf-l3-badge">VAULT ACCESS GRANTED</span>
-          <h2 id="awfL3AssetTitle">Private Placement</h2>
-          <p id="awfL3AssetLocation">Confidential location</p>
-        </div>
-        <div class="awf-l3-expiry">
-          <span>ACCESS EXPIRES</span>
-          <strong id="awfL3Expiry">—</strong>
-        </div>
-      </div>
-
-      <div class="awf-l3-grid">
-        <article class="awf-l3-card">
-          <div class="awf-l3-card-kicker">INSTITUTIONAL BRIEF</div>
-          <h3>Placement Overview</h3>
-          <p id="awfL3Description">—</p>
-          <div class="awf-l3-facts" id="awfL3Facts"></div>
-        </article>
-
-        <article class="awf-l3-card">
-          <div class="awf-l3-card-kicker">PRIVATE MATERIALS</div>
-          <h3>Documents & Evidence</h3>
-          <div id="awfL3Documents" class="awf-l3-documents"></div>
-        </article>
-      </div>
-
-      <div class="awf-l3-gallery-wrap">
-        <div class="awf-l3-card-kicker">CONFIDENTIAL GALLERY</div>
-        <div id="awfL3Gallery" class="awf-l3-gallery"></div>
-      </div>
-
-      <div class="awf-l3-footer-note">
-        Confidential AWF Private Vault material. Do not forward, publish, reproduce or distribute without written authorization.
-      </div>
-    </div>
-  </div>
-</section>
-
-<style id="awf-layer3-css">
-.awf-l3-page{position:fixed;inset:0;z-index:100000;background:#080808;color:#f5f3f0;overflow:auto;font-family:Inter,Arial,sans-serif}
-.awf-l3-shell{width:min(1180px,100%);margin:0 auto;padding:34px 20px 70px}
-.awf-l3-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:1px solid rgba(198,169,97,.22);padding-bottom:24px}
-.awf-l3-kicker,.awf-l3-card-kicker{font-size:.68rem;letter-spacing:.18em;color:#c6a961;font-weight:800}
-.awf-l3-top h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2rem,5vw,4rem);margin:9px 0}
-.awf-l3-top p{color:#aaa59a;max-width:700px}
-.awf-l3-close{border:1px solid rgba(198,169,97,.45);background:transparent;color:#f5f3f0;padding:11px 16px;border-radius:999px;cursor:pointer}
-.awf-l3-status{margin:24px 0;padding:16px;border:1px solid rgba(255,255,255,.10);background:#0d0d0d;border-radius:16px;color:#aaa59a}
-.awf-l3-status.ok{color:#d9c27c;border-color:rgba(198,169,97,.35)}
-.awf-l3-status.err{color:#ffb4a8;border-color:rgba(255,120,100,.35)}
-.awf-l3-content{display:block}
-.awf-l3-hero-card{display:flex;justify-content:space-between;gap:25px;align-items:flex-end;padding:30px;border:1px solid rgba(198,169,97,.28);border-radius:24px;background:linear-gradient(135deg,#111 0%,#0a0a0a 70%);box-shadow:0 25px 80px rgba(0,0,0,.45)}
-.awf-l3-badge{display:inline-block;border:1px solid rgba(198,169,97,.45);color:#d8bd6e;padding:7px 10px;border-radius:999px;font-size:.65rem;font-weight:800;letter-spacing:.1em}
-.awf-l3-hero-card h2{font-family:Georgia,serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:500;margin:14px 0 7px}
-.awf-l3-hero-card p{margin:0;color:#aaa59a}
-.awf-l3-expiry{min-width:180px;text-align:right}.awf-l3-expiry span{display:block;color:#777;font-size:.62rem;letter-spacing:.14em}.awf-l3-expiry strong{display:block;margin-top:7px;color:#f0dfaa}
-.awf-l3-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}
-.awf-l3-card,.awf-l3-gallery-wrap{border:1px solid rgba(255,255,255,.09);background:#0d0d0d;border-radius:22px;padding:25px}
-.awf-l3-card h3{font-family:Georgia,serif;font-size:1.55rem;font-weight:500;margin:9px 0 13px}
-.awf-l3-card p{color:#aaa59a;line-height:1.75;white-space:pre-line}
-.awf-l3-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
-.awf-l3-fact{padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:#101010}.awf-l3-fact span{display:block;color:#777;font-size:.62rem;letter-spacing:.1em}.awf-l3-fact strong{display:block;margin-top:5px;color:#eee}
-.awf-l3-documents{display:grid;gap:10px}.awf-l3-doc{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px;border:1px solid rgba(198,169,97,.18);border-radius:14px}.awf-l3-doc span{color:#ddd}.awf-l3-doc a{color:#d8bd6e;text-decoration:none;font-weight:700;font-size:.78rem}
-.awf-l3-gallery-wrap{margin-top:18px}.awf-l3-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.awf-l3-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:15px;border:1px solid rgba(255,255,255,.08);background:#080808}
-.awf-l3-footer-note{margin-top:18px;color:#777;font-size:.76rem;line-height:1.7;text-align:center}
-@media(max-width:760px){.awf-l3-shell{padding:22px 14px 50px}.awf-l3-top{display:block}.awf-l3-close{margin-top:14px}.awf-l3-hero-card{display:block}.awf-l3-expiry{text-align:left;margin-top:20px}.awf-l3-grid{grid-template-columns:1fr}.awf-l3-gallery{grid-template-columns:1fr 1fr}.awf-l3-facts{grid-template-columns:1fr}}
-</style>
-
-<script id="awf-layer3-js">
-(function(){
-  function l3Escape(v){return String(v ?? '').replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]);});}
-  function l3GetToken(){
-    const p=new URLSearchParams(window.location.search);
-    return (p.get('vault')||p.get('token')||'').trim();
-  }
-  function l3Status(msg,type){
-    const el=document.getElementById('awfL3Status');
-    if(!el)return;
-    el.textContent=msg;
-    el.className='awf-l3-status '+(type||'');
-  }
-  function l3FormatDate(v){
-    if(!v)return '—';
-    const d=new Date(v);
-    if(Number.isNaN(d.getTime()))return String(v);
-    return d.toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'});
-  }
-  function l3Open(){
-    const page=document.getElementById('awfLayer3Room');
-    if(!page)return;
-    page.hidden=false;
-    document.body.style.overflow='hidden';
-  }
-  window.closeAWFL3Room=function(){
-    const page=document.getElementById('awfLayer3Room');
-    if(page)page.hidden=true;
-    document.body.style.overflow='';
-  };
-
-  async function loadL3(){
-    const token=l3GetToken();
-    if(!token)return;
-    l3Open();
-    l3Status('Checking secure access…');
-    try{
-      const {data,error}=await supabaseClient.rpc('awf_open_vault_room',{p_token:token});
-      if(error)throw error;
-      if(!data || data.allowed!==true)throw new Error(data?.message||'This private access link is invalid, expired or has been revoked.');
-      const room=data.room||{};
-      document.getElementById('awfL3Title').textContent='Private Data Room';
-      document.getElementById('awfL3AssetTitle').textContent=room.title||'Private Placement';
-      document.getElementById('awfL3AssetLocation').textContent=[room.city,room.country].filter(Boolean).join(' • ')||'Confidential location';
-      document.getElementById('awfL3Description').textContent=room.description||'Confidential placement information released under private access.';
-      document.getElementById('awfL3Expiry').textContent=l3FormatDate(data.expires_at);
-
-      const facts=room.facts||{};
-      document.getElementById('awfL3Facts').innerHTML=Object.entries(facts).map(([k,v])=>`<div class="awf-l3-fact"><span>${l3Escape(k.replace(/_/g,' ').toUpperCase())}</span><strong>${l3Escape(v)}</strong></div>`).join('');
-
-      const docs=Array.isArray(room.documents)?room.documents:[];
-      document.getElementById('awfL3Documents').innerHTML=docs.length
-        ? docs.map(d=>`<div class="awf-l3-doc"><span>${l3Escape(d.label||'Private document')}</span><a href="${l3Escape(d.url||'#')}" target="_blank" rel="noopener">OPEN</a></div>`).join('')
-        : '<div class="awf-l3-doc"><span>Documents will be released by the specialist.</span></div>';
-
-      const images=Array.isArray(room.images)?room.images:[];
-      document.getElementById('awfL3Gallery').innerHTML=images.length
-        ? images.map((u,i)=>`<img src="${l3Escape(u)}" alt="Confidential property image ${i+1}" loading="lazy">`).join('')
-        : '<div class="awf-l3-doc"><span>Confidential gallery pending release.</span></div>';
-
-      document.getElementById('awfL3Content').hidden=false;
-      l3Status('Secure access verified. This room is restricted to the approved recipient.','ok');
-    }catch(err){
-      console.error('AWF Layer 3:',err);
-      l3Status(err.message||'Secure access could not be verified.','err');
-    }
-  }
-
-  if(l3GetToken()) loadL3();
-})();
-</script>
 
 </body>
 </html>
