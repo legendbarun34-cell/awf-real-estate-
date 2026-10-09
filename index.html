@@ -2794,6 +2794,81 @@ body>header:not(.awf-ps-header){display:none!important}
 @media(max-width:390px){.awf-ps-nav{gap:6px}.awf-ps-nav a{font-size:7.5px}.awf-ps-nav button{font-size:7.5px;padding:7px}.awf-gk-grid{grid-template-columns:1fr}.awf-ps-hero h1{font-size:2.25rem}}
 </style>
 
+
+<style id="awf-layout-overlap-and-supabase-fix">
+/* Layout correction: header, hero, featured placement and mobile viewport */
+.awf-ps-header{position:relative!important;inset:auto!important;z-index:50!important;display:flex!important;flex-direction:column!important;gap:0!important;overflow:visible!important;padding:12px 18px 0!important}
+.awf-ps-brand{height:auto!important;min-height:0!important;padding:4px 0 18px!important;margin:0!important;overflow:visible!important;flex:0 0 auto!important}
+.awf-ps-brand img{height:clamp(92px,11vw,138px)!important;max-height:138px!important;width:auto!important;max-width:min(52vw,190px)!important;object-fit:contain!important;position:relative!important;inset:auto!important;margin:0 auto!important;transform:none!important}
+.awf-ps-nav{position:relative!important;inset:auto!important;transform:none!important;margin:0 auto!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:clamp(8px,1.5vw,22px)!important;min-height:50px!important;height:auto!important;width:min(100%,1180px)!important;padding:9px 12px!important;box-sizing:border-box!important;flex-wrap:wrap!important;overflow:visible!important}
+.awf-ps-nav a,.awf-ps-nav button{position:relative!important;inset:auto!important;transform:none!important;line-height:1.3!important}
+.awf-private-sales{position:relative!important;isolation:isolate!important;overflow:clip!important;margin:0!important;padding:0 0 22px!important}
+.awf-ps-hero{position:relative!important;clear:both!important;inset:auto!important;transform:none!important;margin:0!important;min-height:0!important;padding:clamp(48px,6vw,82px) 22px 52px!important;display:flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.76)),url('awf-hero -luxury-building.png') center 30%/cover no-repeat!important}
+.awf-ps-hero-inner{position:relative!important;inset:auto!important;transform:none!important;width:min(100%,1000px)!important;margin:0 auto!important;z-index:2!important}
+.awf-ps-hero-overlay{z-index:0!important;pointer-events:none!important}
+.awf-ps-eyebrow{max-width:100%;box-sizing:border-box;line-height:1.55;white-space:normal!important}
+.awf-ps-hero h1{position:relative!important;margin:24px 0 12px!important;line-height:1.02!important;overflow-wrap:anywhere}
+.awf-ps-subtitle{max-width:780px;margin:0 auto!important;line-height:1.6!important}
+.awf-ps-actions{display:flex!important;align-items:stretch!important;justify-content:center!important;gap:12px!important;flex-wrap:wrap!important;margin-top:24px!important}
+.awf-ps-actions .awf-ps-btn{flex:0 1 300px;min-width:0;white-space:normal!important;text-align:center!important;line-height:1.45!important}
+.awf-ps-note{max-width:760px;margin:22px auto 0!important;line-height:1.9!important}
+.awf-ps-redacted{position:relative!important;z-index:1!important;padding:24px clamp(16px,5vw,60px) 28px!important}
+.awf-ps-cards{width:min(100%,1040px)!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
+.awf-redacted-card{min-width:0!important;box-sizing:border-box!important;cursor:pointer!important}
+.awf-ps-feature{width:min(100%,1250px)!important;box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr)!important;align-items:center!important;gap:clamp(24px,4vw,52px)!important;margin:0 auto!important;padding:clamp(28px,4vw,54px) clamp(18px,5vw,60px)!important}
+.awf-ps-feature-copy,.awf-gatekeeper{min-width:0!important;width:100%!important;box-sizing:border-box!important}
+.awf-gatekeeper{position:relative!important;align-self:center!important;margin:0!important;overflow:visible!important}
+.awf-gk-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.awf-gk-grid label,.awf-gk-message{min-width:0!important}
+.awf-gk-grid input,.awf-gk-grid select,.awf-gk-message textarea{box-sizing:border-box!important;max-width:100%!important;min-width:0!important}
+.awf-ps-protocol{position:relative!important}
+.awf-ps-footer{position:relative!important;z-index:2!important;margin-bottom:0!important;padding-bottom:calc(20px + env(safe-area-inset-bottom))!important}
+/* The legacy app's fixed mobile tab bar covered the new private-sales cards.
+   Hide that presentation on the private-sales landing page only; account and manager modals remain available. */
+@media(max-width:900px){
+  body>nav[aria-label*="bottom" i],body>.mobile-bottom-nav,body>.bottom-nav,body>.mobile-nav-bar,#mobileBottomNav,.mobile-bottom-nav,.bottom-navigation,.mobile-tab-bar{display:none!important}
+  .awf-ps-feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:20px!important}
+  .awf-ps-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+  .awf-ps-header{padding:10px 10px 0!important}
+  .awf-ps-brand{padding:4px 0 14px!important}
+  .awf-ps-brand img{height:100px!important;max-width:155px!important}
+  .awf-ps-nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px 6px!important;padding:9px 7px!important;min-height:0!important}
+  .awf-ps-nav a{display:flex!important;align-items:center!important;justify-content:center!important;min-height:32px!important;padding:5px 2px!important;text-align:center!important;font-size:clamp(8px,2.2vw,10px)!important;letter-spacing:.45px!important;white-space:normal!important}
+  .awf-ps-nav span{display:none!important}
+  .awf-ps-nav button{grid-column:1/-1!important;justify-self:center!important;width:min(100%,260px)!important;min-height:36px!important;padding:8px 10px!important;font-size:9px!important;letter-spacing:.7px!important;white-space:normal!important}
+  .awf-ps-hero{padding:38px 16px 34px!important;min-height:0!important;background-position:center 28%!important}
+  .awf-ps-eyebrow{font-size:9px!important;letter-spacing:.8px!important;padding:8px 9px!important}
+  .awf-ps-hero h1{font-size:clamp(2.15rem,10.2vw,3.5rem)!important;letter-spacing:1px!important;margin:21px 0 12px!important}
+  .awf-ps-subtitle{font-size:14px!important;letter-spacing:.3px!important}
+  .awf-ps-actions{flex-direction:column!important;align-items:stretch!important;margin-top:22px!important;gap:10px!important}
+  .awf-ps-actions .awf-ps-btn{width:100%!important;max-width:none!important;flex:0 0 auto!important;min-height:48px!important;padding:10px 14px!important}
+  .awf-ps-note{font-size:11px!important;margin-top:18px!important;line-height:1.9!important}
+  .awf-ps-redacted{padding:22px 14px 25px!important}
+  .awf-ps-section-head{font-size:12px!important;line-height:1.8!important;letter-spacing:1.1px!important}
+  .awf-ps-cards{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+  .awf-redacted-card{min-height:132px!important}
+  .awf-ps-feature{grid-template-columns:minmax(0,1fr)!important;gap:24px!important;padding:30px 16px 34px!important}
+  .awf-ps-feature-copy{text-align:center!important}
+  .awf-ps-feature h2{font-size:clamp(2rem,9vw,3rem)!important;overflow-wrap:anywhere}
+  .awf-gatekeeper{padding:23px 15px!important;margin:0!important}
+  .awf-gk-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .awf-gk-grid input,.awf-gk-grid select,.awf-gk-message textarea{width:100%!important;font-size:12px!important;padding:11px 9px!important}
+  .awf-gk-title{text-align:center!important;font-size:19px!important}
+  .awf-gk-sub{text-align:center!important}
+  .awf-gk-submit{width:100%!important;white-space:normal!important}
+  .awf-ps-protocol{grid-template-columns:minmax(0,1fr)!important}
+  .awf-ps-footer{font-size:9px!important;line-height:2!important;padding-left:12px!important;padding-right:12px!important}
+  body{padding-bottom:0!important}
+}
+@media(max-width:390px){
+  .awf-ps-nav{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .awf-ps-nav button{grid-column:1/-1!important}
+  .awf-gk-grid{grid-template-columns:minmax(0,1fr)!important}
+}
+</style>
+
 </head>
 <body>
 
